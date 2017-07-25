@@ -1,2 +1,12 @@
-$brand-primary: #02d828;
-$btn-primary-bg: $brand-primary;
+$brand-primary: #00C2F0;
+
+$btn-primary-bg:     $brand-primary;
+$btn-primary-border: $brand-primary;
+
+$btn-secondary-color:            #fff !default;
+$btn-secondary-bg:               #CF1160 !default;
+$btn-secondary-border:           #CF1160 !default;
+
+$border-radius:          1.25rem !default;
+$border-radius-lg:       1.3rem !default;
+$border-radius-sm:       1.2rem !default;

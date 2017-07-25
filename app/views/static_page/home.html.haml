@@ -21,32 +21,191 @@
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{:placeholder => "Search", :type => "text"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
-/ Main jumbotron for a primary marketing message or call to action
-.jumbotron
-  .container
-    %h1.display-3 Hello, world!
-    %p This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
-    %p
-      %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more »
+
 .container
-  / Example row of columns
   .row
-    .col-md-4
-      %h2 Heading
-      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      %p
-        %a.btn.btn-secondary{:href => "#", :role => "button"} View details »
-    .col-md-4
-      %h2 Heading
-      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      %p
-        %a.btn.btn-secondary{:href => "#", :role => "button"} View details »
-    .col-md-4
-      %h2 Heading
-      %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-      %p
-        %a.btn.btn-secondary{:href => "#", :role => "button"} View details »
+    .col
+      %h2.mt-5 Modal
+      / Button trigger modal
+      %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+        Launch demo modal
+      / Modal
+      #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog{:role => "document"}
+          .modal-content
+            .modal-header
+              %h5#exampleModalLabel.modal-title Modal title
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
+            .modal-body
+              \...
+            .modal-footer
+              %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+              %button.btn.btn-primary{:type => "button"} Save changes
+
+
+      %h2.mt-5 Buttons
+      / Provides extra visual weight and identifies the primary action in a set of buttons
+      %button.btn.btn-primary{:type => "button"} Primary
+      / Secondary, outline button
+      %button.btn.btn-secondary{:type => "button"} Secondary
+      / Indicates a successful or positive action
+      %button.btn.btn-success{:type => "button"} Success
+      / Contextual button for informational alert messages
+      %button.btn.btn-info{:type => "button"} Info
+      / Indicates caution should be taken with this action
+      %button.btn.btn-warning{:type => "button"} Warning
+      / Indicates a dangerous or potentially negative action
+      %button.btn.btn-danger{:type => "button"} Danger
+      / Deemphasize a button by making it look like a link while maintaining button behavior
+      %button.btn.btn-link{:type => "button"} Link
+
+      %h2.mt-5 Buttons - icons only
+
+      / Provides extra visual weight and identifies the primary action in a set of buttons
+      %button.btn.btn-primary{:type => "button"} Primary
+      / Secondary, outline button
+      %button.btn.btn-secondary{:type => "button"} Secondary
+      / Indicates a successful or positive action
+      %button.btn.btn-success{:type => "button"} Success
+      / Contextual button for informational alert messages
+      %button.btn.btn-info{:type => "button"} Info
+      / Indicates caution should be taken with this action
+      %button.btn.btn-warning{:type => "button"} Warning
+      / Indicates a dangerous or potentially negative action
+      %button.btn.btn-danger{:type => "button"} Danger
+      / Deemphasize a button by making it look like a link while maintaining button behavior
+      %button.btn.btn-link{:type => "button"} Link
+
+      %h2.mt-5 Pagination
+      %nav{"aria-label" => "..."}
+        %ul.pagination
+          %li.page-item.disabled
+            %a.page-link{:href => "#", :tabindex => "-1"} Previous
+          %li.page-item
+            %a.page-link{:href => "#"} 1
+          %li.page-item.active
+            %a.page-link{:href => "#"}
+              2
+              %span.sr-only (current)
+          %li.page-item
+            %a.page-link{:href => "#"} 3
+          %li.page-item
+            %a.page-link{:href => "#"} Next
+
+      %h1.mt-5 Erotrip
+      %h2 Forms
+      %form
+        .form-group
+          %label{:for => "exampleInputEmail1"} Email address
+          %input#exampleInputEmail1.form-control{"aria-describedby" => "emailHelp", :placeholder => "Enter email", :type => "email"}/
+          %small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+        .form-group
+          %label{:for => "exampleInputPassword1"} Password
+          %input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
+        .form-group
+          %label{:for => "exampleSelect1"} Example select
+          %select#exampleSelect1.form-control
+            %option 1
+            %option 2
+            %option 3
+            %option 4
+            %option 5
+        .form-group
+          %label{:for => "exampleSelect2"} Example multiple select
+          %select#exampleSelect2.form-control{:multiple => "multiple"}
+            %option 1
+            %option 2
+            %option 3
+            %option 4
+            %option 5
+        .form-group
+          %label{:for => "exampleTextarea"} Example textarea
+          %textarea#exampleTextarea.form-control{:rows => "3"}
+        .form-group
+          %label{:for => "exampleInputFile"} File input
+          %input#exampleInputFile.form-control-file{"aria-describedby" => "fileHelp", :type => "file"}/
+          %small#fileHelp.form-text.text-muted This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
+        %fieldset.form-group
+          %legend Radio buttons
+          .form-check
+            %label.form-check-label
+              %input#optionsRadios1.form-check-input{:checked => "checked", :name => "optionsRadios", :type => "radio", :value => "option1"}/
+              Option one is this and that—be sure to include why it's great
+          .form-check
+            %label.form-check-label
+              %input#optionsRadios2.form-check-input{:name => "optionsRadios", :type => "radio", :value => "option2"}/
+              Option two can be something else and selecting it will deselect option one
+          .form-check.disabled
+            %label.form-check-label
+              %input#optionsRadios3.form-check-input{:disabled => "disabled", :name => "optionsRadios", :type => "radio", :value => "option3"}/
+              Option three is disabled
+        .form-check
+          %label.form-check-label
+            %input.form-check-input{:type => "checkbox"}/
+            Check me out
+        %button.btn.btn-primary{:type => "submit"} Submit
+
+      %h2 Forms - Using the Grid
+      .container
+        %form
+          .form-group.row
+            %label.col-sm-2.col-form-label{:for => "inputEmail3"} Email
+            .col-sm-10
+              %input#inputEmail3.form-control{:placeholder => "Email", :type => "email"}/
+          .form-group.row
+            %label.col-sm-2.col-form-label{:for => "inputPassword3"} Password
+            .col-sm-10
+              %input#inputPassword3.form-control{:placeholder => "Password", :type => "password"}/
+          %fieldset.form-group.row
+            %legend.col-form-legend.col-sm-2 Radios
+            .col-sm-10
+              .form-check
+                %label.form-check-label
+                  %input#gridRadios1.form-check-input{:checked => "checked", :name => "gridRadios", :type => "radio", :value => "option1"}/
+                  Option one is this and that—be sure to include why it's great
+              .form-check
+                %label.form-check-label
+                  %input#gridRadios2.form-check-input{:name => "gridRadios", :type => "radio", :value => "option2"}/
+                  Option two can be something else and selecting it will deselect option one
+              .form-check.disabled
+                %label.form-check-label
+                  %input#gridRadios3.form-check-input{:disabled => "disabled", :name => "gridRadios", :type => "radio", :value => "option3"}/
+                  Option three is disabled
+          .form-group.row
+            %label.col-sm-2 Checkbox
+            .col-sm-10
+              .form-check
+                %label.form-check-label
+                  %input.form-check-input{:type => "checkbox"}/
+                  Check me out
+          .form-group.row
+            .offset-sm-2.col-sm-10
+              %button.btn.btn-primary{:type => "submit"} Sign in
+
+      %h2 Form - Inline forms
+      %form.form-inline
+        %label.sr-only{:for => "inlineFormInput"} Name
+        %input#inlineFormInput.form-control.mb-2.mr-sm-2.mb-sm-0{:placeholder => "Jane Doe", :type => "text"}/
+        %label.sr-only{:for => "inlineFormInputGroup"} Username
+        .input-group.mb-2.mr-sm-2.mb-sm-0
+          .input-group-addon @
+          %input#inlineFormInputGroup.form-control{:placeholder => "Username", :type => "text"}/
+        .form-check.mb-2.mr-sm-2.mb-sm-0
+          %label.form-check-label
+            %input.form-check-input{:type => "checkbox"}/
+            Remember me
+        %button.btn.btn-primary{:type => "submit"} Submit
+
+      %h2.mt-5 Category
+      %h2.mt-5 Trip
+      %h2.mt-5 Locker
+      %h2.mt-5 Photo wrapper with icons
+
   %hr/
   %footer
     %p © Company 2017
-/ /container
+
+
+
+
