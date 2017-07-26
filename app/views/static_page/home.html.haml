@@ -1,280 +1,334 @@
--# %nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
--#   %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
--#     %span.navbar-toggler-icon
--#   %a.navbar-brand{:href => "#"} Navbar
--#   #navbarsExampleDefault.collapse.navbar-collapse
--#     %ul.navbar-nav.mr-auto
--#       %li.nav-item.active
--#         %a.nav-link{:href => "#"}
--#           Home
--#           %span.sr-only (current)
--#       %li.nav-item
--#         %a.nav-link{:href => "#"} Link
--#       %li.nav-item
--#         %a.nav-link.disabled{:href => "#"} Disabled
--#       %li.nav-item.dropdown
--#         %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Dropdown
--#         .dropdown-menu{"aria-labelledby" => "dropdown01"}
--#           %a.dropdown-item{:href => "#"} Action
--#           %a.dropdown-item{:href => "#"} Another action
--#           %a.dropdown-item{:href => "#"} Something else here
--#     %form.form-inline.my-2.my-lg-0
--#       %input.form-control.mr-sm-2{:placeholder => "Search", :type => "text"}/
--#       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+.navbar.hidden-md-up
+	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more{:type => "button"}
+		= image_tag('icons/close.svg')
+		.button-label.empty
+	= image_tag('logo.png')
+	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages{:type => "button"}
+		= image_tag('icons/close.svg')
+		.button-label 2
 
-.row.no-gutters
-  .col-3
-    .sidebar
-      .logo-wrapper
-        = link_to image_tag('logo.png')
-      .login-prompt
-        %p.mt-0.mb-0.small Dołącz do nas!
-        %p.mt-0.mb-0.small Masz już konto? Zaloguj się
-      .menu
-        %button.btn.btn-secondary.btn-block
-          Dodaj wycieczkę
-        %ul
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Użytkownicy
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Wycieczki
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Grupy
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Hotline
+.sidebar
+	.logo-wrapper.hidden-lg-down
+		= link_to image_tag('logo.png')
 
-        %button.btn.btn-primary.btn-block
-          Moje wycieczki
-        %ul
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Wiadmości
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Powiadomienia
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Chcą Cię poznać
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Podglądacz
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Nowe osoby
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Nowe wycieczki
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Odblokowania
-          %li.menu-item
-            = link_to image_tag('icons/users.png')
-            %div Tryb anonimowy
+	.logged-out.hidden-lg-down
+		%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
+		%p.mt-0.mb-0
+			%span Masz już konto?
+			%span.text-primary Zaloguj się
 
-  .col-9
-    .featured
-      .img-wrapper
-        = link_to image_tag('girl.jpg')
-      .img-wrapper
-        = link_to image_tag('girl.jpg')
-      .img-wrapper
-        = link_to image_tag('girl.jpg')
-      .img-wrapper
-        = link_to image_tag('girl.jpg')
-      .img-wrapper
-        = link_to image_tag('girl.jpg')
-      .img-wrapper
-        = link_to image_tag('girl.jpg')
-      .img-wrapper
-        = link_to image_tag('girl.jpg')
-    .group-more
-      .white-internal
-        = link_to image_tag('girl.jpg')
+	.logged-in.hidden-xl-up
+		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more{:type => "button"}
+			= image_tag('icons/close.svg')
+			.button-label.empty
+		.divider.hidden-xl-up
 
-    %h2.mt-5 Modal
-    / Button trigger modal
-    %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
-      Launch demo modal
-    / Modal
-    #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
-      .modal-dialog{:role => "document"}
-        .modal-content
-          .modal-header
-            %h5#exampleModalLabel.modal-title Modal title
-            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-              %span{"aria-hidden" => "true"} ×
-          .modal-body
-            \...
-          .modal-footer
-            %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-            %button.btn.btn-primary{:type => "button"} Save changes
+		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages{:type => "button"}
+			= image_tag('icons/close.svg')
+			.button-label 2
+		.divider.hidden-xl-up
+
+		.profile
+			= link_to image_tag('girl.jpg')
+		.divider.hidden-xl-up
+
+	.menu
+		%button.btn.btn-secondary.btn-block.hidden-lg-down
+			Dodaj wycieczkę
+
+		%ul
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Użytkownicy
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Wycieczki
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Grupy
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Hotline
+
+		%button.btn.btn-primary.btn-block.hidden-lg-down
+			Moje wycieczki
+
+		%ul
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Wiadmości
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Powiadomienia
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Chcą Cię poznać
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Podglądacz
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Nowe osoby
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Nowe wycieczki
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Odblokowania
+			%li.menu-item
+				%a
+					= image_tag('icons/users.png')
+					.label.hidden-lg-down Tryb anonimowy
 
 
-    %h2.mt-5 Buttons
-    / Provides extra visual weight and identifies the primary action in a set of buttons
-    %button.btn.btn-primary{:type => "button"} Primary
-    / Secondary, outline button
-    %button.btn.btn-secondary{:type => "button"} Secondary
-    / Indicates a successful or positive action
-    %button.btn.btn-success{:type => "button"} Success
-    / Contextual button for informational alert messages
-    %button.btn.btn-info{:type => "button"} Info
-    / Indicates caution should be taken with this action
-    %button.btn.btn-warning{:type => "button"} Warning
-    / Indicates a dangerous or potentially negative action
-    %button.btn.btn-danger{:type => "button"} Danger
-    / Deemphasize a button by making it look like a link while maintaining button behavior
-    %button.btn.btn-link{:type => "button"} Link
+.container.main-container
+	.row.no-gutters
+		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+			.featured
+				.img-wrapper
+					= link_to image_tag('girl.jpg')
+				.img-wrapper
+					= link_to image_tag('girl.jpg')
+				.img-wrapper
+					= link_to image_tag('girl.jpg')
+				.img-wrapper
+					= link_to image_tag('girl.jpg')
+				.img-wrapper
+					= link_to image_tag('girl.jpg')
+				.img-wrapper
+					= link_to image_tag('girl.jpg')
+				.img-wrapper
+					= link_to image_tag('girl.jpg')
+			.group-more
+				.white-internal.ea-flex.ea-align-center
+					= link_to image_tag('girl.jpg')
+					.text
+						%h2.mt-0 BDSM
+						%p.text-book.text-gray Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+						.group-info.ea-flex.ea-align-center
+							%p.mb-0
+								%span.text-primary 2310
+								%span.text-gray użytkowników
+							%p.mb-0
+								%span.text-primary 70
+								%span.text-gray ukrytych
+							%p.mb-0
+								%span.text-primary Twój profil
+								%span.text-gray Publiczny
 
-    %h2.mt-5 Buttons - icons only
+					%button.btn.icon-only.btn-secondary.btn-group.button-top{:type => "button"}
+						= link_to image_tag('icons/eye.svg')
+					%button.btn.icon-only.btn-outline-primary.btn-outline-primary.btn-group.button-bottom{:type => "button"}
+						= link_to image_tag('icons/eye.svg')
 
-    / Provides extra visual weight and identifies the primary action in a set of buttons
-    %button.btn.btn-primary{:type => "button"} Primary
-    / Secondary, outline button
-    %button.btn.btn-secondary{:type => "button"} Secondary
-    / Indicates a successful or positive action
-    %button.btn.btn-success{:type => "button"} Success
-    / Contextual button for informational alert messages
-    %button.btn.btn-info{:type => "button"} Info
-    / Indicates caution should be taken with this action
-    %button.btn.btn-warning{:type => "button"} Warning
-    / Indicates a dangerous or potentially negative action
-    %button.btn.btn-danger{:type => "button"} Danger
-    / Deemphasize a button by making it look like a link while maintaining button behavior
-    %button.btn.btn-link{:type => "button"} Link
 
-    %h2.mt-5 Pagination
-    %nav{"aria-label" => "..."}
-      %ul.pagination
-        %li.page-item.disabled
-          %a.page-link{:href => "#", :tabindex => "-1"} Previous
-        %li.page-item
-          %a.page-link{:href => "#"} 1
-        %li.page-item.active
-          %a.page-link{:href => "#"}
-            2
-            %span.sr-only (current)
-        %li.page-item
-          %a.page-link{:href => "#"} 3
-        %li.page-item
-          %a.page-link{:href => "#"} Next
+			%h2.mt-5 Modal
+			/ Button trigger modal
+			%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+				Launch demo modal
+			/ Modal
+			#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+				.modal-dialog{:role => "document"}
+					.modal-content
+						.modal-header
+							%h5#exampleModalLabel.modal-title Modal title
+							%button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+								%span{"aria-hidden" => "true"} ×
+						.modal-body
+							\...
+						.modal-footer
+							%button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+							%button.btn.btn-primary{:type => "button"} Save changes
 
-    %h1.mt-5 Erotrip
-    %h2 Forms
-    %form
-      .form-group
-        %label{:for => "exampleInputEmail1"} Email address
-        %input#exampleInputEmail1.form-control{"aria-describedby" => "emailHelp", :placeholder => "Enter email", :type => "email"}/
-        %small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
-      .form-group
-        %label{:for => "exampleInputPassword1"} Password
-        %input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
-      .form-group
-        %label{:for => "exampleSelect1"} Example select
-        %select#exampleSelect1.form-control
-          %option 1
-          %option 2
-          %option 3
-          %option 4
-          %option 5
-      .form-group
-        %label{:for => "exampleSelect2"} Example multiple select
-        %select#exampleSelect2.form-control{:multiple => "multiple"}
-          %option 1
-          %option 2
-          %option 3
-          %option 4
-          %option 5
-      .form-group
-        %label{:for => "exampleTextarea"} Example textarea
-        %textarea#exampleTextarea.form-control{:rows => "3"}
-      .form-group
-        %label{:for => "exampleInputFile"} File input
-        %input#exampleInputFile.form-control-file{"aria-describedby" => "fileHelp", :type => "file"}/
-        %small#fileHelp.form-text.text-muted This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
-      %fieldset.form-group
-        %legend Radio buttons
-        .form-check
-          %label.form-check-label
-            %input#optionsRadios1.form-check-input{:checked => "checked", :name => "optionsRadios", :type => "radio", :value => "option1"}/
-            Option one is this and that—be sure to include why it's great
-        .form-check
-          %label.form-check-label
-            %input#optionsRadios2.form-check-input{:name => "optionsRadios", :type => "radio", :value => "option2"}/
-            Option two can be something else and selecting it will deselect option one
-        .form-check.disabled
-          %label.form-check-label
-            %input#optionsRadios3.form-check-input{:disabled => "disabled", :name => "optionsRadios", :type => "radio", :value => "option3"}/
-            Option three is disabled
-      .form-check
-        %label.form-check-label
-          %input.form-check-input{:type => "checkbox"}/
-          Check me out
-      %button.btn.btn-primary{:type => "submit"} Submit
 
-    %h2 Forms - Using the Grid
-    .container
-      %form
-        .form-group.row
-          %label.col-sm-2.col-form-label{:for => "inputEmail3"} Email
-          .col-sm-10
-            %input#inputEmail3.form-control{:placeholder => "Email", :type => "email"}/
-        .form-group.row
-          %label.col-sm-2.col-form-label{:for => "inputPassword3"} Password
-          .col-sm-10
-            %input#inputPassword3.form-control{:placeholder => "Password", :type => "password"}/
-        %fieldset.form-group.row
-          %legend.col-form-legend.col-sm-2 Radios
-          .col-sm-10
-            .form-check
-              %label.form-check-label
-                %input#gridRadios1.form-check-input{:checked => "checked", :name => "gridRadios", :type => "radio", :value => "option1"}/
-                Option one is this and that—be sure to include why it's great
-            .form-check
-              %label.form-check-label
-                %input#gridRadios2.form-check-input{:name => "gridRadios", :type => "radio", :value => "option2"}/
-                Option two can be something else and selecting it will deselect option one
-            .form-check.disabled
-              %label.form-check-label
-                %input#gridRadios3.form-check-input{:disabled => "disabled", :name => "gridRadios", :type => "radio", :value => "option3"}/
-                Option three is disabled
-        .form-group.row
-          %label.col-sm-2 Checkbox
-          .col-sm-10
-            .form-check
-              %label.form-check-label
-                %input.form-check-input{:type => "checkbox"}/
-                Check me out
-        .form-group.row
-          .offset-sm-2.col-sm-10
-            %button.btn.btn-primary{:type => "submit"} Sign in
+			%h2.mt-5 Buttons
+			/ Provides extra visual weight and identifies the primary action in a set of buttons
+			%button.btn.btn-primary{:type => "button"} Primary
+			/ Secondary, outline button
+			%button.btn.btn-secondary{:type => "button"} Secondary
+			/ Indicates a successful or positive action
+			%button.btn.btn-success{:type => "button"} Success
+			/ Contextual button for informational alert messages
+			%button.btn.btn-info{:type => "button"} Info
+			/ Indicates caution should be taken with this action
+			%button.btn.btn-warning{:type => "button"} Warning
+			/ Indicates a dangerous or potentially negative action
+			%button.btn.btn-danger{:type => "button"} Danger
+			/ Deemphasize a button by making it look like a link while maintaining button behavior
+			%button.btn.btn-link{:type => "button"} Link
 
-    %h2 Form - Inline forms
-    %form.form-inline
-      %label.sr-only{:for => "inlineFormInput"} Name
-      %input#inlineFormInput.form-control.mb-2.mr-sm-2.mb-sm-0{:placeholder => "Jane Doe", :type => "text"}/
-      %label.sr-only{:for => "inlineFormInputGroup"} Username
-      .input-group.mb-2.mr-sm-2.mb-sm-0
-        .input-group-addon @
-        %input#inlineFormInputGroup.form-control{:placeholder => "Username", :type => "text"}/
-      .form-check.mb-2.mr-sm-2.mb-sm-0
-        %label.form-check-label
-          %input.form-check-input{:type => "checkbox"}/
-          Remember me
-      %button.btn.btn-primary{:type => "submit"} Submit
+			%h2.mt-5 Buttons - icons only
+			/ Provides extra visual weight and identifies the primary action in a set of buttons
+			%button.btn.icon-only.btn-primary{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+			/ Secondary, outline button
+			%button.btn.icon-only.btn-secondary{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+			/ Indicates a successful or positive action
+			%button.btn.icon-only.btn-success{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+			/ Contextual button for informational alert messages
+			%button.btn.icon-only.btn-info{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+			/ Indicates caution should be taken with this action
+			%button.btn.icon-only.btn-warning{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+			/ Indicates a dangerous or potentially negative action
+			%button.btn.icon-only.btn-danger{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+			/ Deemphasize a button by making it look like a link while maintaining button behavior
+			%button.btn.icon-only.btn-link{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
 
-    %h2.mt-5 Category
-    %h2.mt-5 Trip
-    %h2.mt-5 Locker
-    %h2.mt-5 Photo wrapper with icons
+			%h2.mt-5 Buttons - icons only, outlined
+			%button.btn.icon-only.btn-primary.btn-outline-primary.btn-outline-gray{:type => "button"}
+				= link_to image_tag('icons/close.svg')
 
-%hr/
-%footer
-  %p © Company 2017
+			%h2.mt-5 Buttons - group scoped
+			%button.btn.icon-only.btn-outline-primary.btn-outline-primary.btn-group{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+			%button.btn.icon-only.btn-secondary.btn-group{:type => "button"}
+				= link_to image_tag('icons/eye.svg')
+
+			%h2.mt-5 Pagination
+			%nav{"aria-label" => "..."}
+				%ul.pagination
+					%li.page-item.disabled
+						%a.page-link{:href => "#", :tabindex => "-1"} Previous
+					%li.page-item
+						%a.page-link{:href => "#"} 1
+					%li.page-item.active
+						%a.page-link{:href => "#"}
+							2
+							%span.sr-only (current)
+					%li.page-item
+						%a.page-link{:href => "#"} 3
+					%li.page-item
+						%a.page-link{:href => "#"} Next
+
+			%h1.mt-5 Erotrip
+			%h2 Forms
+			%form
+				.form-group
+					%label{:for => "exampleInputEmail1"} Email address
+					%input#exampleInputEmail1.form-control{"aria-describedby" => "emailHelp", :placeholder => "Enter email", :type => "email"}/
+					%small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+				.form-group
+					%label{:for => "exampleInputPassword1"} Password
+					%input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
+				.form-group
+					%label{:for => "exampleSelect1"} Example select
+					%select#exampleSelect1.form-control
+						%option 1
+						%option 2
+						%option 3
+						%option 4
+						%option 5
+				.form-group
+					%label{:for => "exampleSelect2"} Example multiple select
+					%select#exampleSelect2.form-control{:multiple => "multiple"}
+						%option 1
+						%option 2
+						%option 3
+						%option 4
+						%option 5
+				.form-group
+					%label{:for => "exampleTextarea"} Example textarea
+					%textarea#exampleTextarea.form-control{:rows => "3"}
+				.form-group
+					%label{:for => "exampleInputFile"} File input
+					%input#exampleInputFile.form-control-file{"aria-describedby" => "fileHelp", :type => "file"}/
+					%small#fileHelp.form-text.text-muted This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
+				%fieldset.form-group
+					%legend Radio buttons
+					.form-check
+						%label.form-check-label
+							%input#optionsRadios1.form-check-input{:checked => "checked", :name => "optionsRadios", :type => "radio", :value => "option1"}/
+							Option one is this and that—be sure to include why it's great
+					.form-check
+						%label.form-check-label
+							%input#optionsRadios2.form-check-input{:name => "optionsRadios", :type => "radio", :value => "option2"}/
+							Option two can be something else and selecting it will deselect option one
+					.form-check.disabled
+						%label.form-check-label
+							%input#optionsRadios3.form-check-input{:disabled => "disabled", :name => "optionsRadios", :type => "radio", :value => "option3"}/
+							Option three is disabled
+				.form-check
+					%label.form-check-label
+						%input.form-check-input{:type => "checkbox"}/
+						Check me out
+				%button.btn.btn-primary{:type => "submit"} Submit
+
+			%h2 Forms - Using the Grid
+			.container
+				%form
+					.form-group.row
+						%label.col-sm-2.col-form-label{:for => "inputEmail3"} Email
+						.col-sm-10
+							%input#inputEmail3.form-control{:placeholder => "Email", :type => "email"}/
+					.form-group.row
+						%label.col-sm-2.col-form-label{:for => "inputPassword3"} Password
+						.col-sm-10
+							%input#inputPassword3.form-control{:placeholder => "Password", :type => "password"}/
+					%fieldset.form-group.row
+						%legend.col-form-legend.col-sm-2 Radios
+						.col-sm-10
+							.form-check
+								%label.form-check-label
+									%input#gridRadios1.form-check-input{:checked => "checked", :name => "gridRadios", :type => "radio", :value => "option1"}/
+									Option one is this and that—be sure to include why it's great
+							.form-check
+								%label.form-check-label
+									%input#gridRadios2.form-check-input{:name => "gridRadios", :type => "radio", :value => "option2"}/
+									Option two can be something else and selecting it will deselect option one
+							.form-check.disabled
+								%label.form-check-label
+									%input#gridRadios3.form-check-input{:disabled => "disabled", :name => "gridRadios", :type => "radio", :value => "option3"}/
+									Option three is disabled
+					.form-group.row
+						%label.col-sm-2 Checkbox
+						.col-sm-10
+							.form-check
+								%label.form-check-label
+									%input.form-check-input{:type => "checkbox"}/
+									Check me out
+					.form-group.row
+						.offset-sm-2.col-sm-10
+							%button.btn.btn-primary{:type => "submit"} Sign in
+
+			%h2 Form - Inline forms
+			%form.form-inline
+				%label.sr-only{:for => "inlineFormInput"} Name
+				%input#inlineFormInput.form-control.mb-2.mr-sm-2.mb-sm-0{:placeholder => "Jane Doe", :type => "text"}/
+				%label.sr-only{:for => "inlineFormInputGroup"} Username
+				.input-group.mb-2.mr-sm-2.mb-sm-0
+					.input-group-addon @
+					%input#inlineFormInputGroup.form-control{:placeholder => "Username", :type => "text"}/
+				.form-check.mb-2.mr-sm-2.mb-sm-0
+					%label.form-check-label
+						%input.form-check-input{:type => "checkbox"}/
+						Remember me
+				%button.btn.btn-primary{:type => "submit"} Submit
+
+			%h2.mt-5 Category
+			%h2.mt-5 Trip
+			%h2.mt-5 Locker
+			%h2.mt-5 Photo wrapper with icons
+
+	%hr/
+	%footer
+		%p © Company 2017
 
 
 

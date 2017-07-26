@@ -1,81 +1,312 @@
+// global
+@font-face {
+	font-family: 'GothamRoundedMedium';
+	src: asset-url("GothamRoundedMedium.otf");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'GothamRoundedBook';
+	src: asset-url("GothamRoundedBook.otf");
+	font-style: normal;
+	font-weight: normal;
+}
+
+body {
+	font-family: 'GothamRoundedMedium';
+	font-size: 14px;
+
+	&.temp-tablet-sidebar-clicked {
+		overflow: hidden;
+		// TODO: delete below
+		.main-container {
+			// width: calc(100% - 250px);
+			margin-left: 250px;
+		}
+
+		.sidebar {
+			width: 250px;
+		}
+	}
+
+	&.temp-mobile-sidebar-clicked {
+		overflow: hidden;
+		.main-container {
+			// width: calc(100% - 250px);
+			margin-left: 250px;
+		}
+
+		.sidebar {
+			left: 0px
+		}
+	}
+}
+
+.main-container {
+	margin-top:70px;
+
+	@media (min-width: 576px) {
+		margin-top: 0px;
+	}
+
+	@media (max-width: 1200px) {
+		padding: 0px;
+		margin-left: 80px;
+		width: calc(100% - 80px);
+	}
+
+	@media (max-width: 576px) {
+		padding: 0px;
+		margin-left: 0px;
+		width: 100%;
+	}
+}
+
+.divider {
+	height: 1px;
+	width: 100%;
+	background: $ero-gray-lighter;
+}
+
+.text-secondary {
+	color: $btn-secondary-bg;
+}
+
+.text-gray {
+	color: $ero-gray;
+}
+
+.text-book {
+	font-family: 'GothamRoundedBook';
+}
+
 // layout parts
 .featured {
-  background: #059DC3;
-  display: flex;
-  align-items: center;
-  height: 100px;
-  padding: 0px 15px;
+	background: #059DC3;
+	display: flex;
+	align-items: center;
+	height: 100px;
+	padding: 0px 15px;
+	overflow: hidden;
 
-  .img-wrapper {
-    padding: 15px;
+	.img-wrapper {
+		padding: 15px;
 
-    img {
-      height: 70px;
-      width: 70px;
-      border-radius: 50%;
-    }
-  }
+		img {
+			height: 70px;
+			width: 70px;
+			border-radius: 50%;
+		}
+	}
+}
+
+// button with label
+button.with-label {
+	position: relative;
+	.button-label {
+		height: 17px;
+		min-width: 17px;
+		background: $btn-secondary-bg;
+		color: #fff;
+		position: absolute;
+		right: -3px;
+		top: -2px;
+		border-radius: 50px;
+		border: 2px solid #fff;
+		font-size: 10px;
+		background: $btn-secondary-bg;
+		padding: 1px 3px;
+
+		&.empty {
+			height: 13px;
+			min-width: 13px;
+
+			right: 0px;
+			top: 0px;
+			border-radius: 50%;
+
+			padding: 0px;
+		}
+	}
 }
 
 .group-more {
-  background: #00C2F0;
-  height: 250px;
-  padding: 30px;
+	background: #00C2F0;
+	height: 250px;
+	padding: 30px 60px 30px 30px;
 
-  .white-internal {
-    height: 100%;
-    border-radius: 25px;
-    background: #fff;
-    padding: 15px;
+	.white-internal {
+		position: relative;
+		height: 100%;
+		border-radius: 25px;
+		background: #fff;
+		padding: 15px;
 
-    img {
-      border-radius: 25px;
-      height: 100%;
-    }
-  }
+		a {
+			height: 100%;
+		}
+
+		img {
+			border-radius: 25%;
+			margin-right: 15px;
+			max-height: 100%;
+			max-width: 66px;
+
+			@media (min-width: 576px) {
+				border-radius: 25px;
+				max-height: 100%;
+				max-width: 120px;
+			}
+
+			@media (min-width: 1200px) {
+				border-radius: 25px;
+				max-height: 100%;
+				max-width: inherit;
+			}
+		}
+
+		.text {
+			.group-info {
+				p {
+					padding-right: 40px;
+					&:last-child {
+						padding-right: 0px;
+					}
+				}
+			}
+		}
+
+		.button-top {
+			position: absolute;
+			right: -30px;
+			top: 15%;
+		}
+
+		.button-bottom {
+			position: absolute;
+			right: -30px;
+			bottom: 15%;
+		}
+	}
 }
 
 .sidebar {
-  padding: 15px 30px;
+	position: fixed;
+	width: calc(1110px * 0.25); // (1140px - 30px) * 0.25 this is for 1140px container
+	left: calc((100% - (1110px))/2);
+	padding: 15px 27px;
+	background: #fff;
 
-  .logo-wrapper {
-    margin-bottom: 29px;
-    text-align: center;
-  }
+	@media (max-width: 1200px) {
+		width: 80px;
+		left: 0px;
+		padding: 0px 12px;
+		border-right: 1px solid;
+		border-color: #eee;
+	}
 
-  .login-prompt {
-    text-align: center;
-    padding: 30px 15px;
-    border-top: 1px $gray-lighter solid;
-    border-bottom: 1px $gray-lighter solid;
-  }
+	@media (max-width: 576px) {
+		width: 250px;
+		left: -250px;
+		padding: 15px 27px;
+	}
 
-  .menu {
-    .btn-primary, .btn-secondary {
-      margin: 30px 0px;
-    }
+	.logo-wrapper {
+		margin-bottom: 29px;
+		text-align: center;
+	}
 
-    ul {
-      list-style: none;
-      padding: 0px;
+	.logged-out {
+		text-align: center;
+		padding: 30px 15px;
+		border-top: 1px $ero-gray-lighter solid;
+		border-bottom: 1px $ero-gray-lighter solid;
+	}
 
-      font-weight: 300;
-      color: $gray-light;
+	.logged-in {
+		display: flex;
+		flex-direction: row;
 
-      li.menu-item {
-        display: flex;
-        align-items: center;
+		.profile {
+			img {
+				width: 45px;
+				height: 45px;
+				border-radius: 50%;
+			}
+		}
 
-        padding: 3px 10px;
-        font-size: 0.9rem;
+		@media (max-width: 1200px) {
+			flex-direction: column;
+			align-items: center;
 
-        a {
-          width: 25px;
-          display: flex;
-          margin-right: 15px;
-        }
-      }
-    }
-  }
+			button.more, button.messages, .profile {
+				margin: 27px 0px;
+			}
+		}
 
+		@media (max-width: 576px) {
+			flex-direction: row;
+		}
+
+	}
+
+	.menu {
+		.btn-primary, .btn-secondary {
+			margin: 30px 0px;
+		}
+
+		ul {
+			list-style: none;
+			color: $gray-light;
+			padding: 0px;
+			margin: 0px;
+
+			li.menu-item {
+				font-size: 0.9rem;
+				display: flex;
+				align-items: center;
+
+				a {
+					padding: 3px 10px;
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					width: 100%;
+
+					.label {
+						margin-left: 15px;
+					}
+
+					@media (max-width: 1200px) {
+						justify-content: center;
+						height: 40px;
+					}
+				}
+			}
+
+			@media (max-width: 1200px) {
+				padding-top: 0px;
+			}
+		}
+	}
+}
+
+.navbar {
+	position: fixed;
+	background: #fff;
+	z-index: 1;
+	width: 100%;
+	height: 70px;
+	top: 0px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row;
+
+	& > img {
+		width: 150px;
+		margin-top: -0.5rem;
+	}
 }

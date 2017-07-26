@@ -1,0 +1,33 @@
+.container {
+}
+
+.btn {
+  font-family: $font-family-sans-serif;
+}
+
+.btn.icon-only {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  padding: 5px 4px;
+}
+
+.btn-outline-primary.btn-outline-gray {
+  border-color: #8C9AA8;
+}
+
+.btn-outline-primary.btn-group {
+  border-width: 5px;
+  width: 55px;
+  height: 55px;
+  padding: 5px 4.5px;
+  background: #fff;
+}
+
+.btn-secondary.btn-group {
+  border-color: $btn-primary-border;
+  border-width: 5px;
+  width: 55px;
+  height: 55px;
+  padding: 5px 4.5px;
+}

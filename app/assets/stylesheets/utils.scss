@@ -1,5 +1,66 @@
-@for $i from 0 through 100 {
-  .ea-w-#{$i} {
-    width: #{$i + '%'};
+$fontSize: 0 5 10 15 16 18 20 25 30 35 40 45 50 55 60;
+@each $f in $fontSize {
+  .f-s-#{$f}{
+    font-size: #{$f}px;
   }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.ea-flex {
+  display: flex;
+}
+
+.ea-flex-dir-row {
+  flex-direction: row;
+}
+
+.ea-flex-dir-column {
+  flex-direction: column;
+}
+
+.ea-just-end {
+  justify-content: flex-end;
+}
+
+.ea-just-start {
+  justify-content: flex-start;
+}
+
+.ea-just-center {
+  justify-content: center;
+}
+
+.ea-just-space-around {
+  justify-content: space-around;
+}
+
+.ea-just-space-between {
+  justify-content: space-between;
+}
+
+.ea-align-end {
+  align-items: flex-end;
+}
+
+.ea-align-start {
+  align-items: flex-start;
+}
+
+.ea-align-center {
+  align-items: center;
+}
+
+.ea-flex-1 {
+  flex: 1;
+}
+
+.ea-flex-2 {
+  flex: 2;
+}
+
+.ea-flex-wrap {
+  flex-wrap: wrap;
 }
