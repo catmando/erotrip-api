@@ -209,7 +209,7 @@ body {
 
 		ul {
 			list-style: none;
-			color: $gray-light;
+			color: $ero-gray;
 			padding: 0px;
 			margin: 0px;
 
@@ -496,6 +496,7 @@ body {
 	}
 }
 
+// desktop-patch
 .desktop-patch {
 	position: absolute;
 	width: 50%;
@@ -510,12 +511,12 @@ body {
 	}
 }
 
+// search
 .search {
-	.search-bar {
-		padding: 10px 0px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+	color: $ero-gray;
+
+	.search-header {
+		padding: 30px 0px;
 
 		.search-input {
 			display: flex;
@@ -526,6 +527,133 @@ body {
 			}
 		}
 	}
+
+	.search-body {
+		.form-row {
+			margin-bottom: 30px;
+		}
+
+		legend {
+			font-size: 0.9rem;
+		}
+
+		.form-check-input {
+			margin-right: 0.5rem;
+		}
+
+		.bordered {
+			border-right: 2px solid;
+			border-color: $ero-gray-lighter;
+		}
+	}
+
+	.search-footer {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		button {
+			min-width: 160px;
+		}
+	}
 }
+
+.person {
+	.person-image-wrapper {
+		position: relative;
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+			border-radius: 50px;
+			border-radius: 8%;
+
+			&.blurred {
+				filter: blur(5px);
+			}
+		}
+
+		.person-amount {
+			background: rgba(62, 62, 62, 0.66);
+			border-radius: 5px;
+			color: #fff;
+			padding: 5px;
+			position: absolute;
+			top: 15px;
+			left: 15px;
+			display: flex;
+			align-items: center;
+			font-size: 18px;
+
+			.amount {
+				font-family: 'GothamRoundedBook';
+				display: inline-block;
+				padding-left: 5px;
+				line-height: 18px;
+				height: 16px;
+				font-size: 14px;
+			}
+		}
+
+		.locker {
+			background: $btn-secondary-bg;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 20px;
+			width: 70px;
+			height: 70px;
+			margin-top: -35px;
+			margin-left: -35px;
+			z-index: 1;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+
+			i.ero-locker {
+				color: $white;
+				font-size: 40px;
+			}
+		}
+	}
+
+	.person-info {
+		padding-top: 20px;
+
+		.person-status {
+			height: 10px;
+			width: 10px;
+			min-width: 10px;
+			border-radius: 10px;
+			margin: 6px 10px 0px 0px;
+
+			&.online {
+				background: $online;
+			}
+
+			&.away {
+				background: $away;
+			}
+
+			&.offline {
+				background: $offline;
+			}
+		}
+
+		.person-details {
+			width: 100%;
+
+			.person-name {
+				display: flex;
+				justify-content: flex-start;
+			}
+
+			.preson-city {
+				font-family: 'GothamRoundedBook';
+			}
+		}
+
+	}
+
+}
+
 
 

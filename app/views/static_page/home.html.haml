@@ -159,36 +159,188 @@
 					%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
 						%i.ero-eye
 
-			.search
-				%form
-					.search-bar
-						.info.f-s-16
-							%span.text-primary 2310
-							%span.text-gray użytkowników
+			%form.search
+				.row.search-header
+					.col
+						.ea-flex.ea-align-center.ea-just-space-between
+							.info.f-s-16
+								%span.text-primary 2310
+								%span.text-gray użytkowników
 
-						.search-input
-							%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3{:type => "submit"}
-								%i.ero-search
+							.search-input
+								%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3{:type => "submit"}
+									%i.ero-search
 
-							.form-group.mb-0
-								%select#exampleSelect1.form-control
+								%select.form-control
 									%option 1
 									%option 2
-									%option 3
-									%option 4
-									%option 5
 
-					.row
-						.col
+				.row.search-body
+					.col-6.bordered
+						.row.form-row
+							.col
+								%select.form-control
+									%option 1
+									%option 2
+
+							.col
+								%select.form-control
+									%option 1
+									%option 2
+
+						.row.form-row
+							.col
+								Slider
+
+						.row.form-row
+							.col
+								%select.form-control
+									%option 1
+									%option 2
+
+							.col
+								%select.form-control
+									%option 1
+									%option 2
+
+						.row
+							.col
+								%select.form-control
+									%option 1
+									%option 2
+
+					.col-6
+						.row.form-row
+							.col
+								%select.form-control
+									%option 1
+									%option 2
+
+						.row.form-row
+							.col
+								Slider
+
+						.row
+							.col
+
+								%fieldset.form-group.mb-0
+									%legend Radio buttons
+									.form-check.form-check-inline
+										%label.form-check-label
+											%input.form-check-input{:type => "checkbox"}/
+											Check me out
+
+									.form-check.form-check-inline
+										%label.form-check-label
+											%input.form-check-input{:type => "checkbox"}/
+											Check me out
+
+									%legend Radio buttons
+									.form-check.form-check-inline
+										%label.form-check-label
+											%input.form-check-input{:type => "checkbox"}/
+											Check me out
+
+									.form-check.form-check-inline
+										%label.form-check-label
+											%input.form-check-input{:type => "checkbox"}/
+											Check me out
+
+				.row.search-footer
+					.col
+						.ea-flex.ea-align-center.ea-just-center
+							%button.btn.btn-secondary.mr-4{:type => "button"} Pokaż
+							%button.btn.btn-outline-primary.btn-outline-gray{:type => "button"} Anuluj
+
+			.row
+				.col-3
+					.person
+						.person-image-wrapper
+							.person-amount
+								%i.ero-photo-amount
+								%span.amount 6
+							= image_tag('girl.jpg')
+
+						.person-info.ea-flex.ea-flex-align-start.ea-just-start
+							.person-status.online
+							.person-details
+								.person-name
+									%h5.mt-0.mb-0.d-inline-block Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
+								.preson-city.text-gray
+									Warszawa
+
+				.col-3
+					.person
+						.person-image-wrapper
+							.person-amount
+								%i.ero-photo-amount
+								%span.amount 6
+							= image_tag('girl.jpg')
+
+						.person-info.ea-flex.ea-flex-align-start.ea-just-start
+							.person-status.offline
+							.person-details
+								.person-name
+									%h5.mt-0.mb-0.d-inline-block Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
+								.preson-city.text-gray
+									Warszawa
+
+				.col-3
+					.person
+						.person-image-wrapper
+							.person-amount
+								%i.ero-photo-amount
+								%span.amount 6
+							.locker
+								%i.ero-locker
+							= image_tag 'girl.jpg', class: 'blurred'
+
+						.person-info.ea-flex.ea-flex-align-start.ea-just-start
+							.person-status.away
+							.person-details
+								.person-name
+									%h5.mt-0.mb-0.d-inline-block Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
+								.preson-city.text-gray
+									Warszawa
+
+				.col-3
+					.person
+						.person-image-wrapper
+							.person-amount
+								%i.ero-photo-amount
+								%span.amount 6
+							= image_tag('girl.jpg')
+
+						.person-info.ea-flex.ea-flex-align-start.ea-just-start
+							.person-status.away
+							.person-details
+								.person-name
+									%h5.mt-0.mb-0.d-inline-block Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
+								.preson-city.text-gray
+									Warszawa
 
 
-						.col
 
 
 
 
 
 
+
+
+
+
+
+			.pt-5
+			.pt-5
+			.pt-5
+			.pt-5
+			.pt-5
+			.pt-5
 
 
 			%h2 Forms
@@ -294,13 +446,6 @@
 						Remember me
 				%button.btn.btn-primary{:type => "submit"} Submit
 
-
-			.pt-5
-			.pt-5
-			.pt-5
-			.pt-5
-			.pt-5
-			.pt-5
 			%h2.mt-5 Modal
 			/ Button trigger modal
 			%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
