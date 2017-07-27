@@ -159,95 +159,38 @@
 					%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
 						%i.ero-eye
 
-			%h2.mt-5 Modal
-			/ Button trigger modal
-			%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
-				Launch demo modal
-			/ Modal
-			#exampleModal.modal.fadeable{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
-				.modal-dialog{:role => "document"}
-					.modal-content
-						.modal-header
-							%h5#exampleModalLabel.modal-title Modal title
-							%button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-								%span{"aria-hidden" => "true"} ×
-						.modal-body
-							\...
-						.modal-footer
-							%button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-							%button.btn.btn-primary{:type => "button"} Save changes
+			.search
+				%form
+					.search-bar
+						.info.f-s-16
+							%span.text-primary 2310
+							%span.text-gray użytkowników
+
+						.search-input
+							%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3{:type => "submit"}
+								%i.ero-search
+
+							.form-group.mb-0
+								%select#exampleSelect1.form-control
+									%option 1
+									%option 2
+									%option 3
+									%option 4
+									%option 5
+
+					.row
+						.col
 
 
-			%h2.mt-5 Buttons
-			/ Provides extra visual weight and identifies the primary action in a set of buttons
-			%button.btn.btn-primary{:type => "button"} Primary
-			/ Secondary, outline button
-			%button.btn.btn-secondary{:type => "button"} Secondary
-			/ Indicates a successful or positive action
-			%button.btn.btn-success{:type => "button"} Success
-			/ Contextual button for informational alert messages
-			%button.btn.btn-info{:type => "button"} Info
-			/ Indicates caution should be taken with this action
-			%button.btn.btn-warning{:type => "button"} Warning
-			/ Indicates a dangerous or potentially negative action
-			%button.btn.btn-danger{:type => "button"} Danger
-			/ Deemphasize a button by making it look like a link while maintaining button behavior
-			%button.btn.btn-link{:type => "button"} Link
+						.col
 
-			%h2.mt-5 Buttons - icons only
-			/ Provides extra visual weight and identifies the primary action in a set of buttons
-			%button.btn.icon-only.btn-primary{:type => "button"}
-				%i.ero-eye
-			/ Secondary, outline button
-			%button.btn.icon-only.btn-secondary{:type => "button"}
-				%i.ero-eye
-			/ Indicates a successful or positive action
-			%button.btn.icon-only.btn-success{:type => "button"}
-				%i.ero-eye
-			/ Contextual button for informational alert messages
-			%button.btn.icon-only.btn-info{:type => "button"}
-				%i.ero-eye
-			/ Indicates caution should be taken with this action
-			%button.btn.icon-only.btn-warning{:type => "button"}
-				%i.ero-eye
-			/ Indicates a dangerous or potentially negative action
-			%button.btn.icon-only.btn-danger{:type => "button"}
-				%i.ero-eye
-			/ Deemphasize a button by making it look like a link while maintaining button behavior
-			%button.btn.icon-only.btn-link{:type => "button"}
-				%i.ero-eye
 
-			%h2.mt-5 Buttons - icons only, outlined
-			%button.btn.icon-only.btn-primary.btn-outline-primary.btn-outline-gray{:type => "button"}
-				%i.ero-cross
 
-			%h2.mt-5 Buttons - group scoped
-			%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
-				%i.ero-eye
-			%button.btn.icon-only.btn-eye.btn-group.active{:type => "button"}
-				%i.ero-eye
-			%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
-				%i.ero-cross
-			%button.btn.icon-only.btn-plus.btn-group.active{:type => "button"}
-				%i.ero-cross
 
-			%h2.mt-5 Pagination
-			%nav{"aria-label" => "..."}
-				%ul.pagination
-					%li.page-item.disabled
-						%a.page-link{:href => "#", :tabindex => "-1"} Previous
-					%li.page-item
-						%a.page-link{:href => "#"} 1
-					%li.page-item.active
-						%a.page-link{:href => "#"}
-							2
-							%span.sr-only (current)
-					%li.page-item
-						%a.page-link{:href => "#"} 3
-					%li.page-item
-						%a.page-link{:href => "#"} Next
 
-			%h1.mt-5 Erotrip
+
+
+
 			%h2 Forms
 			%form
 				.form-group
@@ -350,6 +293,103 @@
 						%input.form-check-input{:type => "checkbox"}/
 						Remember me
 				%button.btn.btn-primary{:type => "submit"} Submit
+
+
+			.pt-5
+			.pt-5
+			.pt-5
+			.pt-5
+			.pt-5
+			.pt-5
+			%h2.mt-5 Modal
+			/ Button trigger modal
+			%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+				Launch demo modal
+			/ Modal
+			#exampleModal.modal.fadeable{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+				.modal-dialog{:role => "document"}
+					.modal-content
+						.modal-header
+							%h5#exampleModalLabel.modal-title Modal title
+							%button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+								%span{"aria-hidden" => "true"} ×
+						.modal-body
+							\...
+						.modal-footer
+							%button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+							%button.btn.btn-primary{:type => "button"} Save changes
+
+
+			%h2.mt-5 Buttons
+			/ Provides extra visual weight and identifies the primary action in a set of buttons
+			%button.btn.btn-primary{:type => "button"} Primary
+			/ Secondary, outline button
+			%button.btn.btn-secondary{:type => "button"} Secondary
+			/ Indicates a successful or positive action
+			%button.btn.btn-success{:type => "button"} Success
+			/ Contextual button for informational alert messages
+			%button.btn.btn-info{:type => "button"} Info
+			/ Indicates caution should be taken with this action
+			%button.btn.btn-warning{:type => "button"} Warning
+			/ Indicates a dangerous or potentially negative action
+			%button.btn.btn-danger{:type => "button"} Danger
+			/ Deemphasize a button by making it look like a link while maintaining button behavior
+			%button.btn.btn-link{:type => "button"} Link
+
+			%h2.mt-5 Buttons - icons only
+			/ Provides extra visual weight and identifies the primary action in a set of buttons
+			%button.btn.icon-only.btn-primary{:type => "button"}
+				%i.ero-eye
+			/ Secondary, outline button
+			%button.btn.icon-only.btn-secondary{:type => "button"}
+				%i.ero-eye
+			/ Indicates a successful or positive action
+			%button.btn.icon-only.btn-success{:type => "button"}
+				%i.ero-eye
+			/ Contextual button for informational alert messages
+			%button.btn.icon-only.btn-info{:type => "button"}
+				%i.ero-eye
+			/ Indicates caution should be taken with this action
+			%button.btn.icon-only.btn-warning{:type => "button"}
+				%i.ero-eye
+			/ Indicates a dangerous or potentially negative action
+			%button.btn.icon-only.btn-danger{:type => "button"}
+				%i.ero-eye
+			/ Deemphasize a button by making it look like a link while maintaining button behavior
+			%button.btn.icon-only.btn-link{:type => "button"}
+				%i.ero-eye
+
+			%h2.mt-5 Buttons - icons only, outlined
+			%button.btn.icon-only.btn-primary.btn-outline-primary.btn-outline-gray{:type => "button"}
+				%i.ero-cross
+
+			%h2.mt-5 Buttons - group scoped
+			%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
+				%i.ero-eye
+			%button.btn.icon-only.btn-eye.btn-group.active{:type => "button"}
+				%i.ero-eye
+			%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
+				%i.ero-cross
+			%button.btn.icon-only.btn-plus.btn-group.active{:type => "button"}
+				%i.ero-cross
+
+			%h2.mt-5 Pagination
+			%nav{"aria-label" => "..."}
+				%ul.pagination
+					%li.page-item.disabled
+						%a.page-link{:href => "#", :tabindex => "-1"} Previous
+					%li.page-item
+						%a.page-link{:href => "#"} 1
+					%li.page-item.active
+						%a.page-link{:href => "#"}
+							2
+							%span.sr-only (current)
+					%li.page-item
+						%a.page-link{:href => "#"} 3
+					%li.page-item
+						%a.page-link{:href => "#"} Next
+
+
 
 			%h2.mt-5 Category
 			%h2.mt-5 Trip

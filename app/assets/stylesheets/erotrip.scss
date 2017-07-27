@@ -509,3 +509,23 @@ body {
 		background: $brand-primary;
 	}
 }
+
+.search {
+	.search-bar {
+		padding: 10px 0px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.search-input {
+			display: flex;
+			align-items: center;
+
+			select {
+				min-width: 200px;
+			}
+		}
+	}
+}
+
+
