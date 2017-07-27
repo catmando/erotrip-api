@@ -11,11 +11,13 @@
  * It is generally better to create a new file per style scope.
  *
  */
+@import "erotrip_variables"; // available for every file
+
 @import "bootstrap_variables";
 @import "Bootstrap";
 @import "bootstrap_overwrite";
 
-@import "erotrip_variables";
+@import "ero_font";
 @import "erotrip";
 
 @import "utils";

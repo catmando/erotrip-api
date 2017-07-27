@@ -21,7 +21,7 @@ body {
 .main-container {
 	margin-top: 0px;
 
-	@media (max-width: 1200px) {
+	@media (max-width: 1199px) {
 		padding: 0px;
 		margin-left: 80px;
 		width: calc(100% - 80px);
@@ -55,7 +55,7 @@ body {
 
 // layout parts
 .featured {
-	background: #059DC3;
+	background: $featured-bg;
 	display: flex;
 	align-items: center;
 	height: 100px;
@@ -73,46 +73,19 @@ body {
 	}
 }
 
-// button with label
-button.with-label {
-	position: relative;
-	.button-label {
-		height: 17px;
-		min-width: 17px;
-		background: $btn-secondary-bg;
-		color: #fff;
-		position: absolute;
-		right: -3px;
-		top: -2px;
-		border-radius: 50px;
-		border: 2px solid #fff;
-		font-size: 10px;
-		background: $btn-secondary-bg;
-		padding: 1px 3px;
-
-		&.empty {
-			height: 13px;
-			min-width: 13px;
-
-			right: 0px;
-			top: 0px;
-			border-radius: 50%;
-
-			padding: 0px;
-		}
-	}
-}
-
-.group-more {
-	background: #00C2F0;
+// group-details
+.group-details {
+	background: $brand-primary;
 	height: 250px;
 	padding: 30px 60px 30px 30px;
 
-	.white-internal {
+	.group-details-wrapper {
+		display: flex;
+		align-items: center;
 		position: relative;
 		height: 100%;
 		border-radius: 25px;
-		background: #fff;
+		background: $white;
 		padding: 15px;
 
 		a {
@@ -131,7 +104,7 @@ button.with-label {
 				max-width: 120px;
 			}
 
-			@media (min-width: 1200px) {
+			@media (min-width: 1199px) {
 				border-radius: 25px;
 				max-height: 100%;
 				max-width: inherit;
@@ -168,7 +141,7 @@ button.with-label {
 	width: calc(1110px * 0.25); // (1140px - 30px) * 0.25 this is for 1140px container
 	left: calc((100% - (1110px))/2);
 	padding: 15px 27px;
-	background: #fff;
+	background: $white;
 	z-index: 2;
 	top: 0px;
 	bottom: 0px;
@@ -245,12 +218,61 @@ button.with-label {
 				display: flex;
 				align-items: center;
 
+				&.active {
+					a {
+						color: $brand-primary;
+					}
+				}
+
 				a {
-					padding: 3px 10px;
+					padding: 5px 10px;
 					display: flex;
 					align-items: center;
 					justify-content: flex-start;
 					width: 100%;
+
+					.icon-wrapper {
+						min-width: 30px;
+						display: flex;
+						justify-content: center;
+
+						i {
+						  font-size: 16px;
+
+						  &.ero-groups {
+						    font-size: 14px;
+						  }
+
+						  &.ero-hotline {
+						    font-size: 17px;
+						  }
+
+						  &.ero-messages {
+						    font-size: 13px;
+						  }
+
+						  &.ero-eye {
+						    font-size: 18px;
+						  }
+
+						  &.ero-new-people {
+						    font-size: 18px;
+						  }
+
+						  &.ero-new-trips {
+						    font-size: 18px;
+						  }
+
+						  &.ero-unlocked {
+						    font-size: 18px;
+						  }
+
+						  &.ero-locker {
+						    font-size: 19px;
+						  }
+
+						}
+					}
 
 					.label {
 						margin-left: 15px;
@@ -261,7 +283,7 @@ button.with-label {
 	}
 
 	// tablet
-	@media (max-width: 1200px) {
+	@media (min-width: 768px) and (max-width: 1199px) {
 		width: 80px;
 		left: 0px;
 		padding: 0px 12px;
@@ -276,7 +298,7 @@ button.with-label {
 			.profile {
 				width: 45px;
 				margin: 20px 0px;
-				transition: margin 0.3s ease;
+				transition: all 0.3s ease;
 
 				.profile-details {
 					.profile-name {
@@ -285,19 +307,30 @@ button.with-label {
 					}
 				}
 				.profile-buttons {
-					display: none;
+					min-width: 91px;
 				}
 			}
 
-			button.more {
-				margin: 30px 0px;
-				transition: margin 0.3s ease;
+			.logged-in-buttons {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				overflow: hidden;
+				height: 180px;
+				transition: height 0.3s ease;
+
+				.btn-menu {
+					margin: 31px 0px;
+					transition: margin 0.3s ease;
+				}
+
+				.btn-messages {
+					margin: 20px 0px;
+					transition: margin 0.3s ease;
+				}
 			}
 
-			button.messages {
-				margin: 20px 0px;
-				transition: margin 0.3s ease;
-			}
 		}
 
 		.menu {
@@ -309,28 +342,45 @@ button.with-label {
 				transition: all 0.3s ease;
 			}
 
-			ul {
+			ul.main-submenu {
+				padding-top: 15px;
+				transition: padding 0.3s ease;
 				li.menu-item {
 					a {
-						justify-content: flex-start;
-						padding: 5px 10px;
+						padding: 10px;
+						i {
+							font-size: 20px !important;
+							transition: font-size 0.3s ease;
+						}
 					}
 				}
 			}
 		}
 
+		.fadeable {
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
 		&.open {
 			width: 250px;
-			transition: width 0.3s ease;
+			transition: all 0.3s ease;
 			box-shadow: 20px 0px 20px 2px rgba(0, 0, 0, 0.19);
 
 			.logged-in {
 				align-items: center;
 
+				.logged-in-buttons {
+					overflow: hidden;
+					height: 0px;
+					transition: height 0.3s ease;
+				}
+
 				.profile {
 					width: 226px;
 					justify-content: space-between;
 					margin: 10px 0px;
+					transition: all 0.3s ease;
 
 					.profile-details {
 						.profile-name {
@@ -340,16 +390,8 @@ button.with-label {
 						}
 					}
 					.profile-buttons {
-						display: block;
+						min-width: 91px;
 					}
-				}
-
-				button.more {
-					margin: 10px 0px;
-				}
-
-				button.messages {
-					margin: 10px 0px;
 				}
 			}
 
@@ -361,12 +403,32 @@ button.with-label {
 					margin: 15px 0px;
 					transition: all 0.3s ease;
 				}
+
+				ul.main-submenu {
+					padding-top: 0px;
+					transition: padding 0.3s ease;
+					li.menu-item {
+						a {
+							padding: 5px 10px;
+
+							i {
+								font-size: initial !important;
+								transition: font-size 0.3s ease;
+							}
+						}
+					}
+				}
+			}
+
+			.fadeable {
+				opacity: 1;
+				transition: opacity 0.3s ease;
 			}
 		}
 	}
 
 	// mobile
-	@media (max-width: 768px) {
+	@media (max-width: 767px) {
 		width: 250px;
 		left: -250px;
 		padding: 0px 12px;
@@ -417,7 +479,7 @@ button.with-label {
 
 .navbar {
 	position: fixed;
-	background: #fff;
+	background: $white;
 	z-index: 1;
 	width: 100%;
 	height: 70px;

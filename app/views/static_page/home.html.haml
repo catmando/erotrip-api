@@ -1,10 +1,10 @@
 .navbar.hidden-md-up
 	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more{:type => "button"}
-		= image_tag('icons/close-primary.svg')
+		%i.ero-menu
 		.button-label.empty
 	= image_tag('logo.png')
 	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages{:type => "button"}
-		= image_tag('icons/close-primary.svg')
+		%i.ero-messages
 		.button-label 2
 
 .desktop-patch.hidden-lg-down
@@ -22,15 +22,17 @@
 	-# 		%span.text-primary Zaloguj się
 
 	.logged-in
-		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.hidden-sm-down.hidden-xl-up{:type => "button"}
-			= image_tag('icons/close-primary.svg')
-			.button-label.empty
-		.divider.hidden-sm-down.hidden-xl-up
 
-		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages.hidden-sm-down.hidden-xl-up{:type => "button"}
-			= image_tag('icons/close-primary.svg')
-			.button-label 2
-		.divider.hidden-sm-down
+		.logged-in-buttons
+			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up{:type => "button"}
+				%i.ero-menu
+				.button-label.empty
+			.divider.hidden-sm-down.hidden-xl-up
+
+			%button.btn.btn-outline-primary.btn-outline-gray.btn-messages.icon-only.with-label.hidden-sm-down.hidden-xl-up{:type => "button"}
+				%i.ero-messages
+				.button-label 2
+			.divider.hidden-sm-down
 
 		.profile
 			.profile-details
@@ -38,69 +40,81 @@
 				%span.profile-name.text-gray Ewelinaelina
 
 			.profile-buttons
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only{:type => "button"}
-					= image_tag('icons/close-primary.svg')
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only{:type => "button"}
-					= image_tag('icons/close-primary.svg')
+				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable{:type => "button"}
+					%i.ero-settings
+				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable{:type => "button"}
+					%i.ero-log-out
 		.divider
 
 	.menu
 		%button.btn.btn-secondary.btn-block
 			Dodaj wycieczkę
 
-		%ul
+		%ul.main-submenu
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
-					.label Użytkownicy
+					.icon-wrapper
+						%i.ero-users
+					.label.fadeable Użytkownicy
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
-					.label Wycieczki
+					.icon-wrapper
+						%i.ero-trips
+					.label.fadeable Wycieczki
+			%li.menu-item.active
+				%a
+					.icon-wrapper
+						%i.ero-groups
+					.label.fadeable Grupy
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
-					.label Grupy
-			%li.menu-item
-				%a
-					= image_tag('icons/users.png')
-					.label Hotline
+					.icon-wrapper
+						%i.ero-hotline
+					.label.fadeable Hotline
 
 		%button.btn.btn-primary.btn-block
 			Moje wycieczki
 
-		%ul
+		%ul.fadeable.secondary-submenu
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-messages
 					.label Wiadmości
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-notifications
 					.label Powiadomienia
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-heart-2
 					.label Chcą Cię poznać
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-eye
 					.label Podglądacz
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-new-people
 					.label Nowe osoby
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-new-trips
 					.label Nowe wycieczki
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-unlocked
 					.label Odblokowania
 			%li.menu-item
 				%a
-					= image_tag('icons/users.png')
+					.icon-wrapper
+						%i.ero-locker
 					.label Tryb anonimowy
 
 
@@ -122,8 +136,9 @@
 					= link_to image_tag('girl.jpg')
 				.img-wrapper
 					= link_to image_tag('girl.jpg')
-			.group-more
-				.white-internal.ea-flex.ea-align-center
+
+			.group-details
+				.group-details-wrapper
 					= link_to image_tag('girl.jpg')
 					.text
 						%h2.mt-0 BDSM
@@ -140,17 +155,16 @@
 								%span.text-gray Publiczny
 
 					%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
-						= link_to image_tag('icons/close.svg')
+						%i.ero-cross
 					%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
-						= link_to image_tag('icons/eye.svg')
-
+						%i.ero-eye
 
 			%h2.mt-5 Modal
 			/ Button trigger modal
 			%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
 				Launch demo modal
 			/ Modal
-			#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+			#exampleModal.modal.fadeable{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
 				.modal-dialog{:role => "document"}
 					.modal-content
 						.modal-header
@@ -183,41 +197,39 @@
 			%h2.mt-5 Buttons - icons only
 			/ Provides extra visual weight and identifies the primary action in a set of buttons
 			%button.btn.icon-only.btn-primary{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+				%i.ero-eye
 			/ Secondary, outline button
 			%button.btn.icon-only.btn-secondary{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+				%i.ero-eye
 			/ Indicates a successful or positive action
 			%button.btn.icon-only.btn-success{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+				%i.ero-eye
 			/ Contextual button for informational alert messages
 			%button.btn.icon-only.btn-info{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+				%i.ero-eye
 			/ Indicates caution should be taken with this action
 			%button.btn.icon-only.btn-warning{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+				%i.ero-eye
 			/ Indicates a dangerous or potentially negative action
 			%button.btn.icon-only.btn-danger{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+				%i.ero-eye
 			/ Deemphasize a button by making it look like a link while maintaining button behavior
 			%button.btn.icon-only.btn-link{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+				%i.ero-eye
 
 			%h2.mt-5 Buttons - icons only, outlined
 			%button.btn.icon-only.btn-primary.btn-outline-primary.btn-outline-gray{:type => "button"}
-				= link_to image_tag('icons/close-primary.svg')
+				%i.ero-cross
 
 			%h2.mt-5 Buttons - group scoped
 			%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
-				= image_tag('icons/eye.svg')
-			%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
-				= image_tag('icons/eye.svg')
+				%i.ero-eye
 			%button.btn.icon-only.btn-eye.btn-group.active{:type => "button"}
-				= image_tag('icons/eye.svg')
+				%i.ero-eye
 			%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
-				= image_tag('icons/close.svg')
+				%i.ero-cross
 			%button.btn.icon-only.btn-plus.btn-group.active{:type => "button"}
-				= image_tag('icons/close.svg')
+				%i.ero-cross
 
 			%h2.mt-5 Pagination
 			%nav{"aria-label" => "..."}

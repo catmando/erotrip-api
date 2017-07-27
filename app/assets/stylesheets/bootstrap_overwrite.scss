@@ -3,68 +3,131 @@
 	cursor: pointer;
 }
 
+// custom buttons
 .btn.icon-only {
-	width: 38px;
-	height: 38px;
-	border-radius: 50%;
-	padding: 5px 4px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 8px 5px;
+
+  i {
+    font-size: 19px;
+
+    &.ero-menu {
+      font-size: 15px;
+      line-height: 21px;
+    }
+
+    &.ero-messages {
+      font-size: 15px;
+      line-height: 21px;
+    }
+
+    &.ero-settings {
+      font-size: 21px;
+      line-height: 19px;
+    }
+
+    &.ero-log-out {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
 }
 
 .btn-outline-primary.btn-outline-gray {
-	border-color: #c5ccd3;
+  border-color: $ero-gray-light;
 
-	&:hover {
-		border-color: $brand-primary;
-	}
+  &:hover {
+    border-color: $brand-primary;
+  }
 }
 
 .btn.btn-group {
-	border-width: 5px;
-	width: 52px;
-	height: 52px;
-	padding: 3px;
+  border-width: 5px;
+  width: 52px;
+  height: 52px;
+  padding: 3px;
 }
 
 .btn.btn-group.btn-eye {
-	border-color: $btn-primary-border;
-	background: $white;
+  border-color: $btn-primary-border;
+  background: $white;
+  color: $ero-gray-light;
+  padding: 8px 1px;
 
-	&:hover {
-		color: $btn-secondary-bg;
-	}
+  i {
+    font-size: 30px;
+  }
 
-	&.active {
-		background: $btn-secondary-bg;
-		color: $white;
-	}
+  &:hover {
+    color: $btn-secondary-bg;
+  }
 
+  &.active {
+    background: $btn-secondary-bg;
+    color: $white;
+
+    &:hover {
+      background: $btn-secondary-bg-darker;
+    }
+  }
 }
 
 .btn.btn-group.btn-plus {
-	border-color: $btn-primary-border;
-	background: $btn-secondary-bg;
-	border-width: 5px;
-	width: 52px;
-	height: 52px;
-	padding: 3px 10px;
+  border-color: $btn-primary-border;
+  background: $btn-secondary-bg;
+  border-width: 5px;
+  width: 52px;
+  height: 52px;
+  padding: 3px 11px;
 
-	img {
-		-ms-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-		transition: transform 0.3s;
-	}
+  i {
+    color: #fff;
+    font-size: 20px;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+  }
 
-	&:hover {
-		background-color: #b90e55;
-	}
+  &:hover {
+    background-color: $btn-secondary-bg-darker;
+  }
 
-	&.active {
-		img {
-			-ms-transform: rotate(45deg);
-			-webkit-transform: rotate(45deg);
-			transform: rotate(45deg);
-			transition: transform 0.3s;
-		}
-	}
+  &.active {
+    i {
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      transition: transform 0.3s;
+    }
+  }
+}
+
+// button with label
+button.with-label {
+  position: relative;
+  .button-label {
+    height: 17px;
+    min-width: 17px;
+    color: $white;
+    position: absolute;
+    right: -3px;
+    top: -2px;
+    border-radius: 50px;
+    border: 2px solid $white;
+    font-size: 10px;
+    background: $btn-secondary-bg;
+    padding: 1px 3px;
+
+    &.empty {
+      height: 13px;
+      min-width: 13px;
+      right: -1px;
+      top: -1px;
+      border-radius: 50%;
+      padding: 0px;
+    }
+  }
 }
