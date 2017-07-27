@@ -1,33 +1,70 @@
-.container {
-}
-
 .btn {
-  font-family: $font-family-sans-serif;
+	font-family: $font-family-sans-serif;
+	cursor: pointer;
 }
 
 .btn.icon-only {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  padding: 5px 4px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	padding: 5px 4px;
 }
 
 .btn-outline-primary.btn-outline-gray {
-  border-color: #8C9AA8;
+	border-color: #c5ccd3;
+
+	&:hover {
+		border-color: $brand-primary;
+	}
 }
 
-.btn-outline-primary.btn-group {
-  border-width: 5px;
-  width: 55px;
-  height: 55px;
-  padding: 5px 4.5px;
-  background: #fff;
+.btn.btn-group {
+	border-width: 5px;
+	width: 52px;
+	height: 52px;
+	padding: 3px;
 }
 
-.btn-secondary.btn-group {
-  border-color: $btn-primary-border;
-  border-width: 5px;
-  width: 55px;
-  height: 55px;
-  padding: 5px 4.5px;
+.btn.btn-group.btn-eye {
+	border-color: $btn-primary-border;
+	background: $white;
+
+	&:hover {
+		color: $btn-secondary-bg;
+	}
+
+	&.active {
+		background: $btn-secondary-bg;
+		color: $white;
+	}
+
+}
+
+.btn.btn-group.btn-plus {
+	border-color: $btn-primary-border;
+	background: $btn-secondary-bg;
+	border-width: 5px;
+	width: 52px;
+	height: 52px;
+	padding: 3px 10px;
+
+	img {
+		-ms-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		transition: transform 0.3s;
+	}
+
+	&:hover {
+		background-color: #b90e55;
+	}
+
+	&.active {
+		img {
+			-ms-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+			transition: transform 0.3s;
+		}
+	}
 }

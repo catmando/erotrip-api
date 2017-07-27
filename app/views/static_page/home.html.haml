@@ -1,99 +1,107 @@
 .navbar.hidden-md-up
 	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more{:type => "button"}
-		= image_tag('icons/close.svg')
+		= image_tag('icons/close-primary.svg')
 		.button-label.empty
 	= image_tag('logo.png')
 	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages{:type => "button"}
-		= image_tag('icons/close.svg')
+		= image_tag('icons/close-primary.svg')
 		.button-label 2
 
 .desktop-patch.hidden-lg-down
 	.top
 	.bottom
 
-.sidebar
+.sidebar.open
 	.logo-wrapper.hidden-lg-down
 		= link_to image_tag('logo.png')
 
-	.logged-out.hidden-lg-down
-		%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
-		%p.mt-0.mb-0
-			%span Masz już konto?
-			%span.text-primary Zaloguj się
+	-# .logged-out
+	-# 	%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
+	-# 	%p.mt-0.mb-0
+	-# 		%span Masz już konto?
+	-# 		%span.text-primary Zaloguj się
 
-	.logged-in.hidden-xl-up
-		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more{:type => "button"}
-			= image_tag('icons/close.svg')
+	.logged-in
+		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.hidden-sm-down.hidden-xl-up{:type => "button"}
+			= image_tag('icons/close-primary.svg')
 			.button-label.empty
-		.divider.hidden-xl-up
+		.divider.hidden-sm-down.hidden-xl-up
 
-		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages{:type => "button"}
-			= image_tag('icons/close.svg')
+		%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages.hidden-sm-down.hidden-xl-up{:type => "button"}
+			= image_tag('icons/close-primary.svg')
 			.button-label 2
-		.divider.hidden-xl-up
+		.divider.hidden-sm-down
 
 		.profile
-			= link_to image_tag('girl.jpg')
-		.divider.hidden-xl-up
+			.profile-details
+				= image_tag('girl.jpg')
+				%span.profile-name.text-gray Ewelinaelina
+
+			.profile-buttons
+				%button.btn.btn-outline-primary.btn-outline-gray.icon-only{:type => "button"}
+					= image_tag('icons/close-primary.svg')
+				%button.btn.btn-outline-primary.btn-outline-gray.icon-only{:type => "button"}
+					= image_tag('icons/close-primary.svg')
+		.divider
 
 	.menu
-		%button.btn.btn-secondary.btn-block.hidden-lg-down
+		%button.btn.btn-secondary.btn-block
 			Dodaj wycieczkę
 
 		%ul
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Użytkownicy
+					.label Użytkownicy
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Wycieczki
+					.label Wycieczki
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Grupy
+					.label Grupy
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Hotline
+					.label Hotline
 
-		%button.btn.btn-primary.btn-block.hidden-lg-down
+		%button.btn.btn-primary.btn-block
 			Moje wycieczki
 
 		%ul
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Wiadmości
+					.label Wiadmości
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Powiadomienia
+					.label Powiadomienia
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Chcą Cię poznać
+					.label Chcą Cię poznać
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Podglądacz
+					.label Podglądacz
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Nowe osoby
+					.label Nowe osoby
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Nowe wycieczki
+					.label Nowe wycieczki
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Odblokowania
+					.label Odblokowania
 			%li.menu-item
 				%a
 					= image_tag('icons/users.png')
-					.label.hidden-lg-down Tryb anonimowy
+					.label Tryb anonimowy
 
 
 .container.main-container
@@ -131,9 +139,9 @@
 								%span.text-primary Twój profil
 								%span.text-gray Publiczny
 
-					%button.btn.icon-only.btn-secondary.btn-group.button-top{:type => "button"}
-						= link_to image_tag('icons/eye.svg')
-					%button.btn.icon-only.btn-outline-primary.btn-outline-primary.btn-group.button-bottom{:type => "button"}
+					%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
+						= link_to image_tag('icons/close.svg')
+					%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
 						= link_to image_tag('icons/eye.svg')
 
 
@@ -197,13 +205,19 @@
 
 			%h2.mt-5 Buttons - icons only, outlined
 			%button.btn.icon-only.btn-primary.btn-outline-primary.btn-outline-gray{:type => "button"}
-				= link_to image_tag('icons/close.svg')
+				= link_to image_tag('icons/close-primary.svg')
 
 			%h2.mt-5 Buttons - group scoped
-			%button.btn.icon-only.btn-outline-primary.btn-outline-primary.btn-group{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
-			%button.btn.icon-only.btn-secondary.btn-group{:type => "button"}
-				= link_to image_tag('icons/eye.svg')
+			%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
+				= image_tag('icons/eye.svg')
+			%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
+				= image_tag('icons/eye.svg')
+			%button.btn.icon-only.btn-eye.btn-group.active{:type => "button"}
+				= image_tag('icons/eye.svg')
+			%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
+				= image_tag('icons/close.svg')
+			%button.btn.icon-only.btn-plus.btn-group.active{:type => "button"}
+				= image_tag('icons/close.svg')
 
 			%h2.mt-5 Pagination
 			%nav{"aria-label" => "..."}
