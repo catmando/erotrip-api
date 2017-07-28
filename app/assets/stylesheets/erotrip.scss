@@ -650,9 +650,27 @@ body {
 				font-family: 'GothamRoundedBook';
 			}
 		}
-
 	}
+}
 
+.pagination {
+	width: 100%;
+
+	.page-wrapper {
+		display: flex;
+		align-items: center;
+
+		.page-item {
+			.page-link {
+				border-radius: 50px;
+				width: 38px;
+				height: 38px;
+				line-height: 22px;
+				text-align: center;
+				margin: 0px 2px;
+			}
+		}
+	}
 }
 
 
