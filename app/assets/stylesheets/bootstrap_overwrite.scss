@@ -4,6 +4,14 @@
   outline: none;
 }
 
+.btn-link.btn-link-gray {
+  color: $ero-gray;
+
+  &:hover {
+    color: $btn-secondary-bg;
+  }
+}
+
 // custom buttons
 .btn.icon-only {
   width: 38px;

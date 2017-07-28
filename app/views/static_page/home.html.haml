@@ -11,7 +11,7 @@
 	.top
 	.bottom
 
-.sidebar.open
+.sidebar
 	.logo-wrapper.hidden-lg-down
 		= link_to image_tag('logo.png')
 
@@ -36,7 +36,7 @@
 
 		.profile
 			.profile-details
-				= image_tag('girl.jpg')
+				= image_tag 'girl.jpg'
 				%span.profile-name.text-gray Ewelinaelina
 
 			.profile-buttons
@@ -123,23 +123,23 @@
 		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
 			.featured
 				.img-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 				.img-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 				.img-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 				.img-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 				.img-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 				.img-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 				.img-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 
 			.group-details
 				.group-details-wrapper
-					= link_to image_tag('girl.jpg')
+					= link_to image_tag 'girl.jpg'
 					.text
 						%h2.mt-0 BDSM
 						%p.text-book.text-gray Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
@@ -252,45 +252,45 @@
 							%button.btn.btn-secondary.mr-4{:type => "button"} Pokaż
 							%button.btn.btn-outline-primary.btn-outline-gray{:type => "button"} Anuluj
 
-			.row
-				.col-3
+			.row.people-wrapper
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
-							= image_tag('girl.jpg')
+							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.online
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-				.col-3
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
-							= image_tag('girl.jpg')
+							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.offline
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-				.col-3
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
 							.locker
@@ -300,67 +300,67 @@
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.away
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Hermenegildaaaaa,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-				.col-3
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
-							= image_tag('girl.jpg')
+							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.away
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-				.col-3
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
-							= image_tag('girl.jpg')
+							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.online
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-				.col-3
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
-							= image_tag('girl.jpg')
+							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.offline
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-				.col-3
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
 							.locker
@@ -370,32 +370,33 @@
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.away
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-				.col-3
+				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
-						.person-image-wrapper
-							.person-amount
+						.person-photo-wrapper
+							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
-							= image_tag('girl.jpg')
+							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.away
 							.person-details
-								.person-name
-									%h5.mt-0.mb-0.d-inline-block Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2 24
-								.preson-city.text-gray
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
+									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
 			%nav.mt-5{"aria-label" => "..."}
 				%ul.pagination.justify-content-between
-					%li.page-item.disabled
+					%li.page-item.previous.disabled
+						%i.ero-arrow-left
 						%a.page-link{:href => "#", :tabindex => "-1"} Poprzednia strona
 
 					.page-wrapper
@@ -410,8 +411,61 @@
 						%li.page-item
 							%a.page-link{:href => "#"} 5
 
-					%li.page-item
+					%li.page-item.next
 						%a.page-link{:href => "#"} Następna strona
+						%i.ero-arrow-right
+
+			.featured.mt-5
+				.img-wrapper
+					= link_to image_tag 'girl.jpg'
+				.img-wrapper
+					= link_to image_tag 'girl.jpg'
+				.img-wrapper
+					= link_to image_tag 'girl.jpg'
+				.img-wrapper
+					= link_to image_tag 'girl.jpg'
+				.img-wrapper
+					= link_to image_tag 'girl.jpg'
+				.img-wrapper
+					= link_to image_tag 'girl.jpg'
+				.img-wrapper
+					= link_to image_tag 'girl.jpg'
+
+			.footer.hidden-lg-down
+				.row.no-gutters
+					.col
+						.footer-stats-wrapper
+							.footer-stats
+								.name Użytkowników
+								.number 2 335 542
+					.col
+						.footer-stats-wrapper
+							.footer-stats
+								.name Zweryfikowanych
+								.number 2 115 542
+					.col
+						.footer-stats-wrapper
+							.footer-stats
+								.name Online
+								.number 15 123
+					.col
+						.footer-stats-wrapper
+							.footer-stats
+								.name Ukrytych
+								.number 75 123
+					.col
+						.footer-stats-wrapper
+							.footer-stats
+								.name Wycieczek
+								.number 92 123
+
+			.footer-info.hidden-lg-up
+				.footer-info-text
+					.text-book.text-center Copyright 2017 © Erotrip.pl Wszystkie prawa zastrzeżone
+					.ea-flex.ea-just-center
+						%button.btn.btn-link.btn-link-gray{:type => "button"} Kontakt
+						%button.btn.btn-link.btn-link-gray{:type => "button"} Regulamin
+
 
 			.pt-5
 			.pt-5
@@ -419,6 +473,8 @@
 			.pt-5
 			.pt-5
 			.pt-5
+
+			= react_component("Post", {title: "Hello World"})
 
 			%h2 Forms
 			%form
@@ -558,28 +614,31 @@
 			/ Deemphasize a button by making it look like a link while maintaining button behavior
 			%button.btn.btn-link{:type => "button"} Link
 
-			%h2.mt-5 Buttons - icons only
-			/ Provides extra visual weight and identifies the primary action in a set of buttons
-			%button.btn.icon-only.btn-primary{:type => "button"}
-				%i.ero-eye
-			/ Secondary, outline button
-			%button.btn.icon-only.btn-secondary{:type => "button"}
-				%i.ero-eye
-			/ Indicates a successful or positive action
-			%button.btn.icon-only.btn-success{:type => "button"}
-				%i.ero-eye
-			/ Contextual button for informational alert messages
-			%button.btn.icon-only.btn-info{:type => "button"}
-				%i.ero-eye
-			/ Indicates caution should be taken with this action
-			%button.btn.icon-only.btn-warning{:type => "button"}
-				%i.ero-eye
-			/ Indicates a dangerous or potentially negative action
-			%button.btn.icon-only.btn-danger{:type => "button"}
-				%i.ero-eye
-			/ Deemphasize a button by making it look like a link while maintaining button behavior
-			%button.btn.icon-only.btn-link{:type => "button"}
-				%i.ero-eye
+			%h2.mt-5 Button link, gray
+			%button.btn.btn-link.btn-link-gray{:type => "button"} Link
+
+			-# %h2.mt-5 Buttons - icons only
+			-# / Provides extra visual weight and identifies the primary action in a set of buttons
+			-# %button.btn.icon-only.btn-primary{:type => "button"}
+			-# 	%i.ero-eye
+			-# / Secondary, outline button
+			-# %button.btn.icon-only.btn-secondary{:type => "button"}
+			-# 	%i.ero-eye
+			-# / Indicates a successful or positive action
+			-# %button.btn.icon-only.btn-success{:type => "button"}
+			-# 	%i.ero-eye
+			-# / Contextual button for informational alert messages
+			-# %button.btn.icon-only.btn-info{:type => "button"}
+			-# 	%i.ero-eye
+			-# / Indicates caution should be taken with this action
+			-# %button.btn.icon-only.btn-warning{:type => "button"}
+			-# 	%i.ero-eye
+			-# / Indicates a dangerous or potentially negative action
+			-# %button.btn.icon-only.btn-danger{:type => "button"}
+			-# 	%i.ero-eye
+			-# / Deemphasize a button by making it look like a link while maintaining button behavior
+			-# %button.btn.icon-only.btn-link{:type => "button"}
+			-# 	%i.ero-eye
 
 			%h2.mt-5 Buttons - icons only, outlined
 			%button.btn.icon-only.btn-primary.btn-outline-primary.btn-outline-gray{:type => "button"}

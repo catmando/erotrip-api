@@ -556,14 +556,58 @@ body {
 	}
 }
 
+.people-wrapper {
+
+	@media (max-width: 767px) {
+		justify-content: space-between;
+
+		.col-6 {
+			-ms-flex: 0 0 40%;
+			flex: 0 0 40%;
+			max-width: 40%;
+
+			.person {
+				.person-photo-wrapper {
+					position: relative;
+
+					img {
+						border-radius: 50%;
+					}
+				}
+			}
+
+			&:nth-child(3), &:nth-child(6), &:nth-child(9), &:nth-child(12), &:nth-child(15) {
+				-ms-flex: 0 0 100%;
+				flex: 0 0 100%;
+				max-width: 100%;
+				margin-top: -10%;
+				margin-bottom: -10%;
+
+				.person {
+					width: calc(40% - 15px - 3px);
+					margin: auto;
+
+					.person-photo-wrapper {
+						position: relative;
+
+						img {
+							border-radius: 50%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
 .person {
-	.person-image-wrapper {
+	.person-photo-wrapper {
 		position: relative;
 
 		img {
 			max-width: 100%;
 			max-height: 100%;
-			border-radius: 50px;
 			border-radius: 8%;
 
 			&.blurred {
@@ -571,7 +615,7 @@ body {
 			}
 		}
 
-		.person-amount {
+		.person-photo-amount {
 			background: rgba(62, 62, 62, 0.66);
 			border-radius: 5px;
 			color: #fff;
@@ -617,6 +661,7 @@ body {
 
 	.person-info {
 		padding-top: 20px;
+		padding-bottom: 20px;
 
 		.person-status {
 			height: 10px;
@@ -624,6 +669,19 @@ body {
 			min-width: 10px;
 			border-radius: 10px;
 			margin: 6px 10px 0px 0px;
+
+			@media (max-width: 767px) {
+				position: absolute;
+				top: 0px;
+				border: 4px #fff solid;
+				margin: 0px;
+				height: 25px;
+				width: 25px;
+				border-radius: 20px;
+				left: 50%;
+				margin-top: -13px;
+				margin-left: -17px;
+			}
 
 			&.online {
 				background: $online;
@@ -639,11 +697,28 @@ body {
 		}
 
 		.person-details {
-			width: 100%;
+			width: calc(100% - 20px);
 
-			.person-name {
+			.person-name-age {
 				display: flex;
 				justify-content: flex-start;
+
+				h5.person-name {
+					max-width: calc(100% - 25px);
+					text-overflow: ellipsis;
+					overflow: hidden;
+
+					@media (max-width: 767px) {
+						width: 90%;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						text-align: center;
+					}
+				}
+
+				@media (max-width: 767px) {
+					justify-content: center
+				}
 			}
 
 			.preson-city {
@@ -655,6 +730,30 @@ body {
 
 .pagination {
 	width: 100%;
+
+	.page-item.previous, .page-item.next {
+		display: flex;
+		align-items: center;
+
+		.page-link {
+			height: 38px;
+			border-color: transparent;
+			padding: 11px 15px;
+
+			&:hover {
+				color: $btn-secondary-bg;
+				background: transparent;
+			}
+		}
+
+		i {
+			color: $btn-secondary-bg;
+		}
+	}
+
+	.page-item.disabled {
+		opacity: 0.5;
+	}
 
 	.page-wrapper {
 		display: flex;
@@ -670,6 +769,58 @@ body {
 				margin: 0px 2px;
 			}
 		}
+	}
+}
+
+.footer {
+	height: 150px;
+	display: flex;
+	align-items: center;
+	background: $brand-primary;
+	font-family: 'GothamRoundedBook';
+
+	.row {
+		width: 100%;
+
+		.col {
+			border-right: 1px solid #fff;
+
+			&:last-child {
+				border-right: 0px solid #fff;
+			}
+		}
+	}
+
+	.footer-stats-wrapper {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		justify-content: center;
+
+		.footer-stats {
+			width: 100%;
+			padding: 20px;
+			text-align: center;
+			color: $white;
+
+			.name {
+				font-size: 12px;
+			}
+
+			.number {
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+.footer-info {
+	display: flex;
+	justify-content: center;
+
+	.footer-info-text {
+		padding: 35px;
+		max-width: 300px;
 	}
 }
 
