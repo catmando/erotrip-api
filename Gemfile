@@ -39,7 +39,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 
 # react-rails
-gem "react-rails"
+# gem "react-rails"
 # gem "webpacker"
 
 group :development, :test do
