@@ -121,7 +121,7 @@
 .container.main-container
 	.row.no-gutters
 		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
-			.featured
+			.featured.streach-me
 				.img-wrapper
 					= link_to image_tag 'girl.jpg'
 				.img-wrapper
@@ -137,7 +137,7 @@
 				.img-wrapper
 					= link_to image_tag 'girl.jpg'
 
-			.group-details
+			.group-details.streach-me
 				.group-details-wrapper
 					= link_to image_tag 'girl.jpg'
 					.text
@@ -256,148 +256,217 @@
 				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
 						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
+							.locker
+								%i.ero-locker
 							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.online
 							.person-details
 								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Anna
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
 								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
 				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
 						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
+							.locker
+								%i.ero-locker
 							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.offline
 							.person-details
 								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Anna
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
 								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
 				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
+					.person.locked
 						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
 							.locker
 								%i.ero-locker
-							= image_tag 'girl.jpg', class: 'blurred'
-
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.away
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Hermenegildaaaaa,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
-
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
 							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.away
 							.person-details
 								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Hermenegildaaaaaa
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
 								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
 				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
 						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
+							.locker
+								%i.ero-locker
+							= image_tag 'girl.jpg'
+
+						.person-info.ea-flex.ea-flex-align-start.ea-just-start
+							.person-status.away
+							.person-details
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Anna
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
+								.preson-city.text-gray.hidden-sm-down
+									Warszawa
+
+				.col-6.col-md-4.col-lg-4.col-xl-3
+					.person.locked
+						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
+							.person-photo-amount.hidden-sm-down
+								%i.ero-photo-amount
+								%span.amount 6
+							.locker
+								%i.ero-locker
 							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.online
 							.person-details
 								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Anna
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
 								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
 				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
 						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
+							.locker
+								%i.ero-locker
 							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.offline
 							.person-details
 								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Anna
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
 								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
 				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
 						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
 								%span.amount 6
 							.locker
 								%i.ero-locker
-							= image_tag 'girl.jpg', class: 'blurred'
-
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.away
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
-
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
 							= image_tag 'girl.jpg'
 
 						.person-info.ea-flex.ea-flex-align-start.ea-just-start
 							.person-status.away
 							.person-details
 								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name Anna,
-									%h5.mt-0.mb-0.person-age.text-gray.ml-2.hidden-sm-down 24
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Anna
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
+								.preson-city.text-gray.hidden-sm-down
+									Warszawa
+
+				.col-6.col-md-4.col-lg-4.col-xl-3
+					.person
+						.person-photo-wrapper
+							.person-actions
+								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+									%i.ero-heart
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+									%i.ero-cross
+							.person-photo-amount.hidden-sm-down
+								%i.ero-photo-amount
+								%span.amount 6
+							.locker
+								%i.ero-locker
+							= image_tag 'girl.jpg'
+
+						.person-info.ea-flex.ea-flex-align-start.ea-just-start
+							.person-status.away
+							.person-details
+								.person-name-age
+									%h5.mt-0.mb-0.d-inline-block.person-name
+										%span Anna
+										%span.coma.hidden-sm-down ,
+									%h5.mt-0.mb-0.person-age.text-gray 24
 								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
 			%nav.mt-5{"aria-label" => "..."}
 				%ul.pagination.justify-content-between
 					%li.page-item.previous.disabled
-						%i.ero-arrow-left
-						%a.page-link{:href => "#", :tabindex => "-1"} Poprzednia strona
+						%a.page-link{:href => "#", :tabindex => "-1"}
+							%i.ero-arrow-left.mr-3
+							%span.d-inline-block.hidden-sm-down Poprzednia strona
 
 					.page-wrapper
 						%li.page-item.active
@@ -412,10 +481,11 @@
 							%a.page-link{:href => "#"} 5
 
 					%li.page-item.next
-						%a.page-link{:href => "#"} Następna strona
-						%i.ero-arrow-right
+						%a.page-link{:href => "#"}
+							%span.d-inline-block.hidden-sm-down Następna strona
+							%i.ero-arrow-right.ml-3
 
-			.featured.mt-5
+			.featured.streach-me.mt-5
 				.img-wrapper
 					= link_to image_tag 'girl.jpg'
 				.img-wrapper
@@ -431,7 +501,7 @@
 				.img-wrapper
 					= link_to image_tag 'girl.jpg'
 
-			.footer.hidden-lg-down
+			.footer.streach-me.hidden-lg-down
 				.row.no-gutters
 					.col
 						.footer-stats-wrapper
@@ -641,7 +711,7 @@
 			-# 	%i.ero-eye
 
 			%h2.mt-5 Buttons - icons only, outlined
-			%button.btn.icon-only.btn-primary.btn-outline-primary.btn-outline-gray{:type => "button"}
+			%button.btn.icon-only.btn-outline-primary.btn-outline-gray{:type => "button"}
 				%i.ero-cross
 
 			%h2.mt-5 Buttons - group scoped
@@ -654,33 +724,36 @@
 			%button.btn.icon-only.btn-plus.btn-group.active{:type => "button"}
 				%i.ero-cross
 
+			%h2.mt-5 Buttons - person scoped
+			%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+				%i.ero-heart
+			%button.btn.icon-only.btn-person.btn-remove.btn-group{:type => "button"}
+				%i.ero-cross
+
 			%h2.mt-5 Pagination
-			%nav{"aria-label" => "..."}
-				%ul.pagination
-					%li.page-item.disabled
-						%a.page-link{:href => "#", :tabindex => "-1"} Previous
-					%li.page-item
-						%a.page-link{:href => "#"} 1
-					%li.page-item.active
+			%nav.mt-5{"aria-label" => "..."}
+				%ul.pagination.justify-content-between
+					%li.page-item.previous.disabled
+						%a.page-link{:href => "#", :tabindex => "-1"}
+							%i.ero-arrow-left.mr-3
+							%span.d-inline-block.hidden-sm-down Poprzednia strona
+
+					.page-wrapper
+						%li.page-item.active
+							%a.page-link{:href => "#"} 1
+						%li.page-item
+							%a.page-link{:href => "#"} 2
+						%li.page-item
+							%a.page-link{:href => "#"} 3
+						%li.page-item
+							%a.page-link{:href => "#"} 4
+						%li.page-item
+							%a.page-link{:href => "#"} 5
+
+					%li.page-item.next
 						%a.page-link{:href => "#"}
-							2
-							%span.sr-only (current)
-					%li.page-item
-						%a.page-link{:href => "#"} 3
-					%li.page-item
-						%a.page-link{:href => "#"} Next
-
-
-
-			%h2.mt-5 Category
-			%h2.mt-5 Trip
-			%h2.mt-5 Locker
-			%h2.mt-5 Photo wrapper with icons
-
-	%hr/
-	%footer
-		%p © Company 2017
-
+							%span.d-inline-block.hidden-sm-down Następna strona
+							%i.ero-arrow-right.ml-3
 
 
 
