@@ -513,8 +513,9 @@ body {
 	position: fixed;
 	background: $white;
 	z-index: 1;
-	width: 100%;
 	height: 70px;
+	left: 0px;
+	right: 0px;
 	top: 0px;
 
 	display: flex;
