@@ -81,26 +81,31 @@ body {
 	@media (max-width: 1199px) {
 		padding: 0px 15px;
 	}
+
+	@media (max-width: 768px) {
+		padding: 0px;
+	}
 }
 
 // group-details
 .group-details {
 	background: $brand-primary;
-	height: 250px;
 	padding: 30px 60px 30px 45px;
 
 	@media (max-width: 1199px) {
 		padding: 30px 60px 30px 30px;
 	}
 
+	@media (max-width: 768px) {
+		padding: 15px 45px 15px 15px;
+	}
+
 	.group-details-wrapper {
-		display: flex;
-		align-items: center;
 		position: relative;
 		height: 100%;
 		border-radius: 25px;
 		background: $white;
-		padding: 15px;
+		padding: 15px 30px 15px 15px;
 
 		a {
 			height: 100%;
@@ -112,7 +117,7 @@ body {
 			max-height: 100%;
 			max-width: 66px;
 
-			@media (min-width: 576px) {
+			@media (min-width: 767px) {
 				border-radius: 25px;
 				max-height: 100%;
 				max-width: 120px;
@@ -122,16 +127,25 @@ body {
 				border-radius: 25px;
 				max-height: 100%;
 				max-width: inherit;
+				max-width: 160px;
 			}
 		}
 
 		.text {
 			.group-info {
+				display: flex;
+				align-items: center;
+
 				p {
 					padding-right: 40px;
 					&:last-child {
 						padding-right: 0px;
 					}
+				}
+
+				@media (max-width: 767px) {
+					flex-direction: column;
+					align-items: flex-start;
 				}
 			}
 		}
@@ -140,12 +154,16 @@ body {
 			position: absolute;
 			right: -30px;
 			top: 15%;
+
+			@media (max-width: 767px) {
+				top: 8%;
+			}
 		}
 
 		.btn-eye {
 			position: absolute;
 			right: -30px;
-			bottom: 15%;
+			bottom: 8%;
 		}
 	}
 }
@@ -545,6 +563,19 @@ body {
 	.search-body {
 		.form-row {
 			margin-bottom: 30px;
+		}
+
+		.slider {
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+
+		.order-1 {
+			order: 1;
+		}
+
+		.order-2 {
+			order: 2;
 		}
 
 		legend {

@@ -27,6 +27,10 @@
     border-color: $brand-primary;
   }
 
+  &.active {
+    border-color: $brand-primary;
+  }
+
   i {
     font-size: 19px;
 
@@ -169,6 +173,12 @@
 
     &:hover {
       background-color: $brand-primary-darker;
+    }
+
+    i {
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
     }
   }
 }

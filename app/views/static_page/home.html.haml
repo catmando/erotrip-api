@@ -139,20 +139,24 @@
 
 			.group-details.streach-me
 				.group-details-wrapper
-					= link_to image_tag 'girl.jpg'
-					.text
-						%h2.mt-0 BDSM
-						%p.text-book.text-gray Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
-						.group-info.ea-flex.ea-align-center
-							%p.mb-0
-								%span.text-primary 2310
-								%span.text-gray użytkowników
-							%p.mb-0
-								%span.text-primary 70
-								%span.text-gray ukrytych
-							%p.mb-0
-								%span.text-primary Twój profil
-								%span.text-gray Publiczny
+
+					%h3.mt-0.hidden-md-up BDSM
+					.ea-flex.ea-align-start
+						%div
+						= link_to image_tag 'girl.jpg'
+						.text
+							%h2.mt-0.hidden-sm-down BDSM
+							%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+							.group-info.m
+								%p.mb-0
+									%span.text-primary 2310
+									%span.text-gray użytkowników
+								%p.mb-0
+									%span.text-primary 70
+									%span.text-gray ukrytych
+								%p.mb-0
+									%span.text-primary Twój profil
+									%span.text-gray Publiczny
 
 					%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
 						%i.ero-cross
@@ -176,53 +180,56 @@
 									%option 2
 
 				.row.search-body
-					.col-6.bordered
-						.row.form-row
-							.col
-								%select.form-control
-									%option 1
-									%option 2
 
-							.col
-								%select.form-control
-									%option 1
-									%option 2
-
-						.row.form-row
-							.col
-								Slider
-
-						.row.form-row
-							.col
-								%select.form-control
-									%option 1
-									%option 2
-
-							.col
-								%select.form-control
-									%option 1
-									%option 2
-
+					.col-6
 						.row
-							.col
+							.col-6
+								Szukam
+								%select.form-control
+									%option 1
+									%option 2
+
+							.col-6
+								Szukających
 								%select.form-control
 									%option 1
 									%option 2
 
 					.col-6
-						.row.form-row
-							.col
+						Gdzie
+						%select.form-control
+							%option 1
+							%option 2
+
+					.col-6.slider
+						Wiek
+
+					.col-6.slider
+						Cała polska
+
+					.col-6
+						.row
+							.col-6
+								Wzrost
 								%select.form-control
 									%option 1
 									%option 2
 
-						.row.form-row
-							.col
-								Slider
+							.col-6
+								Sylwetka
+								%select.form-control
+									%option 1
+									%option 2
 
+							.col-12
+								Zainteresowania
+								%select.form-control
+									%option 1
+									%option 2
+
+					.col-6
 						.row
-							.col
-
+							.col-6
 								%fieldset.form-group.mb-0
 									%legend Radio buttons
 									.form-check.form-check-inline
@@ -235,6 +242,8 @@
 											%input.form-check-input{:type => "checkbox"}/
 											Check me out
 
+							.col-6
+								%fieldset.form-group.mb-0
 									%legend Radio buttons
 									.form-check.form-check-inline
 										%label.form-check-label
@@ -245,6 +254,66 @@
 										%label.form-check-label
 											%input.form-check-input{:type => "checkbox"}/
 											Check me out
+
+
+
+
+
+					-# .col-6
+					-# 	Slider
+
+					-# 	.row
+					-# 		.col
+					-# 			%select.form-control
+					-# 				%option 1
+					-# 				%option 2
+
+					-# 		.col
+					-# 			%select.form-control
+					-# 				%option 1
+					-# 				%option 2
+
+					-# 	.row
+					-# 		.col
+					-# 			%select.form-control
+					-# 				%option 1
+					-# 				%option 2
+
+					-# .col-6
+					-# 	.row
+					-# 		.col
+					-# 			%select.form-control
+					-# 				%option 1
+					-# 				%option 2
+
+					-# 	.row
+					-# 		.col
+					-# 			Slider
+
+					-# 	.row
+					-# 		.col
+					-# 			%fieldset.form-group.mb-0
+					-# 				%legend Radio buttons
+					-# 				.form-check.form-check-inline
+					-# 					%label.form-check-label
+					-# 						%input.form-check-input{:type => "checkbox"}/
+					-# 						Check me out
+
+					-# 				.form-check.form-check-inline
+					-# 					%label.form-check-label
+					-# 						%input.form-check-input{:type => "checkbox"}/
+					-# 						Check me out
+
+					-# 				%legend Radio buttons
+					-# 				.form-check.form-check-inline
+					-# 					%label.form-check-label
+					-# 						%input.form-check-input{:type => "checkbox"}/
+					-# 						Check me out
+
+					-# 				.form-check.form-check-inline
+					-# 					%label.form-check-label
+					-# 						%input.form-check-input{:type => "checkbox"}/
+					-# 						Check me out
 
 				.row.search-footer
 					.col
@@ -712,6 +781,8 @@
 
 			%h2.mt-5 Buttons - icons only, outlined
 			%button.btn.icon-only.btn-outline-primary.btn-outline-gray{:type => "button"}
+				%i.ero-cross
+			%button.btn.icon-only.btn-outline-primary.btn-outline-gray.active{:type => "button"}
 				%i.ero-cross
 
 			%h2.mt-5 Buttons - group scoped
