@@ -15,8 +15,14 @@ test:
   <<: *default
   database: erotrip_api_test
 
+staging:
+  <<: *default
+  database: erotrip_production
+  username: erotrip
+  password: YRMWf8PFdPF2Ughd
+
 production:
   <<: *default
-  database: erotrip_api_production
-  username: erotrip_api
+  database: erotrip_production
+  username: erotrip
   password: <%= ENV['EROTRIP_API_DATABASE_PASSWORD'] %>
