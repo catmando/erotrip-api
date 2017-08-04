@@ -547,9 +547,14 @@
 
 			.pt-5
 			.pt-5
-			-# = react_component("Post", {title: "Hello World"})
+				- ['Anna', 'Lukas'].each do |person|
+					= react_component "Post", {title: "Hello World " + person}, {prerender: true}
 			.pt-5
+				Select
+				= react_component "Select", {prerender: true}
 			.pt-5
+				Multiselect
+				= react_component "MultiSelect", {prerender: true}
 
 			%h2.mt-5 Modal
 			%button.btn.btn-primary(data-target="#exampleModal" data-toggle="modal" type="button")
