@@ -164,102 +164,93 @@
 						%i.ero-eye
 
 			%form.search
-				.row.search-header
-					.col
-						.ea-flex.ea-align-center.ea-just-space-between
-							.info.f-s-16
-								%span.text-primary 2310
-								%span.text-gray użytkowników
+				.search-header
+					.info.f-s-16
+						%span.text-primary 2310
+						%span.text-gray użytkowników
 
-							.search-input
-								%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3(type="submit")
-									%i.ero-search
+					.search-input
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3(type="submit")
+							%i.ero-search
+						= react_component "Select", {prerender: true}
 
-								%select.form-control
-									%option 1
-									%option 2
+				.row.search-body.open
+					.col-12.search-header-mobile.hidden-md-up
+						%span Wyszukaj
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only(type="button")
+							%i.ero-cross
 
-				.row.search-body
-
-					.col-6
+					.col-12.col-xl-6.search-preferences
 						.row
-							.col-6
-								Szukam
-								%select.form-control
-									%option 1
-									%option 2
+							.col-12.col-md-6
+								.form-group
+									%label Szukam
+									= react_component "MultiSelect", {prerender: true, placeholder: "Szukam"}
+							.col-12.col-md-6
+								.form-group
+									%label Szukających
+									= react_component "MultiSelect", {prerender: true, placeholder: "Szukających"}
 
-							.col-6
-								Szukających
-								%select.form-control
-									%option 1
-									%option 2
+					.col-12.col-xl-6.location
+						.form-group
+							%label Gdzie
+							= react_component "MultiSelect", {prerender: true, placeholder: "Gdzie"}
 
-					.col-6
-						Gdzie
-						%select.form-control
-							%option 1
-							%option 2
+					.col-12.col-xl-6.age
+						.form-group
+							%label Wiek
+							= react_component "Range", {prerender: true}
 
-					.col-6.slider
-						Wiek
+					.col-12.col-xl-6.location-range
+						.form-group
+							%label Cała polska
+							= react_component "Slider", {prerender: true}
 
-					.col-6.slider
-						Cała polska
-
-					.col-6
+					.col-12.col-xl-6.height
 						.row
-							.col-6
-								Wzrost
-								%select.form-control
-									%option 1
-									%option 2
+							.col-12.col-md-6
+								.form-group
+									%label Wzrost
+									= react_component "MultiSelect", {prerender: true, placeholder: "Wzrost"}
 
-							.col-6
-								Sylwetka
-								%select.form-control
-									%option 1
-									%option 2
+							.col-12.col-md-6
+								.form-group
+									%label Sylwetka
+									= react_component "MultiSelect", {prerender: true, placeholder: "Sylwetka"}
 
 							.col-12
-								Zainteresowania
-								%select.form-control
-									%option 1
-									%option 2
+								.form-group
+									%label Zainteresowania
+									= react_component "MultiSelectWithLabels", {prerender: true, placeholder: "Zainteresowania"}
 
-					.col-6
-						.row
-							.col-6
-								%fieldset.form-group.mb-0
-									%legend Radio buttons
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input(type="checkbox")
-											Check me out
+					.col-12.col-xl-6.options
+						%fieldset.form-group
+							%legend Tylko
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Zweryfikowani
 
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input(type="checkbox")
-											Check me out
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Ze zdjęciami
 
-							.col-6
-								%fieldset.form-group.mb-0
-									%legend Radio buttons
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input(type="checkbox")
-											Check me out
+						%fieldset.form-group
+							%legend Dodatkowo
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Papierosy
 
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input(type="checkbox")
-											Check me out
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Alkohol
 
-				.row.search-footer
-					.col
-						.ea-flex.ea-align-center.ea-just-center
-							%button.btn.btn-secondary.mr-4(type="button") Pokaż
-							%button.btn.btn-outline-primary.btn-outline-gray(type="button") Anuluj
+					.col.search-footer
+						%button.btn.btn-secondary.mr-4(type="button") Pokaż
+						%button.btn.btn-outline-primary.btn-outline-gray(type="button") Anuluj
 
 			.row.people-wrapper
 				.col-6.col-md-4.col-lg-4.col-xl-3
@@ -551,10 +542,16 @@
 					= react_component "Post", {title: "Hello World " + person}, {prerender: true}
 			.pt-5
 				Select
-				= react_component "Select", {prerender: true}
+				= react_component "Select", {prerender: true, placeholder: "Custom placeholder"}
 			.pt-5
 				Multiselect
 				= react_component "MultiSelect", {prerender: true}
+			.pt-5
+				Range
+				= react_component "Range", {prerender: true}
+			.pt-5
+				Slider
+				= react_component "Slider", {prerender: true}
 
 			%h2.mt-5 Modal
 			%button.btn.btn-primary(data-target="#exampleModal" data-toggle="modal" type="button")

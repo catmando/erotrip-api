@@ -13,7 +13,8 @@ class EaSelect extends React.Component {
       options: [
         { value: 'one', label: 'One' },
         { value: 'two', label: 'Two' }
-      ]
+      ],
+      placeholder: props.placeholder
     };
     this.logChange = this.logChange.bind(this);
   }
@@ -23,6 +24,12 @@ class EaSelect extends React.Component {
     this.setState({selection: val});
   }
 
+  // componentWillReceiveProps: function(nextProps) {
+  //   this.setState({
+  //     // set something
+  //   });
+  // }
+
   render() {
     return (
       <Select
@@ -30,6 +37,7 @@ class EaSelect extends React.Component {
         value={this.state.selection}
         options={this.state.options}
         onChange={this.logChange}
+        placeholder={this.state.placeholder}
       />
     )
   }

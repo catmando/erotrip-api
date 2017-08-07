@@ -10,9 +10,10 @@ class EaMultiSelect extends React.Component {
     this.state = {
       selection: "",
       options: [
-        { value: 'one', label: 'One' },
-        { value: 'two', label: 'Two' }
-      ]
+        { value: 'one', label: 'Oneoooo' },
+        { value: 'two', label: 'Twooooo' }
+      ],
+      placeholder: props.placeholder
     };
     this.logChange = this.logChange.bind(this);
   }
@@ -29,6 +30,7 @@ class EaMultiSelect extends React.Component {
         value={this.state.selection}
         options={this.state.options}
         onChange={this.logChange}
+        placeholder={this.state.placeholder}
         multi={true}
       />
     )
