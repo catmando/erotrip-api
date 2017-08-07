@@ -22,4 +22,5 @@
 
 .byebug_history
 /config/database.yml
-/config/application.yml
+/config/application.yml/public/packs
+/node_modules

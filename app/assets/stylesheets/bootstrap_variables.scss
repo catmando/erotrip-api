@@ -1,19 +1,16 @@
-$brand-primary:           #00C2F0;
+$brand-primary:            $primary-color;
 
-$btn-primary-bg:          $brand-primary;
-$btn-primary-border:      $brand-primary;
+$btn-secondary-color:      #fff !default;
+$btn-secondary-bg:         $secondary-color !default;
+$btn-secondary-border:     $secondary-color !default;
 
-$btn-secondary-color:     #fff !default;
-$btn-secondary-bg:        #E8126B !default;
-$btn-secondary-border:    #E8126B !default;
+$border-radius:            1.5rem !default;
+$border-radius-lg:         1.3rem !default;
+$border-radius-sm:         1.2rem !default;
 
-$border-radius:           1.25rem !default;
-$border-radius-lg:        1.3rem !default;
-$border-radius-sm:        1.2rem !default;
+$input-border-color:       $ero-gray-light;
 
-$input-border-color:      $ero-gray-light;
-
-$grid-gutter-width-base:  30px !default;
+$grid-gutter-width-base:   30px !default;
 
 $pagination-color:         $ero-gray !default;
 $pagination-border-color:  #fff !default;
@@ -22,9 +19,9 @@ $pagination-hover-color:   #fff !default;
 $pagination-hover-bg:      $btn-secondary-bg !default;
 $pagination-hover-border:  $btn-secondary-bg !default;
 
-$pagination-active-color:              #fff !default;
-$pagination-active-bg:                 $btn-secondary-bg !default;
-$pagination-active-border:             $btn-secondary-bg !default;
+$pagination-active-color:  #fff !default;
+$pagination-active-bg:     $btn-secondary-bg !default;
+$pagination-active-border: $btn-secondary-bg !default;
 
 // Fonts
 $font-family-sans-serif: 'GothamRoundedMedium'; // not working

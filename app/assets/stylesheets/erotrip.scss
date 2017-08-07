@@ -61,7 +61,7 @@ body {
 
 // layout parts
 .featured {
-	background: $featured-bg;
+	background: $primary-color-dark;
 	display: flex;
 	align-items: center;
 	height: 100px;
@@ -170,8 +170,8 @@ body {
 
 .sidebar {
 	position: fixed;
-	width: calc(1110px * 0.25); // (1140px - 30px) * 0.25 this is for 1140px container
-	left: calc((100% - (1110px))/2);
+	width: calc(1140px * 0.25); // (1140px - 30px) * 0.25 this is for 1140px container
+	left: calc((100% - (1140px))/2);
 	padding: 15px 27px;
 	background: $white;
 	z-index: 2;
@@ -544,39 +544,122 @@ body {
 	}
 }
 
+// desktop-patch
+.profile-patch {
+	position: absolute;
+	width: 50%;
+	right: 0px;
+	.top {
+		height: 100px;
+		background: #059DC3;
+	}
+	.bottom {
+		height: 150px;
+		background: $brand-primary;
+	}
+}
+
 // search
 .search {
+	font-family: 'GothamRoundedBook';
 	color: $ero-gray;
 
 	.search-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		padding: 30px 0px;
 
 		.search-input {
 			display: flex;
 			align-items: center;
 
-			select {
+			.Select {
 				min-width: 200px;
 			}
 		}
 	}
 
 	.search-body {
+		height: 0px;
+		transition: height 0.3s ease;
+		overflow-x: hidden;
+
+		&.open {
+			height: 423px;
+			transition: height 0.3s ease;
+		}
+
+		@media (max-width: 1199px) {
+			.search-preferences {
+				order: 0;
+			}
+
+			.location {
+				order: 2;
+			}
+
+			.age {
+				order: 1;
+			}
+
+			.location-range {
+				order: 3;
+			}
+
+			.height {
+				order: 4;
+			}
+
+			.options {
+				order: 5;
+			}
+
+			.search-footer {
+				order: 6;
+			}
+		}
+
+		@media (max-width: 768px) {
+			height: 100%;
+			position: fixed;
+			top: 0px;
+			left: -100%;
+			bottom: 0px;
+			width: 100%;
+
+			background: #fff;
+			z-index: 3;
+			overflow-y: auto;
+			padding-top: 85px;
+			margin: 0px;
+			transition: left 0.3s ease;
+
+			&.open {
+				height: 100%;
+				left: 0%;
+				transition: left 0.3s ease;
+			}
+		}
+
+		.search-header-mobile {
+			position: fixed;
+			height: 70px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			z-index: 5;
+			background: #fff;
+			margin-top: -85px;
+			border-bottom: 1px solid #ccc;
+		}
+
 		.form-row {
 			margin-bottom: 30px;
 		}
 
-		.slider {
-			padding-top: 15px;
-			padding-bottom: 15px;
-		}
-
-		.order-1 {
-			order: 1;
-		}
-
-		.order-2 {
-			order: 2;
+		.form-group {
+			margin-bottom: 1.5rem;
 		}
 
 		legend {
@@ -591,15 +674,28 @@ body {
 			border-right: 2px solid;
 			border-color: $ero-gray-lighter;
 		}
+
+		label {
+			margin-bottom: 0.2rem;
+		}
 	}
 
 	.search-footer {
 		padding-top: 30px;
 		padding-bottom: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (min-width: 768px) and (max-width: 1199px) {
+			justify-content: space-between;
+		}
+
 		button {
 			min-width: 160px;
 		}
 	}
+
 }
 
 .people-wrapper {
@@ -927,6 +1023,78 @@ body {
 	.footer-info-text {
 		padding: 35px;
 		max-width: 300px;
+	}
+}
+
+// PROFILE
+.profile {
+	.profile-info-bar {
+		height: 100px;
+		background: $primary-color-dark;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0px 15px;
+
+		.profile-info-wrapper {
+			display: flex;
+			align-items: center;
+
+			.profile-info {
+
+				.profile-info-upper {
+					display: flex;
+					align-items: center;
+
+					.person-status {
+						height: 10px;
+						width: 10px;
+						min-width: 10px;
+						border-radius: 10px;
+						margin-right: 10px;
+						margin-bottom: 2px;
+
+						&.online {
+							background: $online;
+						}
+
+						&.away {
+							background: $away;
+						}
+
+						&.offline {
+							background: $offline;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.profile-photos-bar {
+		height: 150px;
+		background: $primary-color;
+
+		.non-verified {
+			height: 150px;
+			width: 150px;
+			background: #19839c;
+			display: inline-block;
+		}
+
+		.photo {
+			height: 150px;
+			width: 150px;
+			background: #19839c;
+			display: inline-block;
+		}
+	}
+
+	.profile-details {
+		.profile-avatar {
+			height: 70px;
+			width: 70px;
+		}
 	}
 }
 

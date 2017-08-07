@@ -1,9 +1,9 @@
 .navbar.hidden-md-up
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more{:type => "button"}
+	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
 		%i.ero-menu
 		.button-label.empty
 	= image_tag('logo.png')
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages{:type => "button"}
+	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages(type="button")
 		%i.ero-messages
 		.button-label 2
 
@@ -24,12 +24,12 @@
 	.logged-in
 
 		.logged-in-buttons
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up{:type => "button"}
+			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
 				%i.ero-menu
 				.button-label.empty
 			.divider.hidden-sm-down.hidden-xl-up
 
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-messages.icon-only.with-label.hidden-sm-down.hidden-xl-up{:type => "button"}
+			%button.btn.btn-outline-primary.btn-outline-gray.btn-messages.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
 				%i.ero-messages
 				.button-label 2
 			.divider.hidden-sm-down
@@ -40,9 +40,9 @@
 				%span.profile-name.text-gray Ewelinaelina
 
 			.profile-buttons
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable{:type => "button"}
+				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
 					%i.ero-settings
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable{:type => "button"}
+				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
 					%i.ero-log-out
 		.divider
 
@@ -119,7 +119,7 @@
 
 
 .container.main-container
-	.row.no-gutters
+	.row
 		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
 			.featured.streach-me
 				.img-wrapper
@@ -158,177 +158,108 @@
 									%span.text-primary Twój profil
 									%span.text-gray Publiczny
 
-					%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
+					%button.btn.icon-only.btn-plus.btn-group(type="button")
 						%i.ero-cross
-					%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
+					%button.btn.icon-only.btn-eye.btn-group(type="button")
 						%i.ero-eye
 
 			%form.search
-				.row.search-header
-					.col
-						.ea-flex.ea-align-center.ea-just-space-between
-							.info.f-s-16
-								%span.text-primary 2310
-								%span.text-gray użytkowników
+				.search-header
+					.info.f-s-16
+						%span.text-primary 2310
+						%span.text-gray użytkowników
 
-							.search-input
-								%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3{:type => "submit"}
-									%i.ero-search
+					.search-input
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3(type="submit")
+							%i.ero-search
+						= react_component "Select", {prerender: true}
 
-								%select.form-control
-									%option 1
-									%option 2
+				.row.search-body.open
+					.col-12.search-header-mobile.hidden-md-up
+						%span Wyszukaj
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only(type="button")
+							%i.ero-cross
 
-				.row.search-body
-
-					.col-6
+					.col-12.col-xl-6.search-preferences
 						.row
-							.col-6
-								Szukam
-								%select.form-control
-									%option 1
-									%option 2
+							.col-12.col-md-6
+								.form-group
+									%label Szukam
+									= react_component "MultiSelect", {prerender: true, placeholder: "Szukam"}
+							.col-12.col-md-6
+								.form-group
+									%label Szukających
+									= react_component "MultiSelect", {prerender: true, placeholder: "Szukających"}
 
-							.col-6
-								Szukających
-								%select.form-control
-									%option 1
-									%option 2
+					.col-12.col-xl-6.location
+						.form-group
+							%label Gdzie
+							= react_component "MultiSelect", {prerender: true, placeholder: "Gdzie"}
 
-					.col-6
-						Gdzie
-						%select.form-control
-							%option 1
-							%option 2
+					.col-12.col-xl-6.age
+						.form-group
+							%label Wiek
+							= react_component "Range", {prerender: true}
 
-					.col-6.slider
-						Wiek
+					.col-12.col-xl-6.location-range
+						.form-group
+							%label Cała polska
+							= react_component "Slider", {prerender: true}
 
-					.col-6.slider
-						Cała polska
-
-					.col-6
+					.col-12.col-xl-6.height
 						.row
-							.col-6
-								Wzrost
-								%select.form-control
-									%option 1
-									%option 2
+							.col-12.col-md-6
+								.form-group
+									%label Wzrost
+									= react_component "MultiSelect", {prerender: true, placeholder: "Wzrost"}
 
-							.col-6
-								Sylwetka
-								%select.form-control
-									%option 1
-									%option 2
+							.col-12.col-md-6
+								.form-group
+									%label Sylwetka
+									= react_component "MultiSelect", {prerender: true, placeholder: "Sylwetka"}
 
 							.col-12
-								Zainteresowania
-								%select.form-control
-									%option 1
-									%option 2
+								.form-group
+									%label Zainteresowania
+									= react_component "MultiSelectWithLabels", {prerender: true, placeholder: "Zainteresowania"}
 
-					.col-6
-						.row
-							.col-6
-								%fieldset.form-group.mb-0
-									%legend Radio buttons
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input{:type => "checkbox"}/
-											Check me out
+					.col-12.col-xl-6.options
+						%fieldset.form-group
+							%legend Tylko
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Zweryfikowani
 
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input{:type => "checkbox"}/
-											Check me out
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Ze zdjęciami
 
-							.col-6
-								%fieldset.form-group.mb-0
-									%legend Radio buttons
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input{:type => "checkbox"}/
-											Check me out
+						%fieldset.form-group
+							%legend Dodatkowo
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Papierosy
 
-									.form-check.form-check-inline
-										%label.form-check-label
-											%input.form-check-input{:type => "checkbox"}/
-											Check me out
+							.form-check.form-check-inline
+								%label.form-check-label
+									%input.form-check-input(type="checkbox")
+									Alkohol
 
-
-
-
-
-					-# .col-6
-					-# 	Slider
-
-					-# 	.row
-					-# 		.col
-					-# 			%select.form-control
-					-# 				%option 1
-					-# 				%option 2
-
-					-# 		.col
-					-# 			%select.form-control
-					-# 				%option 1
-					-# 				%option 2
-
-					-# 	.row
-					-# 		.col
-					-# 			%select.form-control
-					-# 				%option 1
-					-# 				%option 2
-
-					-# .col-6
-					-# 	.row
-					-# 		.col
-					-# 			%select.form-control
-					-# 				%option 1
-					-# 				%option 2
-
-					-# 	.row
-					-# 		.col
-					-# 			Slider
-
-					-# 	.row
-					-# 		.col
-					-# 			%fieldset.form-group.mb-0
-					-# 				%legend Radio buttons
-					-# 				.form-check.form-check-inline
-					-# 					%label.form-check-label
-					-# 						%input.form-check-input{:type => "checkbox"}/
-					-# 						Check me out
-
-					-# 				.form-check.form-check-inline
-					-# 					%label.form-check-label
-					-# 						%input.form-check-input{:type => "checkbox"}/
-					-# 						Check me out
-
-					-# 				%legend Radio buttons
-					-# 				.form-check.form-check-inline
-					-# 					%label.form-check-label
-					-# 						%input.form-check-input{:type => "checkbox"}/
-					-# 						Check me out
-
-					-# 				.form-check.form-check-inline
-					-# 					%label.form-check-label
-					-# 						%input.form-check-input{:type => "checkbox"}/
-					-# 						Check me out
-
-				.row.search-footer
-					.col
-						.ea-flex.ea-align-center.ea-just-center
-							%button.btn.btn-secondary.mr-4{:type => "button"} Pokaż
-							%button.btn.btn-outline-primary.btn-outline-gray{:type => "button"} Anuluj
+					.col.search-footer
+						%button.btn.btn-secondary.mr-4(type="button") Pokaż
+						%button.btn.btn-outline-primary.btn-outline-gray(type="button") Anuluj
 
 			.row.people-wrapper
 				.col-6.col-md-4.col-lg-4.col-xl-3
 					.person
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -352,9 +283,9 @@
 					.person
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -378,9 +309,9 @@
 					.person.locked
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -404,9 +335,9 @@
 					.person
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -430,9 +361,9 @@
 					.person.locked
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -456,9 +387,9 @@
 					.person
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -482,9 +413,9 @@
 					.person
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -508,9 +439,9 @@
 					.person
 						.person-photo-wrapper
 							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2{:type => "button"}
+								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
 									%i.ero-cross
 							.person-photo-amount.hidden-sm-down
 								%i.ero-photo-amount
@@ -530,27 +461,27 @@
 								.preson-city.text-gray.hidden-sm-down
 									Warszawa
 
-			%nav.mt-5{"aria-label" => "..."}
+			%nav.mt-5(aria-label="...")
 				%ul.pagination.justify-content-between
 					%li.page-item.previous.disabled
-						%a.page-link{:href => "#", :tabindex => "-1"}
+						%a.page-link(href="#" tabindex="-1")
 							%i.ero-arrow-left.mr-3
 							%span.d-inline-block.hidden-sm-down Poprzednia strona
 
 					.page-wrapper
 						%li.page-item.active
-							%a.page-link{:href => "#"} 1
+							%a.page-link(href="") 1
 						%li.page-item
-							%a.page-link{:href => "#"} 2
+							%a.page-link(href="") 2
 						%li.page-item
-							%a.page-link{:href => "#"} 3
+							%a.page-link(href="") 3
 						%li.page-item
-							%a.page-link{:href => "#"} 4
+							%a.page-link(href="") 4
 						%li.page-item
-							%a.page-link{:href => "#"} 5
+							%a.page-link(href="") 5
 
 					%li.page-item.next
-						%a.page-link{:href => "#"}
+						%a.page-link(href="")
 							%span.d-inline-block.hidden-sm-down Następna strona
 							%i.ero-arrow-right.ml-3
 
@@ -602,227 +533,100 @@
 				.footer-info-text
 					.text-book.text-center Copyright 2017 © Erotrip.pl Wszystkie prawa zastrzeżone
 					.ea-flex.ea-just-center
-						%button.btn.btn-link.btn-link-gray{:type => "button"} Kontakt
-						%button.btn.btn-link.btn-link-gray{:type => "button"} Regulamin
-
+						%button.btn.btn-link.btn-link-gray(type="button") Kontakt
+						%button.btn.btn-link.btn-link-gray(type="button") Regulamin
 
 			.pt-5
 			.pt-5
+				- ['Anna', 'Lukas'].each do |person|
+					= react_component "Post", {title: "Hello World " + person}, {prerender: true}
 			.pt-5
+				Select
+				= react_component "Select", {prerender: true, placeholder: "Custom placeholder"}
 			.pt-5
+				Multiselect
+				= react_component "MultiSelect", {prerender: true}
 			.pt-5
+				Range
+				= react_component "Range", {prerender: true}
 			.pt-5
-
-			-# = react_component("Post", {title: "Hello World"})
-
-			%h2 Forms
-			%form
-				.form-group
-					%label{:for => "exampleInputEmail1"} Email address
-					%input#exampleInputEmail1.form-control{"aria-describedby" => "emailHelp", :placeholder => "Enter email", :type => "email"}/
-					%small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
-				.form-group
-					%label{:for => "exampleInputPassword1"} Password
-					%input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
-				.form-group
-					%label{:for => "exampleSelect1"} Example select
-					%select#exampleSelect1.form-control
-						%option 1
-						%option 2
-						%option 3
-						%option 4
-						%option 5
-				.form-group
-					%label{:for => "exampleSelect2"} Example multiple select
-					%select#exampleSelect2.form-control{:multiple => "multiple"}
-						%option 1
-						%option 2
-						%option 3
-						%option 4
-						%option 5
-				.form-group
-					%label{:for => "exampleTextarea"} Example textarea
-					%textarea#exampleTextarea.form-control{:rows => "3"}
-				.form-group
-					%label{:for => "exampleInputFile"} File input
-					%input#exampleInputFile.form-control-file{"aria-describedby" => "fileHelp", :type => "file"}/
-					%small#fileHelp.form-text.text-muted This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
-				%fieldset.form-group
-					%legend Radio buttons
-					.form-check
-						%label.form-check-label
-							%input#optionsRadios1.form-check-input{:checked => "checked", :name => "optionsRadios", :type => "radio", :value => "option1"}/
-							Option one is this and that—be sure to include why it's great
-					.form-check
-						%label.form-check-label
-							%input#optionsRadios2.form-check-input{:name => "optionsRadios", :type => "radio", :value => "option2"}/
-							Option two can be something else and selecting it will deselect option one
-					.form-check.disabled
-						%label.form-check-label
-							%input#optionsRadios3.form-check-input{:disabled => "disabled", :name => "optionsRadios", :type => "radio", :value => "option3"}/
-							Option three is disabled
-				.form-check
-					%label.form-check-label
-						%input.form-check-input{:type => "checkbox"}/
-						Check me out
-				%button.btn.btn-primary{:type => "submit"} Submit
-
-			%h2 Forms - Using the Grid
-			.container
-				%form
-					.form-group.row
-						%label.col-sm-2.col-form-label{:for => "inputEmail3"} Email
-						.col-sm-10
-							%input#inputEmail3.form-control{:placeholder => "Email", :type => "email"}/
-					.form-group.row
-						%label.col-sm-2.col-form-label{:for => "inputPassword3"} Password
-						.col-sm-10
-							%input#inputPassword3.form-control{:placeholder => "Password", :type => "password"}/
-					%fieldset.form-group.row
-						%legend.col-form-legend.col-sm-2 Radios
-						.col-sm-10
-							.form-check
-								%label.form-check-label
-									%input#gridRadios1.form-check-input{:checked => "checked", :name => "gridRadios", :type => "radio", :value => "option1"}/
-									Option one is this and that—be sure to include why it's great
-							.form-check
-								%label.form-check-label
-									%input#gridRadios2.form-check-input{:name => "gridRadios", :type => "radio", :value => "option2"}/
-									Option two can be something else and selecting it will deselect option one
-							.form-check.disabled
-								%label.form-check-label
-									%input#gridRadios3.form-check-input{:disabled => "disabled", :name => "gridRadios", :type => "radio", :value => "option3"}/
-									Option three is disabled
-					.form-group.row
-						%label.col-sm-2 Checkbox
-						.col-sm-10
-							.form-check
-								%label.form-check-label
-									%input.form-check-input{:type => "checkbox"}/
-									Check me out
-					.form-group.row
-						.offset-sm-2.col-sm-10
-							%button.btn.btn-primary{:type => "submit"} Sign in
-
-			%h2 Form - Inline forms
-			%form.form-inline
-				%label.sr-only{:for => "inlineFormInput"} Name
-				%input#inlineFormInput.form-control.mb-2.mr-sm-2.mb-sm-0{:placeholder => "Jane Doe", :type => "text"}/
-				%label.sr-only{:for => "inlineFormInputGroup"} Username
-				.input-group.mb-2.mr-sm-2.mb-sm-0
-					.input-group-addon @
-					%input#inlineFormInputGroup.form-control{:placeholder => "Username", :type => "text"}/
-				.form-check.mb-2.mr-sm-2.mb-sm-0
-					%label.form-check-label
-						%input.form-check-input{:type => "checkbox"}/
-						Remember me
-				%button.btn.btn-primary{:type => "submit"} Submit
+				Slider
+				= react_component "Slider", {prerender: true}
 
 			%h2.mt-5 Modal
-			/ Button trigger modal
-			%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+			%button.btn.btn-primary(data-target="#exampleModal" data-toggle="modal" type="button")
 				Launch demo modal
-			/ Modal
-			#exampleModal.modal.fadeable{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
-				.modal-dialog{:role => "document"}
+			#exampleModal.modal.fadeable(aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1")
+				.modal-dialog(role="document")
 					.modal-content
 						.modal-header
 							%h5#exampleModalLabel.modal-title Modal title
-							%button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-								%span{"aria-hidden" => "true"} ×
+							%button.close(aria-label="Close" data-dismiss="modal" type="button")
+								%span(aria-hidden="true") ×
 						.modal-body
 							\...
 						.modal-footer
-							%button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-							%button.btn.btn-primary{:type => "button"} Save changes
-
+							%button.btn.btn-secondary(data-dismiss="modal" type="button") Close
+							%button.btn.btn-primary(type="button") Save changes
 
 			%h2.mt-5 Buttons
-			/ Provides extra visual weight and identifies the primary action in a set of buttons
-			%button.btn.btn-primary{:type => "button"} Primary
-			/ Secondary, outline button
-			%button.btn.btn-secondary{:type => "button"} Secondary
-			/ Indicates a successful or positive action
-			%button.btn.btn-success{:type => "button"} Success
-			/ Contextual button for informational alert messages
-			%button.btn.btn-info{:type => "button"} Info
-			/ Indicates caution should be taken with this action
-			%button.btn.btn-warning{:type => "button"} Warning
-			/ Indicates a dangerous or potentially negative action
-			%button.btn.btn-danger{:type => "button"} Danger
-			/ Deemphasize a button by making it look like a link while maintaining button behavior
-			%button.btn.btn-link{:type => "button"} Link
+			%button.btn.btn-primary(type="button") Primary
+			%button.btn.btn-secondary(type="button") Secondary
+			%button.btn.btn-success(type="button") Success
+			%button.btn.btn-info(type="button") Info
+			%button.btn.btn-warning(type="button") Warning
+			%button.btn.btn-danger(type="button") Danger
+			%button.btn.btn-link(type="button") Link
 
 			%h2.mt-5 Button link, gray
-			%button.btn.btn-link.btn-link-gray{:type => "button"} Link
-
-			-# %h2.mt-5 Buttons - icons only
-			-# / Provides extra visual weight and identifies the primary action in a set of buttons
-			-# %button.btn.icon-only.btn-primary{:type => "button"}
-			-# 	%i.ero-eye
-			-# / Secondary, outline button
-			-# %button.btn.icon-only.btn-secondary{:type => "button"}
-			-# 	%i.ero-eye
-			-# / Indicates a successful or positive action
-			-# %button.btn.icon-only.btn-success{:type => "button"}
-			-# 	%i.ero-eye
-			-# / Contextual button for informational alert messages
-			-# %button.btn.icon-only.btn-info{:type => "button"}
-			-# 	%i.ero-eye
-			-# / Indicates caution should be taken with this action
-			-# %button.btn.icon-only.btn-warning{:type => "button"}
-			-# 	%i.ero-eye
-			-# / Indicates a dangerous or potentially negative action
-			-# %button.btn.icon-only.btn-danger{:type => "button"}
-			-# 	%i.ero-eye
-			-# / Deemphasize a button by making it look like a link while maintaining button behavior
-			-# %button.btn.icon-only.btn-link{:type => "button"}
-			-# 	%i.ero-eye
+			%button.btn.btn-link.btn-link-gray(type="button") Link
 
 			%h2.mt-5 Buttons - icons only, outlined
-			%button.btn.icon-only.btn-outline-primary.btn-outline-gray{:type => "button"}
+			%button.btn.icon-only.btn-outline-primary.btn-outline-gray(type="button")
 				%i.ero-cross
-			%button.btn.icon-only.btn-outline-primary.btn-outline-gray.active{:type => "button"}
+			%button.btn.icon-only.btn-outline-primary.btn-outline-gray.active(type="button")
 				%i.ero-cross
 
 			%h2.mt-5 Buttons - group scoped
-			%button.btn.icon-only.btn-eye.btn-group{:type => "button"}
+			%button.btn.icon-only.btn-eye.btn-group(type="button")
 				%i.ero-eye
-			%button.btn.icon-only.btn-eye.btn-group.active{:type => "button"}
+			%button.btn.icon-only.btn-eye.btn-group.active(type="button")
 				%i.ero-eye
-			%button.btn.icon-only.btn-plus.btn-group{:type => "button"}
+			%button.btn.icon-only.btn-plus.btn-group(type="button")
 				%i.ero-cross
-			%button.btn.icon-only.btn-plus.btn-group.active{:type => "button"}
+			%button.btn.icon-only.btn-plus.btn-group.active(type="button")
 				%i.ero-cross
 
 			%h2.mt-5 Buttons - person scoped
-			%button.btn.icon-only.btn-person.btn-heart.btn-group{:type => "button"}
+			%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
 				%i.ero-heart
-			%button.btn.icon-only.btn-person.btn-remove.btn-group{:type => "button"}
+			%button.btn.icon-only.btn-person.btn-remove.btn-group(type="button")
 				%i.ero-cross
+			%button.btn.icon-only.btn-person.btn-heart.btn-heart-profile.btn-group(type="button")
+				%i.ero-heart
 
 			%h2.mt-5 Pagination
-			%nav.mt-5{"aria-label" => "..."}
+			%nav.mt-5(aria-label="...")
 				%ul.pagination.justify-content-between
 					%li.page-item.previous.disabled
-						%a.page-link{:href => "#", :tabindex => "-1"}
+						%a.page-link(href="#" tabindex="-1")
 							%i.ero-arrow-left.mr-3
 							%span.d-inline-block.hidden-sm-down Poprzednia strona
 
 					.page-wrapper
 						%li.page-item.active
-							%a.page-link{:href => "#"} 1
+							%a.page-link(href="") 1
 						%li.page-item
-							%a.page-link{:href => "#"} 2
+							%a.page-link(href="") 2
 						%li.page-item
-							%a.page-link{:href => "#"} 3
+							%a.page-link(href="") 3
 						%li.page-item
-							%a.page-link{:href => "#"} 4
+							%a.page-link(href="") 4
 						%li.page-item
-							%a.page-link{:href => "#"} 5
+							%a.page-link(href="") 5
 
 					%li.page-item.next
-						%a.page-link{:href => "#"}
+						%a.page-link(href="")
 							%span.d-inline-block.hidden-sm-down Następna strona
 							%i.ero-arrow-right.ml-3
 
