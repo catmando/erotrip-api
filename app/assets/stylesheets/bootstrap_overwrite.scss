@@ -2,9 +2,14 @@
 	font-family: $font-family-sans-serif;
 	cursor: pointer;
   outline: none;
+  font-family: 'GothamRoundedBook';
 }
 
-.btn-link.btn-link-gray {
+.btn.btn-large-padding {
+  padding: 0.75rem 1.25rem;
+}
+
+.btn.btn-link.btn-link-gray {
   color: $ero-gray;
 
   &:hover {
@@ -82,7 +87,7 @@
     color: $white;
 
     &:hover {
-      background: $btn-secondary-bg-darker;
+      background: $secondary-color-dark;
     }
   }
 }
@@ -105,7 +110,7 @@
   }
 
   &:hover {
-    background-color: $btn-secondary-bg-darker;
+    background-color: $secondary-color-dark;
   }
 
   &.active {
@@ -157,10 +162,20 @@
   }
 
   &.btn-heart {
-    background: $btn-secondary-bg;
+    background: $secondary-color;
 
     &:hover {
-      background-color: $btn-secondary-bg-darker;
+      background-color: $secondary-color-dark;
+    }
+
+    &.btn-heart-profile {
+      border-color: $primary-color-light;
+      background-color: $primary-color-dark;
+      border-width: 1px;
+
+      &:hover {
+        background-color: $primary-color-dark;
+      }
     }
 
     i {
@@ -172,7 +187,7 @@
     background: $brand-primary;
 
     &:hover {
-      background-color: $brand-primary-darker;
+      background-color: $primary-color-dark;
     }
 
     i {
@@ -181,6 +196,14 @@
       transform: rotate(45deg);
     }
   }
+}
+
+.badge.badge-default {
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  background: $ero-gray;
+  font-family: 'GothamRoundedBook';
 }
 
 
