@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'capistrano-yarn'
+# gem 'capistrano-yarn'
 
 # Boostrap 4 integration
 gem 'bootstrap', '~> 4.0.0.alpha6'
