@@ -37,9 +37,9 @@ namespace :assets do
     on roles(:web), in: :parallel do |server|
       run_locally do
         execute :rsync,
-          "-a --delete ./public/packs/ #{fetch(:user)}@#{server.hostname}:#{shared_path}/public/packs/"
+          "-a --delete ./public/packs/ depolyer@deployerEA:~/apps/erotrip/staging/shared/public/packs/"
         execute :rsync,
-          "-a --delete ./public/assets/ #{fetch(:user)}@#{server.hostname}:#{shared_path}/public/assets/"
+          "-a --delete ./public/packs/ depolyer@deployerEA:~/apps/erotrip/staging/shared/public/assets/"
       end
     end
 
