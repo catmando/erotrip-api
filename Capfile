@@ -37,7 +37,7 @@ require "capistrano/rails/migrations"
 require 'capistrano/puma'
 require 'capistrano/puma/monit'
 # require "capistrano/passenger"
-# require 'capistrano/yarn'
+require 'capistrano/yarn'
 
 install_plugin Capistrano::Puma
 
