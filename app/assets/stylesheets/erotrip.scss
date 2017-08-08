@@ -65,7 +65,7 @@ body {
 	display: flex;
 	align-items: center;
 	height: 100px;
-	padding: 0px 30px;
+	padding: 0px 15px;
 	overflow: hidden;
 
 	.img-wrapper {
@@ -90,11 +90,7 @@ body {
 // group-details
 .group-details {
 	background: $brand-primary;
-	padding: 30px 60px 30px 45px;
-
-	@media (max-width: 1199px) {
-		padding: 30px 60px 30px 30px;
-	}
+	padding: 30px 60px 30px 30px;
 
 	@media (max-width: 768px) {
 		padding: 15px 45px 15px 15px;
@@ -1094,6 +1090,60 @@ body {
 		.profile-avatar {
 			height: 70px;
 			width: 70px;
+		}
+
+		.profile-decription {
+			.profile-preferences {
+				.border-right {
+					border-right: 1px solid $ero-gray-lighter;
+					@media (max-width: 767px) {
+						border-right: none;
+					}
+				}
+			}
+		}
+	}
+
+	.group-details {
+		padding: 0px 45px 30px 15px;
+		background: transparent;
+
+		&:last-child {
+			padding: 0px 45px 0px 15px;
+		}
+
+		.group-details-wrapper {
+			background: $ero-gray-lightest;
+
+			.btn-plus {
+				border-color: #fff;
+			}
+
+			.btn-eye-wrapper {
+				position: absolute;
+				right: -30px;
+				bottom: 15%;
+		    border-radius: 50%;
+		    border: 4px solid #fff;
+
+				.btn-eye {
+					position: static;
+					border-color: #e2e6e9;
+					border-width: 1px;
+					padding: 8px 1px;
+					width: 44px;
+					height: 44px;
+				}
+			}
+
+		}
+	}
+
+	.profile-block {
+		display: flex;
+		justify-content: center;
+		button {
+			min-width: 230px;
 		}
 	}
 }
