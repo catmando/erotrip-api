@@ -1153,21 +1153,36 @@ body {
 	height: 150px;
 	background: $primary-color;
 
-	.send-to-verification {
+	.verification {
 		height: 150px;
 		width: 150px;
 		font-family: 'GothamRoundedBook';
 		position: relative;
 
-		.send-toverification-inner {
+		.not-verified {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
 			position: absolute;
 			top: 0px;
 			right: 0px;
 			bottom: 0px;
 			left: 0px;
+			background: rgba(25, 131, 156, 1);
+		}
+
+		.send-to-verification-inner {
 			display: flex;
 			align-items: center;
 			justify-content: center;
+
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			bottom: 0px;
+			left: 0px;
 			background: rgba(25, 131, 156, 0.66);
 
 			.send-to-verification-text {

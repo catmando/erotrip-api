@@ -142,7 +142,10 @@
 
 
 				.profile-photos-bar.streach-me.ea-flex
-					.non-verified
+					%a.verification.no-underline-i(href="")
+						.not-verified
+							%i.ero-sad-face.f-s-30.text-white
+							.f-s-12.text-white.mt-1 Niezweryfikowany
 					.photos
 						- [1, 2, 3].each do |photo|
 							.photo
@@ -211,7 +214,7 @@
 				.groups
 					%h6.mt-3.mb-3 Grupy
 					- [1, 2].each do |group|
-						.group-details.group-details-white.streach-me
+						.group-details.group-details-gray.streach-me
 							.group-details-wrapper
 
 								%h3.mt-0.hidden-md-up BDSM
