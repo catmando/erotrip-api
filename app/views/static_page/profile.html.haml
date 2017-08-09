@@ -7,10 +7,6 @@
 		%i.ero-messages
 		.button-label 2
 
-.profile-patch.hidden-lg-down
-	.top
-	.bottom
-
 .sidebar
 	.logo-wrapper.hidden-lg-down
 		= link_to image_tag('logo.png')
@@ -124,32 +120,34 @@
 			.profile
 
 				.profile-info-bar.streach-me
-					.profile-info-wrapper
-						%button.btn.icon-only.btn-dark-bar(type="button")
-							%i.ero-heart
-						.profile-info.ml-3
-							.profile-info-upper.mb-2.mt-1
-								.person-status.away
-								%h3.text-white.text-book.mb-0 Ola, 18
-								%i.ero-verified-border-white.ml-2.f-s-25
-									%span.path1
-									%span.path2
-									%span.path3
-							.profile-info-lower
-								%span.text-white 2 dni temu,
-								%span.text-white Poznań
-					%button.btn.btn-secondary.btn-large-padding(type="button") Wyślij wiadomość
+					.profile-info-bar-inner
+						.profile-info-wrapper
+							%button.btn.icon-only.btn-dark-bar(type="button")
+								%i.ero-heart
+							.profile-info.ml-3
+								.profile-info-upper.mb-2.mt-1
+									.person-status.away
+									%h3.text-white.text-book.mb-0 Ola, 18
+									%i.ero-verified-border-white.ml-2.f-s-25
+										%span.path1
+										%span.path2
+										%span.path3
+								.profile-info-lower
+									%span.text-white 2 dni temu,
+									%span.text-white Poznań
+						%button.btn.btn-secondary.btn-large-padding(type="button") Wyślij wiadomość
 
-				.profile-photos-bar.streach-me.ea-flex
-					%a.verification.no-underline-i(href="")
-						.verification-text-wrapper
-							.verification-text.text-center
-								%i.ero-sad-face.f-s-30.text-white
-								.f-s-12.text-white.mt-1 Niezweryfikowany
-					.photos
-						- [1, 2, 3].each do |photo|
-							.photo
-								= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
+				.profile-photos-bar.streach-me
+					.profile-photos-bar-inner.ea-flex
+						%a.verification.no-underline-i(href="")
+							.verification-text-wrapper
+								.verification-text.text-center
+									%i.ero-sad-face.f-s-30.text-white
+									.f-s-12.text-white.mt-1 Niezweryfikowany
+						.photos
+							- [1, 2, 3].each do |photo|
+								.photo
+									= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
 
 				.profile-details
 					.ea-flex.ea-align-center.ea-just-space-between.mt-4.mb-4

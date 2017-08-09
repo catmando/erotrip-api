@@ -1186,6 +1186,16 @@ body {
 	height: 150px;
 	background: $primary-color;
 
+	@media (min-width: 1199px) {
+		width: calc( (1140px * 0.75) + ((100vw - 1140px)/2) );
+	}
+
+	.profile-photos-bar-inner {
+		@media (min-width: 1199px) {
+			width: calc(1140px * 0.75);
+		}
+	}
+
 	.verification {
 		height: 150px;
 		width: 150px;

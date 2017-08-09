@@ -144,25 +144,26 @@
 							%button.btn.icon-only.btn-small-dark.left(type="button")
 								%i.ero-locker.f-s-20
 
-				.profile-photos-bar.streach-me.ea-flex
-					%a.add-photo.no-underline-i(href="")
-						%i.ero-camera.f-s-30.text-white
-						.f-s-12.text-white.mt-1 Dodaj zdjęcie
-					%a.verification.no-underline-i(href="")
-						.verification-text-wrapper
-							.verification-text.text-center
-								%i.ero-verified-outline.f-s-30.text-white
-								.f-s-12.text-white.mt-1 Zweryfikowany
-						= image_tag('girl.jpg', class: "verification-img")
+				.profile-photos-bar.streach-me
+					.profile-photos-bar-inner.ea-flex
+						%a.add-photo.no-underline-i(href="")
+							%i.ero-camera.f-s-30.text-white
+							.f-s-12.text-white.mt-1 Dodaj zdjęcie
+						%a.verification.no-underline-i(href="")
+							.verification-text-wrapper
+								.verification-text.text-center
+									%i.ero-verified-outline.f-s-30.text-white
+									.f-s-12.text-white.mt-1 Zweryfikowany
+							= image_tag('girl.jpg', class: "verification-img")
 
-					.photos
-						- [1, 2, 3].each do |photo|
-							.photo
-								= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
-						%button.btn.icon-only.btn-small-dark.left(type="button")
-							%i.ero-chevron-left
-						%button.btn.icon-only.btn-small-dark.right(type="button")
-							%i.ero-chevron-right
+						.photos
+							- [1, 2, 3].each do |photo|
+								.photo
+									= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
+							%button.btn.icon-only.btn-small-dark.left(type="button")
+								%i.ero-chevron-left
+							%button.btn.icon-only.btn-small-dark.right(type="button")
+								%i.ero-chevron-right
 
 				.profile-details
 					.ea-flex.ea-align-center.ea-just-space-between.mt-4.mb-4
