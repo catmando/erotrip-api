@@ -7,6 +7,8 @@ role :db,  %w{deployer@batman.enginearch.com}
 
 set :nginx_server_name, "erotrip.enginearch.com"
 
+set :yarn_target_path, -> { shared_path.join('public') }
+
 set :nvm_type, :user
 set :nvm_node, 'v8.2.1'
 set :nvm_map_bins, %w{node npm yarn}

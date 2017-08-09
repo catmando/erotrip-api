@@ -8,7 +8,7 @@ set :repo_url, "git@gitlab.batman.enginearch.com:erotrip/erotrip-api.git"
 
 set :deploy_to, "/home/deployer/apps/#{fetch(:application)}/#{fetch(:stage)}"
 set :linked_files, %w{config/database.yml config/application.yml}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads public/node_modules}
 
 set :bundle_path, -> { shared_path.join('bundle') }
 
