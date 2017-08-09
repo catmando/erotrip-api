@@ -34,12 +34,14 @@ require "capistrano/rails/assets"
 require "capistrano/rails/db"
 require "capistrano/rails/migrations"
 
-require 'capistrano/nvm'
+# require 'capistrano/nvm'
 
 require 'capistrano/puma'
 require 'capistrano/puma/monit'
 # require "capistrano/passenger"
-require 'capistrano/yarn'
+# require 'capistrano/yarn'
+
+require 'capistrano/local_precompile'
 
 install_plugin Capistrano::Puma
 

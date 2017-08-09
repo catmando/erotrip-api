@@ -61,8 +61,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'capistrano', '= 3.8.2'
-  gem 'capistrano-yarn'
-  gem 'capistrano-nvm', require: false
+  # gem 'capistrano-yarn'
+  # gem 'capistrano-nvm', require: false
+  gem 'capistrano-local-precompile', '~> 1.0.0', require: false
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rails-db'
   gem 'capistrano-rbenv', '~> 2.0'
