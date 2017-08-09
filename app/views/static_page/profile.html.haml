@@ -140,12 +140,12 @@
 								%span.text-white Poznań
 					%button.btn.btn-secondary.btn-large-padding(type="button") Wyślij wiadomość
 
-
 				.profile-photos-bar.streach-me.ea-flex
 					%a.verification.no-underline-i(href="")
-						.not-verified
-							%i.ero-sad-face.f-s-30.text-white
-							.f-s-12.text-white.mt-1 Niezweryfikowany
+						.verification-text-wrapper
+							.verification-text.text-center
+								%i.ero-sad-face.f-s-30.text-white
+								.f-s-12.text-white.mt-1 Niezweryfikowany
 					.photos
 						- [1, 2, 3].each do |photo|
 							.photo

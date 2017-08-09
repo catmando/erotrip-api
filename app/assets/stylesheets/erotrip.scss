@@ -21,16 +21,13 @@ body {
 .main-container {
 	margin-top: 0px;
 
-	@media (max-width: 1199px) {
-		// padding: 0px;
+	@media (min-width: 768px) and (max-width: 1199px) {
 		margin-left: 80px;
 		width: calc(100% - 80px);
 	}
 
 	@media (max-width: 768px) {
 		margin-top: 70px;
-		// padding: 0px;
-		margin-left: 0px;
 		width: 100%;
 	}
 }
@@ -1106,13 +1103,24 @@ body {
 
 // PROFILE
 .profile-info-bar {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	height: 100px;
-	padding: 0px 15px;
 	background: $primary-color-dark;
+
+	@media (min-width: 1199px) {
+		width: calc( (1140px * 0.75) + ((100vw - 1140px)/2) );
+	}
+
+	.profile-info-bar-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		height: 100px;
+		padding: 0px 15px;
+
+		@media (min-width: 1199px) {
+			width: calc(1140px * 0.75);
+		}
+	}
 
 	.profile-info-wrapper {
 		display: flex;
@@ -1149,6 +1157,31 @@ body {
 	}
 }
 
+.profile-gallery {
+	height: 550px;
+	background: $ero-gray-dark;
+	@media (min-width: 1199px) {
+		width: calc( (1140px * 0.75) + ((100vw - 1140px)/2) );
+	}
+
+	.profile-gallery-inner {
+		height: 100%;
+		display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .action-buttons {
+    	position: absolute;
+    	top: 30px;
+    	right: 150px;
+    }
+		@media (min-width: 1199px) {
+			width: calc(1140px * 0.75);
+		}
+	}
+}
+
 .profile-photos-bar {
 	height: 150px;
 	background: $primary-color;
@@ -1159,24 +1192,11 @@ body {
 		font-family: 'GothamRoundedBook';
 		position: relative;
 
-		.not-verified {
+		.verification-text-wrapper {
 			display: flex;
+			align-items: center;
+			justify-content: center;
 			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-
-			position: absolute;
-			top: 0px;
-			right: 0px;
-			bottom: 0px;
-			left: 0px;
-			background: rgba(25, 131, 156, 1);
-		}
-
-		.send-to-verification-inner {
-			display: flex;
-			align-items: center;
-			justify-content: center;
 
 			position: absolute;
 			top: 0px;
@@ -1185,12 +1205,12 @@ body {
 			left: 0px;
 			background: rgba(25, 131, 156, 0.66);
 
-			.send-to-verification-text {
+			.verification-text {
 				line-height: 1em;
 			}
 		}
 
-		.send-to-verification-img {
+		.verification-img {
 			max-width: 100%;
 			height: auto;
 		}
@@ -1225,14 +1245,14 @@ body {
 		button.left {
 			position: absolute;
 	    top: 50%;
-	    margin-top: -19px;
+	    margin-top: -16px;
 	    left: 15px;
 		}
 
 		button.right {
 			position: absolute;
 	    top: 50%;
-	    margin-top: -19px;
+	    margin-top: -16px;
 	    right: 15px;
 		}
 	}
@@ -1265,11 +1285,6 @@ body {
 	}
 }
 
-
-// PROFILE EDIT
-.profile {
-
-}
 
 
 

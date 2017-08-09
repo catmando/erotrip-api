@@ -1,4 +1,4 @@
-$fontSize: 0 5 10 12 15 16 18 20 25 30 35 40 45 50 55 60;
+$fontSize: 0 5 10 12 13 15 16 18 20 25 30 35 40 45 50 55 60;
 @each $f in $fontSize {
   .f-s-#{$f}{
     font-size: #{$f}px;
@@ -11,6 +11,11 @@ $fontSize: 0 5 10 12 15 16 18 20 25 30 35 40 45 50 55 60;
 
 .no-underline-i {
   text-decoration: none !important;
+}
+
+.img-fit {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .ea-flex {
