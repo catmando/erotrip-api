@@ -34,6 +34,8 @@ require "capistrano/rails/assets"
 require "capistrano/rails/db"
 require "capistrano/rails/migrations"
 
+require 'capistrano/nvm'
+
 require 'capistrano/puma'
 require 'capistrano/puma/monit'
 # require "capistrano/passenger"

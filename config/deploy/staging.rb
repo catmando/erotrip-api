@@ -7,6 +7,10 @@ role :db,  %w{deployer@batman.enginearch.com}
 
 set :nginx_server_name, "erotrip.enginearch.com"
 
+set :nvm_type, :user
+set :nvm_node, 'v8.2.1'
+set :nvm_map_bins, %w{node npm yarn}
+
 set :puma_plugins,            []
 set :puma_init_active_record, true
 set :puma_threads,            [1, 3]
