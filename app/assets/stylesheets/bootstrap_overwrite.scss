@@ -36,10 +36,6 @@
     border-color: $brand-primary;
   }
 
-  &.btn-text-gray {
-    color: $ero-gray;
-  }
-
   i {
     font-size: 19px;
 
@@ -75,10 +71,6 @@
   &.active {
     border-color: $secondary-color;
   }
-
-  &.btn-text-gray {
-    color: $ero-gray;
-  }
 }
 
 .btn.btn-group {
@@ -86,6 +78,11 @@
   width: 52px;
   height: 52px;
   padding: 3px;
+
+  i {
+    font-size: 30px;
+    margin: auto;
+  }
 }
 
 .btn.btn-group.btn-eye {
@@ -93,11 +90,6 @@
   background: $white;
   color: $ero-gray-light;
   padding: 8px 1px;
-
-  i {
-    font-size: 30px;
-    margin: auto;
-  }
 
   &:hover {
     color: $btn-secondary-bg;
@@ -140,6 +132,30 @@
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
       transition: transform 0.3s;
+    }
+  }
+}
+
+.btn-group-wrapper {
+  border-radius: 50%;
+  border: 4px solid $white;
+
+  .btn.btn-wrapped {
+    position: static;
+    border-color: $ero-gray-light;
+    border-width: 1px;
+    padding: 8px 0px;
+    width: 44px;
+    height: 44px;
+    background: $white;
+    color: $ero-gray-light;
+
+    &:hover {
+      color: $btn-secondary-bg;
+    }
+
+    i.ero-alert-circle-outline {
+      font-size: 25px;
     }
   }
 }
@@ -189,16 +205,6 @@
       background-color: $secondary-color-dark;
     }
 
-    &.btn-heart-profile {
-      border-color: $primary-color-light;
-      background-color: $primary-color-dark;
-      border-width: 1px;
-
-      &:hover {
-        background-color: $primary-color-dark;
-      }
-    }
-
     i {
       margin-top: 3px;
     }
@@ -215,6 +221,38 @@
       -ms-transform: rotate(45deg);
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
+    }
+  }
+}
+
+.btn.btn-dark-bar {
+  width: 60px;
+  height: 60px;
+  padding: 11px 0px;
+  border-color: transparent;
+  color: #fff;
+
+  border-color: $primary-color-light;
+  background-color: $primary-color-dark;
+  border-width: 1px;
+
+  &.active {
+    background: $secondary-color;
+    border: $secondary-color;
+    &:hover {
+      background-color: $secondary-color-dark;
+    }
+  }
+
+  i {
+    margin: auto;
+    font-size: 26px;
+    &.ero-settings {
+      font-size: 30px;
+      line-height: 2.2rem;
+    }
+    &.ero-heart {
+      line-height: 2.6rem;
     }
   }
 }

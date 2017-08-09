@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'static_page#home'
   get '/profile', to: 'static_page#profile'
   get '/profile-edit', to: 'static_page#profile-edit'
+  get '/layout', to: 'static_page#layout'
 end
