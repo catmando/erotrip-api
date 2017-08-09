@@ -681,6 +681,7 @@
   -webkit-box-shadow: 0px;
           box-shadow: 0px;
   border-radius: 20px;
+  font-family: 'GothamRoundedBook';
 }
 .Select-control {
   border: 0px;
