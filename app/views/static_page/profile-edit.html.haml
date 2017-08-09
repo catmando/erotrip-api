@@ -121,32 +121,40 @@
 .container.main-container
 	.row
 		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
-			.profile
+			.profile-edit
 
 				.profile-info-bar.streach-me
 					.profile-info-wrapper
-						%button.btn.icon-only.btn-dark-bar(type="button")
-							%i.ero-heart
 						.profile-info.ml-3
 							.profile-info-upper.mb-2.mt-1
 								.person-status.away
 								%h3.text-white.text-book.mb-0 Ola, 18
-								%i.ero-verified-border-white.ml-2.f-s-25
-									%span.path1
-									%span.path2
-									%span.path3
 							.profile-info-lower
 								%span.text-white 2 dni temu,
 								%span.text-white Poznań
-					%button.btn.btn-secondary.btn-large-padding(type="button") Wyślij wiadomość
 
+					%button.btn.icon-only.btn-dark-bar(type="button")
+						%i.ero-settings
 
 				.profile-photos-bar.streach-me.ea-flex
-					.non-verified
+					%a.add-photo.no-underline-i(href="")
+						%i.ero-camera.f-s-30.text-white
+						.f-s-12.text-white.mt-1 Dodaj zdjęcie
+					%a.send-to-verification.no-underline-i(href="")
+						.send-toverification-inner
+							.send-to-verification-text.text-center
+								.f-s-12.text-white Przesłane
+								.f-s-12.text-white do weryfikacji
+						= image_tag('girl.jpg', class: "send-to-verification-img")
+
 					.photos
 						- [1, 2, 3].each do |photo|
 							.photo
 								= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
+						%button.btn.icon-only.btn-chevron.left(type="button")
+							%i.ero-chevron-left
+						%button.btn.icon-only.btn-chevron.right(type="button")
+							%i.ero-chevron-right
 
 				.profile-details
 					.ea-flex.ea-align-center.ea-just-space-between.mt-4.mb-4
@@ -160,83 +168,60 @@
 					.divider
 
 					.profile-decription
-						%h6.mt-3.mb-3 O mnie
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						%h6.mt-4.mb-3.d-inline-block O mnie
+						%button.btn.btn-outline-secondary.btn-outline-gray.ml-2(type="button")
+							%i.ero-pencil.mr-2
+							.mr-1.d-inline-block Edytuj
 
-						.profile-preferences.mt-3.mb-2
+						%form.profile-preferences.mt-3.mb-2
 							.row
 								.col-12.col-md-6.pt-3.pb-3.border-right
-									.row.mb-3
-										.col-6 Szukam
-										.col-6.text-gray Mężczyzn
-									.row.mb-3
-										.col-6 Waga
-										.col-6.text-gray 60 kg
+									.row.mb-2
+										.col-6.ea-flex.ea-align-center Szukam
+										.col-6
+											= react_component "MultiSelect", {prerender: true, placeholder: "Wybierz"}
+									.row.mb-2
+										.col-6.ea-flex.ea-align-center Waga
+										.col-6
+											= react_component "Select", {prerender: true, placeholder: "Wybierz"}
 									.row
-										.col-6 Wzrost
-										.col-6.text-gray 175 cm
+										.col-6.ea-flex.ea-align-center Wzrost
+										.col-6
+											= react_component "Select", {prerender: true, placeholder: "Wybierz"}
 
 								.col-12.col-md-6.pt-3.pb-3
-									.row.mb-3
-										.col-6 Sylwetka
-										.col-6.text-gray Szczupła
-									.row.mb-3
-										.col-6 Papierosy
-										.col-6.text-gray Nie palę
+									.row.mb-2
+										.col-6.ea-flex.ea-align-center Sylwetka
+										.col-6
+											= react_component "Select", {prerender: true, placeholder: "Wybierz"}
+									.row.mb-2
+										.col-6.ea-flex.ea-align-center Papierosy
+										.col-6
+											= react_component "Select", {prerender: true, placeholder: "Wybierz"}
 									.row
-										.col-6 Alkohol
-										.col-6.text-gray Do towarzystwa
+										.col-6.ea-flex.ea-align-center Alkohol
+										.col-6
+											= react_component "Select", {prerender: true, placeholder: "Wybierz"}
 
 							.row.mt-3.mb-3
-								.col-6
-									%span.mr-3 Zainteresowania
-									%span.badge.badge-default.mr-2 Pissing
-									%span.badge.badge-default.mr-2 Pissing
-									%span.badge.badge-default.mr-2 Pissing
+								.col
+									%button.btn.btn-secondary(type="submit")
+										Zapisz
+						.divider
+
+						%h6.mt-3.mb-3 Zainteresowania
 						.divider
 
 						%h6.mt-3.mb-3 Lubię
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						%textarea.form-control(placeholder="Tekst twojego zgłoszenia")
+						%button.btn.btn-secondary.mt-3.mb-3(type="submit")
+							Zapisz
 						.divider
 
 						%h6.mt-3.mb-3 Nie lubię
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 						.divider
 
-						%h6.mt-3.mb-3 Wymarzony partner
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						.divider
-
-				.groups
-					%h6.mt-3.mb-3 Grupy
-					- [1, 2].each do |group|
-						.group-details.group-details-white.streach-me
-							.group-details-wrapper
-
-								%h3.mt-0.hidden-md-up BDSM
-								.ea-flex.ea-align-start
-									%div
-									= link_to image_tag 'girl.jpg'
-									.text
-										%h2.mt-0.hidden-sm-down BDSM
-										%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
-										.group-info.m
-											%p.mb-0
-												%span.text-primary 2310
-												%span.text-gray użytkowników
-											%p.mb-0
-												%span.text-primary 70
-												%span.text-gray ukrytych
-
-								%button.btn.icon-only.btn-plus.btn-group(type="button")
-									%i.ero-cross
-								.btn-group-wrapper
-									%button.btn.icon-only.btn-wrapped.btn-group(type="button")
-										%i.ero-eye
-
-				.profile-block.mt-5.mb-5
-					%button.btn.btn-outline-primary.btn-outline-gray.btn-large-padding.text-gray(type="button") Zablokuj
+						%h6.mt-3.mb-5 Wymarzony partner
 
 			.featured.streach-me
 				.img-wrapper

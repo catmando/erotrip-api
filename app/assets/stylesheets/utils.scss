@@ -1,4 +1,4 @@
-$fontSize: 0 5 10 15 16 18 20 25 30 35 40 45 50 55 60;
+$fontSize: 0 5 10 12 15 16 18 20 25 30 35 40 45 50 55 60;
 @each $f in $fontSize {
   .f-s-#{$f}{
     font-size: #{$f}px;
@@ -7,6 +7,10 @@ $fontSize: 0 5 10 15 16 18 20 25 30 35 40 45 50 55 60;
 
 .underline {
   text-decoration: underline;
+}
+
+.no-underline-i {
+  text-decoration: none !important;
 }
 
 .ea-flex {
