@@ -16,7 +16,7 @@ set :nginx_server_name, "erotrip.enginearch.com"
 set :puma_plugins,            []
 set :puma_init_active_record, true
 set :puma_threads,            [1, 3]
-set :puma_workers ,            1
+set :puma_workers ,            2
 set :puma_worker_timeout,     30
 set :puma_env,                :staging
 
