@@ -24,6 +24,76 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ero-verified-border-gray .path1:before {
+  content: "\e918";
+  color: rgb(0, 194, 240);
+}
+.ero-verified-border-gray .path2:before {
+  content: "\e927";
+  margin-left: -0.962890625em;
+  color: rgb(240, 240, 240);
+}
+.ero-verified-border-gray .path3:before {
+  content: "\e928";
+  margin-left: -0.962890625em;
+  color: rgb(255, 255, 255);
+}
+.ero-verified-border-white .path1:before {
+  content: "\e900";
+  color: rgb(0, 194, 240);
+}
+.ero-verified-border-white .path2:before {
+  content: "\e916";
+  margin-left: -0.962890625em;
+  color: rgb(255, 255, 255);
+}
+.ero-verified-border-white .path3:before {
+  content: "\e917";
+  margin-left: -0.962890625em;
+  color: rgb(255, 255, 255);
+}
+.ero-chevron-left-big:before {
+  content: "\e919";
+}
+.ero-chevron-right-big:before {
+  content: "\e91a";
+}
+.ero-person-big:before {
+  content: "\e91b";
+}
+.ero-people-big:before {
+  content: "\e91c";
+}
+.ero-sad-face:before {
+  content: "\e91d";
+}
+.ero-trash:before {
+  content: "\e91e";
+}
+.ero-verified-outline:before {
+  content: "\e91f";
+}
+.ero-camera:before {
+  content: "\e920";
+}
+.ero-chevron-right:before {
+  content: "\e921";
+}
+.ero-chevron-double-right-2:before {
+  content: "\e922";
+}
+.ero-chevron-double-right:before {
+  content: "\e923";
+}
+.ero-alert-circle-outline:before {
+  content: "\e924";
+}
+.ero-pencil:before {
+  content: "\e925";
+}
+.ero-chevron-left:before {
+  content: "\e926";
+}
 .ero-unlocked:before {
   content: "\e901";
 }
