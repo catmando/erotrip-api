@@ -32,10 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-gem 'capistrano-yarn'
-
 # Boostrap 4 integration
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'haml-rails'
@@ -65,6 +61,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'capistrano', '= 3.8.2'
+  gem 'capistrano-yarn'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rails-db'
   gem 'capistrano-rbenv', '~> 2.0'
