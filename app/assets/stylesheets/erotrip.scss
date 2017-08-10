@@ -32,6 +32,18 @@ body {
 	}
 }
 
+.patch {
+	@media (min-width: 1199px) {
+		width: calc( (1140px * 0.75) + ((100vw - 1140px)/2) );
+		position: absolute;
+		background: inherit;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		z-index: -1;
+	}
+}
+
 .divider {
 	height: 1px;
 	width: 100%;
@@ -98,17 +110,16 @@ body {
 	background: $primary-color-dark;
 	display: flex;
 	align-items: center;
-	height: 100px;
 	padding: 0px 15px;
-	overflow: hidden;
+	position: relative;
 
-	.img-wrapper {
-		padding: 15px;
-
-		img {
-			height: 70px;
-			width: 70px;
-			border-radius: 50%;
+	&.featured-bigger {
+		.img-wrapper {
+			padding: 22px 15px;
+			img {
+				height: 96px;
+				width: 96px;
+			}
 		}
 	}
 
@@ -119,12 +130,23 @@ body {
 	@media (max-width: 768px) {
 		padding: 0px;
 	}
+
+	.img-wrapper {
+		padding: 15px;
+
+		img {
+			height: 70px;
+			width: 70px;
+			border-radius: 50%;
+		}
+	}
 }
 
 // group-details && profile-box
-.group-details, .profile-box {
+.group-details {
 	background: $brand-primary;
 	padding: 30px 60px 30px 30px;
+	position: relative;
 
 	@media (max-width: 768px) {
 		padding: 15px 45px 15px 15px;
@@ -193,7 +215,7 @@ body {
 		.btn-eye {
 			position: absolute;
 			right: -30px;
-			bottom: 8%;
+			bottom: 15%;
 		}
 	}
 }
@@ -219,6 +241,83 @@ body {
 			bottom: 15%;
 		}
 
+	}
+}
+
+.profile-box {
+	background: $brand-primary;
+	padding: 30px 60px 30px 30px;
+	position: relative;
+
+	@media (max-width: 768px) {
+		padding: 15px 45px 15px 15px;
+	}
+
+	.group-details-wrapper {
+		position: relative;
+		height: 100%;
+		border-radius: 25px;
+		background: $white;
+		padding: 15px 30px 15px 15px;
+
+		a {
+			height: 100%;
+		}
+
+		img {
+			border-radius: 25%;
+			margin-right: 15px;
+			max-height: 100%;
+			max-width: 66px;
+
+			@media (min-width: 767px) {
+				border-radius: 25px;
+				max-height: 100%;
+				max-width: 120px;
+			}
+
+			@media (min-width: 1199px) {
+				border-radius: 25px;
+				max-height: 100%;
+				max-width: inherit;
+				max-width: 160px;
+			}
+		}
+
+		.text {
+			.group-info {
+				display: flex;
+				align-items: center;
+
+				p {
+					padding-right: 40px;
+					&:last-child {
+						padding-right: 0px;
+					}
+				}
+
+				@media (max-width: 767px) {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+		}
+
+		.btn-plus {
+			position: absolute;
+			right: -30px;
+			top: 15%;
+
+			@media (max-width: 767px) {
+				top: 8%;
+			}
+		}
+
+		.btn-eye {
+			position: absolute;
+			right: -30px;
+			bottom: 15%;
+		}
 	}
 }
 
@@ -289,6 +388,8 @@ body {
 	z-index: 2;
 	top: 0px;
 	bottom: 0px;
+	overflow-y: auto;
+	z-index: 4;
 
 	.logo-wrapper {
 		margin-bottom: 29px;
@@ -630,11 +731,12 @@ body {
 .navbar {
 	position: fixed;
 	background: $white;
-	z-index: 1;
+	z-index: 3;
 	height: 70px;
 	left: 0px;
 	right: 0px;
 	top: 0px;
+	border-bottom: $ero-gray-light solid 1px;
 
 	display: flex;
 	align-items: center;
@@ -1098,16 +1200,13 @@ body {
 	align-items: center;
 	background: $brand-primary;
 	font-family: 'GothamRoundedBook';
+	position: relative;
 
 	.row {
 		width: 100%;
 
 		.col {
 			border-right: 1px solid #fff;
-
-			&:last-child {
-				border-right: 0px solid #fff;
-			}
 		}
 	}
 

@@ -7,22 +7,17 @@
 		%i.ero-messages
 		.button-label 2
 
-.desktop-patch.hidden-lg-down
-	.top
-	.bottom
-
-.sidebar
+.sidebar.open
 	.logo-wrapper.hidden-lg-down
 		= link_to image_tag('logo.png')
 
 	-# .logged-out
 	-# 	%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
 	-# 	%p.mt-0.mb-0
-	-# 		%span Masz już konto?
+	-# 		%span.text-gray Masz już konto?
 	-# 		%span.text-primary Zaloguj się
 
 	.logged-in
-
 		.logged-in-buttons
 			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
 				%i.ero-menu
@@ -122,6 +117,7 @@
 	.row
 		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
 			.featured.streach-me
+				.patch
 				.img-wrapper
 					= link_to image_tag 'girl.jpg'
 				.img-wrapper
@@ -138,8 +134,8 @@
 					= link_to image_tag 'girl.jpg'
 
 			.group-details.streach-me
+				.patch
 				.group-details-wrapper
-
 					%h3.mt-0.hidden-md-up BDSM
 					.ea-flex.ea-align-start
 						%div
@@ -174,10 +170,11 @@
 							%i.ero-search
 						= react_component "Select", {prerender: true}
 
-				.row.search-body.open
+				-# .row.search-body.open
+				.row.search-body
 					.col-12.search-header-mobile.hidden-md-up
 						%span Wyszukaj
-						%button.btn.btn-outline-primary.btn-outline-gray.icon-only(type="button")
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.rotated-45deg(type="button")
 							%i.ero-cross
 
 					.col-12.col-xl-6.search-preferences
@@ -229,11 +226,13 @@
 							.form-check.form-check-inline
 								%label.form-check-label
 									%input.form-check-input(type="checkbox")
+									%span
 									Zweryfikowani
 
 							.form-check.form-check-inline
 								%label.form-check-label
 									%input.form-check-input(type="checkbox")
+									%span
 									Ze zdjęciami
 
 						%fieldset.form-group
@@ -241,16 +240,18 @@
 							.form-check.form-check-inline
 								%label.form-check-label
 									%input.form-check-input(type="checkbox")
+									%span
 									Papierosy
 
 							.form-check.form-check-inline
 								%label.form-check-label
 									%input.form-check-input(type="checkbox")
+									%span
 									Alkohol
 
 					.col.search-footer
 						%button.btn.btn-secondary.mr-4(type="button") Pokaż
-						%button.btn.btn-outline-primary.btn-outline-gray(type="button") Anuluj
+						%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Anuluj
 
 			.row.people-wrapper
 				.col-6.col-md-4.col-lg-4.col-xl-3
@@ -485,7 +486,8 @@
 							%span.d-inline-block.hidden-sm-down Następna strona
 							%i.ero-arrow-right.ml-3
 
-			.featured.streach-me.mt-5
+			.featured.featured-bigger.streach-me.mt-5
+				.patch
 				.img-wrapper
 					= link_to image_tag 'girl.jpg'
 				.img-wrapper
@@ -502,6 +504,7 @@
 					= link_to image_tag 'girl.jpg'
 
 			.footer.streach-me.hidden-lg-down
+				.patch
 				.row.no-gutters
 					.col
 						.footer-stats-wrapper

@@ -10,8 +10,10 @@ a {
   padding: 0.5rem 1.2rem;
 }
 
-.btn.btn-large-padding {
+.btn.btn-lg {
   padding: 0.75rem 1.25rem;
+  border-radius: 1.5rem;
+  font-size: 1rem;
 }
 
 .btn.icon-only {
@@ -307,6 +309,38 @@ textarea.form-control {
   font-family: 'GothamRoundedBook';
   font-size: 14px;
   padding: 15px;
+}
+
+label.form-check-label  {
+  display: inline-flex;
+  line-height: 18px;
+  padding-left: 0px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+label.form-check-label input[type="checkbox"] {
+  display: none;
+}
+
+label.form-check-label [type=checkbox] + span:before {
+  content: '';
+  height: 15px;
+  width: 15px;
+  border: 1px solid $ero-gray;
+  display: inline-flex;
+  position: relative;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+  background: $primary-color;
+  border: 1px solid $primary-color !important;
 }
 
 
