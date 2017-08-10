@@ -368,6 +368,12 @@ body {
 					}
 				}
 
+				&:hover {
+					a {
+						color: $brand-primary;
+					}
+				}
+
 				a {
 					padding: 5px 10px;
 					display: flex;
