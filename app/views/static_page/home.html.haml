@@ -1,544 +1,425 @@
-.navbar.hidden-md-up
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
-		%i.ero-menu
-		.button-label.empty
-	= image_tag('logo.png')
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages(type="button")
-		%i.ero-messages
-		.button-label 2
+.row
+	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+		.featured.streach-me
+			.patch
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
 
-.sidebar.open
-	.logo-wrapper.hidden-lg-down
-		= link_to image_tag('logo.png')
-
-	-# .logged-out
-	-# 	%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
-	-# 	%p.mt-0.mb-0
-	-# 		%span.text-gray Masz już konto?
-	-# 		%span.text-primary Zaloguj się
-
-	.logged-in
-		.logged-in-buttons
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
-				%i.ero-menu
-				.button-label.empty
-			.divider.hidden-sm-down.hidden-xl-up
-
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-messages.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
-				%i.ero-messages
-				.button-label 2
-			.divider.hidden-sm-down
-
-		.profile
-			.profile-details
-				= image_tag 'girl.jpg'
-				.profile-more-details-wrapper
-					.profile-more-details
-						%span.profile-name Ewelinaaaaaaaa
-						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.btn-settings.fadeable(type="button")
-							%i.ero-settings
-						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.hidden-xl-up.fadeable.ml-2(type="button")
-							%i.ero-log-out
-
-					%a.profile-log-out.text-secondary-i.f-s-12.underline.hidden-lg-down(href="")
-						Wyloguj się
-		.divider
-
-	.menu
-		%button.btn.btn-secondary.btn-block
-			Dodaj wycieczkę
-
-		%ul.main-submenu
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-users
-					.label.fadeable Użytkownicy
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-trips
-					.label.fadeable Wycieczki
-			%li.menu-item.active
-				%a
-					.icon-wrapper
-						%i.ero-groups
-					.label.fadeable Grupy
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-hotline
-					.label.fadeable Hotline
-
-		%button.btn.btn-primary.btn-block
-			Moje wycieczki
-
-		%ul.fadeable.secondary-submenu
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-messages
-					.label Wiadmości
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-notifications
-					.label Powiadomienia
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-heart-2
-					.label Chcą Cię poznać
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-eye
-					.label Podglądacz
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-new-people
-					.label Nowe osoby
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-new-trips
-					.label Nowe wycieczki
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-unlocked
-					.label Odblokowania
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-locker
-					.label Tryb anonimowy
-
-
-.container.main-container
-	.row
-		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
-			.featured.streach-me
-				.patch
-				.img-wrapper
+		.group-details.streach-me
+			.patch
+			.group-details-wrapper
+				%h3.mt-0.hidden-md-up BDSM
+				.ea-flex.ea-align-start
+					%div
 					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
+					.text
+						%h2.mt-0.hidden-sm-down BDSM
+						%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+						.group-info.m
+							%p.mb-0
+								%span.text-primary 2310
+								%span.text-gray użytkowników
+							%p.mb-0
+								%span.text-primary 70
+								%span.text-gray ukrytych;
+							%p.mb-0
+								%span.text-primary Twój profil
+								%span.text-gray Publiczny
 
-			.group-details.streach-me
-				.patch
-				.group-details-wrapper
-					%h3.mt-0.hidden-md-up BDSM
-					.ea-flex.ea-align-start
-						%div
-						= link_to image_tag 'girl.jpg'
-						.text
-							%h2.mt-0.hidden-sm-down BDSM
-							%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
-							.group-info.m
-								%p.mb-0
-									%span.text-primary 2310
-									%span.text-gray użytkowników
-								%p.mb-0
-									%span.text-primary 70
-									%span.text-gray ukrytych;
-								%p.mb-0
-									%span.text-primary Twój profil
-									%span.text-gray Publiczny
+				%button.btn.icon-only.btn-plus.btn-group(type="button")
+					%i.ero-cross
+				%button.btn.icon-only.btn-eye.btn-group(type="button")
+					%i.ero-eye
 
-					%button.btn.icon-only.btn-plus.btn-group(type="button")
+		%form.search
+			.search-header
+				.info.f-s-16
+					%span.text-primary 2310
+					%span.text-gray użytkowników
+
+				.search-input
+					%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3(type="submit")
+						%i.ero-search
+					= react_component "Select", {prerender: true}
+
+			-# .row.search-body.open
+			.row.search-body
+				.col-12.search-header-mobile.hidden-md-up
+					%span Wyszukaj
+					%button.btn.btn-outline-primary.btn-outline-gray.icon-only.rotated-45deg(type="button")
 						%i.ero-cross
-					%button.btn.icon-only.btn-eye.btn-group(type="button")
-						%i.ero-eye
 
-			%form.search
-				.search-header
-					.info.f-s-16
-						%span.text-primary 2310
-						%span.text-gray użytkowników
+				.col-12.col-xl-6.search-preferences
+					.row
+						.col-12.col-md-6
+							.form-group
+								%label Szukam
+								= react_component "MultiSelect", {prerender: true, placeholder: "Szukam"}
+						.col-12.col-md-6
+							.form-group
+								%label Szukających
+								= react_component "MultiSelect", {prerender: true, placeholder: "Szukających"}
 
-					.search-input
-						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3(type="submit")
-							%i.ero-search
-						= react_component "Select", {prerender: true}
+				.col-12.col-xl-6.location
+					.form-group
+						%label Gdzie
+						= react_component "MultiSelect", {prerender: true, placeholder: "Gdzie"}
 
-				-# .row.search-body.open
-				.row.search-body
-					.col-12.search-header-mobile.hidden-md-up
-						%span Wyszukaj
-						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.rotated-45deg(type="button")
-							%i.ero-cross
+				.col-12.col-xl-6.age
+					.form-group
+						%label Wiek
+						= react_component "Range", {prerender: true}
 
-					.col-12.col-xl-6.search-preferences
-						.row
-							.col-12.col-md-6
-								.form-group
-									%label Szukam
-									= react_component "MultiSelect", {prerender: true, placeholder: "Szukam"}
-							.col-12.col-md-6
-								.form-group
-									%label Szukających
-									= react_component "MultiSelect", {prerender: true, placeholder: "Szukających"}
+				.col-12.col-xl-6.location-range
+					.form-group
+						%label Cała polska
+						= react_component "Slider", {prerender: true}
 
-					.col-12.col-xl-6.location
-						.form-group
-							%label Gdzie
-							= react_component "MultiSelect", {prerender: true, placeholder: "Gdzie"}
+				.col-12.col-xl-6.height
+					.row
+						.col-12.col-md-6
+							.form-group
+								%label Wzrost
+								= react_component "MultiSelect", {prerender: true, placeholder: "Wzrost"}
 
-					.col-12.col-xl-6.age
-						.form-group
-							%label Wiek
-							= react_component "Range", {prerender: true}
+						.col-12.col-md-6
+							.form-group
+								%label Sylwetka
+								= react_component "MultiSelect", {prerender: true, placeholder: "Sylwetka"}
 
-					.col-12.col-xl-6.location-range
-						.form-group
-							%label Cała polska
-							= react_component "Slider", {prerender: true}
+						.col-12
+							.form-group
+								%label Zainteresowania
+								= react_component "MultiSelectWithLabels", {prerender: true, placeholder: "Zainteresowania"}
 
-					.col-12.col-xl-6.height
-						.row
-							.col-12.col-md-6
-								.form-group
-									%label Wzrost
-									= react_component "MultiSelect", {prerender: true, placeholder: "Wzrost"}
+				.col-12.col-xl-6.options
+					%fieldset.form-group
+						%legend Tylko
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="checkbox")
+								%span
+								Zweryfikowani
 
-							.col-12.col-md-6
-								.form-group
-									%label Sylwetka
-									= react_component "MultiSelect", {prerender: true, placeholder: "Sylwetka"}
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="checkbox")
+								%span
+								Ze zdjęciami
 
-							.col-12
-								.form-group
-									%label Zainteresowania
-									= react_component "MultiSelectWithLabels", {prerender: true, placeholder: "Zainteresowania"}
+					%fieldset.form-group
+						%legend Dodatkowo
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="checkbox")
+								%span
+								Papierosy
 
-					.col-12.col-xl-6.options
-						%fieldset.form-group
-							%legend Tylko
-							.form-check.form-check-inline
-								%label.form-check-label
-									%input.form-check-input(type="checkbox")
-									%span
-									Zweryfikowani
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="checkbox")
+								%span
+								Alkohol
 
-							.form-check.form-check-inline
-								%label.form-check-label
-									%input.form-check-input(type="checkbox")
-									%span
-									Ze zdjęciami
+				.col.search-footer
+					%button.btn.btn-secondary.mr-4(type="button") Pokaż
+					%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Anuluj
 
-						%fieldset.form-group
-							%legend Dodatkowo
-							.form-check.form-check-inline
-								%label.form-check-label
-									%input.form-check-input(type="checkbox")
-									%span
-									Papierosy
+		.row.people-wrapper
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-							.form-check.form-check-inline
-								%label.form-check-label
-									%input.form-check-input(type="checkbox")
-									%span
-									Alkohol
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.online
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Anna
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-					.col.search-footer
-						%button.btn.btn-secondary.mr-4(type="button") Pokaż
-						%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Anuluj
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-			.row.people-wrapper
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.offline
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Anna
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.online
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Anna
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person.locked
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.away
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Hermenegildaaaaaa
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.offline
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Anna
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person.locked
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.away
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Anna
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.away
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Hermenegildaaaaaa
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person.locked
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.online
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Anna
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.away
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Anna
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person.locked
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.offline
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Anna
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.online
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Anna
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.away
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Anna
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.offline
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Anna
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+			.col-6.col-md-4.col-lg-4.col-xl-3
+				.person
+					.person-photo-wrapper
+						.person-actions
+							%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+								%i.ero-heart
+							%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
+								%i.ero-cross
+						.person-photo-amount.hidden-sm-down
+							%i.ero-photo-amount
+							%span.amount 6
+						.locker
+							%i.ero-locker
+						= image_tag 'girl.jpg'
 
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+					.person-info.ea-flex.ea-flex-align-start.ea-just-start
+						.person-status.away
+						.person-details
+							.person-name-age
+								%h5.mt-0.mb-0.d-inline-block.person-name
+									%span Anna
+									%span.coma.hidden-sm-down ,
+								%h5.mt-0.mb-0.person-age.text-gray 24
+							.preson-city.text-gray.hidden-sm-down
+								Warszawa
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.away
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Anna
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+		%nav.mt-5(aria-label="...")
+			%ul.pagination.justify-content-between
+				%li.page-item.previous.disabled
+					%a.page-link(href="#" tabindex="-1")
+						%i.ero-arrow-left.mr-3
+						%span.d-inline-block.hidden-sm-down Poprzednia strona
 
-				.col-6.col-md-4.col-lg-4.col-xl-3
-					.person
-						.person-photo-wrapper
-							.person-actions
-								%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-									%i.ero-heart
-								%button.btn.icon-only.btn-person.btn-remove.btn-group.ml-2(type="button")
-									%i.ero-cross
-							.person-photo-amount.hidden-sm-down
-								%i.ero-photo-amount
-								%span.amount 6
-							.locker
-								%i.ero-locker
-							= image_tag 'girl.jpg'
+				.page-wrapper
+					%li.page-item.active
+						%a.page-link(href="") 1
+					%li.page-item
+						%a.page-link(href="") 2
+					%li.page-item
+						%a.page-link(href="") 3
+					%li.page-item
+						%a.page-link(href="") 4
+					%li.page-item
+						%a.page-link(href="") 5
 
-						.person-info.ea-flex.ea-flex-align-start.ea-just-start
-							.person-status.away
-							.person-details
-								.person-name-age
-									%h5.mt-0.mb-0.d-inline-block.person-name
-										%span Anna
-										%span.coma.hidden-sm-down ,
-									%h5.mt-0.mb-0.person-age.text-gray 24
-								.preson-city.text-gray.hidden-sm-down
-									Warszawa
+				%li.page-item.next
+					%a.page-link(href="")
+						%span.d-inline-block.hidden-sm-down Następna strona
+						%i.ero-arrow-right.ml-3
 
-			%nav.mt-5(aria-label="...")
-				%ul.pagination.justify-content-between
-					%li.page-item.previous.disabled
-						%a.page-link(href="#" tabindex="-1")
-							%i.ero-arrow-left.mr-3
-							%span.d-inline-block.hidden-sm-down Poprzednia strona
+		.featured.featured-large.streach-me.mt-5
+			.patch
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
 
-					.page-wrapper
-						%li.page-item.active
-							%a.page-link(href="") 1
-						%li.page-item
-							%a.page-link(href="") 2
-						%li.page-item
-							%a.page-link(href="") 3
-						%li.page-item
-							%a.page-link(href="") 4
-						%li.page-item
-							%a.page-link(href="") 5
+		.footer.streach-me.hidden-lg-down
+			.patch
+			.row.no-gutters
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Użytkowników
+							.number 2 335 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Zweryfikowanych
+							.number 2 115 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Online
+							.number 15 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Ukrytych
+							.number 75 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Wycieczek
+							.number 92 123
 
-					%li.page-item.next
-						%a.page-link(href="")
-							%span.d-inline-block.hidden-sm-down Następna strona
-							%i.ero-arrow-right.ml-3
-
-			.featured.featured-bigger.streach-me.mt-5
-				.patch
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-
-			.footer.streach-me.hidden-lg-down
-				.patch
-				.row.no-gutters
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Użytkowników
-								.number 2 335 542
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Zweryfikowanych
-								.number 2 115 542
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Online
-								.number 15 123
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Ukrytych
-								.number 75 123
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Wycieczek
-								.number 92 123
-
-			.footer-info.hidden-lg-up
-				.footer-info-text
-					.text-book.text-center Copyright 2017 © Erotrip.pl Wszystkie prawa zastrzeżone
-					.ea-flex.ea-just-center
-						%button.btn.btn-link.text-gray(type="button") Kontakt
-						%button.btn.btn-link.text-gray(type="button") Regulamin
+		.footer-info.hidden-lg-up
+			.footer-info-text
+				.text-book.text-center Copyright 2017 © Erotrip.pl Wszystkie prawa zastrzeżone
+				.ea-flex.ea-just-center
+					%button.btn.btn-link.text-gray(type="button") Kontakt
+					%button.btn.btn-link.text-gray(type="button") Regulamin
 

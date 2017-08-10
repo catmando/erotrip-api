@@ -117,7 +117,7 @@ body {
 	padding: 0px 15px;
 	position: relative;
 
-	&.featured-bigger {
+	&.featured-large {
 		.img-wrapper {
 			padding: 22px 15px;
 			img {
@@ -146,7 +146,7 @@ body {
 	}
 }
 
-// group-details && profile-box
+// group-details
 .group-details {
 	background: $brand-primary;
 	padding: 30px 60px 30px 30px;

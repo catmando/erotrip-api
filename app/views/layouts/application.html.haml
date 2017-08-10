@@ -1,0 +1,134 @@
+
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}/
+    %title Bootstrap4
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = javascript_pack_tag 'application'
+    = javascript_pack_tag 'hello_react'
+    = stylesheet_pack_tag 'application'
+  %body
+    .navbar.hidden-md-up
+      %button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
+        %i.ero-menu
+        .button-label.empty
+      = image_tag('logo.png')
+      %button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages(type="button")
+        %i.ero-messages
+        .button-label 2
+
+    .sidebar.open
+      .logo-wrapper.hidden-lg-down
+        = link_to image_tag('logo.png')
+
+      -# .logged-out
+      -#  %a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
+      -#  %p.mt-0.mb-0
+      -#    %span.text-gray Masz już konto?
+      -#    %span.text-primary Zaloguj się
+
+      .logged-in
+        .logged-in-buttons
+          %button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
+            %i.ero-menu
+            .button-label.empty
+          .divider.hidden-sm-down.hidden-xl-up
+
+          %button.btn.btn-outline-primary.btn-outline-gray.btn-messages.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
+            %i.ero-messages
+            .button-label 2
+          .divider.hidden-sm-down
+
+        .profile
+          .profile-details
+            = image_tag 'girl.jpg'
+            .profile-more-details-wrapper
+              .profile-more-details
+                %span.profile-name Ewelinaaaaaaaa
+                %button.btn.btn-outline-primary.btn-outline-gray.icon-only.btn-settings.fadeable(type="button")
+                  %i.ero-settings
+                %button.btn.btn-outline-primary.btn-outline-gray.icon-only.hidden-xl-up.fadeable.ml-2(type="button")
+                  %i.ero-log-out
+
+              %a.profile-log-out.text-secondary-i.f-s-12.underline.hidden-lg-down(href="")
+                Wyloguj się
+        .divider
+
+      .menu
+        %button.btn.btn-secondary.btn-block
+          Dodaj wycieczkę
+
+        %ul.main-submenu
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-users
+              .label.fadeable Użytkownicy
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-trips
+              .label.fadeable Wycieczki
+          %li.menu-item.active
+            %a
+              .icon-wrapper
+                %i.ero-groups
+              .label.fadeable Grupy
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-hotline
+              .label.fadeable Hotline
+
+        %button.btn.btn-primary.btn-block
+          Moje wycieczki
+
+        %ul.fadeable.secondary-submenu
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-messages
+              .label Wiadmości
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-notifications
+              .label Powiadomienia
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-heart-2
+              .label Chcą Cię poznać
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-eye
+              .label Podglądacz
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-new-people
+              .label Nowe osoby
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-new-trips
+              .label Nowe wycieczki
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-unlocked
+              .label Odblokowania
+          %li.menu-item
+            %a
+              .icon-wrapper
+                %i.ero-locker
+              .label Tryb anonimowy
+
+    .container.main-container
+      = yield
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
