@@ -292,6 +292,14 @@ a {
   font-size: 12px;
   background: $ero-gray;
   font-family: 'GothamRoundedBook';
+
+  .btn {
+    padding: 0px;
+    height: 15px;
+    line-height: 12px;
+    margin-top: -4px;
+    color: #545454;
+  }
 }
 
 textarea.form-control {

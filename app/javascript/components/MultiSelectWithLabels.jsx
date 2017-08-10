@@ -49,9 +49,9 @@ class EaMultiSelectWithLabels extends React.Component {
         <div className="labels-wrapper">
           {
             this.state.storedSelections.map(function(listValue, index) {
-              return (<div className="label" key={index}>
-                <button type="button" className="btn btn-primary" onClick={(e) => { this.remove(index)}}> x </button>
+              return (<div className="badge badge-default mr-2" key={index}>
                 <span> {listValue.value} </span>
+                <button type="button" className="btn btn-link" onClick={(e) => { this.remove(index)}}> x </button>
                 </div>);
             }, this)
           }
