@@ -7,18 +7,17 @@
 		%i.ero-messages
 		.button-label 2
 
-.sidebar
+.sidebar.open
 	.logo-wrapper.hidden-lg-down
 		= link_to image_tag('logo.png')
 
 	-# .logged-out
 	-# 	%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
 	-# 	%p.mt-0.mb-0
-	-# 		%span Masz już konto?
+	-# 		%span.text-gray Masz już konto?
 	-# 		%span.text-primary Zaloguj się
 
 	.logged-in
-
 		.logged-in-buttons
 			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
 				%i.ero-menu
@@ -33,13 +32,16 @@
 		.profile
 			.profile-details
 				= image_tag 'girl.jpg'
-				%span.profile-name.text-gray Ewelinaelina
+				.profile-more-details-wrapper
+					.profile-more-details
+						%span.profile-name Ewelinaaaaaaaa
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.btn-settings.fadeable(type="button")
+							%i.ero-settings
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.hidden-xl-up.fadeable.ml-2(type="button")
+							%i.ero-log-out
 
-			.profile-buttons
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-settings
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-log-out
+					%a.profile-log-out.text-secondary-i.f-s-12.underline.hidden-lg-down(href="")
+						Wyloguj się
 		.divider
 
 	.menu
@@ -171,16 +173,29 @@
 							= image_tag('girl.jpg', class: "verification-img")
 
 						.photos
-							- [1, 2, 3].each do |photo|
-								.photo
-									.photo-action-buttons
-										%button.btn.icon-only.btn-small-dark.mr-1(type="button")
-											%i.ero-users.f-s-15
-										%button.btn.icon-only.btn-small-dark.mr-1(type="button")
-											%i.ero-locker.f-s-20
-										%button.btn.icon-only.btn-small-dark.mr-1(type="button")
-											%i.ero-trash.f-s-18
-									= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
+							.photo
+								.photo-action-buttons
+									%button.btn.icon-only.btn-small-dark.mr-1(type="button")
+										%i.ero-users.f-s-15
+									%button.btn.icon-only.btn-small-dark.mr-1(type="button")
+										%i.ero-locker.f-s-20
+									%button.btn.icon-only.btn-small-dark.mr-1(type="button")
+										%i.ero-trash.f-s-18
+								= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
+							.photo
+								%a.confirm-deletion.no-underline-i(href="")
+									%i.ero-trash.f-s-30.text-white
+									.f-s-12.text-white.mt-1 Potwierdź usunięcie
+								= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
+							.photo
+								%a.confirm-deletion.no-underline-i(href="")
+									%i.ero-locker.f-s-30.text-white
+									.f-s-12.text-white.mt-1 Prywatne zdjęcie
+								= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block blurred"
+
+
+
+
 
 				.profile-details
 					.ea-flex.ea-align-center.ea-just-space-between.mt-4.mb-4

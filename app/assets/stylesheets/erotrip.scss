@@ -1511,6 +1511,24 @@ body {
 					}
 				}
 			}
+
+			.confirm-deletion {
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				background: rgba(51, 51, 51, 0.7);
+				font-family: 'GothamRoundedBook';
+
+				top: 0px;
+				bottom: 0px;
+				right: 0px;
+				left: 0px;
+
+				z-index: 1;
+			}
 		}
 
 		button.left {
