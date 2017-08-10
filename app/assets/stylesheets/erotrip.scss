@@ -56,9 +56,44 @@ body {
 	margin-right: -15px;
 }
 
-
-
 // layout parts
+.modal {
+	.modal-header {
+		background: $primary-color;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 120px;
+
+    .modal-title {
+    	color: $white;
+    	font-size: 24px;
+    	font-family: 'GothamRoundedBook';
+    }
+
+    button {
+    	position: absolute;
+	    right: 16px;
+	    top: 16px;
+    	span {
+    		opacity: 0.5;
+    	}
+    }
+	}
+
+	.modal-body {
+		font-family: 'GothamRoundedBook';
+		color: $ero-gray;
+		padding: 2rem;
+	}
+
+	.modal-footer {
+		border: none;
+		padding: 2rem;
+	}
+}
+
 .featured {
 	background: $primary-color-dark;
 	display: flex;
