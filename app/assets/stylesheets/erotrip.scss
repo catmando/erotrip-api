@@ -51,7 +51,11 @@ body {
 }
 
 .text-secondary {
-	color: $btn-secondary-bg;
+	color: $secondary-color;
+}
+
+.text-secondary-i {
+	color: $secondary-color !important;
 }
 
 .text-gray {
@@ -415,6 +419,7 @@ body {
 			margin: 30px 0px;
 
 			.profile-details {
+				width: 100%;
 				display: flex;
 				align-items: center;
 
@@ -424,20 +429,42 @@ body {
 					border-radius: 50%;
 				}
 
-				.profile-name {
-					display: inline-block;
-					padding-left: 8px;
-					width: 80px;
-					text-overflow: ellipsis;
-					overflow: hidden;
-				}
-			}
+				.profile-more-details-wrapper {
+					width: calc( 100% - 45px );
+					display: flex;
+					flex-direction: column;
 
-			.profile-buttons {
-				display: block;
+					.profile-more-details {
+						width: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: flex-start;
 
-				.btn:first-child {
-					margin-right: 10px;
+						@media (min-width: 1199px) {
+							margin-top: -10px;
+
+							.btn-settings {
+								border-color: transparent;
+							}
+						}
+
+						.profile-name {
+							display: inline-block;
+							padding-left: 8px;
+							max-width: calc(100% - 38px);
+							text-overflow: ellipsis;
+							overflow: hidden;
+
+							@media (max-width: 1199px) {
+								color: $ero-gray;
+							}
+						}
+					}
+
+					.profile-log-out {
+						padding-left: 8px;
+						margin-top: -10px;
+					}
 				}
 			}
 		}
@@ -543,6 +570,10 @@ body {
 		transition: width 0.3s ease;
 		overflow: hidden;
 
+		.logged-out {
+			display: none;
+		}
+
 		.logged-in {
 			align-items: center;
 
@@ -550,16 +581,6 @@ body {
 				width: 45px;
 				margin: 20px 0px;
 				transition: all 0.3s ease;
-
-				.profile-details {
-					.profile-name {
-						width: 0px;
-						transition: width 0.3s ease;
-					}
-				}
-				.profile-buttons {
-					min-width: 91px;
-				}
 			}
 
 			.logged-in-buttons {
@@ -632,17 +653,6 @@ body {
 					justify-content: space-between;
 					margin: 10px 0px;
 					transition: all 0.3s ease;
-
-					.profile-details {
-						.profile-name {
-							width: 80px;
-							display: inline-block;
-							transition: width 0.3s ease;
-						}
-					}
-					.profile-buttons {
-						min-width: 91px;
-					}
 				}
 			}
 

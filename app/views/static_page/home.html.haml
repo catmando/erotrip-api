@@ -32,13 +32,16 @@
 		.profile
 			.profile-details
 				= image_tag 'girl.jpg'
-				%span.profile-name.text-gray Ewelinaelina
+				.profile-more-details-wrapper
+					.profile-more-details
+						%span.profile-name Ewelinaaaaaaaa
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.btn-settings.fadeable(type="button")
+							%i.ero-settings
+						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.hidden-xl-up.fadeable.ml-2(type="button")
+							%i.ero-log-out
 
-			.profile-buttons
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-settings
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-log-out
+					%a.profile-log-out.text-secondary-i.f-s-12.underline.hidden-lg-down(href="")
+						Wyloguj się
 		.divider
 
 	.menu
