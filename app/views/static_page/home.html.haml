@@ -201,18 +201,18 @@
 					.col-12.col-xl-6.location
 						.form-group
 							%label Gdzie
-							= react_component "MultiSelect", {placeholder: "Gdzie"}
+							= react_component "ReactSelect", {name: 'some_name', value: [], options: [{value: "one", label: "ONE"}, {value: "two", label: "two"}], placeholder: 'sth', multi: true}
 							-# {prerender: true}
 
 					.col-12.col-xl-6.age
 						.form-group
 							%label Wiek
-							= react_component "EaRange", {name: 'age'}
+							= react_component "SliderRange", {name: 'age'}
 
 					.col-12.col-xl-6.location-range
 						.form-group
 							%label Cała polska
-							= react_component "EaSlider"
+							= react_component "Slider"
 							-# , {prerender: true}
 
 					.col-12.col-xl-6.height

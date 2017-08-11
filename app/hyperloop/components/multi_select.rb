@@ -2,12 +2,13 @@
 
     # Select = require('react-select')
     # param :placeholder
+
+
+
     param placeholder: ""
-    param options: [
-        { value: 'none', label: 'No options provided' }
-      ]
-    param selection: ''
+    param selection: []
     param name: "no_name_configured"
+    # param options: options
     # param :param_with_default2, default: "default value" # alternative syntax
     # param :param_with_type, type: Hash
     # param :array_of_hashes, type: [Hash]
@@ -18,6 +19,11 @@
     # call backs may also reference an instance method i.e. before_mount :my_method
     # state.selection = []
     # params[:selection]
+
+    param options: [
+      { value: 'one', label: 'Option one' },
+      { value: 'two', label: 'Option two' }
+    ].to_a
 
     def log_change(val)
       puts "current val: #{val}"
@@ -51,10 +57,11 @@
       # end
       DIV do
         DIV do
+          puts params[:name]
           # "OPTIONSY >>#{JSON.stringify(state.selection)}<< >>#{JSON.stringify(params[:selection])}<<"
           # `JSON.stringify(this.state.selection)`
         end
-        Select(name: params[:name], value: state.selection, options: params[:options], placeholder: params[:placeholder], multi: true, delimiter: "|", joinValues: true, onChange: lambda{ |val| log_change(val)} )
+        ReactSelect(name: params[:name], value: state.selection, options: params[:options], placeholder: params[:placeholder], multi: true, onChange: lambda{ |val| log_change(val)} )
 
         # .on(:change) do |e|
         #   puts e.inspect

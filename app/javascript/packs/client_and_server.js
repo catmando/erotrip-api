@@ -1,12 +1,7 @@
 ReactDOM = require('react-dom');
 React = require('react');
-Select = require('react-select');
 
-Slider = require('rc-slider');
+ReactSelect = require('react-select');
 
-Range = require('rc-slider/lib/Range.js');
-// Range = Slider.Range
-
-
-// working example below
-// Slider = require('rc-slider/lib/Slider.js');
+ReactSlider = require('rc-slider').default;
+ReactRange = require('rc-slider').Range;
