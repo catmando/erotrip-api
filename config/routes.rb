@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'static_page#profile'
   get '/profile-edit', to: 'static_page#profile-edit'
   get '/profile-gallery', to: 'static_page#profile-gallery'
+  get '/profile-settings', to: 'static_page#profile-settings'
 
   get '/hotline', to: 'static_page#hotline'
 

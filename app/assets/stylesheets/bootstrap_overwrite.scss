@@ -338,6 +338,13 @@ a {
   }
 }
 
+.btn-group {
+  .btn {
+    padding: 0.5rem 1.2rem 0.4rem 1.2rem;
+    font-size: 14px;
+  }
+}
+
 textarea.form-control {
   min-height: 110px;
   font-family: 'GothamRoundedBook';
@@ -375,6 +382,10 @@ label.form-check-label [type=checkbox] + span:before {
 [type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon */
   background: $primary-color;
   border: 1px solid $primary-color !important;
+}
+
+input {
+  font-family: 'GothamRoundedBook';
 }
 
 

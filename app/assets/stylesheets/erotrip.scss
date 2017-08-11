@@ -66,6 +66,10 @@ body {
 	font-family: 'GothamRoundedBook';
 }
 
+.border-bottom {
+	border-bottom: 1px solid $ero-gray-light;
+}
+
 .streach-me {
 	// artificial negative margin for selected layout elements
 	margin-left: -15px;
@@ -1591,6 +1595,29 @@ body {
 	justify-content: center;
 	button {
 		min-width: 230px;
+	}
+}
+
+.pin {
+	padding: 30px;
+  background: $ero-gray-lightest;
+  margin-bottom: 3rem;
+  border-radius: 10px;
+
+  input {
+  	min-width: 240px;
+  }
+
+  .btn-secondary {
+  	min-width: 160px;
+  }
+}
+
+.settings {
+	.settings-text {
+		display: flex;
+		align-items: center;
+		height: 100%;
 	}
 }
 
