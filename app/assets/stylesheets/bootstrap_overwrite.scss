@@ -167,6 +167,40 @@ a {
   }
 }
 
+.btn.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-color: transparent;
+  background: transparent;
+  border-width: 5px;
+  width: 52px;
+  height: 52px;
+  padding: 3px 11px;
+
+  &.primary-border {
+    border-color: $btn-primary-border;
+  }
+
+  &.white-border {
+    border-color: $white;
+  }
+
+  &.secondary-bg {
+    background: $secondary-color;
+  }
+
+  &.white-bg {
+    background: $white;
+  }
+
+  i {
+    margin: auto;
+  }
+
+}
+
 .btn-group-wrapper {
   border-radius: 50%;
   border: 4px solid $white;
