@@ -146,7 +146,12 @@
 						= link_to image_tag 'girl.jpg'
 						.text
 							%h2.mt-0.hidden-sm-down BDSM
-							%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+							%p.text-book.text-gray.hidden-sm-down
+								Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+								%br
+								costam
+								= react_component '::Login', { costam: 'tak' }
+								-# , {prerender: true}
 							.group-info.m
 								%p.mb-0
 									%span.text-primary 2310
@@ -172,7 +177,7 @@
 					.search-input
 						%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more.mr-3(type="submit")
 							%i.ero-search
-						= react_component "Select", {prerender: true}
+						-# = react_component "Select", {}, {prerender: true}
 
 				.row.search-body.open
 					.col-12.search-header-mobile.hidden-md-up
@@ -185,43 +190,50 @@
 							.col-12.col-md-6
 								.form-group
 									%label Szukam
-									= react_component "MultiSelect", {prerender: true, placeholder: "Szukam"}
+									= react_component "MultiSelect", {placeholder: "Szukam", options: [{value: 'm', label: 'Mężczyzn'}, {value: 'f', label: 'Kobiet'}]}
+									-# , {prerender: true}
 							.col-12.col-md-6
 								.form-group
 									%label Szukających
-									= react_component "MultiSelect", {prerender: true, placeholder: "Szukających"}
+									= react_component "MultiSelect", {placeholder: "Szukających"}
+									-# {prerender: true}
 
 					.col-12.col-xl-6.location
 						.form-group
 							%label Gdzie
-							= react_component "MultiSelect", {prerender: true, placeholder: "Gdzie"}
+							= react_component "MultiSelect", {placeholder: "Gdzie"}
+							-# {prerender: true}
 
 					.col-12.col-xl-6.age
 						.form-group
 							%label Wiek
-							= react_component "Range", {prerender: true}
+							= react_component "EaRange", {name: 'age'}
 
 					.col-12.col-xl-6.location-range
 						.form-group
 							%label Cała polska
-							= react_component "Slider", {prerender: true}
+							= react_component "EaSlider"
+							-# , {prerender: true}
 
 					.col-12.col-xl-6.height
 						.row
 							.col-12.col-md-6
 								.form-group
 									%label Wzrost
-									= react_component "MultiSelect", {prerender: true, placeholder: "Wzrost"}
+									= react_component "MultiSelect", {placeholder: "Wzrost"}
+									-# {prerender: true}
 
 							.col-12.col-md-6
 								.form-group
 									%label Sylwetka
-									= react_component "MultiSelect", {prerender: true, placeholder: "Sylwetka"}
+									= react_component "MultiSelect", {placeholder: "Sylwetka"}
+									-# {prerender: true}
 
 							.col-12
 								.form-group
 									%label Zainteresowania
-									= react_component "MultiSelectWithLabels", {prerender: true, placeholder: "Zainteresowania"}
+									-# = react_component "MultiSelectWithLabels", {placeholder: "Zainteresowania"}
+									-# {prerender: true}
 
 					.col-12.col-xl-6.options
 						%fieldset.form-group

@@ -38,8 +38,10 @@ gem 'haml-rails'
 gem 'jquery-rails'
 
 # react-rails
-gem "react-rails"
+# gem "react-rails", '~> 1.9.0'
 gem "webpacker"
+
+gem 'hyperloop', '~> 0.5.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

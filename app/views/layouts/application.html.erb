@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Bootstrap4</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag 'hello_react' %>
-    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%# javascript_pack_tag 'application' %>
+    <%# javascript_pack_tag 'hello_react' %>
+
+    <%# stylesheet_pack_tag 'application' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   </head>
   <body>
     <%= yield %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

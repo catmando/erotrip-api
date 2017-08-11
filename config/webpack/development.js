@@ -15,6 +15,11 @@ module.exports = merge(sharedConfig, {
     pathinfo: true
   },
 
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM"
+  },
+
   devServer: {
     clientLogLevel: 'none',
     https: settings.dev_server.https,

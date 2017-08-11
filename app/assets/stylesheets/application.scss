@@ -23,3 +23,137 @@
 @import "erotrip";
 
 @import "utils";
+@import "client_only";
+
+
+// to be moved
+.Select {
+  border: 1px solid #ccc;
+  box-shadow: 0px;
+  border-radius: 20px;
+  font-family: 'GothamRoundedBook';
+}
+
+.Select-control {
+  border: 0px;
+  box-shadow: none !important;
+  border-radius: 20px;
+
+  .Select-placeholder {
+    border: 0px;
+    box-shadow: 0px;
+    line-height: 2.4rem;
+  }
+}
+
+.Select-menu-outer {
+  border: 1px solid transparent;
+  box-shadow: 0px;
+  background: transparent !important;
+
+  .Select-menu {
+    border-radius: 20px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    background: #fff !important;
+  }
+}
+
+.Select-clear-zone {
+  padding-top: 6px;
+}
+
+.Select-arrow-zone {
+  padding-top: 3px;
+}
+
+.Select-value-label {
+  display: inline-block;
+  padding-top: 1px;
+}
+
+.is-searchable.is-open > .Select-control {
+  border-radius: 20px;
+}
+
+.Select--multi .Select-value {
+  margin-left: 6px;
+  margin-top: 6px;
+  border-radius: 20px;
+}
+
+.Select--multi .Select-value-label {
+  padding: 3px 5px 3px 5px;
+}
+
+.Select--multi .Select-value-icon {
+  padding: 4px 5px 2px 5px;
+}
+
+.rc-slider-rail {
+  background-color: #e2e6e9 !important;
+}
+
+.rc-slider-track {
+  background-color: #00C2F0 !important;
+}
+
+.rc-slider-handle {
+  border: solid 2px #fff !important;
+  background-color: #00C2F0 !important;
+
+  margin-top: -6px !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.value-min {
+  padding-right: 5px;
+  line-height: 1;
+  min-width: 24px;
+  text-align: left;
+}
+
+.value-max {
+  padding-left: 5px;
+  line-height: 1;
+  min-width: 24px;
+  text-align: right;
+}
+
+// EaMultiSelectWithLabels
+.select-with-labels {
+  .labels-wrapper {
+    display: flex;
+    margin-top: 5px;
+
+    .label {
+      display: inline-block;
+      background: #00C2F0;
+      color: #fff;
+      font-size: 11px;
+      border-radius: 50px;
+
+      padding: 0px 5px 0px 0px;
+      display: flex;
+      align-items: center;
+      margin-right: 5px;
+
+      button {
+        height: 20px;
+        width: 20px;
+        padding: 0px;
+        font-size: 10px;
+        margin-right: 2px;
+        outline: none !important;
+      }
+    }
+  }
+}
+

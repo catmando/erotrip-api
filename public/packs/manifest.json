@@ -1,6 +1,9 @@
 {
   "application.css": "/packs/application.css",
   "application.js": "/packs/application.js",
+  "client_and_server.js": "/packs/client_and_server.js",
+  "client_only.css": "/packs/client_only.css",
+  "client_only.js": "/packs/client_only.js",
   "hello_react.js": "/packs/hello_react.js",
   "server_rendering.css": "/packs/server_rendering.css",
   "server_rendering.js": "/packs/server_rendering.js"
