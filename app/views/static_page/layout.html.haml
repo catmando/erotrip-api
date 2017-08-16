@@ -119,19 +119,19 @@
 		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
 			.pt-5
 				- ['Anna', 'Lukas'].each do |person|
-					= react_component "Post", {title: "Hello World " + person}, {prerender: true}
+					= react_component "Post", {title: "Hello World " + person}
 			.pt-5
 				Select
-				= react_component "Select", {prerender: true, placeholder: "Custom placeholder"}
+				= react_component "Select", {placeholder: "Custom placeholder"}
 			.pt-5
 				Multiselect
-				= react_component "MultiSelect", {prerender: true}
+				= react_component "MultiSelect"
 			.pt-5
 				Range
-				= react_component "Range", {prerender: true}
+				= react_component "SliderRange"
 			.pt-5
 				Slider
-				= react_component "Slider", {prerender: true}
+				= react_component "Slider"
 
 			%h2.mt-5 Modal
 			%button.btn.btn-primary(data-target="#exampleModal" data-toggle="modal" type="button")

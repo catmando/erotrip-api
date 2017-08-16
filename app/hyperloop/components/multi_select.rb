@@ -7,7 +7,7 @@
 
     param placeholder: ""
     param selection: []
-    param name: "no_name_configured"
+    param name: "no_name_configured[]"
     # param options: options
     # param :param_with_default2, default: "default value" # alternative syntax
     # param :param_with_type, type: Hash
@@ -21,15 +21,13 @@
     # params[:selection]
 
     param options: [
-      { value: 'one', label: 'Option one' },
-      { value: 'two', label: 'Option two' }
-    ].to_a
+      { value: 'one', label: 'Please provide' },
+      { value: 'two', label: 'some options' }
+    ]
 
-    def log_change(val)
-      puts "current val: #{val}"
-      `console.log(JSON.stringify(val));`
-      mutate.selection val
-      nil
+    def changed(val)
+      # mutate.selection Hash.new(val.to_n || {})['value']
+      mutate.selection Array.new(val.to_n).map{ |item| Hash.new(item)['value'] || nil }.compact.uniq
     end
 
     before_mount do
@@ -39,8 +37,6 @@
 
     after_mount do
       mutate.selection params[:selection]
-      # any client only post rendering initialization goes here.
-      # i.e. start timers, HTTP requests, and low level jquery operations etc.
     end
 
     before_update do
@@ -55,13 +51,9 @@
       # DIV do
       #   "#{state.placeholder}"
       # end
-      DIV do
-        DIV do
-          puts params[:name]
-          # "OPTIONSY >>#{JSON.stringify(state.selection)}<< >>#{JSON.stringify(params[:selection])}<<"
-          # `JSON.stringify(this.state.selection)`
-        end
-        ReactSelect(name: params[:name], value: state.selection, options: params[:options], placeholder: params[:placeholder], multi: true, onChange: lambda{ |val| log_change(val)} )
+      ReactSelect(name: params[:name], value: state.selection.to_n, options: params[:options].to_n, placeholder: params[:placeholder], multi: true).on :change do |e|
+        changed(e)
+      end
 
         # .on(:change) do |e|
         #   puts e.inspect
@@ -74,7 +66,7 @@
         #   # console.log 'halo koalo'
         #   mutate.selection state.selection
         # end
-      end
+      # end
       # DIV do
       #   "dupa"
       # end

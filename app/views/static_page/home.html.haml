@@ -190,29 +190,29 @@
 							.col-12.col-md-6
 								.form-group
 									%label Szukam
-									= react_component "MultiSelect", {placeholder: "Szukam", options: [{value: 'm', label: 'Mężczyzn'}, {value: 'f', label: 'Kobiet'}]}
+									= react_component "MultiSelect", {placeholder: "Szukam", options: [{value: 'm', label: 'Mężczyzn'}, {value: 'f', label: 'Kobiet'}], name: 'gender[]', selection: params[:gender] || []}
 									-# , {prerender: true}
 							.col-12.col-md-6
 								.form-group
 									%label Szukających
-									= react_component "MultiSelect", {placeholder: "Szukających"}
+									= react_component "MultiSelect", {placeholder: "Szukających", name: 'gender_opposite[]', selection: params[:gender_opposite] || []}
 									-# {prerender: true}
 
 					.col-12.col-xl-6.location
 						.form-group
 							%label Gdzie
-							= react_component "ReactSelect", {name: 'some_name', value: [], options: [{value: "one", label: "ONE"}, {value: "two", label: "two"}], placeholder: 'sth', multi: true}
+							= react_component "Select", {placeholder: "Wszędzie", options: [{value: 1, label: 'Jeden'}, {value: 2, label: 'Dwa'}], name: 'where', selection: params[:where] || ''}
 							-# {prerender: true}
 
 					.col-12.col-xl-6.age
 						.form-group
 							%label Wiek
-							= react_component "SliderRange", {name: 'age'}
+							= react_component "SliderRange", {name: 'age[]', selection: params[:age] || [20, 30]}
 
 					.col-12.col-xl-6.location-range
 						.form-group
 							%label Cała polska
-							= react_component "Slider"
+							= react_component "Slider", name: 'distance', selection: params[:distance] || [30]
 							-# , {prerender: true}
 
 					.col-12.col-xl-6.height
@@ -220,19 +220,19 @@
 							.col-12.col-md-6
 								.form-group
 									%label Wzrost
-									= react_component "MultiSelect", {placeholder: "Wzrost"}
+									= react_component "MultiSelect", {placeholder: "Wzrost", name: 'height[]', selection: params[:height] || []}
 									-# {prerender: true}
 
 							.col-12.col-md-6
 								.form-group
 									%label Sylwetka
-									= react_component "MultiSelect", {placeholder: "Sylwetka"}
+									= react_component "MultiSelect", {placeholder: "Sylwetka", name: 'look[]', selection: params[:look] || []}
 									-# {prerender: true}
 
 							.col-12
 								.form-group
 									%label Zainteresowania
-									-# = react_component "MultiSelectWithLabels", {placeholder: "Zainteresowania"}
+									= react_component "MultiSelectWithLabels", {placeholder: "Zainteresowania", name: 'interests[]', selection: params[:interests] || []}
 									-# {prerender: true}
 
 					.col-12.col-xl-6.options

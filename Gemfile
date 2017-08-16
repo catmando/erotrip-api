@@ -41,9 +41,10 @@ gem 'jquery-rails'
 # gem "react-rails", '~> 1.9.0'
 gem "webpacker"
 
-gem 'hyperloop', '~> 0.5.6'
+gem 'hyperloop', '~> 0.5.8'
 
 group :development, :test do
+  gem 'hyper-console'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
