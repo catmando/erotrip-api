@@ -207,12 +207,12 @@
 					.col-12.col-xl-6.age
 						.form-group
 							%label Wiek
-							= react_component "SliderRange", {name: 'age[]', selection: params[:age] || [20, 30]}
+							= react_component "SliderRange", {name: 'age[]', selection: params[:age] || [20, 30] }
 
 					.col-12.col-xl-6.location-range
 						.form-group
 							%label Cała polska
-							= react_component "Slider", name: 'distance', selection: params[:distance] || [30]
+							= react_component "Slider", {name: 'distance', selection: params[:distance] || 30 }
 							-# , {prerender: true}
 
 					.col-12.col-xl-6.height

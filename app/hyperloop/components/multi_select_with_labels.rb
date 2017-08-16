@@ -25,7 +25,7 @@
 
     def render
       DIV(class: 'select-with-labels') do
-        ReactSelect(value: state.selection.to_n, options: params[:options].select{ |opt| !state.selections_memo.include?(opt['value']) }.to_n, placeholder: params[:placeholder]).on :change do |e|
+        ReactSelect(value: state.selection.to_n, options: params[:options].select{ |opt| !(state.selections_memo || []).include?(opt['value']) }.to_n, placeholder: params[:placeholder]).on :change do |e|
           add(e)
         end
         DIV(class: 'labels-wrapper') do

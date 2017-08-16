@@ -10,9 +10,7 @@
     ]
 
     def changed(val)
-      puts Hash.new(val.to_n)
       mutate.selection Hash.new(val.to_n)['value'] || ''
-      # mutate.selection val.to_n
     end
 
     after_mount do

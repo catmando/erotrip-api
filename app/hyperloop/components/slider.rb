@@ -5,10 +5,6 @@
 
     def changed(val)
       mutate.selection val
-      # `hyperconsole()`
-      # console
-       # context: 'Slider.instance'
-      nil
     end
 
     after_mount do
@@ -20,10 +16,7 @@
 
         ReactSlider(name: params[:name], defaultValue: params[:selection].to_i ).on :change do |e|
           changed(e.to_n)
-          # `console.log(e);`
-          # puts e.native
         end
-        # , onChange: lambda{ |val| changed(val)}
 
         DIV(class: 'value-max') do
           "#{state.selection}"
