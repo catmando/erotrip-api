@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725093032) do
+ActiveRecord::Schema.define(version: 20170816122811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,19 @@ ActiveRecord::Schema.define(version: 20170725093032) do
   enable_extension "unaccent"
   enable_extension "citext"
   enable_extension "hstore"
+
+  create_table "hyperloop_connections", force: :cascade do |t|
+    t.string "channel"
+    t.string "session"
+    t.datetime "created_at"
+    t.datetime "expires_at"
+    t.datetime "refresh_at"
+  end
+
+  create_table "hyperloop_queued_messages", force: :cascade do |t|
+    t.text "data"
+    t.integer "connection_id"
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name"
@@ -27,6 +40,17 @@ ActiveRecord::Schema.define(version: 20170725093032) do
     t.uuid "updated_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "users", "users", column: "created_by_id"

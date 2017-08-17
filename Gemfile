@@ -41,6 +41,8 @@ gem 'jquery-rails'
 # gem "react-rails", '~> 1.9.0'
 gem "webpacker"
 
+gem 'devise'
+
 gem 'hyperloop', '~> 0.5.8'
 
 group :development, :test do
