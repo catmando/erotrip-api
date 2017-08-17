@@ -1,3 +1,7 @@
+a {
+  cursor: pointer;
+}
+
 .btn {
 	font-family: $font-family-sans-serif;
 	cursor: pointer;
@@ -6,8 +10,10 @@
   padding: 0.5rem 1.2rem;
 }
 
-.btn.btn-large-padding {
+.btn.btn-lg {
   padding: 0.75rem 1.25rem;
+  border-radius: 1.5rem;
+  font-size: 1rem;
 }
 
 .btn.icon-only {
@@ -161,6 +167,40 @@
   }
 }
 
+.btn.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-color: transparent;
+  background: transparent;
+  border-width: 5px;
+  width: 52px;
+  height: 52px;
+  padding: 3px 11px;
+
+  &.primary-border {
+    border-color: $btn-primary-border;
+  }
+
+  &.white-border {
+    border-color: $white;
+  }
+
+  &.secondary-bg {
+    background: $secondary-color;
+  }
+
+  &.white-bg {
+    background: $white;
+  }
+
+  i {
+    margin: auto;
+  }
+
+}
+
 .btn-group-wrapper {
   border-radius: 50%;
   border: 4px solid $white;
@@ -288,6 +328,21 @@
   font-size: 12px;
   background: $ero-gray;
   font-family: 'GothamRoundedBook';
+
+  .btn {
+    padding: 0px;
+    height: 15px;
+    line-height: 12px;
+    margin-top: -4px;
+    color: #545454;
+  }
+}
+
+.btn-group {
+  .btn {
+    padding: 0.5rem 1.2rem 0.4rem 1.2rem;
+    font-size: 14px;
+  }
 }
 
 textarea.form-control {
@@ -296,5 +351,62 @@ textarea.form-control {
   font-size: 14px;
   padding: 15px;
 }
+
+label.form-check-label  {
+  display: inline-flex;
+  line-height: 18px;
+  padding-left: 0px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+label.form-check-label input[type="checkbox"] {
+  display: none;
+}
+
+label.form-check-label [type=checkbox] + span:before {
+  content: '';
+  height: 15px;
+  width: 15px;
+  border: 1px solid $ero-gray;
+  display: inline-flex;
+  position: relative;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+  background: $primary-color;
+  border: 1px solid $primary-color !important;
+}
+
+input {
+  font-family: 'GothamRoundedBook';
+}
+
+label.form-check-label input[type="radio"] {
+  display: none;
+}
+
+label.form-check-label [type=radio] + span:before {
+  content: '';
+  height: 35px;
+  width: 35px;
+  border: 1px solid $ero-gray-light;
+  display: inline-flex;
+  position: relative;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+[type=radio]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+  background: $primary-color;
+  border: 1px solid $primary-color !important;
+}
+
 
 

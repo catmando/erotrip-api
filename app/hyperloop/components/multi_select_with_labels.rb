@@ -30,9 +30,9 @@
         end
         DIV(class: 'labels-wrapper') do
           (state.selections_memo || []).each_with_index do |item, index|
-            DIV.label(key: index) do
+            DIV(key: index, class: "badge badge-default mr-2") do
               INPUT(type: 'hidden', name: params[:name], value: item)
-              BUTTON(type: "button", class: "btn btn-primary") do
+              BUTTON(type: "button", class: "btn btn-link") do
                 'x'
               end.on :click do |e|
                 remove(item)

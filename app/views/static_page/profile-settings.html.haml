@@ -1,0 +1,154 @@
+.row
+	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+
+		.profile-info-bar.streach-me
+			.profile-info-bar-inner
+				.profile-info-wrapper
+					.profile-info.ml-3
+						.profile-info-upper.mb-2.mt-1
+							.person-status.away
+							%h3.text-white.text-book.mb-0 Ola, 18
+						.profile-info-lower
+							%span.text-white 2 dni temu,
+							%span.text-white Poznań
+				%button.btn.icon-only.btn-dark-bar(type="button")
+					%i.ero-settings
+
+		.settings
+			.settings-header.border-bottom
+				%h4.mt-5.mb-3 Prywatność
+			.settings-body.mt-4
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Podglądacz
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Wiek
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Data logowania
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Widoczność grup
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Galeria prywatna
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Status online
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+
+		.notifications-header.border-bottom
+			%h4.mt-5.mb-3 Powiadomienia
+		.notifications-body.mt-4
+			.row
+				.col-6
+					%span Wiadomości
+
+					.form-group
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
+								%span
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
+								%span
+
+		.pin.streach-me
+			.pin-header.border-bottom
+				%h4.mb-3 PIN
+			.pin-body
+				%form.form-inline.mt-6.mb-4
+					.input-group.mr-2
+						%input(type="text" class="form-control" placeholder="Minimum 4 znaki")
+
+					%button.btn.btn-secondary(type="submit") Potwierdź
+				.text-gray.text-book Nadaj pin składający się z minimum 4 cyfr, który będzie wymagany do odzyskania hasła. Dzięki niemu niepożądane osoby nie będą mogły sprawdzić czy Twój email jest w naszej bazie.
+
+		.featured.featured-large.streach-me
+			.patch
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+
+		.footer.streach-me.hidden-lg-down
+			.patch
+			.row.no-gutters
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Użytkowników
+							.number 2 335 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Zweryfikowanych
+							.number 2 115 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Online
+							.number 15 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Ukrytych
+							.number 75 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Wycieczek
+							.number 92 123
+
+
+
+
+
+

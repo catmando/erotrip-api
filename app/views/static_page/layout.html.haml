@@ -1,320 +1,210 @@
-.navbar.hidden-md-up
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
-		%i.ero-menu
-		.button-label.empty
-	= image_tag('logo.png')
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages(type="button")
-		%i.ero-messages
-		.button-label 2
+.row
+	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+		.pt-5
+			- ['Anna', 'Lukas'].each do |person|
+				= react_component "Post", {title: "Hello World " + person}, {prerender: true}
+		.pt-5
+			Select
+			= react_component "Select", {placeholder: "Custom placeholder"}, {prerender: true}
+		.pt-5
+			Multiselect
+			= react_component "MultiSelect", {}, {prerender: true}
+		.pt-5
+			Range
+			= react_component "Range", {}, {prerender: true}
+		.pt-5
+			Slider
+			= react_component "Slider", {}, {prerender: true}
 
-.sidebar
-	.logo-wrapper.hidden-lg-down
-		= link_to image_tag('logo.png')
+		%h2.mt-5 Modal
+		%button.btn.btn-primary(data-target="#exampleModal" data-toggle="modal" type="button")
+			Launch demo modal
+		#exampleModal.modal.fadeable(aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1")
+			.modal-dialog(role="document")
+				.modal-content
+					.modal-header
+						%h5#exampleModalLabel.modal-title Modal title
+						%button.close(aria-label="Close" data-dismiss="modal" type="button")
+							%span(aria-hidden="true")
+								%i.ero-cross.f-s-20.d-inline-block.rotated-45deg
+					.modal-body
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					.modal-footer
+						%button.btn.btn-secondary(data-dismiss="modal" type="button") Close
+						%button.btn.btn-primary(type="button") Save changes
 
-	-# .logged-out
-	-# 	%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
-	-# 	%p.mt-0.mb-0
-	-# 		%span Masz już konto?
-	-# 		%span.text-primary Zaloguj się
+		%h2.mt-5 Buttons
+		%button.btn.btn-primary(type="button") Primary
+		%button.btn.btn-secondary(type="button") Secondary
+		%button.btn.btn-success(type="button") Success
+		%button.btn.btn-info(type="button") Info
+		%button.btn.btn-warning(type="button") Warning
+		%button.btn.btn-danger(type="button") Danger
+		%button.btn.btn-link(type="button") Link
 
-	.logged-in
+		%h2.mt-5 Buttons - .btn-lg
+		%button.btn.btn-primary.btn.btn-lg(type="button") Primary
+		%button.btn.btn-secondary.btn.btn-lg(type="button") Secondary
+		%button.btn.btn-success.btn.btn-lg(type="button") Success
+		%button.btn.btn-info.btn.btn-lg(type="button") Info
+		%button.btn.btn-warning.btn.btn-lg(type="button") Warning
+		%button.btn.btn-danger.btn.btn-lg(type="button") Danger
+		%button.btn.btn-link.btn.btn-lg(type="button") Link
 
-		.logged-in-buttons
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
-				%i.ero-menu
-				.button-label.empty
-			.divider.hidden-sm-down.hidden-xl-up
+		%h2.mt-5 Buttons - custom outlines
+		%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Gray text
+		%button.btn.btn-outline-primary.btn-outline-gray(type="button") Primary text
+		%button.btn.btn-outline-secondary.btn-outline-gray.text-gray(type="button") Gray text
+		%button.btn.btn-outline-secondary.btn-outline-gray(type="button") Primary text
 
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-messages.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
-				%i.ero-messages
-				.button-label 2
-			.divider.hidden-sm-down
+		%h2.mt-5 Button link / Button link with gray text
+		%button.btn.btn-link(type="button") Normal text
+		%button.btn.btn-link.text-gray(type="button") Gray text
 
-		.profile
-			.profile-details
-				= image_tag 'girl.jpg'
-				%span.profile-name.text-gray Ewelinaelina
+		%h2.mt-5 Buttons - icons only, outlined
+		%button.btn.icon-only.btn-outline-primary.btn-outline-gray(type="button")
+			%i.ero-cross
+		%button.btn.icon-only.btn-outline-primary.btn-outline-gray.active(type="button")
+			%i.ero-cross
 
-			.profile-buttons
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-settings
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-log-out
-		.divider
+		%h2.mt-5 Buttons - group scoped
+		%button.btn.icon-only.btn-eye.btn-group(type="button")
+			%i.ero-eye
+		%button.btn.icon-only.btn-eye.btn-group.active(type="button")
+			%i.ero-eye
+		%button.btn.icon-only.btn-plus.btn-group(type="button")
+			%i.ero-cross
+		%button.btn.icon-only.btn-plus.btn-group.active(type="button")
+			%i.ero-cross
 
-	.menu
-		%button.btn.btn-secondary.btn-block
-			Dodaj wycieczkę
+		%h2.mt-5 Buttons - container scoped (new prototpe, its style is based on additional calsses - .primary-border, .white-border)
+		%button.btn.icon-only.btn-container.text-primary.primary-border.white-bg(type="button")
+			%i.ero-chevron-double-right-2.f-s-15
+		%button.btn.icon-only.btn-container.text-white.primary-border.secondary-bg(type="button")
+			%i.ero-chevron-double-right.f-s-15
+		%button.btn.icon-only.btn-container.text-gray.white-border.white-bg(type="button")
+			%i.ero-chevron-double-right-2.f-s-15
+		%button.btn.icon-only.btn-container.text-white.white-border.secondary-bg(type="button")
+			%i.ero-chevron-double-right.f-s-15
 
-		%ul.main-submenu
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-users
-					.label.fadeable Użytkownicy
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-trips
-					.label.fadeable Wycieczki
-			%li.menu-item.active
-				%a
-					.icon-wrapper
-						%i.ero-groups
-					.label.fadeable Grupy
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-hotline
-					.label.fadeable Hotline
+		%h2.mt-5 Buttons - wrapped
+		.btn-group-wrapper.d-inline-block
+			%button.btn.icon-only.btn-wrapped.btn-group(type="button")
+				%i.ero-eye
+		.btn-group-wrapper.d-inline-block
+			%button.btn.icon-only.btn-wrapped.btn-group(type="button")
+				%i.ero-alert-circle-outline
 
-		%button.btn.btn-primary.btn-block
-			Moje wycieczki
+		%h2.mt-5 Buttons - person scoped
+		%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
+			%i.ero-heart
+		%button.btn.icon-only.btn-person.btn-remove.btn-group(type="button")
+			%i.ero-cross
 
-		%ul.fadeable.secondary-submenu
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-messages
-					.label Wiadmości
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-notifications
-					.label Powiadomienia
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-heart-2
-					.label Chcą Cię poznać
-			%li.menu-item
-				%a
-					.icon-wrapper
+		%h2.mt-5 Buttons - on dark bars
+		%button.btn.icon-only.btn-dark-bar.active(type="button")
+			%i.ero-heart
+		%button.btn.icon-only.btn-dark-bar(type="button")
+			%i.ero-heart
+		%button.btn.icon-only.btn-dark-bar(type="button")
+			%i.ero-settings
+
+		%h2.mt-5 Buttons - .btn-small-dark
+		%button.btn.icon-only.btn-small-dark(type="button")
+			%i.ero-chevron-left.f-s-13
+		%button.btn.icon-only.btn-small-dark(type="button")
+			%i.ero-chevron-right.f-s-13
+		%button.btn.icon-only.btn-small-dark(type="button")
+			%i.ero-users.f-s-15
+		%button.btn.icon-only.btn-small-dark(type="button")
+			%i.ero-trash.f-s-18
+		%button.btn.icon-only.btn-small-dark(type="button")
+			%i.ero-locker.f-s-20
+
+		%h2.mt-5 Buttons - .btn-big-dark
+		%button.btn.icon-only.btn-big-dark(type="button")
+			%i.ero-cross.rotated-45deg
+
+		%h2.mt-5 Pagination
+		%nav.mt-5(aria-label="...")
+			%ul.pagination.justify-content-between
+				%li.page-item.previous.disabled
+					%a.page-link(href="#" tabindex="-1")
+						%i.ero-arrow-left.mr-3
+						%span.d-inline-block.hidden-sm-down Poprzednia strona
+
+				.page-wrapper
+					%li.page-item.active
+						%a.page-link(href="") 1
+					%li.page-item
+						%a.page-link(href="") 2
+					%li.page-item
+						%a.page-link(href="") 3
+					%li.page-item
+						%a.page-link(href="") 4
+					%li.page-item
+						%a.page-link(href="") 5
+
+				%li.page-item.next
+					%a.page-link(href="")
+						%span.d-inline-block.hidden-sm-down Następna strona
+						%i.ero-arrow-right.ml-3
+
+		%h6.mt-3.mb-3 Grupy
+		.group-details.group-details-gray.streach-me
+			.group-details-wrapper
+
+				%h3.mt-0.hidden-md-up BDSM
+				.ea-flex.ea-align-start
+					%div
+					= link_to image_tag 'girl.jpg'
+					.text
+						%h2.mt-0.hidden-sm-down BDSM
+						%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+						.group-info.m
+							%p.mb-0
+								%span.text-primary 2310
+								%span.text-gray użytkowników
+							%p.mb-0
+								%span.text-primary 70
+								%span.text-gray ukrytych
+
+				%button.btn.icon-only.btn-plus.btn-group(type="button")
+					%i.ero-cross
+				.btn-group-wrapper
+					%button.btn.icon-only.btn-wrapped.btn-group(type="button")
 						%i.ero-eye
-					.label Podglądacz
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-new-people
-					.label Nowe osoby
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-new-trips
-					.label Nowe wycieczki
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-unlocked
-					.label Odblokowania
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-locker
-					.label Tryb anonimowy
 
+		%h6.mt-3.mb-3 Profile box
+		.profile-box.profile-box-gray.streach-me
+			.group-details-wrapper
 
-.container.main-container
-	.row
-		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
-			.pt-5
-				- ['Anna', 'Lukas'].each do |person|
-					= react_component "Post", {title: "Hello World " + person}
-			.pt-5
-				Select
-				= react_component "Select", {placeholder: "Custom placeholder"}
-			.pt-5
-				Multiselect
-				= react_component "MultiSelect"
-			.pt-5
-				Range
-				= react_component "SliderRange"
-			.pt-5
-				Slider
-				= react_component "Slider"
+				.ea-flex.ea-align-center
+					%div
+					= link_to image_tag 'girl.jpg'
+					.text
+						.profile-info-wrapper
+							.profile-info
+								.profile-info-upper
+									.person-status.away
+									%h4.mb-0
+										%span Ola,
+										%span.text-gray 18
+									%i.ero-verified-border-gray.ml-2.f-s-30
+										%span.path1
+										%span.path2
+										%span.path3
+								.profile-info-lower.mb-3
+									%span.text-gray 2 dni temu,
+									%span.text-gray Poznań
 
-			%h2.mt-5 Modal
-			%button.btn.btn-primary(data-target="#exampleModal" data-toggle="modal" type="button")
-				Launch demo modal
-			#exampleModal.modal.fadeable(aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1")
-				.modal-dialog(role="document")
-					.modal-content
-						.modal-header
-							%h5#exampleModalLabel.modal-title Modal title
-							%button.close(aria-label="Close" data-dismiss="modal" type="button")
-								%span(aria-hidden="true") ×
-						.modal-body
-							\...
-						.modal-footer
-							%button.btn.btn-secondary(data-dismiss="modal" type="button") Close
-							%button.btn.btn-primary(type="button") Save changes
+						%p.text-book.text-gray Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
 
-			%h2.mt-5 Buttons
-			%button.btn.btn-primary(type="button") Primary
-			%button.btn.btn-secondary(type="button") Secondary
-			%button.btn.btn-success(type="button") Success
-			%button.btn.btn-info(type="button") Info
-			%button.btn.btn-warning(type="button") Warning
-			%button.btn.btn-danger(type="button") Danger
-			%button.btn.btn-link(type="button") Link
-
-			%h2.mt-5 Buttons - large padding (do not confuse with .btn-lg)
-			%button.btn.btn-primary.btn.btn-large-padding(type="button") Primary
-			%button.btn.btn-secondary.btn.btn-large-padding(type="button") Secondary
-			%button.btn.btn-success.btn.btn-large-padding(type="button") Success
-			%button.btn.btn-info.btn.btn-large-padding(type="button") Info
-			%button.btn.btn-warning.btn.btn-large-padding(type="button") Warning
-			%button.btn.btn-danger.btn.btn-large-padding(type="button") Danger
-			%button.btn.btn-link.btn.btn-large-padding(type="button") Link
-
-			%h2.mt-5 Buttons - custom outlines
-			%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Gray text
-			%button.btn.btn-outline-primary.btn-outline-gray(type="button") Primary text
-			%button.btn.btn-outline-secondary.btn-outline-gray.text-gray(type="button") Gray text
-			%button.btn.btn-outline-secondary.btn-outline-gray(type="button") Primary text
-
-			%h2.mt-5 Button link / Button link with gray text
-			%button.btn.btn-link(type="button") Normal text
-			%button.btn.btn-link.text-gray(type="button") Gray text
-
-			%h2.mt-5 Buttons - icons only, outlined
-			%button.btn.icon-only.btn-outline-primary.btn-outline-gray(type="button")
-				%i.ero-cross
-			%button.btn.icon-only.btn-outline-primary.btn-outline-gray.active(type="button")
-				%i.ero-cross
-
-			%h2.mt-5 Buttons - group scoped
-			%button.btn.icon-only.btn-eye.btn-group(type="button")
-				%i.ero-eye
-			%button.btn.icon-only.btn-eye.btn-group.active(type="button")
-				%i.ero-eye
-			%button.btn.icon-only.btn-plus.btn-group(type="button")
-				%i.ero-cross
-			%button.btn.icon-only.btn-plus.btn-group.active(type="button")
-				%i.ero-cross
-			.btn-group-wrapper.d-inline-block
-				%button.btn.icon-only.btn-wrapped.btn-group(type="button")
-					%i.ero-eye
-			.btn-group-wrapper.d-inline-block
-				%button.btn.icon-only.btn-wrapped.btn-group(type="button")
-					%i.ero-alert-circle-outline
-
-
-			%h2.mt-5 Buttons - person scoped
-			%button.btn.icon-only.btn-person.btn-heart.btn-group(type="button")
-				%i.ero-heart
-			%button.btn.icon-only.btn-person.btn-remove.btn-group(type="button")
-				%i.ero-cross
-
-			%h2.mt-5 Buttons - on dark bars
-			%button.btn.icon-only.btn-dark-bar.active(type="button")
-				%i.ero-heart
-			%button.btn.icon-only.btn-dark-bar(type="button")
-				%i.ero-heart
-			%button.btn.icon-only.btn-dark-bar(type="button")
-				%i.ero-settings
-
-			%h2.mt-5 Buttons - .btn-small-dark
-			%button.btn.icon-only.btn-small-dark(type="button")
-				%i.ero-chevron-left.f-s-13
-			%button.btn.icon-only.btn-small-dark(type="button")
-				%i.ero-chevron-right.f-s-13
-			%button.btn.icon-only.btn-small-dark(type="button")
-				%i.ero-users.f-s-15
-			%button.btn.icon-only.btn-small-dark(type="button")
-				%i.ero-trash.f-s-18
-			%button.btn.icon-only.btn-small-dark(type="button")
-				%i.ero-locker.f-s-20
-
-			%h2.mt-5 Buttons - .btn-big-dark
-			%button.btn.icon-only.btn-big-dark(type="button")
-				%i.ero-cross.rotated-45deg
-
-			%h2.mt-5 Pagination
-			%nav.mt-5(aria-label="...")
-				%ul.pagination.justify-content-between
-					%li.page-item.previous.disabled
-						%a.page-link(href="#" tabindex="-1")
-							%i.ero-arrow-left.mr-3
-							%span.d-inline-block.hidden-sm-down Poprzednia strona
-
-					.page-wrapper
-						%li.page-item.active
-							%a.page-link(href="") 1
-						%li.page-item
-							%a.page-link(href="") 2
-						%li.page-item
-							%a.page-link(href="") 3
-						%li.page-item
-							%a.page-link(href="") 4
-						%li.page-item
-							%a.page-link(href="") 5
-
-					%li.page-item.next
-						%a.page-link(href="")
-							%span.d-inline-block.hidden-sm-down Następna strona
-							%i.ero-arrow-right.ml-3
-
-			%h6.mt-3.mb-3 Grupy
-			.group-details.group-details-gray.streach-me
-				.group-details-wrapper
-
-					%h3.mt-0.hidden-md-up BDSM
-					.ea-flex.ea-align-start
-						%div
-						= link_to image_tag 'girl.jpg'
-						.text
-							%h2.mt-0.hidden-sm-down BDSM
-							%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
-							.group-info.m
-								%p.mb-0
-									%span.text-primary 2310
-									%span.text-gray użytkowników
-								%p.mb-0
-									%span.text-primary 70
-									%span.text-gray ukrytych
-
-					%button.btn.icon-only.btn-plus.btn-group(type="button")
-						%i.ero-cross
-					.btn-group-wrapper
-						%button.btn.icon-only.btn-wrapped.btn-group(type="button")
-							%i.ero-eye
-
-			%h6.mt-3.mb-3 Profile box
-			.profile-box.profile-box-gray.streach-me
-				.group-details-wrapper
-
-					.ea-flex.ea-align-center
-						%div
-						= link_to image_tag 'girl.jpg'
-						.text
-							.profile-info-wrapper
-								.profile-info
-									.profile-info-upper
-										.person-status.away
-										%h4.mb-0
-											%span Ola,
-											%span.text-gray 18
-										%i.ero-verified-border-gray.ml-2.f-s-30
-											%span.path1
-											%span.path2
-											%span.path3
-									.profile-info-lower.mb-3
-										%span.text-gray 2 dni temu,
-										%span.text-gray Poznań
-
-							%p.text-book.text-gray Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
-
-					%button.btn.icon-only.btn-plus.btn-group(type="button")
-						%i.ero-cross
-					.btn-group-wrapper
-						%button.btn.icon-only.btn-wrapped.btn-group(type="button")
-							%i.ero-alert-circle-outline
-
-
-
-
-
+				%button.btn.icon-only.btn-plus.btn-group(type="button")
+					%i.ero-cross
+				.btn-group-wrapper
+					%button.btn.icon-only.btn-wrapped.btn-group(type="button")
+						%i.ero-alert-circle-outline
 
 
 

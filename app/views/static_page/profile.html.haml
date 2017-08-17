@@ -1,287 +1,172 @@
-.navbar.hidden-md-up
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
-		%i.ero-menu
-		.button-label.empty
-	= image_tag('logo.png')
-	%button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.messages(type="button")
-		%i.ero-messages
-		.button-label 2
-
-.sidebar
-	.logo-wrapper.hidden-lg-down
-		= link_to image_tag('logo.png')
-
-	-# .logged-out
-	-# 	%a.mt-0.mb-0.text-secondary.f-s-16.underline(href="") Dołącz do nas!
-	-# 	%p.mt-0.mb-0
-	-# 		%span Masz już konto?
-	-# 		%span.text-primary Zaloguj się
-
-	.logged-in
-
-		.logged-in-buttons
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-menu.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
-				%i.ero-menu
-				.button-label.empty
-			.divider.hidden-sm-down.hidden-xl-up
-
-			%button.btn.btn-outline-primary.btn-outline-gray.btn-messages.icon-only.with-label.hidden-sm-down.hidden-xl-up(type="button")
-				%i.ero-messages
-				.button-label 2
-			.divider.hidden-sm-down
-
+.row
+	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
 		.profile
+
+			.profile-info-bar.streach-me
+				.profile-info-bar-inner
+					.profile-info-wrapper
+						%button.btn.icon-only.btn-dark-bar(type="button")
+							%i.ero-heart
+						.profile-info.ml-3
+							.profile-info-upper.mb-2.mt-1
+								.person-status.away
+								%h3.text-white.text-book.mb-0 Ola, 18
+								%i.ero-verified-border-white.ml-2.f-s-25
+									%span.path1
+									%span.path2
+									%span.path3
+							.profile-info-lower
+								%span.text-white 2 dni temu,
+								%span.text-white Poznań
+					%button.btn.btn-secondary.btn-lg(type="button") Wyślij wiadomość
+
+			.profile-photos-bar.streach-me
+				.profile-photos-bar-inner.ea-flex
+					%a.verification.no-underline-i(href="")
+						.verification-text-wrapper
+							.verification-text.text-center
+								%i.ero-sad-face.f-s-30.text-white
+								.f-s-12.text-white.mt-1 Niezweryfikowany
+					.photos
+						- [1, 2, 3].each do |photo|
+							.photo
+								= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
+
 			.profile-details
-				= image_tag 'girl.jpg'
-				%span.profile-name.text-gray Ewelinaelina
+				.ea-flex.ea-align-center.ea-just-space-between.mt-4.mb-4
+					.ea-flex.ea-align-center
+						= image_tag('girl.jpg', class: "profile-avatar rounded-circle")
+						.ml-3
+							%h5.mt-0.mb-1 Chce poznać
+							%h6.mt-0.mb-0.text-gray.text-book Poznać nowych ludzi
 
-			.profile-buttons
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-settings
-				%button.btn.btn-outline-primary.btn-outline-gray.icon-only.fadeable(type="button")
-					%i.ero-log-out
-		.divider
+					%button.btn.btn-outline-primary.btn-outline-gray.btn-lg(type="button") Zgłoś użytkownika
+				.divider
 
-	.menu
-		%button.btn.btn-secondary.btn-block
-			Dodaj wycieczkę
+				.profile-decription
+					%h6.mt-3.mb-3 O mnie
+					%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-		%ul.main-submenu
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-users
-					.label.fadeable Użytkownicy
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-trips
-					.label.fadeable Wycieczki
-			%li.menu-item.active
-				%a
-					.icon-wrapper
-						%i.ero-groups
-					.label.fadeable Grupy
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-hotline
-					.label.fadeable Hotline
+					.profile-preferences.mt-3.mb-2
+						.row
+							.col-12.col-md-6.pt-3.pb-3.border-right
+								.row.mb-3
+									.col-6 Szukam
+									.col-6.text-gray Mężczyzn
+								.row.mb-3
+									.col-6 Waga
+									.col-6.text-gray 60 kg
+								.row
+									.col-6 Wzrost
+									.col-6.text-gray 175 cm
 
-		%button.btn.btn-primary.btn-block
-			Moje wycieczki
+							.col-12.col-md-6.pt-3.pb-3
+								.row.mb-3
+									.col-6 Sylwetka
+									.col-6.text-gray Szczupła
+								.row.mb-3
+									.col-6 Papierosy
+									.col-6.text-gray Nie palę
+								.row
+									.col-6 Alkohol
+									.col-6.text-gray Do towarzystwa
 
-		%ul.fadeable.secondary-submenu
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-messages
-					.label Wiadmości
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-notifications
-					.label Powiadomienia
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-heart-2
-					.label Chcą Cię poznać
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-eye
-					.label Podglądacz
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-new-people
-					.label Nowe osoby
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-new-trips
-					.label Nowe wycieczki
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-unlocked
-					.label Odblokowania
-			%li.menu-item
-				%a
-					.icon-wrapper
-						%i.ero-locker
-					.label Tryb anonimowy
-
-
-.container.main-container
-	.row
-		.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
-			.profile
-
-				.profile-info-bar.streach-me
-					.profile-info-bar-inner
-						.profile-info-wrapper
-							%button.btn.icon-only.btn-dark-bar(type="button")
-								%i.ero-heart
-							.profile-info.ml-3
-								.profile-info-upper.mb-2.mt-1
-									.person-status.away
-									%h3.text-white.text-book.mb-0 Ola, 18
-									%i.ero-verified-border-white.ml-2.f-s-25
-										%span.path1
-										%span.path2
-										%span.path3
-								.profile-info-lower
-									%span.text-white 2 dni temu,
-									%span.text-white Poznań
-						%button.btn.btn-secondary.btn-large-padding(type="button") Wyślij wiadomość
-
-				.profile-photos-bar.streach-me
-					.profile-photos-bar-inner.ea-flex
-						%a.verification.no-underline-i(href="")
-							.verification-text-wrapper
-								.verification-text.text-center
-									%i.ero-sad-face.f-s-30.text-white
-									.f-s-12.text-white.mt-1 Niezweryfikowany
-						.photos
-							- [1, 2, 3].each do |photo|
-								.photo
-									= link_to image_tag('girl.jpg', class: "img-fluid"), nil, :class => "d-inline-block"
-
-				.profile-details
-					.ea-flex.ea-align-center.ea-just-space-between.mt-4.mb-4
-						.ea-flex.ea-align-center
-							= image_tag('girl.jpg', class: "profile-avatar rounded-circle")
-							.ml-3
-								%h5.mt-0.mb-1 Chce poznać
-								%h6.mt-0.mb-0.text-gray.text-book Poznać nowych ludzi
-
-						%button.btn.btn-outline-primary.btn-outline-gray.btn-large-padding(type="button") Zgłoś użytkownika
+						.row.mt-3.mb-3
+							.col-6
+								%span.mr-3 Zainteresowania
+								%span.badge.badge-default.mr-2 Pissing
+								%span.badge.badge-default.mr-2 Pissing
+								%span.badge.badge-default.mr-2 Pissing
 					.divider
 
-					.profile-decription
-						%h6.mt-3.mb-3 O mnie
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					%h6.mt-3.mb-3 Lubię
+					%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					.divider
 
-						.profile-preferences.mt-3.mb-2
-							.row
-								.col-12.col-md-6.pt-3.pb-3.border-right
-									.row.mb-3
-										.col-6 Szukam
-										.col-6.text-gray Mężczyzn
-									.row.mb-3
-										.col-6 Waga
-										.col-6.text-gray 60 kg
-									.row
-										.col-6 Wzrost
-										.col-6.text-gray 175 cm
+					%h6.mt-3.mb-3 Nie lubię
+					%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					.divider
 
-								.col-12.col-md-6.pt-3.pb-3
-									.row.mb-3
-										.col-6 Sylwetka
-										.col-6.text-gray Szczupła
-									.row.mb-3
-										.col-6 Papierosy
-										.col-6.text-gray Nie palę
-									.row
-										.col-6 Alkohol
-										.col-6.text-gray Do towarzystwa
+					%h6.mt-3.mb-3 Wymarzony partner
+					%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					.divider
 
-							.row.mt-3.mb-3
-								.col-6
-									%span.mr-3 Zainteresowania
-									%span.badge.badge-default.mr-2 Pissing
-									%span.badge.badge-default.mr-2 Pissing
-									%span.badge.badge-default.mr-2 Pissing
-						.divider
+			.groups
+				%h6.mt-3.mb-3 Grupy
+				- [1, 2].each do |group|
+					.group-details.group-details-gray.streach-me
+						.group-details-wrapper
 
-						%h6.mt-3.mb-3 Lubię
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						.divider
+							%h3.mt-0.hidden-md-up BDSM
+							.ea-flex.ea-align-start
+								%div
+								= link_to image_tag 'girl.jpg'
+								.text
+									%h2.mt-0.hidden-sm-down BDSM
+									%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+									.group-info.m
+										%p.mb-0
+											%span.text-primary 2310
+											%span.text-gray użytkowników
+										%p.mb-0
+											%span.text-primary 70
+											%span.text-gray ukrytych
 
-						%h6.mt-3.mb-3 Nie lubię
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						.divider
+							%button.btn.icon-only.btn-plus.btn-group(type="button")
+								%i.ero-cross
+							.btn-group-wrapper
+								%button.btn.icon-only.btn-wrapped.btn-group(type="button")
+									%i.ero-eye
 
-						%h6.mt-3.mb-3 Wymarzony partner
-						%p.text-gray.text-book Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						.divider
+			.profile-block.mt-5.mb-5
+				%button.btn.btn-outline-primary.btn-outline-gray.btn-lg.text-gray(type="button") Zablokuj
 
-				.groups
-					%h6.mt-3.mb-3 Grupy
-					- [1, 2].each do |group|
-						.group-details.group-details-gray.streach-me
-							.group-details-wrapper
+		.featured.featured-large.streach-me
+			.patch
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
 
-								%h3.mt-0.hidden-md-up BDSM
-								.ea-flex.ea-align-start
-									%div
-									= link_to image_tag 'girl.jpg'
-									.text
-										%h2.mt-0.hidden-sm-down BDSM
-										%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
-										.group-info.m
-											%p.mb-0
-												%span.text-primary 2310
-												%span.text-gray użytkowników
-											%p.mb-0
-												%span.text-primary 70
-												%span.text-gray ukrytych
-
-								%button.btn.icon-only.btn-plus.btn-group(type="button")
-									%i.ero-cross
-								.btn-group-wrapper
-									%button.btn.icon-only.btn-wrapped.btn-group(type="button")
-										%i.ero-eye
-
-				.profile-block.mt-5.mb-5
-					%button.btn.btn-outline-primary.btn-outline-gray.btn-large-padding.text-gray(type="button") Zablokuj
-
-			.featured.streach-me
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-				.img-wrapper
-					= link_to image_tag 'girl.jpg'
-
-			.footer.streach-me.hidden-lg-down
-				.row.no-gutters
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Użytkowników
-								.number 2 335 542
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Zweryfikowanych
-								.number 2 115 542
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Online
-								.number 15 123
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Ukrytych
-								.number 75 123
-					.col
-						.footer-stats-wrapper
-							.footer-stats
-								.name Wycieczek
-								.number 92 123
+		.footer.streach-me.hidden-lg-down
+			.patch
+			.row.no-gutters
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Użytkowników
+							.number 2 335 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Zweryfikowanych
+							.number 2 115 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Online
+							.number 15 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Ukrytych
+							.number 75 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Wycieczek
+							.number 92 123
 
 
 

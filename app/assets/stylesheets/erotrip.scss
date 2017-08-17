@@ -32,6 +32,18 @@ body {
 	}
 }
 
+.patch {
+	@media (min-width: 1199px) {
+		width: calc( (1140px * 0.75) + ((100vw - 1140px)/2) );
+		position: absolute;
+		background: inherit;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		z-index: -1;
+	}
+}
+
 .divider {
 	height: 1px;
 	width: 100%;
@@ -39,7 +51,11 @@ body {
 }
 
 .text-secondary {
-	color: $btn-secondary-bg;
+	color: $secondary-color;
+}
+
+.text-secondary-i {
+	color: $secondary-color !important;
 }
 
 .text-gray {
@@ -50,30 +66,72 @@ body {
 	font-family: 'GothamRoundedBook';
 }
 
+.border-bottom {
+	border-bottom: 1px solid $ero-gray-light;
+}
+
 .streach-me {
 	// artificial negative margin for selected layout elements
 	margin-left: -15px;
 	margin-right: -15px;
 }
 
-
-
 // layout parts
+.modal {
+	&.fadeable {
+		opacity: 0.3;
+		@include transition(opacity 0.3s ease-in-out);
+	}
+	.modal-header {
+		background: $primary-color;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 120px;
+
+    .modal-title {
+    	color: $white;
+    	font-size: 24px;
+    	font-family: 'GothamRoundedBook';
+    }
+
+    button {
+    	position: absolute;
+	    right: 16px;
+	    top: 16px;
+    	span {
+    		opacity: 0.5;
+    	}
+    }
+	}
+
+	.modal-body {
+		font-family: 'GothamRoundedBook';
+		color: $ero-gray;
+		padding: 2rem;
+	}
+
+	.modal-footer {
+		border: none;
+		padding: 2rem;
+	}
+}
+
 .featured {
 	background: $primary-color-dark;
 	display: flex;
 	align-items: center;
-	height: 100px;
 	padding: 0px 15px;
-	overflow: hidden;
+	position: relative;
 
-	.img-wrapper {
-		padding: 15px;
-
-		img {
-			height: 70px;
-			width: 70px;
-			border-radius: 50%;
+	&.featured-large {
+		.img-wrapper {
+			padding: 22px 15px;
+			img {
+				height: 96px;
+				width: 96px;
+			}
 		}
 	}
 
@@ -84,12 +142,23 @@ body {
 	@media (max-width: 768px) {
 		padding: 0px;
 	}
+
+	.img-wrapper {
+		padding: 15px;
+
+		img {
+			height: 70px;
+			width: 70px;
+			border-radius: 50%;
+		}
+	}
 }
 
-// group-details && profile-box
-.group-details, .profile-box {
+// group-details
+.group-details {
 	background: $brand-primary;
 	padding: 30px 60px 30px 30px;
+	position: relative;
 
 	@media (max-width: 768px) {
 		padding: 15px 45px 15px 15px;
@@ -158,7 +227,7 @@ body {
 		.btn-eye {
 			position: absolute;
 			right: -30px;
-			bottom: 8%;
+			bottom: 15%;
 		}
 	}
 }
@@ -187,7 +256,114 @@ body {
 	}
 }
 
-.profile-box.profile-box-gray {
+// hotline
+.hotline {
+	background: $brand-primary;
+	padding: 30px 60px 30px 30px;
+	min-height: 190px;
+	position: relative;
+
+	@media (max-width: 768px) {
+		padding: 15px 45px 15px 15px;
+	}
+
+	.details-wrapper {
+		padding: 15px 90px 15px 15px;
+		position: relative;
+		height: 100%;
+		border-radius: 25px;
+		background: $white;
+
+		img {
+			border-radius: 25%;
+			margin-right: 15px;
+			max-height: 100%;
+			max-width: 66px;
+
+			@media (min-width: 767px) {
+				border-radius: 25px;
+				max-height: 100%;
+				max-width: 120px;
+			}
+
+			@media (min-width: 1199px) {
+				border-radius: 25px;
+				max-height: 100%;
+				max-width: inherit;
+				max-width: 160px;
+			}
+		}
+
+		.btn-top {
+			position: absolute;
+			right: -30px;
+			top: 8%;
+
+			@media (max-width: 767px) {
+				top: 8%;
+			}
+		}
+
+		.btn-bottom, .btn-group-wrapper {
+			position: absolute;
+			right: -30px;
+			bottom: 15%;
+		}
+
+		.btn-special-wrapper {
+			display: flex;
+			flex-direction: column;
+
+			position: absolute;
+			right: -30px;
+			bottom: 8%;
+
+			.label {
+				position: absolute;
+				width: 50px;
+				text-align: center;
+				bottom: 15px;
+				left: -53px;
+			}
+		}
+
+		.profile-info-wrapper {
+			display: flex;
+			align-items: center;
+
+			.profile-info {
+
+				.profile-info-upper {
+					display: flex;
+					align-items: center;
+
+					.person-status {
+						height: 10px;
+						width: 10px;
+						min-width: 10px;
+						border-radius: 10px;
+						margin-right: 10px;
+						margin-bottom: 2px;
+
+						&.online {
+							background: $online;
+						}
+
+						&.away {
+							background: $away;
+						}
+
+						&.offline {
+							background: $offline;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.hotline.hotline-gray {
 	padding: 0px 45px 30px 15px;
 	background: transparent;
 
@@ -195,51 +371,11 @@ body {
 		padding: 0px 45px 0px 15px;
 	}
 
-	.group-details-wrapper {
+	.details-wrapper {
 		background: $ero-gray-lightest;
 
-		.btn-plus {
-			border-color: #fff;
-		}
-
-		.btn-group-wrapper {
-			position: absolute;
-			right: -30px;
-			bottom: 15%;
-		}
-	}
-
-	.profile-info-wrapper {
-		display: flex;
-		align-items: center;
-
-		.profile-info {
-
-			.profile-info-upper {
-				display: flex;
-				align-items: center;
-
-				.person-status {
-					height: 10px;
-					width: 10px;
-					min-width: 10px;
-					border-radius: 10px;
-					margin-right: 10px;
-					margin-bottom: 2px;
-
-					&.online {
-						background: $online;
-					}
-
-					&.away {
-						background: $away;
-					}
-
-					&.offline {
-						background: $offline;
-					}
-				}
-			}
+		.btn-top {
+			top: 15%;
 		}
 	}
 }
@@ -254,6 +390,8 @@ body {
 	z-index: 2;
 	top: 0px;
 	bottom: 0px;
+	overflow-y: auto;
+	z-index: 4;
 
 	.logo-wrapper {
 		margin-bottom: 29px;
@@ -279,6 +417,7 @@ body {
 			margin: 30px 0px;
 
 			.profile-details {
+				width: 100%;
 				display: flex;
 				align-items: center;
 
@@ -288,20 +427,42 @@ body {
 					border-radius: 50%;
 				}
 
-				.profile-name {
-					display: inline-block;
-					padding-left: 8px;
-					width: 80px;
-					text-overflow: ellipsis;
-					overflow: hidden;
-				}
-			}
+				.profile-more-details-wrapper {
+					width: calc( 100% - 45px );
+					display: flex;
+					flex-direction: column;
 
-			.profile-buttons {
-				display: block;
+					.profile-more-details {
+						width: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: flex-start;
 
-				.btn:first-child {
-					margin-right: 10px;
+						@media (min-width: 1199px) {
+							margin-top: -10px;
+
+							.btn-settings {
+								border-color: transparent;
+							}
+						}
+
+						.profile-name {
+							display: inline-block;
+							padding-left: 8px;
+							max-width: calc(100% - 38px);
+							text-overflow: ellipsis;
+							overflow: hidden;
+
+							@media (max-width: 1199px) {
+								color: $ero-gray;
+							}
+						}
+					}
+
+					.profile-log-out {
+						padding-left: 8px;
+						margin-top: -10px;
+					}
 				}
 			}
 		}
@@ -328,6 +489,12 @@ body {
 				align-items: center;
 
 				&.active {
+					a {
+						color: $brand-primary;
+					}
+				}
+
+				&:hover {
 					a {
 						color: $brand-primary;
 					}
@@ -401,6 +568,10 @@ body {
 		transition: width 0.3s ease;
 		overflow: hidden;
 
+		.logged-out {
+			display: none;
+		}
+
 		.logged-in {
 			align-items: center;
 
@@ -408,16 +579,6 @@ body {
 				width: 45px;
 				margin: 20px 0px;
 				transition: all 0.3s ease;
-
-				.profile-details {
-					.profile-name {
-						width: 0px;
-						transition: width 0.3s ease;
-					}
-				}
-				.profile-buttons {
-					min-width: 91px;
-				}
 			}
 
 			.logged-in-buttons {
@@ -490,17 +651,6 @@ body {
 					justify-content: space-between;
 					margin: 10px 0px;
 					transition: all 0.3s ease;
-
-					.profile-details {
-						.profile-name {
-							width: 80px;
-							display: inline-block;
-							transition: width 0.3s ease;
-						}
-					}
-					.profile-buttons {
-						min-width: 91px;
-					}
 				}
 			}
 
@@ -589,11 +739,12 @@ body {
 .navbar {
 	position: fixed;
 	background: $white;
-	z-index: 1;
+	z-index: 3;
 	height: 70px;
 	left: 0px;
 	right: 0px;
 	top: 0px;
+	border-bottom: $ero-gray-light solid 1px;
 
 	display: flex;
 	align-items: center;
@@ -1057,16 +1208,13 @@ body {
 	align-items: center;
 	background: $brand-primary;
 	font-family: 'GothamRoundedBook';
+	position: relative;
 
 	.row {
 		width: 100%;
 
 		.col {
 			border-right: 1px solid #fff;
-
-			&:last-child {
-				border-right: 0px solid #fff;
-			}
 		}
 	}
 
@@ -1361,6 +1509,24 @@ body {
 					}
 				}
 			}
+
+			.confirm-deletion {
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				background: rgba(51, 51, 51, 0.7);
+				font-family: 'GothamRoundedBook';
+
+				top: 0px;
+				bottom: 0px;
+				right: 0px;
+				left: 0px;
+
+				z-index: 1;
+			}
 		}
 
 		button.left {
@@ -1433,6 +1599,37 @@ body {
 	justify-content: center;
 	button {
 		min-width: 230px;
+	}
+}
+
+.pin {
+	padding: 30px;
+  background: $ero-gray-lightest;
+  margin-bottom: 3rem;
+  border-radius: 10px;
+
+  input {
+  	min-width: 240px;
+  }
+
+  .btn-secondary {
+  	min-width: 160px;
+  }
+}
+
+.settings {
+	.settings-text {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+}
+
+.notifications {
+	.notifications-text {
+		display: flex;
+		align-items: center;
+		height: 100%;
 	}
 }
 
