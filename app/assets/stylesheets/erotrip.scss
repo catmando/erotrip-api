@@ -1614,18 +1614,28 @@ body {
 }
 
 .settings {
-	.settings-text {
-		display: flex;
-		align-items: center;
-		height: 100%;
+	.settings-body {
+		font-size: 16px;
+		.settings-text {
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
 	}
 }
 
 .notifications {
-	.notifications-text {
-		display: flex;
-		align-items: center;
-		height: 100%;
+	.notifications-body {
+		font-size: 16px;
+		.form-check-inline + .form-check-inline {
+			margin-left: 5.5rem !important;
+		}
+	}
+}
+
+.inputs {
+	.inputs-body {
+		font-size: 16px;
 	}
 }
 
