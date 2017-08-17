@@ -388,4 +388,25 @@ input {
   font-family: 'GothamRoundedBook';
 }
 
+label.form-check-label input[type="radio"] {
+  display: none;
+}
+
+label.form-check-label [type=radio] + span:before {
+  content: '';
+  height: 35px;
+  width: 35px;
+  border: 1px solid $ero-gray-light;
+  display: inline-flex;
+  position: relative;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+[type=radio]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+  background: $primary-color;
+  border: 1px solid $primary-color !important;
+}
+
+
 

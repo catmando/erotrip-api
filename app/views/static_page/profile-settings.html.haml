@@ -30,7 +30,7 @@
 				.row
 					.col-5
 						.ea-flex.ea-align-center.ea-just-space-between.mb-3
-							Podglądacz
+							Wiek
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
@@ -39,7 +39,7 @@
 				.row
 					.col-5
 						.ea-flex.ea-align-center.ea-just-space-between.mb-3
-							Podglądacz
+							Data logowania
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
@@ -48,12 +48,47 @@
 				.row
 					.col-5
 						.ea-flex.ea-align-center.ea-just-space-between.mb-3
-							Podglądacz
+							Widoczność grup
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
 					.col-7
 						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Galeria prywatna
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+				.row
+					.col-5
+						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+							Status online
+							.btn-group(role="group")
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+					.col-7
+						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
+
+		.notifications-header.border-bottom
+			%h4.mt-5.mb-3 Powiadomienia
+		.notifications-body.mt-4
+			.row
+				.col-6
+					%span Wiadomości
+
+					.form-group
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
+								%span
+						.form-check.form-check-inline
+							%label.form-check-label
+								%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
+								%span
 
 		.pin.streach-me
 			.pin-header.border-bottom
