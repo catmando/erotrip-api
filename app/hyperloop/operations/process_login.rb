@@ -6,9 +6,10 @@ class ProcessLogin < Hyperloop::Operation
     params.email.blank?
   end
 
-  add_error :email, :invalid, "niepoprawny format" do
-    params.email.match(/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i).present?
-  end
+  # add_error :email, :invalid, "niepoprawny format" do
+  #   r = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  #   (r =~ params.email).blank?
+  # end
 
   add_error :password, :blank, "nie może być puste" do
     params.password.blank?

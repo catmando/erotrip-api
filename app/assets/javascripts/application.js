@@ -13,6 +13,7 @@
 //= require react_ujs
 //= require rails-ujs
 //= require jquery
+//= require popper
 //= require turbolinks
 // require jquery3
 //= require tether
