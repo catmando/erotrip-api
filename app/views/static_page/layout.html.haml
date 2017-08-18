@@ -1,5 +1,5 @@
 .row
-	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+	.col-12.col-lg-9.ml-lg-auto
 		.pt-5
 			- ['Anna', 'Lukas'].each do |person|
 				= react_component "Post", {title: "Hello World " + person}, {prerender: true}
@@ -57,17 +57,33 @@
 		%button.btn.btn-outline-secondary.btn-outline-gray.text-gray(type="button") Gray text
 		%button.btn.btn-outline-secondary.btn-outline-gray(type="button") Primary text
 
-		%h2.mt-5 Button link / Button link with gray text
+		%h2.mt-5 Button link .btn-link
 		%button.btn.btn-link(type="button") Normal text
 		%button.btn.btn-link.text-gray(type="button") Gray text
 
-		%h2.mt-5 Buttons - icons only, outlined
+		%h2.mt-5 Button link .btn-link .icon-only, .rotated-45deg .no
+		%button.btn.btn-link.icon-only.no-underline-i(type="button")
+			%i.ero-cross.rotated-45deg
+		%button.btn.btn-link.icon-only.text-gray.no-underline-i(type="button")
+			%i.ero-cross.rotated-45deg
+
+		%h2.mt-5 Buttons - .icon-only, .btn-outline-*
 		%button.btn.icon-only.btn-outline-primary.btn-outline-gray(type="button")
 			%i.ero-cross
 		%button.btn.icon-only.btn-outline-primary.btn-outline-gray.active(type="button")
 			%i.ero-cross
+		%button.btn.icon-only.btn-outline-secondary.btn-outline-gray(type="button")
+			%i.ero-cross
+		%button.btn.icon-only.btn-outline-secondary.btn-outline-gray.active(type="button")
+			%i.ero-cross
 
-		%h2.mt-5 Buttons - group scoped
+		%h2.mt-5 Buttons - .icon-only, .icon-only-bigger, .btn-outline-*
+		%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray(type="button")
+			%i.ero-cross
+		%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.active(type="button")
+			%i.ero-cross
+
+		%h2.mt-5 Buttons - .btn-group
 		%button.btn.icon-only.btn-eye.btn-group(type="button")
 			%i.ero-eye
 		%button.btn.icon-only.btn-eye.btn-group.active(type="button")
@@ -77,7 +93,7 @@
 		%button.btn.icon-only.btn-plus.btn-group.active(type="button")
 			%i.ero-cross
 
-		%h2.mt-5 Buttons - container scoped (new prototpe, its style is based on additional calsses - .primary-border, .white-border)
+		%h2.mt-5 Buttons - .btn-container - (new prototpe, its style is based on additional calsses - .primary-border, .white-border)
 		%button.btn.icon-only.btn-container.text-primary.primary-border.white-bg(type="button")
 			%i.ero-chevron-double-right-2.f-s-15
 		%button.btn.icon-only.btn-container.text-white.primary-border.secondary-bg(type="button")
@@ -131,7 +147,7 @@
 				%li.page-item.previous.disabled
 					%a.page-link(href="#" tabindex="-1")
 						%i.ero-arrow-left.mr-3
-						%span.d-inline-block.hidden-sm-down Poprzednia strona
+						%span.d-none.d-md-inline-block Poprzednia strona
 
 				.page-wrapper
 					%li.page-item.active
@@ -147,20 +163,20 @@
 
 				%li.page-item.next
 					%a.page-link(href="")
-						%span.d-inline-block.hidden-sm-down Następna strona
+						%span.d-none.d-md-inline-block Następna strona
 						%i.ero-arrow-right.ml-3
 
 		%h6.mt-3.mb-3 Grupy
 		.group-details.group-details-gray.streach-me
 			.group-details-wrapper
 
-				%h3.mt-0.hidden-md-up TRIP
+				%h3.mt-0.d-md-none TRIP
 				.ea-flex.ea-align-start
 					%div
 					= link_to image_tag 'girl.jpg'
 					.text
-						%h2.mt-0.hidden-sm-down TRIP
-						%p.text-book.text-gray.hidden-sm-down Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
+						%h2.mt-0.d-none.d-md-block TRIP
+						%p.text-book.text-gray.d-none.d-md-block Hydroderm is the highly desired anti-aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep
 						.group-info.m
 							%p.mb-0
 								%span.text-primary 2310

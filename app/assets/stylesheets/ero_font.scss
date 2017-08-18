@@ -24,6 +24,9 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ero-checkmark:before {
+  content: "\e929";
+}
 .ero-verified-border-gray .path1:before {
   content: "\e918";
   color: rgb(0, 194, 240);

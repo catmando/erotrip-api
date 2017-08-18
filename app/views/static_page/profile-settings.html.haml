@@ -1,5 +1,5 @@
 .row
-	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+	.col-12.col-lg-9.ml-lg-auto
 
 		.profile-info-bar.streach-me
 			.profile-info-bar-inner
@@ -15,57 +15,58 @@
 					%i.ero-settings
 
 		.settings
-			.settings-header.border-bottom
-				%h4.mt-5.mb-3 Prywatność
-			.settings-body.mt-4
-				.row
+			.border-bottom.mt-5.mb-4
+				%h4.mb-3 Prywatność
+			.settings-body
+				.row.mb-3
 					.col-5
-						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+						.ea-flex.ea-align-center.ea-just-space-between
 							Podglądacz
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
 					.col-7
 						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
-				.row
+				.row.mb-3
 					.col-5
-						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+						.ea-flex.ea-align-center.ea-just-space-between
 							Wiek
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
 					.col-7
 						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
-				.row
+				.row.mb-3
 					.col-5
-						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+						.ea-flex.ea-align-center.ea-just-space-between
 							Data logowania
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
 					.col-7
 						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
-				.row
+				.row.mb-3
 					.col-5
-						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+						.ea-flex.ea-align-center.ea-just-space-between
 							Widoczność grup
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
 					.col-7
 						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
-				.row
+
+				.row.mb-3
 					.col-5
-						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+						.ea-flex.ea-align-center.ea-just-space-between
 							Galeria prywatna
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
 					.col-7
 						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
-				.row
+				.row.mb-3
 					.col-5
-						.ea-flex.ea-align-center.ea-just-space-between.mb-3
+						.ea-flex.ea-align-center.ea-just-space-between
 							Status online
 							.btn-group(role="group")
 								%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
@@ -73,24 +74,93 @@
 					.col-7
 						.settings-text.text-gray.text-book Użytkownicy będą widzieć Twoje odwiedziny
 
-		.notifications-header.border-bottom
-			%h4.mt-5.mb-3 Powiadomienia
-		.notifications-body.mt-4
-			.row
-				.col-6
-					%span Wiadomości
+		.notifications
+			.border-bottom.mt-5.mb-4
+				%h4.mb-3 Powiadomienia
+			.notifications-body
+				.row
+					.col-7
 
-					.form-group
-						.form-check.form-check-inline
-							%label.form-check-label
-								%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
-								%span
-						.form-check.form-check-inline
-							%label.form-check-label
-								%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
-								%span
+						.row.mb-2
+							.col-6.ea-flex.ea-align-center
+								%span Wiadomości
+							.col-6
+								.form-group.mb-0
+									.form-check.form-check-inline.mb-0
+										%label.form-check-label.big-round-label
+											%input.form-check-input(type="checkbox" checked)
+											%span
+									.form-check.form-check-inline
+										%label.form-check-label.big-round-label
+											%input.form-check-input(type="checkbox")
+											%span
+						.row.mb-2
+							.col-6.ea-flex.ea-align-center
+								%span Dopasowania
+							.col-6
+								.form-group.mb-0
+									.form-check.form-check-inline.mb-0
+										%label.form-check-label.big-round-label
+											%input.form-check-input(type="checkbox" checked)
+											%span
+									.form-check.form-check-inline
+										%label.form-check-label.big-round-label
+											%input.form-check-input(type="checkbox")
+											%span
 
-		.pin.streach-me
+						.row.mb-2
+							.col-6.ea-flex.ea-align-center
+								%span Dźwięki powiadomień
+							.col-6
+								.btn-group(role="group")
+									%button.btn.btn-outline-primary.btn-outline-gray.text-gray.active(type="button") Tak
+									%button.btn.btn-outline-primary.btn-outline-gray.text-gray(type="button") Nie
+
+						-# RADIO
+						-# .form-group
+						-# 	.form-check.form-check-inline
+						-# 		%label.form-check-label
+						-# 			%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
+						-# 			%span
+						-# 	.form-check.form-check-inline
+						-# 		%label.form-check-label
+						-# 			%input.form-check-input(type="radio" name="inlineRadioOptions" value="option1")
+						-# 			%span
+
+		.inputs
+			.border-bottom.mt-5.mb-4
+				%h4.mb-3 Edytuj swój adres e-mail
+			.inputs-body
+				.row
+					.col-7
+
+						.row.mb-3
+							.col-6.ea-flex.ea-align-center
+								%span Twój obecny adress email
+							.col-6
+								.form-group.mb-0
+									%input.form-control(type="email" placeholder="Podaj obecny email")
+
+						.row.mb-3
+							.col-6.ea-flex.ea-align-center
+								%span Hasło
+							.col-6
+								.form-group.mb-0
+									%input.form-control(type="password" placeholder="Podaj hasło")
+
+						.row.mb-3
+							.col-6.ea-flex.ea-align-center
+								%span Nowy e-mail
+							.col-6
+								.form-group.mb-0
+									%input.form-control(type="email" placeholder="Podaj nowy email")
+
+						.row
+							.col-6
+								%button.btn.btn-secondary.mt-3(type="button") Zmień
+
+
+		.pin.streach-me.mt-5
 			.pin-header.border-bottom
 				%h4.mb-3 PIN
 			.pin-body
@@ -118,7 +188,7 @@
 			.img-wrapper
 				= link_to image_tag 'girl.jpg'
 
-		.footer.streach-me.hidden-lg-down
+		.footer.streach-me.d-none.d-xl-block
 			.patch
 			.row.no-gutters
 				.col

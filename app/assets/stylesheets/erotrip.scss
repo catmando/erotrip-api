@@ -1621,18 +1621,409 @@ body {
 }
 
 .settings {
-	.settings-text {
-		display: flex;
-		align-items: center;
-		height: 100%;
+	.settings-body {
+		font-size: 16px;
+		.settings-text {
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
 	}
 }
 
 .notifications {
-	.notifications-text {
-		display: flex;
-		align-items: center;
-		height: 100%;
+	.notifications-body {
+		font-size: 16px;
+		.form-check-inline + .form-check-inline {
+			margin-left: 5.5rem !important;
+		}
+	}
+}
+
+.inputs {
+	.inputs-body {
+		font-size: 16px;
+	}
+}
+
+.messenger {
+	.messenger-backdrop {
+		width: calc( (1140px * 0.75) + ((100vw - 1140px)/2) );
+		position: fixed;
+		background: rgba(0, 0, 0, 0.5);
+		top: 0px;
+		bottom: 0px;
+		right: 0px;
+		z-index: 1;
+
+		.messenger-body {
+			background: $white;
+			margin: 30px;
+			height: calc(100% - 60px);
+			width: calc(1140px * 0.75);
+			border-radius: 5px;
+			overflow: hidden;
+
+			display: flex;
+			align-items: center;
+
+			.messenger-sidebar {
+				height: 100%;
+				width: 33%;
+				border-right: 1px solid $ero-gray-lighter;
+
+				.messenger-search {
+					display: flex;
+					align-items: center;
+
+					height: 90px;
+					border-bottom: 1px solid $ero-gray-lighter;
+
+					.form-group {
+						width: 100%;
+						padding: 15px;
+					}
+				}
+
+				.messenger-list-wrapper {
+					height: calc(100% - 90px);
+					overflow-y: auto;
+
+					.messenger-list {
+						.m-group, .m-person, .m-trip {
+							display: flex;
+							align-items: space-between;
+							height: 70px;
+
+							&.active {
+								background: #F2F4F5;
+
+								&:hover {
+									background: $ero-gray-lighter;
+								}
+							}
+
+							&:hover {
+								background: #F2F4F5;
+							}
+						}
+
+						.m-person {
+							display: flex;
+							align-items: center;
+
+							width: 100%;
+							padding: 5px 15px;
+
+							.m-person-image-wrapper {
+								position: relative;
+
+								img {
+									width: 50px;
+									height: 50px;
+									min-width: 50px;
+									border-radius: 50%;
+									margin-right: 15px;
+								}
+
+								.m-person-locker {
+									display: flex;
+									align-items: center;
+									justify-content: center;
+
+									font-size: 22px;
+									position: absolute;
+									top: 5px;
+									left: 5px;
+									width: 40px;
+									height: 40px;
+									color: $white;
+									background: $secondary-color;
+									border-radius: 50%;
+								}
+							}
+
+							.m-person-details {
+								width: calc(100% - 65px);
+								display: flex;
+								flex-direction: column;
+
+								.m-person-header {
+									display: flex;
+									align-items: center;
+									justify-content: space-between;
+
+									font-size: 16px;
+									width: 100%;
+
+									.m-person-text {
+										display: inline-block;
+										max-width: 100%;
+										text-overflow: ellipsis;
+										overflow: hidden;
+										white-space: nowrap;
+									}
+								}
+
+								.m-person-description {
+									display: inline-block;
+									width: 100%;
+									text-overflow: ellipsis;
+									overflow: hidden;
+									white-space: nowrap;
+								}
+							}
+						}
+
+						.m-group {
+							display: flex;
+							align-items: center;
+
+							width: 100%;
+							padding: 5px 15px;
+
+							.m-group-counter {
+								width: 50px;
+								height: 50px;
+								min-width: 50px;
+								border-radius: 50%;
+								margin-right: 15px;
+
+								background: $ero-gray;
+								color: $white;
+
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								font-family: 'GothamRoundedBook';
+								font-size: 18px;
+							}
+
+							.m-group-details {
+								width: calc(100% - 65px);
+								display: flex;
+								flex-direction: column;
+
+								.m-group-header {
+									display: flex;
+									align-items: center;
+									justify-content: space-between;
+
+									font-size: 16px;
+									width: 100%;
+
+									.m-group-text {
+										display: inline-block;
+										max-width: calc(100% - 65px);
+										text-overflow: ellipsis;
+										overflow: hidden;
+										white-space: nowrap;
+									}
+
+									.m-group-amount {
+										width: 65px;
+										text-align: right;
+										font-size: 11px;
+										text-overflow: ellipsis;
+										overflow: hidden;
+										white-space: nowrap;
+									}
+								}
+
+								.m-group-description {
+									display: inline-block;
+									width: 100%;
+									text-overflow: ellipsis;
+									overflow: hidden;
+									white-space: nowrap;
+								}
+							}
+						}
+
+						.m-trip {
+							display: flex;
+							align-items: center;
+
+							width: 100%;
+							padding: 5px 15px;
+
+							.m-trip-counter {
+								width: 50px;
+								height: 50px;
+								min-width: 50px;
+								border-radius: 50%;
+								margin-right: 15px;
+
+								background: $secondary-color;
+								color: $white;
+
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								font-family: 'GothamRoundedBook';
+								font-size: 18px;
+							}
+
+							.m-trip-details {
+								width: calc(100% - 65px);
+								display: flex;
+								flex-direction: column;
+
+								.m-trip-header {
+									display: flex;
+									align-items: center;
+									justify-content: space-between;
+
+									font-size: 16px;
+									width: 100%;
+
+									.m-trip-text {
+										display: inline-block;
+										max-width: calc(100% - 65px);
+										text-overflow: ellipsis;
+										overflow: hidden;
+										white-space: nowrap;
+									}
+
+									.m-trip-amount {
+										width: 65px;
+										text-align: right;
+										font-size: 11px;
+										text-overflow: ellipsis;
+										overflow: hidden;
+										white-space: nowrap;
+									}
+								}
+
+								.m-trip-description {
+									display: inline-block;
+									width: 100%;
+									text-overflow: ellipsis;
+									overflow: hidden;
+									white-space: nowrap;
+								}
+							}
+						}
+
+					}
+				}
+			}
+
+			.messenger-main {
+				height: 100%;
+				width: 67%;
+
+				.messenger-header {
+					height: 90px;
+					padding: 15px 0px 15px 30px;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					border-bottom: 1px solid $ero-gray-lighter;
+
+					.messenger-profile-wrapper {
+						display: flex;
+						align-items: center;
+
+						.messenger-profile-picture img{
+							border-radius: 50%;
+							overflow: hidden;
+							position: relative;
+
+							height: 60px;
+							width: 60px;
+						}
+
+						.messenger-profile-info {
+							.messenger-profile-info-upper {
+								display: flex;
+								align-items: center;
+
+								.messenger-person-status {
+									height: 10px;
+									width: 10px;
+									min-width: 10px;
+									border-radius: 10px;
+									margin-right: 10px;
+									margin-bottom: 2px;
+
+									&.online {
+										background: $online;
+									}
+
+									&.away {
+										background: $away;
+									}
+
+									&.offline {
+										background: $offline;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.messenger-chat-wrapper {
+					height: calc(100% - 90px - 70px);
+					overflow-y: auto;
+
+					.messenger-chat {
+						display: flex;
+						flex-direction: column;
+
+						padding: 30px;
+						height: 100%;
+
+						.message-wrapper {
+							align-self: flex-start;
+
+							&.mine {
+								align-self: flex-end;
+
+								.message {
+									float: right;
+									color: $white;
+									background: $primary-color;
+
+									border-top-left-radius: 25px;
+							    border-top-right-radius: 25px;
+							    border-bottom-right-radius: 0px;
+							    border-bottom-left-radius: 25px;
+								}
+							}
+
+							.message {
+								padding: 12px 17px 10px 17px;
+								align-self: flex-start;
+
+								background: $ero-gray-lighter;
+								border-top-left-radius: 25px;
+								border-top-right-radius: 25px;
+								border-bottom-right-radius: 25px;
+							}
+
+							.message-timestamp {
+								font-family: 'GothamRoundedBook';
+								color: $ero-gray;
+								font-size: 12px;
+								text-align: right;
+							}
+						}
+					}
+				}
+
+				.messenger-textarea {
+					textarea {
+						min-height: 70px;
+						border-radius: 0px;
+						border: 0px;
+						border-top: 1px solid $ero-gray-lighter;
+						resize: none;
+					}
+				}
+			}
+		}
 	}
 }
 

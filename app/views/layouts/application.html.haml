@@ -13,7 +13,7 @@
     -# = javascript_pack_tag 'hello_react'
     -# = stylesheet_pack_tag 'application'
   %body
-    .navbar.hidden-md-up
+    .navbar.d-md-none
       %button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
         %i.ero-menu
         .button-label.empty
@@ -23,7 +23,7 @@
         .button-label 2
 
     .sidebar.open
-      .logo-wrapper.hidden-lg-down
+      .logo-wrapper.d-none.d-xl-block
         = link_to image_tag('logo.png')
 
       = react_component "LoggedUser"
