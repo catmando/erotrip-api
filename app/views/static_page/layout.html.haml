@@ -1,20 +1,20 @@
 .row
 	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
-		.pt-5
-			- ['Anna', 'Lukas'].each do |person|
-				= react_component "Post", {title: "Hello World " + person}, {prerender: true}
-		.pt-5
-			Select
-			= react_component "Select", {prerender: true, placeholder: "Custom placeholder"}
-		.pt-5
-			Multiselect
-			= react_component "MultiSelect", {prerender: true}
-		.pt-5
-			Range
-			= react_component "Range", {prerender: true}
-		.pt-5
-			Slider
-			= react_component "Slider", {prerender: true}
+		-# .pt-5
+		-# 	- ['Anna', 'Lukas'].each do |person|
+		-# 		= react_component "Post", {title: "Hello World " + person}, {prerender: true}
+		-# .pt-5
+		-# 	Select
+		-# 	= react_component "Select", {prerender: true, placeholder: "Custom placeholder"}
+		-# .pt-5
+		-# 	Multiselect
+		-# 	= react_component "MultiSelect", {prerender: true}
+		-# .pt-5
+		-# 	Range
+		-# 	= react_component "Range", {prerender: true}
+		-# .pt-5
+		-# 	Slider
+		-# 	= react_component "Slider", {prerender: true}
 
 		%h2.mt-5 Modal
 		%button.btn.btn-primary(data-target="#exampleModal" data-toggle="modal" type="button")
@@ -57,14 +57,30 @@
 		%button.btn.btn-outline-secondary.btn-outline-gray.text-gray(type="button") Gray text
 		%button.btn.btn-outline-secondary.btn-outline-gray(type="button") Primary text
 
-		%h2.mt-5 Button link / Button link with gray text
+		%h2.mt-5 Button link .btn-link
 		%button.btn.btn-link(type="button") Normal text
 		%button.btn.btn-link.text-gray(type="button") Gray text
 
-		%h2.mt-5 Buttons - icons only, outlined
+		%h2.mt-5 Button link .btn-link .icon-only, .rotated-45deg .no
+		%button.btn.icon-only.btn-link.no-underline-i(type="button")
+			%i.ero-cross.rotated-45deg
+		%button.btn.icon-only.btn-link.text-gray.no-underline-i(type="button")
+			%i.ero-cross.rotated-45deg
+
+		%h2.mt-5 Buttons - .icon-only, .btn-outline-*
 		%button.btn.icon-only.btn-outline-primary.btn-outline-gray(type="button")
 			%i.ero-cross
 		%button.btn.icon-only.btn-outline-primary.btn-outline-gray.active(type="button")
+			%i.ero-cross
+		%button.btn.icon-only.btn-outline-secondary.btn-outline-gray(type="button")
+			%i.ero-cross
+		%button.btn.icon-only.btn-outline-secondary.btn-outline-gray.active(type="button")
+			%i.ero-cross
+
+		%h2.mt-5 Buttons - .icon-only, .icon-only-bigger, .btn-outline-*
+		%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray(type="button")
+			%i.ero-cross
+		%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.active(type="button")
 			%i.ero-cross
 
 		%h2.mt-5 Buttons - group scoped
