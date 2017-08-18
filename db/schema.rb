@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20170816122811) do
     t.integer "connection_id"
   end
 
+  create_table "names", force: :cascade do |t|
+    t.integer "year_of_birth"
+    t.string "kind"
+    t.string "location"
+    t.string "location_lat"
+    t.string "location_lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
