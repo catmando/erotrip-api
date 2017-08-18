@@ -1,0 +1,166 @@
+.row
+	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+
+		.profile-info-bar.streach-me
+			.profile-info-bar-inner
+				.profile-info-wrapper
+					.profile-info.ml-3
+						.profile-info-upper.mb-2.mt-1
+							.person-status.away
+							%h3.text-white.text-book.mb-0 Ola, 18
+						.profile-info-lower
+							%span.text-white 2 dni temu,
+							%span.text-white Poznań
+				%button.btn.icon-only.btn-dark-bar(type="button")
+					%i.ero-settings
+
+		%h1.mt-5.mb-5 Messenger test page
+
+		.messenger
+			.messenger-backdrop
+				.messenger-body
+
+					.messenger-sidebar
+						.messenger-search
+							.form-group.mb-0
+								%input.form-control(type="text" placeholder="Szukaj")
+						.messenger-list-wrapper
+							.messenger-list
+								%a.m-group
+									.m-group-counter
+										.mt-1 3
+									.m-group-details
+										.m-group-header
+											.m-group-text Bardzo długa nazwa grupy
+											.m-group-amount.text-gray 125 osób
+										.m-group-description.text-gray.text-book
+											Dziś wieczorem chętnie kogo…
+
+								%a.m-person.active
+									.m-person-image-wrapper
+										= image_tag 'girl.jpg'
+									.m-person-details
+										.m-person-header
+											.m-person-text Joanna Kowalska z domu
+										.m-person-description.text-gray.text-book
+											Dziś wieczorem chętnie kogo…
+
+								%a.m-person
+									.m-person-image-wrapper
+										= image_tag 'girl.jpg'
+									.m-person-details
+										.m-person-header
+											.m-person-text Grupaaaaaaaaaaaaaaaaa
+										.m-person-description.text-gray.text-book
+											Dziś wieczorem chętnie kogo…
+
+								%a.m-person
+									.m-person-image-wrapper
+										= image_tag 'girl.jpg'
+										.m-person-locker
+											%i.ero-locker
+									.m-person-details
+										.m-person-header
+											.m-person-text Grupaaaaaaaaaaaaaaaaa
+										.m-person-description.text-gray.text-book
+											Dziś wieczorem chętnie kogo…
+
+								%a.m-trip
+									.m-trip-counter
+										.mt-1 +1
+									.m-trip-details
+										.m-trip-header
+											.m-trip-text Wycieczka
+											.m-trip-amount.text-gray 22 października
+										.m-trip-description.text-gray.text-book
+											Dziś wieczorem chętnie kogo…
+
+					.messenger-main
+						.messenger-header
+							.messenger-profile-wrapper
+								.messenger-profile-picture.mr-3
+									= image_tag 'girl.jpg'
+								.messenger-profile-info
+									.messenger-profile-info-upper
+										.messenger-person-status.away
+										%h4.mb-0
+											%span Joanna,
+											%span.text-gray 24
+										%i.ero-verified-border-gray.ml-2.f-s-30
+											%span.path1
+											%span.path2
+											%span.path3
+									.messenger-profile-info-lower
+										%span.text-gray 2 dni temu,
+										%span.text-gray Poznań
+
+							.messenger-header-buttons
+								%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.mr-2(type="button")
+									%i.ero-users.f-s-20
+								%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.text-gray(type="button")
+									%i.ero-alert-circle-outline.f-s-25
+								%button.btn.btn-link.icon-only.text-gray.no-underline-i.mr-2(type="button")
+									%i.ero-cross.rotated-45deg
+
+						.messenger-chat-wrapper
+							.messenger-chat
+								.message-wrapper
+									.message Hej co tam?
+								.message-wrapper.mine
+									.message Siemaaaaa ;d
+									.message-timestamp Dostarczono o 1:48
+
+						.messenger-textarea
+							%textarea.form-control(placeholder="Wpisz wiadmość, naciśnij enter żeby wysłać")
+
+		.featured.featured-large.streach-me
+			.patch
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+			.img-wrapper
+				= link_to image_tag 'girl.jpg'
+
+		.footer.streach-me.hidden-lg-down
+			.patch
+			.row.no-gutters
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Użytkowników
+							.number 2 335 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Zweryfikowanych
+							.number 2 115 542
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Online
+							.number 15 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Ukrytych
+							.number 75 123
+				.col
+					.footer-stats-wrapper
+						.footer-stats
+							.name Wycieczek
+							.number 92 123
+
+
+
+
+
+

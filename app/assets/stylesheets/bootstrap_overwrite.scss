@@ -19,11 +19,21 @@ a {
 }
 
 .btn.icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   width: 38px;
   min-width: 38px;
   height: 38px;
   border-radius: 50%;
-  padding: 8px 5px;
+  padding: 0px;
+
+  &.icon-only-bigger {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+  }
 }
 
 .btn.btn-cons {
@@ -74,8 +84,6 @@ a {
   }
 
   i {
-    font-size: 19px;
-
     &.ero-menu {
       font-size: 15px;
       line-height: 21px;
@@ -370,6 +378,7 @@ label.form-check-label  {
   user-select: none;
 }
 
+// checkbox
 label.form-check-label input[type="checkbox"] {
   display: none;
 }
@@ -385,7 +394,7 @@ label.form-check-label [type=checkbox] + span:before {
   margin-right: 10px;
 }
 
-[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+[type=checkbox]:checked + span:before {
   background: $primary-color;
   border: 1px solid $primary-color !important;
 }
@@ -394,25 +403,56 @@ input {
   font-family: 'GothamRoundedBook';
 }
 
-label.form-check-label input[type="radio"] {
+label.form-check-label.big-round-label input[type=checkbox] {
   display: none;
 }
 
-label.form-check-label [type=radio] + span:before {
+label.form-check-label.big-round-label [type=checkbox] + span:before {
   content: '';
   height: 35px;
   width: 35px;
   border: 1px solid $ero-gray-light;
-  display: inline-flex;
+  display: flex;
   position: relative;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-[type=radio]:checked + span:before {/* <-- style its checked state..with a ticked icon */
+label.form-check-label.big-round-label [type=checkbox]:checked + span:before {
+  content: "\e929";
+  font-family: 'EroFont' !important;
   background: $primary-color;
   border: 1px solid $primary-color !important;
+
+  font-size: 16px;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+// radio
+// label.form-check-label input[type="radio"] {
+//   display: none;
+// }
+
+// label.form-check-label [type=radio] + span:before {
+//   content: '';
+//   height: 35px;
+//   width: 35px;
+//   border: 1px solid $ero-gray-light;
+//   display: inline-flex;
+//   position: relative;
+//   border-radius: 50%;
+//   margin-right: 10px;
+// }
+
+// [type=radio]:checked + span:before {
+//   background: $primary-color;
+//   border: 1px solid $primary-color !important;
+// }
+
+
 
 
 
