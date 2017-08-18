@@ -10,6 +10,8 @@ a {
   padding: 0.5rem 1.2rem;
 }
 
+.btn-secondary
+
 .btn.btn-lg {
   padding: 0.75rem 1.25rem;
   border-radius: 1.5rem;
@@ -22,6 +24,10 @@ a {
   height: 38px;
   border-radius: 50%;
   padding: 8px 5px;
+}
+
+.btn.btn-cons {
+  min-width: 12em;
 }
 
 .btn.btn-small-dark {
@@ -117,7 +123,7 @@ a {
 }
 
 .btn.btn-group.btn-eye {
-  border-color: $btn-primary-border;
+  border-color: $primary-color; //$btn-primary-border;
   background: $white;
   color: $ero-gray-light;
   padding: 8px 1px;
@@ -137,8 +143,8 @@ a {
 }
 
 .btn.btn-group.btn-plus {
-  border-color: $btn-primary-border;
-  background: $btn-secondary-bg;
+  border-color: $primary-color; //$btn-primary-border;
+  background: $primary-color; //$btn-secondary-bg;
   border-width: 5px;
   width: 52px;
   height: 52px;
@@ -180,7 +186,7 @@ a {
   padding: 3px 11px;
 
   &.primary-border {
-    border-color: $btn-primary-border;
+    border-color: $primary-color; //$btn-primary-border;
   }
 
   &.white-border {
@@ -216,7 +222,7 @@ a {
     color: $ero-gray-light;
 
     &:hover {
-      color: $btn-secondary-bg;
+      color: $secondary-color //$btn-secondary-bg;
     }
 
     i.ero-alert-circle-outline {
@@ -237,7 +243,7 @@ a {
     border-radius: 50px;
     border: 2px solid $white;
     font-size: 10px;
-    background: $btn-secondary-bg;
+    background: $secondary-color; //$btn-secondary-bg;
     padding: 1px 3px;
 
     &.empty {
@@ -276,7 +282,7 @@ a {
   }
 
   &.btn-remove {
-    background: $brand-primary;
+    background: $primary-color; //$brand-primary;
 
     &:hover {
       background-color: $primary-color-dark;

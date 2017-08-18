@@ -7,7 +7,6 @@ class CurrentUserStore < Hyperloop::Store
   end
 
   def self.set_current_user(new_val)
-    puts 'set current_user'
     mutate.current_user new_val
   end
 
@@ -21,7 +20,6 @@ class CurrentUserStore < Hyperloop::Store
   # end
 
   def init_current_user
-    puts 'initializing!'
     if Hyperloop::Application.acting_user_id.present?
       mutate.current_user User.current
     else

@@ -16,6 +16,6 @@ Rails.application.config.assets.paths << Rails.root.join('public', 'packs').to_s
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( hyper-console-client.css )
-Rails.application.config.assets.precompile += %w( hyper-console-client.min.js )
-Rails.application.config.assets.precompile += %w( action_cable.js )
+# Rails.application.config.assets.precompile += %w( hyper-console-client.css )
+# Rails.application.config.assets.precompile += %w( hyper-console-client.min.js )
+# Rails.application.config.assets.precompile += %w( action_cable.js )

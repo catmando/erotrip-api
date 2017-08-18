@@ -81,6 +81,9 @@ body {
 	&.fadeable {
 		opacity: 0.3;
 		@include transition(opacity 0.3s ease-in-out);
+		&.show {
+			opacity: 1;
+		}
 	}
 	.modal-header {
 		background: $primary-color;
@@ -1636,3 +1639,11 @@ body {
 
 
 
+// LOGIN
+.modal {
+	.modal-body-login {
+		padding-left: 65px;
+		padding-right: 65px;
+	}
+}
+//END LOGIN

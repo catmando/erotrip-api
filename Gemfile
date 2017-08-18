@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Boostrap 4 integration
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.0.0.beta'
 gem 'haml-rails'
 gem 'jquery-rails'
 
@@ -43,27 +43,27 @@ gem "webpacker"
 
 gem 'devise'
 
-gem 'hyperloop', '~> 0.5.8'
+gem 'hyperloop', '>= 0.5.8'
 
 group :development, :test do
-  gem 'hyper-console'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  # gem 'capybara', '~> 2.13'
+  # gem 'selenium-webdriver'
 end
 
 group :development do
-  gem "rails-erd"
+  gem 'hyper-console'
+  # gem "rails-erd"
   gem "annotate"
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  # gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'spring'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'capistrano', '= 3.8.2'
   # gem 'capistrano-yarn'
