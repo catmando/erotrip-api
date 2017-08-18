@@ -1,5 +1,5 @@
 .row
-	.col-xl-9.offset-xl-3.col-lg-12.offset-lg-0
+	.col-12.col-lg-9.ml-lg-auto
 		.pt-5
 			- ['Anna', 'Lukas'].each do |person|
 				= react_component "Post", {title: "Hello World " + person}, {prerender: true}
@@ -83,7 +83,7 @@
 		%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.active(type="button")
 			%i.ero-cross
 
-		%h2.mt-5 Buttons - group scoped
+		%h2.mt-5 Buttons - .btn-group
 		%button.btn.icon-only.btn-eye.btn-group(type="button")
 			%i.ero-eye
 		%button.btn.icon-only.btn-eye.btn-group.active(type="button")
@@ -93,7 +93,7 @@
 		%button.btn.icon-only.btn-plus.btn-group.active(type="button")
 			%i.ero-cross
 
-		%h2.mt-5 Buttons - container scoped (new prototpe, its style is based on additional calsses - .primary-border, .white-border)
+		%h2.mt-5 Buttons - .btn-container - (new prototpe, its style is based on additional calsses - .primary-border, .white-border)
 		%button.btn.icon-only.btn-container.text-primary.primary-border.white-bg(type="button")
 			%i.ero-chevron-double-right-2.f-s-15
 		%button.btn.icon-only.btn-container.text-white.primary-border.secondary-bg(type="button")
@@ -170,7 +170,7 @@
 		.group-details.group-details-gray.streach-me
 			.group-details-wrapper
 
-				%h3.mt-0.hidden-md-up TRIP
+				%h3.mt-0.d-md-none TRIP
 				.ea-flex.ea-align-start
 					%div
 					= link_to image_tag 'girl.jpg'
