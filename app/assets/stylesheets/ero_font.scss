@@ -24,6 +24,9 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ero-user:before {
+  content: "\e92a";
+}
 .ero-checkmark:before {
   content: "\e929";
 }
@@ -61,10 +64,10 @@ i {
 .ero-chevron-right-big:before {
   content: "\e91a";
 }
-.ero-person-big:before {
+.ero-user-big:before {
   content: "\e91b";
 }
-.ero-people-big:before {
+.ero-users-big:before {
   content: "\e91c";
 }
 .ero-sad-face:before {

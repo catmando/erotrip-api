@@ -71,15 +71,19 @@
 									.m-trip-details
 										.m-trip-header
 											.m-trip-text Wycieczka
-											.m-trip-amount.text-gray 22 października
+											.m-trip-amount.text-gray 22 marca
 										.m-trip-description.text-gray.text-book
 											Dziś wieczorem chętnie kogo…
 
-					.messenger-main
-						.messenger-header
-							.messenger-profile-wrapper
-								.messenger-profile-picture.mr-3
+					-# messenger's headers
+					.messenger-main.d-none
+
+						.messenger-header.pr-0
+							.g-wrapper
+								.g-image-wrapper
 									= image_tag 'girl.jpg'
+									.g-image-locker
+										%i.ero-locker
 								.messenger-profile-info
 									.messenger-profile-info-upper
 										.messenger-person-status.away
@@ -93,25 +97,156 @@
 									.messenger-profile-info-lower
 										%span.text-gray 2 dni temu,
 										%span.text-gray Poznań
-
 							.messenger-header-buttons
 								%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.mr-2(type="button")
-									%i.ero-users.f-s-20
+									%i.ero-user.f-s-22
 								%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.text-gray(type="button")
 									%i.ero-alert-circle-outline.f-s-25
 								%button.btn.btn-link.icon-only.text-gray.no-underline-i.mr-2(type="button")
-									%i.ero-cross.rotated-45deg
+									%i.ero-cross.rotated-45deg.f-s-20
+
+
+						.messenger-header.no-image-one-small-button
+							.g-description-wrapper
+								.g-header
+									%h5.mb-0.g-header-text Wycieczka aaaaaaaaaaaaaaaaaaaaaaaaaaa
+									.g-header-additional-text.text-gray.f-s-15 18 sierpnia
+								.g-description.text-gray.text-book
+									Dziś wieczorem chętnie kogo…
+							.messenger-header-buttons
+								%button.btn.btn-link.icon-only.text-gray.no-underline-i.mr-2(type="button")
+									%i.ero-cross.rotated-45deg.f-s-20
+
+
+						.messenger-header.image-two-small-buttons
+							.g-wrapper
+								.g-image-wrapper
+									= image_tag 'girl.jpg'
+								.g-description-wrapper
+									.g-header
+										%h5.mb-0.g-header-text BDSM
+									.g-description.text-gray.text-book
+										Dziś wieczorem chętnie kogo wieczorem chętnie kogo
+							.messenger-header-buttons
+								%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.text-gray(type="button")
+									%i.ero-alert-circle-outline.f-s-25
+								%button.btn.btn-link.icon-only.text-gray.no-underline-i.mr-2(type="button")
+									%i.ero-cross.rotated-45deg.f-s-20
+
+
+						.messenger-header.image-primary-button
+							.g-wrapper
+								.g-image-wrapper
+									= image_tag 'girl.jpg'
+									.g-image-locker
+										%i.ero-locker
+								.g-description-wrapper
+									%p.mb-0.text-gray.text-book
+										%span Aktualnie jesteś w anonimowy,
+										%br
+										%span Pokaż się w dowolnym momencieś
+							%button.btn.btn-secondary(type="button") Odblokuj
+
+
+						.messenger-header.image-primary-button
+							.g-wrapper
+								.g-image-wrapper
+									= image_tag 'girl.jpg'
+									.g-image-locker.g-image-locker-right-bottom
+										%i.ero-locker
+								.g-description-wrapper
+									.g-header
+										%h5.mb-0.g-header-text Bardzo długa nazwa grupy Bardzo
+									.g-description.text-gray.text-book
+										Dziś wieczorem chętnie kogo…
+							%button.btn.btn-secondary(type="button") Odblokuj
+
+
+						.messenger-header.image-primary-button
+							.g-wrapper
+								.g-image-wrapper
+									= image_tag 'girl.jpg'
+									.g-image-locker
+										%i.ero-locker
+								.g-description-wrapper
+									.g-header
+										%h5.mb-0.g-header-text Hotline eeeeeeeeeeeeeeeeeeeeeee
+									.g-description.text-gray.text-book
+										Dziś wieczorem chętnie kogo…
+							%button.btn.btn-secondary(type="button") Odblokuj
+
 
 						.messenger-chat-wrapper
 							.messenger-chat
 								.message-wrapper
+									.message-profile-picture
+										= image_tag 'girl.jpg'
 									.message Hej co tam?
 								.message-wrapper.mine
 									.message Siemaaaaa ;d
 									.message-timestamp Dostarczono o 1:48
 
+
 						.messenger-textarea
 							%textarea.form-control(placeholder="Wpisz wiadmość, naciśnij enter żeby wysłać")
+							%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.text-gray(type="button")
+								%i.ero-camera.f-s-25
+
+					-# messenger's warns
+					.messenger-main
+						.messenger-header.pr-0
+							.g-wrapper
+								.g-image-wrapper
+									= image_tag 'girl.jpg'
+									.g-image-locker
+										%i.ero-locker
+								.messenger-profile-info
+									.messenger-profile-info-upper
+										.messenger-person-status.away
+										%h4.mb-0
+											%span Joanna,
+											%span.text-gray 24
+										%i.ero-verified-border-gray.ml-2.f-s-30
+											%span.path1
+											%span.path2
+											%span.path3
+									.messenger-profile-info-lower
+										%span.text-gray 2 dni temu,
+										%span.text-gray Poznań
+							.messenger-header-buttons
+								%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.mr-2(type="button")
+									%i.ero-user.f-s-22
+								%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.text-gray(type="button")
+									%i.ero-alert-circle-outline.f-s-25
+								%button.btn.btn-link.icon-only.text-gray.no-underline-i.mr-2(type="button")
+									%i.ero-cross.rotated-45deg.f-s-20
+
+
+						.messenger-chat-warning.d-none
+							.locker-big
+								%i.ero-locker.f-s-65
+							%p.text-center.f-s-18.text-book.mt-4.mb-4
+								%span Emilia ukryła profil, poczekaj aż nawiąże
+								%br
+								%span z Tobą kontakt lub:
+							%button.btn.btn-primary.btn-lg(type="button") Wyślij zaczepkę
+
+						.messenger-chat-warning
+							.image-with-locker
+								= image_tag 'girl.jpg'
+								.locker
+									%i.ero-locker.f-s-20
+							%p.text-center.f-s-15.text-book.mt-4.mb-4
+								%span.text-medium Joanna, 24 prosi o kontakt,
+								%span jeśli chcesz kontynuować
+								%br
+								%span rozmowę wyślij wiadomość lub odpowiedz na zaczępkę:
+							%button.btn.btn-primary.btn-lg(type="button") Wyślij zaczepkę
+
+						.messenger-textarea
+							%textarea.form-control(placeholder="Wpisz wiadmość, naciśnij enter żeby wysłać")
+							%button.btn.icon-only.icon-only-bigger.btn-outline-primary.btn-outline-gray.text-gray(type="button")
+								%i.ero-camera.f-s-25
 
 		.featured.featured-large.streach-me
 			.patch

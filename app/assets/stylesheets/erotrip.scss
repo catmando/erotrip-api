@@ -62,6 +62,10 @@ body {
 	color: $ero-gray;
 }
 
+.text-medium {
+	font-family: 'GothamRoundedMedium';
+}
+
 .text-book {
 	font-family: 'GothamRoundedBook';
 }
@@ -1910,54 +1914,63 @@ body {
 			}
 
 			.messenger-main {
+				display: flex;
+				flex-direction: column;
+
 				height: 100%;
 				width: 67%;
 
 				.messenger-header {
 					height: 90px;
-					padding: 15px 0px 15px 30px;
+					padding: 15px 30px 15px 30px;
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
 					border-bottom: 1px solid $ero-gray-lighter;
 
-					.messenger-profile-wrapper {
-						display: flex;
-						align-items: center;
-
-						.messenger-profile-picture img{
-							border-radius: 50%;
-							overflow: hidden;
-							position: relative;
-
-							height: 60px;
-							width: 60px;
+					&.image-primary-button {
+						.g-wrapper {
+							max-width: calc(100% - 120px);
 						}
+					}
 
-						.messenger-profile-info {
-							.messenger-profile-info-upper {
-								display: flex;
-								align-items: center;
+					&.image-two-small-buttons {
+						padding-right: 0px;
+						.g-wrapper {
+							max-width: calc(100% - 120px);
+						}
+					}
 
-								.messenger-person-status {
-									height: 10px;
-									width: 10px;
-									min-width: 10px;
-									border-radius: 10px;
-									margin-right: 10px;
-									margin-bottom: 2px;
+					&.no-image-one-small-button {
+						padding-right: 0px;
+						.g-wrapper {
+							max-width: calc(100% - 60px);
+						}
+					}
 
-									&.online {
-										background: $online;
-									}
+					.messenger-profile-info {
+						.messenger-profile-info-upper {
+							display: flex;
+							align-items: center;
 
-									&.away {
-										background: $away;
-									}
+							.messenger-person-status {
+								height: 10px;
+								width: 10px;
+								min-width: 10px;
+								border-radius: 10px;
+								margin-right: 10px;
+								margin-bottom: 2px;
 
-									&.offline {
-										background: $offline;
-									}
+								&.online {
+									background: $online;
+								}
+
+								&.away {
+									background: $away;
+								}
+
+								&.offline {
+									background: $offline;
 								}
 							}
 						}
@@ -1965,8 +1978,8 @@ body {
 				}
 
 				.messenger-chat-wrapper {
-					height: calc(100% - 90px - 70px);
 					overflow-y: auto;
+					flex: 1;
 
 					.messenger-chat {
 						display: flex;
@@ -1996,12 +2009,26 @@ body {
 							.message {
 								padding: 12px 17px 10px 17px;
 								align-self: flex-start;
+								display: inline-block;
 
 								background: $ero-gray-lighter;
 								border-top-left-radius: 25px;
 								border-top-right-radius: 25px;
 								border-bottom-right-radius: 25px;
 							}
+
+							.message-profile-picture {
+								display: inline-block;
+								margin-right: 10px;
+
+								img {
+									width: 50px;
+									height: 50px;
+									min-width: 50px;
+									border-radius: 50%;
+								}
+							}
+
 
 							.message-timestamp {
 								font-family: 'GothamRoundedBook';
@@ -2013,7 +2040,59 @@ body {
 					}
 				}
 
+				.messenger-chat-warning {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					flex: 1;
+
+					padding: 45px;
+
+					.locker-big {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						width: 140px;
+						height: 140px;
+						color: $white;
+						background: $secondary-color;
+						border-radius: 50%;
+					}
+
+					.image-with-locker {
+						position: relative;
+
+						img {
+							width: 140px;
+							height: 140px;
+							border-radius: 50%;
+						}
+
+						.locker {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							position: absolute;
+							bottom: 0px;
+							right: 0px;
+							width: 52px;
+							height: 52px;
+
+							border: 2px solid $white;
+							border-radius: 50%;
+							color: $white;
+							background: $secondary-color;
+						}
+					}
+
+				}
+
 				.messenger-textarea {
+					height: 70px;
+					position: relative;
+
 					textarea {
 						min-height: 70px;
 						border-radius: 0px;
@@ -2021,11 +2100,101 @@ body {
 						border-top: 1px solid $ero-gray-lighter;
 						resize: none;
 					}
+
+					button {
+						position: absolute;
+						top: 13px;
+						right: 30px;
+					}
 				}
 			}
 		}
 	}
 }
+
+// generic wrapper with image and locker
+.g-wrapper {
+	display: flex;
+	align-items: center;
+
+	.g-image-wrapper {
+		position: relative;
+		margin-right: 15px;
+
+		img {
+			width: 60px;
+			height: 60px;
+			min-width: 50px;
+			border-radius: 50%;
+		}
+
+		.g-image-locker {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			font-size: 22px;
+			position: absolute;
+			top: 6px;
+			left: 6px;
+			width: 48px;
+			height: 48px;
+			color: $white;
+			background: $secondary-color;
+			border-radius: 50%;
+
+			&.g-image-locker-right-bottom {
+				top: initial;
+				left: initial;
+				bottom: -8px;
+				right: -7px;
+				width: 32px;
+				height: 32px;
+				border: 2px solid $white;
+			}
+		}
+	}
+}
+
+// generic wrapper 2 row ellipsis
+.g-description-wrapper {
+	max-width: calc(100% - 75px); // because of image
+	display: flex;
+	flex-direction: column;
+
+	.g-header {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		font-size: 16px;
+		width: 100%;
+
+		.g-header-text {
+			display: inline-block;
+			max-width: 100%;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		.g-header-additional-text {
+			min-width: 100px;
+			text-align: right;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+
+	.g-description {
+		display: inline-block;
+		width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}
+
 
 
 
