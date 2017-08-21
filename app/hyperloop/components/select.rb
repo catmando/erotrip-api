@@ -3,6 +3,8 @@
     param placeholder: ""
     param selection: ''
     param name: "no_name_configured"
+    param className: ''
+    param onChange: nil
 
     param options: [
       { value: 'one', label: 'Please provide' },
@@ -11,6 +13,10 @@
 
     def changed(val)
       mutate.selection Hash.new(val.to_n)['value'] || ''
+      if params.onChange.present?
+        puts "will do on change: #{params.onChange.inspect}"
+        params.onChange.call(state.selection)
+      end
     end
 
     after_mount do
@@ -18,7 +24,7 @@
     end
 
     def render
-      ReactSelect(name: params[:name], value: state.selection, options: params[:options].to_n, placeholder: params[:placeholder], multi: false).on :change do |e|
+      ReactSelect(name: params[:name], className: params['className'], value: state.selection, options: params[:options].to_n, placeholder: params[:placeholder], multi: false).on :change do |e|
         changed(e)
       end
     end

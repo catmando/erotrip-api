@@ -43,7 +43,16 @@ gem "webpacker"
 
 gem 'devise'
 
+gem 'figaro'
+
+gem 'redis', '~> 3.0'
+gem 'hiredis'
+gem 'redis-namespace'
+
 gem 'hyperloop', '>= 0.5.8'
+# gem 'hyper-mesh',      git: 'https://github.com/ruby-hyperloop/hyper-mesh.git',  branch: 'no_call_by_class_name'
+# gem 'hyper-operation', git: 'https://github.com/ruby-hyperloop/hyper-operation.git',  branch: 'no_call_by_class_name'
+# gem 'hyperloop'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -17,42 +17,64 @@
     end
 
     def log_in
+      mutate.errors {}
       ProcessLogin.run(email: state.credentials['email'], password: state.credentials['password'])
-        .then do
+        .then do |response|
           puts 'SUCCESS'
+          `setTimeout(function(){
+            $('#login-modal').modal('hide')
+          }, 1000)`
         end
         .fail do |e|
           puts 'FAILED!'
-          puts e
-          if e.is_a? Hyperloop::Operation::ValidationException
-            puts 'HALO MAMY ERRORY!!!'
-            puts e.errors.message.inspect
-            mutate.errors e.errors.message
-            puts 'PO MUTACJI'
+          puts e.inspect
+          puts "HTTP? #{e.is_a?(HTTP)}"
+          puts JSON.parse(e.body)
+          # `console.log(e)`
+          if e.is_a?(HTTP)
+            puts JSON.parse(e.body)['id'].present?
+            if JSON.parse(e.body)['id'].present?
+              puts 'YOU ARE ALREADY SIGNED IN!'
+              CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
+              `setTimeout(function(){
+                $('#login-modal').modal('hide')
+              }, 1000)`
+            end
+            puts "YES, IT'S A HTTP"
+            puts JSON.parse(e.body)['errors']
+            mutate.errors JSON.parse(e.body)['errors']
             puts state.errors
           end
+          if e.is_a?(Hyperloop::Operation::ValidationException)
+            puts 'WE HAVE VALIDATION ERRORS!!!'
+            puts e.errors.message.inspect
+            mutate.errors e.errors.message
+            puts 'AFTER MUTATION'
+            puts state.errors
+          end
+          {}
         end
-
-
-      # CurrentUserStore.set_current_user User.new(first_name: 'Zakochana', last_name: 'Ewelka')
-      # `setTimeout(function(){
-      #   $('#login-modal').modal('hide')
-      # }, 1000)`
     end
 
     def register
-      puts 'will do registration'
+      `$('#login-modal').modal('hide')`
+      `$('#registration-modal').modal('show')`
     end
 
     def reset_password
       puts 'will reset password'
+      `$('#password-modal').modal('show')`
     end
 
     def render_not_logged_view
       SPAN do
         DIV(class: 'modal-body modal-body-login') do
+          if (state.errors || {})['base'].present?
+            DIV(class: "alert alert-danger") do
+              (state.errors || {})['base']
+            end
+          end
           P { "Did you read the DaVinci Code or maybe see the movie? Did it get you interested in history and secret" }
-          DIV {state.errors}
           DIV(class: "form-group") do
             INPUT(type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
               mutate.credentials['email'] = e.target.value

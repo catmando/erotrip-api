@@ -455,6 +455,7 @@ body {
 							max-width: calc(100% - 38px);
 							text-overflow: ellipsis;
 							overflow: hidden;
+							white-space: nowrap;
 
 							@media (max-width: 1199px) {
 								color: $ero-gray;

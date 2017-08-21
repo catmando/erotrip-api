@@ -7,6 +7,8 @@
     end
 
     after_mount do
+      CurrentUserStore.init_current_user
+      # connect_session
       # any client only post rendering initialization goes here.
       # i.e. start timers, HTTP requests, and low level jquery operations etc.
     end
@@ -23,13 +25,14 @@
       `$('#login-modal').modal('show')`
     end
 
-    def log_out
+    def log_out(event)
       puts 'will log out'
-      CurrentUserStore.set_current_user nil
+      event.prevent_default()
+      ProcessLogout.run
     end
 
     def register
-      puts 'will register'
+      `$('#registration-modal').modal('show')`
     end
 
     def render_not_logged_view
@@ -105,13 +108,13 @@
                 BUTTON(class: 'btn btn-outline-primary btn-outline-gray icon-only hidden-xl-up fadeable', type: "button") do
                   I(class: 'ero-log-out')
                 end.on :click do |e|
-                  log_out
+                  log_out(e)
                 end
               end
-              A(class: 'profile-log-out text-secondary-i f-s-12 underline hidden-lg-down', href: "") do
+              A(class: 'profile-log-out text-secondary-i f-s-12 underline hidden-lg-down') do
                 'Wyloguj się'
               end.on :click do |e|
-                log_out
+                log_out(e)
               end
             end
           end
