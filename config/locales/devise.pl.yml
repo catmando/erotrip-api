@@ -7,6 +7,15 @@
 #   dodanie "update_needs_confirmation" (Devise 2.0.1?)
 
 pl:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: nie możesz użyć tego adresu
+            pin:
+              greater_than_or_equal_to: musi zawierać przynajmniej 4 cyfry
   errors:
     messages:
       expired: 'stracił ważność, wyślij zapytanie o nowy'

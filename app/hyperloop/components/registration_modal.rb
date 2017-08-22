@@ -6,65 +6,53 @@
     state errors: {}
 
     after_mount do
-      # any client only post rendering initialization goes here.
-      # i.e. start timers, HTTP requests, and low level jquery operations etc.
-    end
-
-    before_update do
-      # called whenever a component will be re-rerendered
+      `$('#registration-modal').modal({backdrop: 'static', show: true})`
     end
 
     before_unmount do
-      # cleanup any thing (i.e. timers) before component is destroyed
+      mutate.user({ birth_year: '', kind: '', birth_year_second_person: '' })
+      mutate.errors({})
+    end
+
+    def close_modal
+      `$('#registration-modal').modal('hide')`
+      RootStore.close_modal('registration')
     end
 
     def register
-      mutate.errors {}
-      puts state.user.inspect
+      mutate.errors({})
       ProcessRegistration.run(state.user)
         .then do |response|
-          puts 'SUCCESS'
-          `setTimeout(function(){
-            $('#registration-modal').modal('hide')
-          }, 1000)`
+          close_modal
         end
         .fail do |e|
-          puts 'FAILED!'
-          puts e.inspect
-          # `console.log(e)`
           if e.is_a?(HTTP)
-            puts JSON.parse(e.body)['id'].present?
             if JSON.parse(e.body)['id'].present?
-              puts 'YOU ARE ALREADY SIGNED IN!'
               CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
-              `setTimeout(function(){
-                $('#registration-modal').modal('hide')
-              }, 1000)`
+              close_modal
             end
-            puts "YES, IT'S A HTTP"
-            puts JSON.parse(e.body)['errors']
-            mutate.errors JSON.parse(e.body)['errors']
-            puts state.errors
+            errors = JSON.parse(e.body)['errors']
+            errors.each do |k, v|
+              errors[k] = v.join('; ')
+            end
+            mutate.errors errors
 
           elsif e.is_a?(Hyperloop::Operation::ValidationException)
-            puts 'HALO MAMY ERRORY!!!'
-            puts e.errors.message.inspect
+            puts e.errors.message
             mutate.errors e.errors.message
-            puts 'PO MUTACJI'
-            puts state.errors
           end
           {}
         end
     end
 
     def log_in
-      `$('#registration-modal').modal('hide')`
-      `$('#login-modal').modal('show')`
+      RootStore.open_modal('login')
+      close_modal
     end
 
     def reset_password
-      puts 'will reset password'
-      `$('#password-modal').modal('show')`
+      RootStore.open_modal('reset_password')
+      close_modal
     end
 
     def birth_dates
@@ -107,7 +95,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['name'], type: "text", class: "form-control #{'is-invalid' if (state.errors || {})['name'].present?}", placeholder: "Imię").on :change do |e|
+                INPUT(defaultValue: state.user['name'], type: "text", class: "form-control #{'is-invalid' if (state.errors || {})['name'].present?}", placeholder: "Imię").on :key_up do |e|
                   mutate.user['name'] = e.target.value
                   mutate.errors['name'] = nil
                 end
@@ -139,7 +127,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['name_second_person'], type: "text", class: "form-control #{'is-invalid' if (state.errors || {})['name_second_person'].present?}", placeholder: "Imię drugiej osoby").on :change do |e|
+                INPUT(defaultValue: state.user['name_second_person'], type: "text", class: "form-control #{'is-invalid' if (state.errors || {})['name_second_person'].present?}", placeholder: "Imię drugiej osoby").on :key_up do |e|
                   mutate.user['name_second_person'] = e.target.value
                   mutate.errors['name_second_person'] = nil
                 end
@@ -171,7 +159,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['city'], type: "city", class: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}", placeholder: "Miejscowość").on :change do |e|
+                INPUT(defaultValue: state.user['city'], type: "city", class: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}", placeholder: "Miejscowość").on :key_up do |e|
                   mutate.user['city'] = e.target.value
                   mutate.errors['city'] = nil
                 end
@@ -185,7 +173,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :change do |e|
+                INPUT(defaultValue: state.user['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
                   mutate.user['email'] = e.target.value
                   mutate.errors['email'] = nil
                 end
@@ -203,7 +191,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Hasło").on :change do |e|
+                INPUT(defaultValue: state.user['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Hasło").on :key_up do |e|
                   mutate.user['password'] = e.target.value
                   mutate.errors['password'] = nil
                 end
@@ -217,7 +205,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['password_confirmation'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Powtórz hasło").on :change do |e|
+                INPUT(defaultValue: state.user['password_confirmation'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Powtórz hasło").on :key_up do |e|
                   mutate.user['password_confirmation'] = e.target.value
                   mutate.errors['password_confirmation'] = nil
                 end
@@ -235,7 +223,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['pin'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN bezpieczeństwa").on :change do |e|
+                INPUT(defaultValue: state.user['pin'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN bezpieczeństwa").on :key_up do |e|
                   mutate.user['pin'] = e.target.value
                   mutate.errors['pin'] = nil
                 end
@@ -249,7 +237,7 @@
 
             DIV(class: 'col') do
               DIV(class: "form-group") do
-                INPUT(value: state.user['pin_confirmation'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin_confirmation'].present?}", placeholder: "Powtórz PIN").on :change do |e|
+                INPUT(defaultValue: state.user['pin_confirmation'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin_confirmation'].present?}", placeholder: "Powtórz PIN").on :key_up do |e|
                   mutate.user['pin_confirmation'] = e.target.value
                   mutate.errors['pin_confirmation'] = nil
                 end
@@ -267,11 +255,10 @@
             "Nadaj PIN składający się z minimum 4 cyfr, który będzie wymagany do odzyskania hasła. Dzięki niemu niepożądane osoby nie będą mogły sprawdzić czy Twój e-mail jest w naszej bazie."
           end
 
-          DIV(class: "form-check form-check-inline") do
+          DIV(class: "form-check form-check-inline w-80p ml-10p") do
             LABEL(class: "form-check-label #{'is-invalid' if (state.errors || {})['terms_acceptation'].present?}") do
-              INPUT(value: state.user['terms_acceptation'], class: 'form-check-input', type: "checkbox").on :change do |e|
-                mutate.user['terms_acceptation'] = !state.user['terms_acceptation']
-                puts e.target.value
+              INPUT(defaultValue: state.user['terms_acceptation'], class: 'form-check-input', type: "checkbox").on :change do |e|
+                mutate.user['terms_acceptation'] = e.target.checked
                 mutate.errors['terms_acceptation'] = nil
               end
               SPAN do
@@ -313,9 +300,6 @@
             end
           end
         end
-        # DIV(class: 'modal-footer text-center') do
-        #   # BUTTON(class: 'btn btn-secondary', 'data-dismiss' => "modal", type: "button") { 'Zamknij' }
-        # end
       end
     end
 
@@ -325,21 +309,27 @@
           P(class: 'text-center') { 'Jesteś aktualnie zalogowany! Wyloguj się, by przejść proces rejestracji' }
         end
         DIV(class: 'modal-footer text-center') do
-          BUTTON(class: 'btn btn-secondary btn-cons mt-3 mb-3', 'data-dismiss' => "modal", type: "button") { 'Zamknij okno' }
+          BUTTON(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
+            'Zamknij okno'
+          end.on :click do
+            close_modal
+          end
         end
       end
     end
 
     def render
-      DIV(id: 'registration-modal', class: 'modal fadeable', role: "dialog", tabIndex: "-1") do
+      DIV(id: 'registration-modal', class: 'modal fade', role: "dialog", tabIndex: "-1") do
         DIV(class: 'modal-dialog', role: "document") do
           DIV(class: 'modal-content') do
             DIV(class: 'modal-header') do
               H5(class: 'modal-title') { 'Zarejestruj się' }
-              BUTTON(class: 'close', 'data-dismiss' => "modal", type: "button") do
+              BUTTON(class: 'close', type: "button") do
                 SPAN do
                   I(class: 'ero-cross f-s-20 d-inline-block rotated-45deg')
                 end
+              end.on :click do
+                close_modal
               end
             end
             if CurrentUserStore.current_user.present?

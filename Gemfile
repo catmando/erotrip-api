@@ -53,6 +53,7 @@ gem 'hyperloop', '>= 0.5.8'
 # gem 'hyper-mesh',      git: 'https://github.com/ruby-hyperloop/hyper-mesh.git',  branch: 'no_call_by_class_name'
 # gem 'hyper-operation', git: 'https://github.com/ruby-hyperloop/hyper-operation.git',  branch: 'no_call_by_class_name'
 # gem 'hyperloop'
+gem "annotate"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,7 +66,6 @@ end
 group :development do
   gem 'hyper-console'
   # gem "rails-erd"
-  gem "annotate"
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   # gem 'web-console', '>= 3.3.0'

@@ -482,7 +482,11 @@ label.form-check-label.big-round-label [type=checkbox]:checked + span:before {
 //   border: 1px solid $primary-color !important;
 // }
 
-
-
+.modal.fade .modal-dialog {
+  transform: none;
+  -webkit-transform: none;
+  transition: none;
+  -webkit-transition: none;
+}
 
 

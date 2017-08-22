@@ -4,66 +4,51 @@
     state errors: {}
 
     after_mount do
-      # any client only post rendering initialization goes here.
-      # i.e. start timers, HTTP requests, and low level jquery operations etc.
-    end
-
-    before_update do
-      # called whenever a component will be re-rerendered
+      `$('#login-modal').modal({backdrop: 'static', show: true})`
     end
 
     before_unmount do
-      # cleanup any thing (i.e. timers) before component is destroyed
+      mutate.credentials({})
+      mutate.errors({})
+    end
+
+    def close_modal
+      `$('#login-modal').modal('hide')`
+      RootStore.close_modal('login')
     end
 
     def log_in
       mutate.errors {}
       ProcessLogin.run(email: state.credentials['email'], password: state.credentials['password'])
         .then do |response|
-          puts 'SUCCESS'
-          `setTimeout(function(){
-            $('#login-modal').modal('hide')
-          }, 1000)`
+          close_modal
+          RootStore.close_modal('login')
         end
         .fail do |e|
-          puts 'FAILED!'
-          puts e.inspect
-          puts "HTTP? #{e.is_a?(HTTP)}"
-          puts JSON.parse(e.body)
-          # `console.log(e)`
           if e.is_a?(HTTP)
-            puts JSON.parse(e.body)['id'].present?
             if JSON.parse(e.body)['id'].present?
-              puts 'YOU ARE ALREADY SIGNED IN!'
               CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
               `setTimeout(function(){
                 $('#login-modal').modal('hide')
               }, 1000)`
             end
-            puts "YES, IT'S A HTTP"
-            puts JSON.parse(e.body)['errors']
             mutate.errors JSON.parse(e.body)['errors']
-            puts state.errors
           end
           if e.is_a?(Hyperloop::Operation::ValidationException)
-            puts 'WE HAVE VALIDATION ERRORS!!!'
-            puts e.errors.message.inspect
             mutate.errors e.errors.message
-            puts 'AFTER MUTATION'
-            puts state.errors
           end
           {}
         end
     end
 
     def register
-      `$('#login-modal').modal('hide')`
-      `$('#registration-modal').modal('show')`
+      RootStore.open_modal('registration')
+      close_modal
     end
 
     def reset_password
-      puts 'will reset password'
-      `$('#password-modal').modal('show')`
+      RootStore.open_modal('reset_password')
+      close_modal
     end
 
     def render_not_logged_view
@@ -119,33 +104,36 @@
             end
           end
         end
-        # DIV(class: 'modal-footer text-center') do
-        #   # BUTTON(class: 'btn btn-secondary', 'data-dismiss' => "modal", type: "button") { 'Zamknij' }
-        # end
       end
     end
 
     def render_logged_view
       SPAN do
         DIV(class: 'modal-body') do
-          P(class: 'text-center') { 'Super! Zostałeś zalogowany' }
+          P(class: 'text-center') { 'Super! Jesteś zalogowany' }
         end
         DIV(class: 'modal-footer text-center') do
-          BUTTON(class: 'btn btn-secondary btn-cons mt-3 mb-3', 'data-dismiss' => "modal", type: "button") { 'Zamknij okno' }
+          BUTTON(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
+            'Zamknij okno'
+          end.on :click do
+            close_modal
+          end
         end
       end
     end
 
     def render
-      DIV(id: 'login-modal', class: 'modal fadeable', role: "dialog", tabIndex: "-1") do
+      DIV(id: 'login-modal', class: "modal fadeable", role: "dialog", tabIndex: "-1") do
         DIV(class: 'modal-dialog', role: "document") do
           DIV(class: 'modal-content') do
             DIV(class: 'modal-header') do
               H5(class: 'modal-title') { 'Zaloguj się' }
-              BUTTON(class: 'close', 'data-dismiss' => "modal", type: "button") do
+              BUTTON(class: 'close', type: "button") do
                 SPAN do
                   I(class: 'ero-cross f-s-20 d-inline-block rotated-45deg')
                 end
+              end.on :click do
+                close_modal
               end
             end
             if CurrentUserStore.current_user.present?

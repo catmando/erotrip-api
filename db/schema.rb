@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816122811) do
+ActiveRecord::Schema.define(version: 20170822063501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,19 +32,7 @@ ActiveRecord::Schema.define(version: 20170816122811) do
     t.integer "connection_id"
   end
 
-  create_table "names", force: :cascade do |t|
-    t.integer "year_of_birth"
-    t.string "kind"
-    t.string "location"
-    t.string "location_lat"
-    t.string "location_lon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
     t.string "email"
     t.uuid "created_by_id"
     t.uuid "updated_by_id"
@@ -59,8 +47,19 @@ ActiveRecord::Schema.define(version: 20170816122811) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "kind"
+    t.string "name"
+    t.integer "birth_year"
+    t.string "name_second_person"
+    t.integer "birth_year_second_person"
+    t.string "city"
+    t.integer "pin"
+    t.boolean "terms_acceptation"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["kind"], name: "index_users_on_kind"
+    t.index ["pin"], name: "index_users_on_pin"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["terms_acceptation"], name: "index_users_on_terms_acceptation"
   end
 
   add_foreign_key "users", "users", column: "created_by_id"

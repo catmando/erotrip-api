@@ -7,8 +7,7 @@ class ProcessLogout < Hyperloop::Operation
     puts 'POSZLO W OPERACJI'
     puts response.inspect
     CurrentUserStore.current_user_id! nil
-    # CurrentUserStore.init_current_user
-    {data: JSON.parse(response.body)}
+    response
   end
   # failed do |response|
   #   puts 'NIE POSZLO W OPERACJI'

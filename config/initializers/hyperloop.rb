@@ -17,14 +17,14 @@ Hyperloop.configuration do |config|
   # config.transport = :simple_poller
 end
 
-module Hyperloop
-  module AutoCreate
-    def needs_init?
-      true
-    end
-  end
+# module Hyperloop
+#   module AutoCreate
+#     def needs_init?
+#       true
+#     end
+#   end
 
-  def self.on_server?
-    true
-  end
-end
+#   def self.on_server?
+#     true
+#   end
+# end

@@ -12,6 +12,7 @@
     -# = javascript_pack_tag 'application'
     -# = javascript_pack_tag 'hello_react'
     -# = stylesheet_pack_tag 'application'
+    = favicon_link_tag
   %body
     .navbar.d-md-none
       %button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
@@ -102,5 +103,6 @@
     .container.main-container
       = yield
 
-= react_component 'LoginModal'
-= react_component 'RegistrationModal'
+= react_component 'ModalsContainer'
+-# = react_component 'LoginModal'
+-# = react_component 'RegistrationModal'
