@@ -82,49 +82,49 @@
 
     def render_not_logged_view
       SPAN do
-        DIV(class: 'modal-body modal-body-registration') do
+        DIV.modal_body.modal_body_registration do
           if (state.errors || {})['base'].present?
-            DIV(class: "alert alert-danger") do
+            DIV.alert.alert_danger do
               (state.errors || {})['base']
             end
           end
           FORM do
-            DIV(class: "form-group") do
+            DIV.form_group do
               Select(placeholder: "Rodzaj konta", options: account_kinds, selection: state.user['kind'], className: "form-control #{'is-invalid' if (state.errors || {})['kind'].present?}").on :change do |e|
                 mutate.user['kind'] = e.to_n || ''
                 mutate.errors['kind'] = nil
               end
               if (state.errors || {})['kind'].present?
-                DIV(class: 'invalid-feedback') do
+                DIV.invalid_feedback do
                   (state.errors || {})['kind'].to_s;
                 end
               end
             end
 
-            DIV(class: 'row') do
+            DIV.row do
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['name'], type: "text", class: "form-control #{'is-invalid' if (state.errors || {})['name'].present?}", placeholder: "Imię").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['name'], type: "text", class: "#{'is-invalid' if (state.errors || {})['name'].present?}", placeholder: "Imię").on :key_up do |e|
                     mutate.user['name'] = e.target.value
                     mutate.errors['name'] = nil
                   end
                   if (state.errors || {})['name'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['name'].to_s;
                     end
                   end
                 end
               end
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
+              DIV.col do
+                DIV.form_group do
                   Select(placeholder: "Rok urodzenia", options: birth_dates.map{|year| {value: year, label: year} }, selection: state.user['birth_year'], className: "form-control #{'is-invalid' if (state.errors || {})['birth_year'].present?}").on :change do |e|
                     mutate.user['birth_year'] = e.to_n || nil
                     mutate.errors['birth_year'] = nil
                   end
                   if (state.errors || {})['birth_year'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['birth_year'].to_s;
                     end
                   end
@@ -133,30 +133,30 @@
 
             end
 
-            DIV(class: "row #{'d-none' if !(state.user['kind'].present? && !['woman', 'man'].include?(state.user['kind']))}") do
+            DIV.row(class: "#{'d-none' if !(state.user['kind'].present? && !['woman', 'man'].include?(state.user['kind']))}") do
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['name_second_person'], type: "text", class: "form-control #{'is-invalid' if (state.errors || {})['name_second_person'].present?}", placeholder: "Imię drugiej osoby").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['name_second_person'], type: "text", class: "#{'is-invalid' if (state.errors || {})['name_second_person'].present?}", placeholder: "Imię drugiej osoby").on :key_up do |e|
                     mutate.user['name_second_person'] = e.target.value
                     mutate.errors['name_second_person'] = nil
                   end
                   if (state.errors || {})['name_second_person'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['name_second_person'].to_s;
                     end
                   end
                 end
               end
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
+              DIV.col do
+                DIV.form_group do
                   Select(placeholder: "Rok urodzenia drugiej osoby", options: birth_dates.map{|year| {value: year, label: year} }, selection: state.user['birth_year_second_person']).on :change do |e|
                     mutate.user['birth_year_second_person'] = e.to_n || nil
                     mutate.errors['birth_year_second_person'] = nil
                   end
                   if (state.errors || {})['birth_year_second_person'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['birth_year_second_person'].to_s;
                     end
                   end
@@ -165,30 +165,30 @@
 
             end
 
-            DIV(class: 'row') do
+            DIV.row do
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['city'], type: "city", class: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}", placeholder: "Miejscowość").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['city'], type: "city", class: "#{'is-invalid' if (state.errors || {})['city'].present?}", placeholder: "Miejscowość").on :key_up do |e|
                     mutate.user['city'] = e.target.value
                     mutate.errors['city'] = nil
                   end
                   if (state.errors || {})['city'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['city'].to_s;
                     end
                   end
                 end
               end
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['email'], type: "email", class: "#{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
                     mutate.user['email'] = e.target.value
                     mutate.errors['email'] = nil
                   end
                   if (state.errors || {})['email'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['email'].to_s;
                     end
                   end
@@ -197,30 +197,30 @@
 
             end
 
-            DIV(class: 'row') do
+            DIV.row do
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Hasło").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['password'], type: "password", class: "#{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Hasło").on :key_up do |e|
                     mutate.user['password'] = e.target.value
                     mutate.errors['password'] = nil
                   end
                   if (state.errors || {})['password'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['password'].to_s;
                     end
                   end
                 end
               end
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['password_confirmation'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Powtórz hasło").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['password_confirmation'], type: "password", class: "#{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Powtórz hasło").on :key_up do |e|
                     mutate.user['password_confirmation'] = e.target.value
                     mutate.errors['password_confirmation'] = nil
                   end
                   if (state.errors || {})['password_confirmation'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['password_confirmation'].to_s;
                     end
                   end
@@ -229,30 +229,30 @@
 
             end
 
-            DIV(class: 'row') do
+            DIV.row do
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['pin'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN bezpieczeństwa").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['pin'], type: "number", class: "#{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN bezpieczeństwa").on :key_up do |e|
                     mutate.user['pin'] = e.target.value
                     mutate.errors['pin'] = nil
                   end
                   if (state.errors || {})['pin'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['pin'].to_s;
                     end
                   end
                 end
               end
 
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.user['pin_confirmation'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin_confirmation'].present?}", placeholder: "Powtórz PIN").on :key_up do |e|
+              DIV.col do
+                DIV.form_group do
+                  INPUT.form_control(defaultValue: state.user['pin_confirmation'], type: "number", class: "#{'is-invalid' if (state.errors || {})['pin_confirmation'].present?}", placeholder: "Powtórz PIN").on :key_up do |e|
                     mutate.user['pin_confirmation'] = e.target.value
                     mutate.errors['pin_confirmation'] = nil
                   end
                   if (state.errors || {})['pin_confirmation'].present?
-                    DIV(class: 'invalid-feedback') do
+                    DIV.invalid_feedback do
                       (state.errors || {})['pin_confirmation'].to_s;
                     end
                   end
@@ -265,9 +265,9 @@
               "Nadaj PIN składający się z minimum 4 cyfr, który będzie wymagany do odzyskania hasła. Dzięki niemu niepożądane osoby nie będą mogły sprawdzić czy Twój e-mail jest w naszej bazie."
             end
 
-            DIV(class: "form-check form-check-inline w-80p ml-10p") do
-              LABEL(class: "form-check-label #{'is-invalid' if (state.errors || {})['terms_acceptation'].present?}") do
-                INPUT(defaultValue: state.user['terms_acceptation'], class: 'form-check-input', type: "checkbox").on :change do |e|
+            DIV.form_check.form_check_inline.w_80p.ml_10p do
+              LABEL.form_check_label(class: "#{'is-invalid' if (state.errors || {})['terms_acceptation'].present?}") do
+                INPUT.form_check_input(defaultValue: state.user['terms_acceptation'], type: "checkbox").on :change do |e|
                   mutate.user['terms_acceptation'] = e.target.checked
                   mutate.errors['terms_acceptation'] = nil
                 end
@@ -280,15 +280,15 @@
                 end
               end
               if (state.errors || {})['terms_acceptation'].present?
-                DIV(class: 'invalid-feedback') do
+                DIV.invalid_feedback do
                   (state.errors || {})['terms_acceptation'].to_s;
                 end
               end
             end
 
-            DIV(class: 'text-center') do
+            DIV.text_center do
               BlockUi(tag: "div", blocking: state.blocking) do
-                BUTTON(class: 'btn btn-secondary btn-cons mt-4 mb-4', type: "submit") do
+                BUTTON.btn.btn_secondary.btn_cons.mt_4.mb_4(type: "submit") do
                   'Zarejestruj się'
                 end
               end
@@ -297,17 +297,17 @@
             e.prevent_default
             register
           end
-          P(class: 'text-center') do
+          P.text_center do
             SPAN {'Nie pamiętasz hasła? '}
-            A(class: 'text-primary') do
+            A.text_primary do
               'Zrestartuj hasło'
             end.on :click do |e|
               reset_password
             end
           end
-          P(class: "text-center") do
+          P.text_center do
             SPAN {'Masz już konto? '}
-            A(class: 'text-primary') do
+            A.text_primary do
               'Zaloguj się'
             end.on :click do |e|
               log_in
@@ -319,11 +319,11 @@
 
     def render_logged_view
       SPAN do
-        DIV(class: 'modal-body') do
+        DIV.modal_body do
           P(class: 'text-center') { 'Jesteś aktualnie zalogowany! Wyloguj się, by przejść proces rejestracji' }
         end
-        DIV(class: 'modal-footer text-center') do
-          BUTTON(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
+        DIV.modal_footer.text_center do
+          BUTTON.btn.btn_secondary.btn_cons.mt_3.mb_3(type: "button") do
             'Zamknij okno'
           end.on :click do
             close_modal
@@ -333,14 +333,14 @@
     end
 
     def render
-      DIV(id: 'registration-modal', class: 'modal fade', role: "dialog", tabIndex: "-1") do
-        DIV(class: 'modal-dialog', role: "document") do
-          DIV(class: 'modal-content') do
-            DIV(class: 'modal-header') do
-              H5(class: 'modal-title') { 'Zarejestruj się' }
-              BUTTON(class: 'close', type: "button") do
+      DIV.modal.fade(id: 'registration-modal', role: "dialog", tabIndex: "-1") do
+        DIV.modal_dialog(role: "document") do
+          DIV.modal_content do
+            DIV.modal_header do
+              H5.modal_title { 'Zarejestruj się' }
+              BUTTON.close(type: "button") do
                 SPAN do
-                  I(class: 'ero-cross f-s-20 d-inline-block rotated-45deg')
+                  I.ero_cross.f_s_20.d_inline_block.rotated_45deg
                 end
               end.on :click do
                 close_modal
