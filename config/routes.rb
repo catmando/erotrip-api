@@ -6,12 +6,14 @@ Rails.application.routes.draw do
 
   mount Hyperloop::Engine => '/hyperloop'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'static_page#home'
+  root 'application#home'
 
   get '/profile', to: 'static_page#profile'
   get '/profile-edit', to: 'static_page#profile-edit'
   get '/profile-gallery', to: 'static_page#profile-gallery'
   get '/profile-settings', to: 'static_page#profile-settings'
+
+  get '/home', to: 'static_page#home'
 
   get '/messenger', to: 'static_page#messenger'
 

@@ -8,14 +8,17 @@ class MultiSelectWithLabels < Hyperloop::Component
     { value: 'one', label: 'Please provide' },
     { value: 'two', label: 'some options' }
   ]
+  param onChange: nil
 
   def add(val)
     mutate.selection ""
     mutate.selections_memo [ state.selections_memo, Hash.new(val.to_n)['value'] ].flatten.compact.uniq
+    params.onChange.call(state.selections_memo) if params.onChange.present?
   end
 
   def remove(val)
     mutate.selections_memo state.selections_memo - [val]
+    params.onChange.call(state.selections_memo) if params.onChange.present?
   end
 
   after_mount do

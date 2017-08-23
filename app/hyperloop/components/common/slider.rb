@@ -2,9 +2,11 @@ class Slider < Hyperloop::Component
 
   param selection: 30
   param name: "no_name_configured"
+  param onChange: nil
 
   def changed(val)
     mutate.selection val
+    params.onChange.call(state.selection) if params.onChange.present?
   end
 
   after_mount do

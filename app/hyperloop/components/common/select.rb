@@ -13,10 +13,7 @@ class Select < Hyperloop::Component
 
   def changed(val)
     mutate.selection Hash.new(val.to_n)['value'] || ''
-    if params.onChange.present?
-      puts "will do on change: #{params.onChange.inspect}"
-      params.onChange.call(state.selection)
-    end
+    params.onChange.call(state.selection) if params.onChange.present?
   end
 
   after_mount do

@@ -944,6 +944,7 @@ body {
 			.person {
 				.person-photo-wrapper {
 					position: relative;
+					min-height: 100px;
 
 					img {
 						border-radius: 50%;
