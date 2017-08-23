@@ -15,14 +15,14 @@ class ProcessResetPassword < Hyperloop::ServerOp
     exception.errors.message
   end
   step do
-    User.where(email: params.email, pin: params.pin)
+    User.find_by(email: params.email, pin: params.pin)
   end
   step do |user|
-    fail if user.first.blank?
-    user.first
+    fail if user.blank?
+    user
   end
   failed do |exception|
-    if exception.is_a?(Hash)
+    if exception.present? && exception.is_a?(Hash)
       exception
     else
       { base: 'Podałeś/aś niepoprawny e-mail lub PIN' }
@@ -36,10 +36,10 @@ class ProcessResetPassword < Hyperloop::ServerOp
     unless response[:status]
       raise ArgumentError, response[:user].errors.messages.to_json
     end
-    response[:user]
+    true
   end
   failed do |exception|
-    if exception.is_a?(Hash)
+    if exception.present? && exception.is_a?(Hash)
       exception
     else
       err = { base: 'Nie udało się zrestartować hasła' }

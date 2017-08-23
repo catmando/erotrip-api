@@ -14,6 +14,7 @@
     -# = stylesheet_pack_tag 'application'
     = favicon_link_tag
   %body
+    -# = react_component Notifications
     .navbar.d-md-none
       %button.btn.btn-outline-primary.btn-outline-gray.icon-only.with-label.more(type="button")
         %i.ero-menu
@@ -104,5 +105,6 @@
       = yield
 
 = react_component 'ModalsContainer'
+-# = react_component 'ToastContainer', {position: 'bottom-center', autoClose: 4000}
 -# = react_component 'LoginModal'
 -# = react_component 'RegistrationModal'

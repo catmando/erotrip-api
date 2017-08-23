@@ -4,12 +4,14 @@
     state errors: {}
 
     after_mount do
+      mutate.blocking(false)
       `$('#reset-password-modal').modal({backdrop: 'static', show: true})`
     end
 
     before_unmount do
       mutate.credentials({})
       mutate.errors({})
+      mutate.blocking(false)
     end
 
     def close_modal
@@ -18,21 +20,28 @@
     end
 
     def reset_password
-      mutate.errors {}
-      ProcessResetPassword.run(email: state.credentials['email'], password: state.credentials['password'], password_confirmation: state.credentials['password_confirmation'], pin: state.credentials['pin'])
-        .then do |response|
-          close_modal
-        end
-        .fail do |e|
-          if e.is_a?(Exception) && e.message
-            errors = JSON.parse(e.message.gsub('=>', ':'))
-            errors.each do |k, v|
-              errors[k] = v.join('; ') if v.is_a?(Array)
-            end
-            mutate.errors errors
+      unless state.blocking
+        mutate.blocking(true)
+        mutate.errors {}
+        ProcessResetPassword.run(email: state.credentials['email'], password: state.credentials['password'], password_confirmation: state.credentials['password_confirmation'], pin: state.credentials['pin'])
+          .then do |response|
+            mutate.blocking(false)
+            `toast.success('Super! Hasło zostało zmienione, możesz się teraz zalogować.')`
+            log_in
           end
-          {}
-        end
+          .fail do |e|
+            mutate.blocking(false)
+            `toast.error('Nie udało się zmienić hasła.')`
+            if e.is_a?(Exception) && e.message
+              errors = JSON.parse(e.message.gsub('=>', ':'))
+              errors.each do |k, v|
+                errors[k] = v.join('; ') if v.is_a?(Array)
+              end
+              mutate.errors errors
+            end
+            {}
+          end
+      end
     end
 
     def log_in
@@ -49,59 +58,64 @@
             end
           end
           P { "Did you read the DaVinci Code or maybe see the movie? Did it get you interested in history and secret" }
-          DIV(class: "form-group") do
-            INPUT(defaultValue: state.credentials['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
-              mutate.credentials['email'] = e.target.value
-            end
-            if (state.errors || {})['email'].present?
-              DIV(class: 'invalid-feedback') do
-                (state.errors || {})['email'].to_s;
+          FORM do
+            DIV(class: "form-group") do
+              INPUT(defaultValue: state.credentials['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
+                mutate.credentials['email'] = e.target.value
+              end
+              if (state.errors || {})['email'].present?
+                DIV(class: 'invalid-feedback') do
+                  (state.errors || {})['email'].to_s;
+                end
               end
             end
-          end
-          DIV(class: "form-group") do
-            INPUT(defaultValue: state.credentials['pin'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN ustalony przy rejestracji").on :key_up do |e|
-              mutate.credentials['pin'] = e.target.value
-            end
-            if (state.errors || {})['pin'].present?
-              DIV(class: 'invalid-feedback') do
-                (state.errors || {})['pin'].to_s;
+            DIV(class: "form-group") do
+              INPUT(defaultValue: state.credentials['pin'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN ustalony przy rejestracji").on :key_up do |e|
+                mutate.credentials['pin'] = e.target.value
+              end
+              if (state.errors || {})['pin'].present?
+                DIV(class: 'invalid-feedback') do
+                  (state.errors || {})['pin'].to_s;
+                end
               end
             end
-          end
 
-          DIV(class: 'row') do
-            DIV(class: 'col') do
-              DIV(class: "form-group") do
-                INPUT(defaultValue: state.credentials['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Nowe hasło").on :key_up do |e|
-                  mutate.credentials['password'] = e.target.value
+            DIV(class: 'row') do
+              DIV(class: 'col') do
+                DIV(class: "form-group") do
+                  INPUT(defaultValue: state.credentials['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Nowe hasło").on :key_up do |e|
+                    mutate.credentials['password'] = e.target.value
+                  end
+                  if (state.errors || {})['password'].present?
+                    DIV(class: 'invalid-feedback') do
+                      (state.errors || {})['password'].to_s;
+                    end
+                  end
                 end
-                if (state.errors || {})['password'].present?
-                  DIV(class: 'invalid-feedback') do
-                    (state.errors || {})['password'].to_s;
+              end
+              DIV(class: 'col') do
+                DIV(class: "form-group") do
+                  INPUT(defaultValue: state.credentials['password_confirmation'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Potwierdź nowe hasło").on :key_up do |e|
+                    mutate.credentials['password_confirmation'] = e.target.value
+                  end
+                  if (state.errors || {})['password_confirmation'].present?
+                    DIV(class: 'invalid-feedback') do
+                      (state.errors || {})['password_confirmation'].to_s;
+                    end
                   end
                 end
               end
             end
-            DIV(class: 'col') do
-              DIV(class: "form-group") do
-                INPUT(defaultValue: state.credentials['password_confirmation'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Potwierdź nowe hasło").on :key_up do |e|
-                  mutate.credentials['password_confirmation'] = e.target.value
-                end
-                if (state.errors || {})['password_confirmation'].present?
-                  DIV(class: 'invalid-feedback') do
-                    (state.errors || {})['password_confirmation'].to_s;
-                  end
+            DIV(class: 'text-center') do
+              BlockUi(tag: "div", blocking: state.blocking) do
+                BUTTON(class: 'btn btn-secondary btn-cons mt-4 mb-4', type: "submit") do
+                  'Zrestartuj hasło'
                 end
               end
             end
-          end
-          DIV(class: 'text-center') do
-            BUTTON(class: 'btn btn-secondary btn-cons mt-4 mb-4', type: "button") do
-              'Zrestartuj hasło'
-            end.on :click do |e|
-              reset_password
-            end
+          end.on :submit do |e|
+            e.prevent_default
+            reset_password
           end
           P(class: 'text-center') do
             SPAN {'Przypomniałeś/aś sobie hasło? '}

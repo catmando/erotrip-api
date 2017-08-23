@@ -11,7 +11,6 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
   def create
-    logger.warn "PARAMS: #{params.inspect}"
     return invalid_login_attempt if params[:user].blank?
     resource = User.find_for_database_authentication(email: params[:user][:email])
     return invalid_login_attempt unless resource

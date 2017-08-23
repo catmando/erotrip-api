@@ -2,14 +2,17 @@
 
     state credentials: {}
     state errors: {}
+    state blocking: false
 
     after_mount do
+      mutate.blocking(false)
       `$('#login-modal').modal({backdrop: 'static', show: true})`
     end
 
     before_unmount do
       mutate.credentials({})
       mutate.errors({})
+      mutate.blocking(false)
     end
 
     def close_modal
@@ -18,27 +21,33 @@
     end
 
     def log_in
-      mutate.errors {}
-      ProcessLogin.run(email: state.credentials['email'], password: state.credentials['password'])
-        .then do |response|
-          close_modal
-          RootStore.close_modal('login')
-        end
-        .fail do |e|
-          if e.is_a?(HTTP)
-            if JSON.parse(e.body)['id'].present?
-              CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
-              `setTimeout(function(){
-                $('#login-modal').modal('hide')
-              }, 1000)`
+      unless state.blocking
+        mutate.blocking(true)
+        mutate.errors {}
+        ProcessLogin.run(email: state.credentials['email'], password: state.credentials['password'])
+          .then do |response|
+            mutate.blocking(false)
+            `toast.success('Super! Udało się zalogować.')`
+            close_modal
+          end
+          .fail do |e|
+            mutate.blocking(false)
+            `toast.error('Nie udało się zalogować')`
+            if e.is_a?(HTTP)
+              if JSON.parse(e.body)['id'].present?
+                CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
+                `setTimeout(function(){
+                  $('#login-modal').modal('hide')
+                }, 1000)`
+              end
+              mutate.errors JSON.parse(e.body)['errors']
             end
-            mutate.errors JSON.parse(e.body)['errors']
+            if e.is_a?(Hyperloop::Operation::ValidationException)
+              mutate.errors e.errors.message
+            end
+            {}
           end
-          if e.is_a?(Hyperloop::Operation::ValidationException)
-            mutate.errors e.errors.message
-          end
-          {}
-        end
+      end
     end
 
     def register
@@ -60,32 +69,40 @@
             end
           end
           P { "Did you read the DaVinci Code or maybe see the movie? Did it get you interested in history and secret" }
-          DIV(class: "form-group") do
-            INPUT(type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
-              mutate.credentials['email'] = e.target.value
-            end
-            if (state.errors || {})['email'].present?
-              DIV(class: 'invalid-feedback') do
-                (state.errors || {})['email'].to_s;
+          FORM do
+            DIV(class: "form-group") do
+              INPUT(defaultValue: state.credentials['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
+                mutate.credentials['email'] = e.target.value
+              end
+              if (state.errors || {})['email'].present?
+                DIV(class: 'invalid-feedback') do
+                  (state.errors || {})['email'].to_s;
+                end
               end
             end
-          end
-          DIV(class: "form-group") do
-            INPUT(type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Hasło").on :key_up do |e|
-              mutate.credentials['password'] = e.target.value
-            end
-            if (state.errors || {})['password'].present?
-              DIV(class: 'invalid-feedback') do
-                (state.errors || {})['password'].to_s;
+            DIV(class: "form-group") do
+              INPUT(defaultValue: state.credentials['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Hasło").on :key_up do |e|
+                mutate.credentials['password'] = e.target.value
+              end
+              if (state.errors || {})['password'].present?
+                DIV(class: 'invalid-feedback') do
+                  (state.errors || {})['password'].to_s;
+                end
               end
             end
-          end
-          DIV(class: 'text-center') do
-            BUTTON(class: 'btn btn-secondary btn-cons mt-4 mb-4', type: "button") do
-              'Zaloguj się'
-            end.on :click do |e|
-              log_in
+            DIV(class: 'text-center') do
+              DIV do
+                state.blocking
+              end
+              BlockUi(tag: "div", blocking: state.blocking) do
+                BUTTON(class: 'btn btn-secondary btn-cons mt-4 mb-4', type: "submit") do
+                  'Zaloguj się'
+                end
+              end
             end
+          end.on :submit do |e|
+            e.prevent_default
+            log_in
           end
           P(class: 'text-center') do
             SPAN {'Nie pamiętasz hasła? '}

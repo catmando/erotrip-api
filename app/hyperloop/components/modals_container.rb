@@ -6,8 +6,7 @@
     def render
       DIV do
         DIV do
-          SPAN { "MODALE:" }
-          SPAN { RootStore.opened_modals.inspect }
+          ToastContainer(position: 'bottom-center', autoClose: 4000)
         end
         if RootStore.opened_modals['login']
           DIV do
