@@ -340,7 +340,7 @@
               h5.modal_title { 'Zarejestruj się' }
               button.close(type: "button") do
                 span do
-                  I.ero_cross.f_s_20.d_inline_block.rotated_45deg
+                  i.ero_cross.f_s_20.d_inline_block.rotated_45deg
                 end
               end.on :click do
                 close_modal

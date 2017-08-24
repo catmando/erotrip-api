@@ -40,11 +40,4 @@ class User < ApplicationRecord
     puts "RETURNING current_user #{u.inspect}"
     u
   end
-
-  def self.fetch_collection per_page=25, offset=0
-    puts 'WILL LOAD USERS'
-    puts per_page
-    puts offset
-    order(created_at: :desc).limit(per_page).offset(offset)
-  end
 end

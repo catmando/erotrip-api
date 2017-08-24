@@ -85,7 +85,7 @@ class Hotline < Hyperloop::Router::Component
                   div.profile_info_wrapper do
                     div.profile_info do
                       div.profile_info_upper do
-                        div.person_status(class: "#{['away', 'online', 'offfline'].sample}")
+                        div.person_status(class: "#{['away', 'online', 'offline'].sample}")
                         h4.mb_0 do
                           span {'Anna, '}
                           span.text_gray {'18'}
