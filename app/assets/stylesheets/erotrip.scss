@@ -1176,9 +1176,11 @@ body {
 			display: flex;
 			align-items: center;
 
-			&:hover {
+			&:hover, &:focus {
 				color: $btn-secondary-bg;
 				background: transparent;
+				box-shadow: none;
+				outline: none;
 			}
 		}
 
