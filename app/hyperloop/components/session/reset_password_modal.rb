@@ -50,65 +50,65 @@
     end
 
     def render_not_logged_view
-      SPAN do
-        DIV(class: 'modal-body modal-body-reset_password') do
+      span do
+        div(class: 'modal-body modal-body-reset_password') do
           if (state.errors || {})['base'].present?
-            DIV(class: "alert alert-danger") do
+            div(class: "alert alert-danger") do
               (state.errors || {})['base']
             end
           end
-          P { "Did you read the DaVinci Code or maybe see the movie? Did it get you interested in history and secret" }
-          FORM do
-            DIV(class: "form-group") do
-              INPUT(defaultValue: state.credentials['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
+          p { "Did you read the DaVinci Code or maybe see the movie? Did it get you interested in history and secret" }
+          form do
+            div(class: "form-group") do
+              imput(defaultValue: state.credentials['email'], type: "email", class: "form-control #{'is-invalid' if (state.errors || {})['email'].present?}", placeholder: "Adres e-mail").on :key_up do |e|
                 mutate.credentials['email'] = e.target.value
               end
               if (state.errors || {})['email'].present?
-                DIV(class: 'invalid-feedback') do
+                div(class: 'invalid-feedback') do
                   (state.errors || {})['email'].to_s;
                 end
               end
             end
-            DIV(class: "form-group") do
-              INPUT(defaultValue: state.credentials['pin'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN ustalony przy rejestracji").on :key_up do |e|
+            div(class: "form-group") do
+              imput(defaultValue: state.credentials['pin'], type: "number", class: "form-control #{'is-invalid' if (state.errors || {})['pin'].present?}", placeholder: "PIN ustalony przy rejestracji").on :key_up do |e|
                 mutate.credentials['pin'] = e.target.value
               end
               if (state.errors || {})['pin'].present?
-                DIV(class: 'invalid-feedback') do
+                div(class: 'invalid-feedback') do
                   (state.errors || {})['pin'].to_s;
                 end
               end
             end
 
-            DIV(class: 'row') do
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.credentials['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Nowe hasło").on :key_up do |e|
+            div(class: 'row') do
+              div(class: 'col') do
+                div(class: "form-group") do
+                  imput(defaultValue: state.credentials['password'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password'].present?}", placeholder: "Nowe hasło").on :key_up do |e|
                     mutate.credentials['password'] = e.target.value
                   end
                   if (state.errors || {})['password'].present?
-                    DIV(class: 'invalid-feedback') do
+                    div(class: 'invalid-feedback') do
                       (state.errors || {})['password'].to_s;
                     end
                   end
                 end
               end
-              DIV(class: 'col') do
-                DIV(class: "form-group") do
-                  INPUT(defaultValue: state.credentials['password_confirmation'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Potwierdź nowe hasło").on :key_up do |e|
+              div(class: 'col') do
+                div(class: "form-group") do
+                  imput(defaultValue: state.credentials['password_confirmation'], type: "password", class: "form-control #{'is-invalid' if (state.errors || {})['password_confirmation'].present?}", placeholder: "Potwierdź nowe hasło").on :key_up do |e|
                     mutate.credentials['password_confirmation'] = e.target.value
                   end
                   if (state.errors || {})['password_confirmation'].present?
-                    DIV(class: 'invalid-feedback') do
+                    div(class: 'invalid-feedback') do
                       (state.errors || {})['password_confirmation'].to_s;
                     end
                   end
                 end
               end
             end
-            DIV(class: 'text-center') do
+            div(class: 'text-center') do
               BlockUi(tag: "div", blocking: state.blocking) do
-                BUTTON(class: 'btn btn-secondary btn-cons mt-4 mb-4', type: "submit") do
+                button(class: 'btn btn-secondary btn-cons mt-4 mb-4', type: "submit") do
                   'Zrestartuj hasło'
                 end
               end
@@ -117,17 +117,17 @@
             e.prevent_default
             reset_password
           end
-          P(class: 'text-center') do
-            SPAN {'Przypomniałeś/aś sobie hasło? '}
-            A(class: 'text-primary') do
+          p(class: 'text-center') do
+            span {'Przypomniałeś/aś sobie hasło? '}
+            a(class: 'text-primary') do
               'Zaloguj się'
             end.on :click do |e|
               log_in
             end
           end
-          # P(class: "text-center") do
-          #   SPAN {'Nie masz konta? '}
-          #   A(class: 'text-primary') do
+          # p(class: "text-center") do
+          #   span {'Nie masz konta? '}
+          #   a(class: 'text-primary') do
           #     'Zarejestruj się'
           #   end.on :click do |e|
           #     register
@@ -138,12 +138,12 @@
     end
 
     def render_logged_view
-      SPAN do
-        DIV(class: 'modal-body') do
-          P(class: 'text-center') { 'Super! Jesteś zalogowany' }
+      span do
+        div(class: 'modal-body') do
+          p(class: 'text-center') { 'Super! Jesteś zalogowany' }
         end
-        DIV(class: 'modal-footer text-center') do
-          BUTTON(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
+        div(class: 'modal-footer text-center') do
+          button(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
             'Zamknij okno'
           end.on :click do
             close_modal
@@ -153,13 +153,13 @@
     end
 
     def render
-      DIV(id: 'reset-password-modal', class: "modal fadeable", role: "dialog", tabIndex: "-1") do
-        DIV(class: 'modal-dialog', role: "document") do
-          DIV(class: 'modal-content') do
-            DIV(class: 'modal-header') do
+      div(id: 'reset-password-modal', class: "modal fadeable", role: "dialog", tabIndex: "-1") do
+        div(class: 'modal-dialog', role: "document") do
+          div(class: 'modal-content') do
+            div(class: 'modal-header') do
               H5(class: 'modal-title') { 'Nie pamiętasz hasła?' }
-              BUTTON(class: 'close', type: "button") do
-                SPAN do
+              button(class: 'close', type: "button") do
+                span do
                   I(class: 'ero-cross f-s-20 d-inline-block rotated-45deg')
                 end
               end.on :click do

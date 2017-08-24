@@ -493,24 +493,21 @@ body {
 				display: flex;
 				align-items: center;
 
-				&.active {
-					a {
-						color: $brand-primary;
-					}
-				}
-
-				&:hover {
-					a {
-						color: $brand-primary;
-					}
-				}
-
 				a {
 					padding: 5px 10px;
 					display: flex;
 					align-items: center;
 					justify-content: flex-start;
 					width: 100%;
+					color: $ero-gray;
+
+					&.active {
+						color: $brand-primary;
+					}
+
+					&:hover {
+						color: $brand-primary;
+					}
 
 					.icon-wrapper {
 						min-width: 30px;
@@ -814,13 +811,12 @@ body {
 	}
 
 	.search-body {
-		height: 0px;
-		transition: height 0.3s ease;
+		max-height: 0px;
+		transition: max-height 0.3s ease;
 		overflow-x: hidden;
 
 		&.open {
-			height: 423px;
-			transition: height 0.3s ease;
+			height: 700px;
 		}
 
 		@media (max-width: 1199px) {

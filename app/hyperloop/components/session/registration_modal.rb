@@ -88,7 +88,7 @@
               (state.errors || {})['base']
             end
           end
-          FORM do
+          form do
             div.form_group do
               Select(placeholder: "Rodzaj konta", options: account_kinds, selection: state.user['kind'], className: "form-control #{'is-invalid' if (state.errors || {})['kind'].present?}").on :change do |e|
                 mutate.user['kind'] = e.to_n || ''
@@ -337,7 +337,7 @@
         div.modal_dialog(role: "document") do
           div.modal_content do
             div.modal_header do
-              H5.modal_title { 'Zarejestruj się' }
+              h5.modal_title { 'Zarejestruj się' }
               button.close(type: "button") do
                 span do
                   I.ero_cross.f_s_20.d_inline_block.rotated_45deg

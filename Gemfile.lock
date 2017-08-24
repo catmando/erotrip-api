@@ -362,6 +362,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  babel-transpiler
   bootstrap (~> 4.0.0.beta)
   byebug
   capistrano (= 3.8.2)

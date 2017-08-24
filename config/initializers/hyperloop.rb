@@ -7,6 +7,8 @@ Hyperloop.configuration do |config|
   config.import 'client_and_server'
   config.import 'client_only', client_only: true
 
+  # config.prerendering = :off
+
   # for speed up css development
   # config.transport = nil
 

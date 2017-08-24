@@ -10,9 +10,12 @@ class LoggedUser < Hyperloop::Component
   end
 
   def log_out(event)
-    puts 'will log out'
     event.prevent_default()
-    ProcessLogout.run
+    ProcessLogout.run.then do
+      `toast.success('Wylogowaliśmy Cię z EroTrip.')`
+    end.failed do
+      `toast.success('Nie udało się wylogować.')`
+    end
   end
 
   def register

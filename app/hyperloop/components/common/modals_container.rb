@@ -1,4 +1,4 @@
-class ModalsContainer < Hyperloop::Component
+class ModalsContainer < Hyperloop::Router::Component
   before_update do
     puts 'UPDATING STORES CONTRAINER'
   end
@@ -6,7 +6,9 @@ class ModalsContainer < Hyperloop::Component
   def render
     DIV do
       DIV do
-        ToastContainer(position: 'bottom-center', autoClose: 4000)
+        if ToastContainer
+          ToastContainer(position: 'bottom-center', autoClose: 4000)
+        end
       end
       if RootStore.opened_modals['login']
         DIV do

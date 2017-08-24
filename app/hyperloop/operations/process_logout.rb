@@ -4,8 +4,6 @@ class ProcessLogout < Hyperloop::Operation
     HTTP.delete('/users/sign_out.json')
   end
   step do |response|
-    puts 'POSZLO W OPERACJI'
-    puts response.inspect
     CurrentUserStore.current_user_id! nil
     response
   end
