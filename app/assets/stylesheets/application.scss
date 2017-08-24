@@ -16,23 +16,29 @@
 @import "bootstrap_variables";
 @import "bootstrap";
 @import "bootstrap_overwrite";
+@import "client_only";
 
 @import "ero_font";
 @import "ero_font_additional_styles";
 @import "erotrip_mixins";
-@import "erotrip";
-
 @import "utils";
-@import "client_only";
+
+@import "erotrip";
+@import "block-ui";
+
 
 // @import "hyper-console-client";
 
 // to be moved
 .Select {
-  border: 1px solid #ccc;
+  border: 1px solid $ero-gray-light;
   box-shadow: 0px;
   border-radius: 20px;
   font-family: 'GothamRoundedBook';
+}
+
+.Select.form-control {
+  padding: 0px;
 }
 
 .Select-control {
@@ -44,6 +50,8 @@
     border: 0px;
     box-shadow: 0px;
     line-height: 2.4rem;
+    color: $ero-gray-light;
+    font-size: 1rem;
   }
 }
 
@@ -51,6 +59,7 @@
   border: 1px solid transparent;
   box-shadow: 0px;
   background: transparent !important;
+  z-index: 1080;
 
   .Select-menu {
     border-radius: 20px;
@@ -62,6 +71,12 @@
 
 .Select-clear-zone {
   padding-top: 6px;
+}
+
+.Select-control {
+  .Select-placeholder {
+    padding-right: 2em;
+  }
 }
 
 .Select-arrow-zone {

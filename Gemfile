@@ -21,6 +21,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# gem 'sprockets', '>=3.0.0.beta'
+# gem 'sprockets-es6'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -31,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'babel-transpiler'
 
 # Boostrap 4 integration
 gem 'bootstrap', '~> 4.0.0.beta'
@@ -43,7 +48,17 @@ gem "webpacker"
 
 gem 'devise'
 
+gem 'figaro'
+
+gem 'redis', '~> 3.0'
+gem 'hiredis'
+gem 'redis-namespace'
+
 gem 'hyperloop', '>= 0.5.8'
+# gem 'hyper-mesh',      git: 'https://github.com/ruby-hyperloop/hyper-mesh.git',  branch: 'no_call_by_class_name'
+# gem 'hyper-operation', git: 'https://github.com/ruby-hyperloop/hyper-operation.git',  branch: 'no_call_by_class_name'
+# gem 'hyperloop'
+gem "annotate"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,7 +71,6 @@ end
 group :development do
   gem 'hyper-console'
   # gem "rails-erd"
-  gem "annotate"
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   # gem 'web-console', '>= 3.3.0'

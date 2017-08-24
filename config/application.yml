@@ -8,3 +8,8 @@ NOTIFICATIONS_THRESHOLD: "20"
 
 # insert this ONLY if mails should be redirected!
 DELIVER_MAILS_TO: 'noreply@enginearch.com'
+
+# REDIS:
+REDIS_HOST: "localhost"
+REDIS_PORT: "6379"
+REDIS_CHANNEL_PREFIX: "ero-dev"

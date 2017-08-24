@@ -454,11 +454,13 @@ body {
 						}
 
 						.profile-name {
+							// flex: 1;
 							display: inline-block;
 							padding-left: 8px;
 							max-width: calc(100% - 38px);
 							text-overflow: ellipsis;
 							overflow: hidden;
+							white-space: nowrap;
 
 							@media (max-width: 1199px) {
 								color: $ero-gray;
@@ -495,24 +497,21 @@ body {
 				display: flex;
 				align-items: center;
 
-				&.active {
-					a {
-						color: $brand-primary;
-					}
-				}
-
-				&:hover {
-					a {
-						color: $brand-primary;
-					}
-				}
-
 				a {
 					padding: 5px 10px;
 					display: flex;
 					align-items: center;
 					justify-content: flex-start;
 					width: 100%;
+					color: $ero-gray;
+
+					&.active {
+						color: $brand-primary;
+					}
+
+					&:hover {
+						color: $brand-primary;
+					}
 
 					.icon-wrapper {
 						min-width: 30px;
@@ -816,13 +815,12 @@ body {
 	}
 
 	.search-body {
-		height: 0px;
-		transition: height 0.3s ease;
+		max-height: 0px;
+		transition: max-height 0.3s ease;
 		overflow-x: hidden;
 
 		&.open {
-			height: 423px;
-			transition: height 0.3s ease;
+			height: 700px;
 		}
 
 		@media (max-width: 1199px) {
@@ -946,6 +944,7 @@ body {
 			.person {
 				.person-photo-wrapper {
 					position: relative;
+					min-height: 100px;
 
 					img {
 						border-radius: 50%;
@@ -2207,3 +2206,6 @@ body {
 	}
 }
 //END LOGIN
+.toastify {
+  z-index: 1060;
+}

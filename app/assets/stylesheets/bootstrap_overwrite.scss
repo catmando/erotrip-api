@@ -2,6 +2,38 @@ a {
   cursor: pointer;
 }
 
+.invalid-feedback {
+  font-size: 0.7rem;
+  padding-left: 1rem;
+}
+
+label.form-check-label {
+  [type=checkbox] + span {
+    padding-left: 1.6rem;
+    &:before {
+      position: absolute !important;
+      left: 0;
+      top: 0;
+    }
+  }
+  [type=checkbox]:checked + span:after {
+    content: 'x';
+    position: absolute !important;
+    left: 2px;
+    top: -1px;
+    color: #fff;
+    font-size: 19px;
+  }
+}
+
+.form-check-label.is-invalid {
+  color: $red;
+  & ~ .invalid-feedback {
+    display: block;
+    padding-left: 1.6rem;
+  }
+}
+
 .btn {
 	font-family: $font-family-sans-serif;
 	cursor: pointer;
@@ -450,7 +482,11 @@ label.form-check-label.big-round-label [type=checkbox]:checked + span:before {
 //   border: 1px solid $primary-color !important;
 // }
 
-
-
+.modal.fade .modal-dialog {
+  transform: none;
+  -webkit-transform: none;
+  transition: none;
+  -webkit-transition: none;
+}
 
 
