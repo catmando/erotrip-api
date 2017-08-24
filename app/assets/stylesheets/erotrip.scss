@@ -820,7 +820,7 @@ body {
 		overflow-x: hidden;
 
 		&.open {
-			height: 700px;
+			max-height: 700px;
 		}
 
 		@media (max-width: 1199px) {

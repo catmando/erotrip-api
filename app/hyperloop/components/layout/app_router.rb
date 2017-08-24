@@ -23,7 +23,7 @@ class AppRouter < Hyperloop::Router
 
         # main routes
         Route('/', exact: true, mounts: UsersIndex)
-        # Route('/users', mounts: Users)
+        Route('/users', mounts: UsersIndex)
         # Route('/trips', mounts: Trips)
         Route('/groups', mounts: GroupsShow) #temporarily
         Route('/hotline', mounts: Hotline)

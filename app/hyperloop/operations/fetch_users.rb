@@ -1,4 +1,4 @@
-class FetchUsers < Hyperloop::ServerOp
+class FetchUsers < Hyperloop::Operation
   param :page, default: 1
   param :per_page, default: 25
 
@@ -6,18 +6,13 @@ class FetchUsers < Hyperloop::ServerOp
   #   puts e
   # end
   failed do |e|
+    puts 'FAILED BEFORE FETCHING'
     puts e.inspect
   end
   step do
     puts 'FETCHING USERS'
-    puts params.per_page
-    puts params.page
-    puts (params.page - 1) * params.per_page
-    User.fetch_collection(params.per_page, (params.page - 1) * params.per_page)
-     # order(created_at: :desc).limit(params.per_page).offset((params.page - 1) * params.per_page)
-  end
-  failed do |e|
-    puts "FAILED!!!"
-    puts e.inspect
+    count = User.count
+    users = User.order(created_at: :desc).offset((params.page - 1) * params.per_page).limit(params.per_page)
+    { count: count, users: users }
   end
 end

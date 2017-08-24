@@ -1,16 +1,22 @@
 class UsersIndex < Hyperloop::Router::Component
 
   state users: []
+  state total: 0
   state current_page: 1
   state per_page: 25
   state blocking: false
 
   after_mount do
     mutate.blocking true
-    FetchUsers.run(page: state.current_page, per_page: state.per_page).then do |data|
+    FetchUsers.run(page: 1, per_page: 2)
+    .then do |data|
       mutate.blocking false
-      mutate.users data
+      mutate.total data.total
+      mutate.users data.users
     end.fail do |e|
+      puts "e.inspect: #{e.inspect}"
+      puts "e.stacktrace: #{e.try(:stacktrace)}"
+      puts "e.message: #{e.try(:message)}"
       mutate.blocking false
       mutate.users []
       `toast.error('Nie udało się pobrać użytkowników.')`
