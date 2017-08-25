@@ -7,7 +7,7 @@ ASSET_HOST: "http://localhost:3000"
 NOTIFICATIONS_THRESHOLD: "20"
 
 # insert this ONLY if mails should be redirected!
-DELIVER_MAILS_TO: 'noreply@enginearch.com'
+DELIVER_MAILS_TO: 'lukasz@enginearch.com'
 
 # REDIS:
 REDIS_HOST: "localhost"

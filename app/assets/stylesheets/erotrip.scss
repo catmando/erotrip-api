@@ -263,8 +263,8 @@ body {
 	}
 }
 
-// hotline
-.hotline {
+// hotline && trip
+.basic-container {
 	background: $brand-primary;
 	padding: 30px 60px 30px 30px;
 	min-height: 190px;
@@ -370,7 +370,7 @@ body {
 	}
 }
 
-.hotline.hotline-gray {
+.basic-container.basic-container-gray {
 	padding: 0px 45px 30px 15px;
 	background: transparent;
 

@@ -29,12 +29,12 @@ class AppRouter < Hyperloop::Router
 
         # Route("/users") { |m, l, h| UsersIndex(match: m, location: l, history: h) }
         # Route('/users', mounts: UsersIndex)
-        # Route('/trips', mounts: Trips)
+        Route('/trips', mounts: Trips)
         Route("/groups") { |m, l, h| GroupsShow(match: m, location: l, history: h) }
         # Route('/groups', mounts: GroupsShow) #temporarily
         Route("/hotline") { |m, l, h| Hotline(match: m, location: l, history: h) }
         # Route('/hotline', mounts: Hotline)
-        # Route('/messages', mounts: Messages)
+        Route('/messages', mounts: Messages)
         # Route('/notifications', mounts: Notifications)
         # Route('/interested', mounts: Interested)
         # Route('/peeper', mounts: Peeper)

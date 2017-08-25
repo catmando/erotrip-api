@@ -6,7 +6,7 @@ class Hotline < Hyperloop::Router::Component
     div.row do
       div.col_12.col_lg_9.ml_lg_auto do
 
-        div.hotline.streach_me do
+        div.basic_container.streach_me do
           div.patch
           div.details_wrapper do
 
@@ -75,7 +75,7 @@ class Hotline < Hyperloop::Router::Component
         end
 
         [1, 2, 3, 4, 5].each do |photo|
-          div.hotline.hotline_gray do
+          div.basic_container.basic_container_gray do
             div.details_wrapper do
 
               div.ea_flex.ea_align_center do
@@ -85,7 +85,7 @@ class Hotline < Hyperloop::Router::Component
                   div.profile_info_wrapper do
                     div.profile_info do
                       div.profile_info_upper do
-                        div.person_status(class: "#{['away', 'online', 'offline'].sample}")
+                        div.person_status(class: "#{['away', 'online', 'offfline'].sample}")
                         h4.mb_0 do
                           span {'Anna, '}
                           span.text_gray {'18'}
