@@ -13,3 +13,9 @@
 	-ms-transform: rotate($amount+deg);
 	transform: rotate($amount+deg);
 }
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

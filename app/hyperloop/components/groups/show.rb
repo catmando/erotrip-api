@@ -41,7 +41,7 @@ class GroupsShow < Hyperloop::Router::Component
   def render
     span do
       div.row do
-        div.col_12.col_lg_9.ml_lg_auto do
+        div.col_12.col_xl_9.ml_xl_auto do
 
           div.group_details.streach_me do
             div.patch

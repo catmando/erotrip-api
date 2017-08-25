@@ -25,16 +25,24 @@ class LoggedUser < Hyperloop::Component
   def render_not_logged_view
     span do
       div(class: 'logged-out') do
-        a(class: "mt-0 mb-0 text-secondary f-s-16 underline") do
+        a(class: 'text-secondary text-ellipsis mt-0 mb-0 f-s-16 underline') do
           'Dołącz do nas!'
         end.on :click do |e|
           register
         end
-        P(class: 'mt-0 mb-0') do
+        p(class: 'text-ellipsis mt-0 mb-0') do
           span { 'Masz już konto? ' }
           a(class: 'text-primary') { 'Zaloguj się' }.on :click do |e|
             open_log_in_modal
           end
+        end
+      end
+
+      div(class: 'logged-out-mini') do
+        button(class: 'btn icon-only btn-outline-primary btn-outline-gray ', type: 'button') do
+          i(class: 'ero-user f-s-20')
+        end.on :click do |e|
+          open_log_in_modal
         end
       end
     end
@@ -42,43 +50,42 @@ class LoggedUser < Hyperloop::Component
 
   def render_logged_view
     div(class: "logged-in") do
-      div(class: "logged-in-buttons") do
-        button(class: "btn btn-outline-primary btn-outline-gray btn-menu icon-only with-label d-xs-none d-md-inline-flex d-xl-none", type: "button") do
-          i(class: "ero-menu")
-          div(class: 'button-label empty')
-        end
-        div(class: 'divider hidden-sm-down hidden-xl-up')
-
-        button(class: "btn btn-outline-primary btn-outline-gray btn-messages icon-only with-label d-xs-none d-md-inline-flex d-xl-none", type: "button") do
+      div(class: "logged-in-tablet-buttons d-none d-md-flex d-xl-none") do
+        button(class: "btn btn-outline-primary btn-outline-gray btn-messages icon-only with-label", type: "button") do
           i(class: "ero-messages")
           div(class: 'button-label') { '2' }
         end
-        div(class: 'divider hidden-sm-down')
+        div(class: 'divider')
+        button(class: 'btn icon-only btn-outline-primary btn-outline-gray ', type: 'button') do
+          i(class: "ero-log-out")
+        end.on :click do |e|
+          log_out(e)
+        end
+        div(class: 'divider')
       end
 
       div(class: 'profile') do
-        div(class: 'profile-details') do
-          img(src: 'assets/girl.jpg')
-          div(class: 'profile-more-details-wrapper') do
-            div(class: 'profile-more-details') do
-              span(class: 'profile-name') { (CurrentUserStore.current_user || User.new).name }
-              button(class: 'btn btn-outline-primary btn-outline-gray icon-only btn-settings fadeable', type: "button") do
-                i(class: 'ero-settings')
-              end
-              button(class: 'btn btn-outline-primary btn-outline-gray icon-only d-xl-none fadeable', type: "button") do
-                i(class: 'ero-log-out')
-              end.on :click do |e|
-                log_out(e)
-              end
+        img(src: 'assets/girl.jpg')
+        div(class: 'profile-details-wrapper') do
+          div(class: 'profile-details') do
+            span(class: 'profile-name') { (CurrentUserStore.current_user || User.new).name }
+            button(class: 'btn btn-outline-primary btn-outline-gray icon-only btn-settings fadeable', type: "button") do
+              i(class: 'ero-settings f-s-18')
             end
-            a(class: 'profile-log-out text-secondary-i f-s-12 underline d-xs-none d-xl-block') do
-              'Wyloguj się'
+            button(class: 'btn btn-outline-primary btn-outline-gray icon-only d-xl-none fadeable ml-2', type: "button") do
+              i(class: 'ero-log-out')
             end.on :click do |e|
               log_out(e)
             end
           end
+          a(class: 'profile-log-out text-secondary-i f-s-12 underline d-none d-xl-block') do
+            'Wyloguj się'
+          end.on :click do |e|
+            log_out(e)
+          end
         end
       end
+
       div(class: 'divider')
     end
   end

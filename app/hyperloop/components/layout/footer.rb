@@ -2,7 +2,7 @@ class Footer < Hyperloop::Router::Component
 
   def render
     div(class: 'row') do
-      div(class: 'col-12 col-lg-9 ml-lg-auto') do
+      div(class: 'col-12 col-xl-9 ml-xl-auto') do
 
         div(class: 'featured featured-large streach-me mt-5') do
           div(class: 'patch')
@@ -89,7 +89,7 @@ class Footer < Hyperloop::Router::Component
           end
         end
 
-        div(class: 'footer-info d-lg-none') do
+        div(class: 'footer-info d-xl-none') do
           div(class: 'footer-info-text') do
             div(class: 'text-book text-center') {'Copyright 2017 © Erotrip.pl Wszystkie prawa zastrzeżone'}
             div(class: 'ea-flex ea-just-center') do

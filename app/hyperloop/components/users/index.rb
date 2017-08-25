@@ -66,7 +66,7 @@ class UsersIndex < Hyperloop::Router::Component
   def render
 
     div.row do
-      div.col_12.col_lg_9.ml_lg_auto do
+      div.col_12.col_xl_9.ml_xl_auto do
         BlockUi(tag: "div", blocking: state.blocking) do
 
           UsersSearchBox(users_count: state.total).on :change do |e|
@@ -77,7 +77,7 @@ class UsersIndex < Hyperloop::Router::Component
 
             state.users.each do |user|
 
-              div.col_6.col_md_4.col_lg_4.col_xl_3 do
+              div.col_6.col_md_3.col_lg_3.col_xl_3 do
                 div.person(class: "#{'locked' if user.private}") do
                   div.person_photo_wrapper do
                     div.person_actions do

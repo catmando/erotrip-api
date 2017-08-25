@@ -2,7 +2,14 @@ class Sidebar < Hyperloop::Router::Component
 
   def render
     div(class: 'sidebar open') do
-      div.logo_wrapper.d_none.d_xl_block do
+      div(class: 'logo-wrapper') do
+        button(class: "btn btn-outline-primary btn-outline-gray btn-menu icon-only with-label", type: "button") do
+          i(class: "ero-menu")
+          div(class: 'button-label empty')
+        end
+        button(class: "btn btn-outline-primary btn-outline-gray btn-close icon-only", type: "button") do
+          i(class: "ero-cross rotated-45deg")
+        end
         Link('/') do
           img(src: 'assets/logo.png')
         end
@@ -10,123 +17,123 @@ class Sidebar < Hyperloop::Router::Component
 
       LoggedUser()
 
-      div.menu do
-        button.btn.btn_secondary.btn_block do
+      div(class: 'menu') do
+        button(class: 'btn btn-secondary btn-block') do
           'Dodaj wycieczkę'
         end
 
-        ul.main_submenu do
-          li.menu_item do
+        ul(class: 'main-submenu') do
+          li(class: 'menu-item') do
             NavLink('/', exact: true, active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_users
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-users')
               end
-              div.label.fadeable {'Użytkownicy'}
+              div(class: 'label fadeable') {'Użytkownicy'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/trips', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_trips
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-trips')
               end
-              div.label.fadeable {'Wycieczki'}
+              div(class: 'label fadeable') {'Wycieczki'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/groups', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_groups
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-groups')
               end
-              div.label.fadeable {'Grupy'}
+              div(class: 'label fadeable') {'Grupy'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/hotline', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_hotline
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-hotline')
               end
-              div.label.fadeable {'Hotline'}
+              div(class: 'label fadeable') {'Hotline'}
             end
           end
         end
 
-        button.btn.btn_primary.btn_block do
+        button(class: 'btn btn-primary btn-block') do
           'Moje wycieczki'
         end
 
-        ul.fadeable.secondary_submenu do
-          li.menu_item do
+        ul(class: 'fadeable secondary-submenu') do
+          li(class: 'menu-item') do
             NavLink('/messages', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_messages
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-messages')
               end
-              div.label.fadeable {'Wiadomości'}
+              div(class: 'label fadeable') {'Wiadomości'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/notifications', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_notifications
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-notifications')
               end
-              div.label.fadeable {'Powiadomienia'}
+              div(class: 'label fadeable') {'Powiadomienia'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/interested', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_heart_2
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-heart-2')
               end
-              div.label.fadeable {'Chcą Cię poznać'}
+              div(class: 'label fadeable') {'Chcą Cię poznać'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/peeper', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_eye
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-eye')
               end
-              div.label.fadeable {'Podglądacz'}
+              div(class: 'label fadeable') {'Podglądacz'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/new-people', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_new_people
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-new-people')
               end
-              div.label.fadeable {'Nowe osoby'}
+              div(class: 'label fadeable') {'Nowe osoby'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/new-trips', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_new_trips
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-new-trips')
               end
-              div.label.fadeable {'Nowe wycieczki'}
+              div(class: 'label fadeable') {'Nowe wycieczki'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/unlocked', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_unlocked
+              div(class: 'icon-wrapper') do
+                i(class: 'ero-unlocked')
               end
-              div.label.fadeable {'Odblokowania'}
+              div(class: 'label fadeable') {'Odblokowania'}
             end
           end
 
-          li.menu_item do
+          li(class: 'menu-item') do
             NavLink('/anonymous', active_class: 'active') do
-              div.icon_wrapper do
-                i.ero_locker
+              div(class: 'icon-wrapper') do
+                i(class: 'ero_locker')
               end
-              div.label.fadeable {'Tryb anonimowy'}
+              div(class: 'label fadeable') {'Tryb anonimowy'}
             end
           end
 
