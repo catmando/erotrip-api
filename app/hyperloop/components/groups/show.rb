@@ -83,7 +83,7 @@ class GroupsShow < Hyperloop::Router::Component
             end
           end
 
-          GroupsSearchBox(users_count: 2311).on :change do |e|
+          GroupsShowSearchBox(users_count: 2311).on :change do |e|
             trigger_search e.to_n
           end
 

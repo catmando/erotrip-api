@@ -3,6 +3,7 @@ class MultiSelect < Hyperloop::Component
   param placeholder: ""
   param selection: []
   param name: "no_name_configured[]"
+  param className: ''
 
   param options: [
     { value: 'one', label: 'Please provide' },
@@ -20,7 +21,7 @@ class MultiSelect < Hyperloop::Component
   end
 
   def render
-    ReactSelect(name: params[:name], value: state.selection.to_n, options: params[:options].to_n, placeholder: params[:placeholder], multi: true).on :change do |e|
+    ReactSelect(name: params[:name], className: params['className'], value: state.selection.to_n, options: params[:options].to_n, placeholder: params[:placeholder], multi: true).on :change do |e|
       changed(e)
     end
   end

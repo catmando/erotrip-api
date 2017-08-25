@@ -107,10 +107,12 @@ label.form-check-label {
 
   &:hover {
     border-color: $brand-primary;
+
   }
 
   &.active {
     border-color: $brand-primary;
+
   }
 
   i {
@@ -209,6 +211,9 @@ label.form-check-label {
       transition: transform 0.3s;
     }
   }
+}
+.btn-outline-primary:active, .btn-outline-primary:hover, .btn-outline-primary.active, .show > .btn-outline-primary.dropdown-toggle {
+  color: #fff !important;
 }
 
 .btn.btn-container {

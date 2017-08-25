@@ -1,4 +1,4 @@
-class GroupsSearchBox < Hyperloop::Component
+class GroupsShowSearchBox < Hyperloop::Component
   state search_params: {
     gender:           [],
     gender_opposite:  [],

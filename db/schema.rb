@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824130506) do
+ActiveRecord::Schema.define(version: 20170825061920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20170824130506) do
   enable_extension "unaccent"
   enable_extension "citext"
   enable_extension "hstore"
+
+  create_table "groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.text "desc"
+    t.string "photo"
+    t.string "kinds", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kinds"], name: "index_groups_on_kinds"
+  end
 
   create_table "hyperloop_connections", force: :cascade do |t|
     t.string "channel"

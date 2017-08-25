@@ -25,6 +25,11 @@ class ModalsContainer < Hyperloop::Router::Component
           ResetPasswordModal()
         end
       end
+      if RootStore.opened_modals['groups_new']
+        DIV do
+          GroupsNewModal()
+        end
+      end
     end
   end
 end
