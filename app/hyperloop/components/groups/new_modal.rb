@@ -99,10 +99,10 @@ class GroupsNewModal < Hyperloop::Component
           end
 
           div(class: 'modal-body') do
-            div.row do
-              div.col.col_xs_12.col_sm_7 do
+            div(class: 'row') do
+              div(class: 'col col-xs-12 col-sm-7') do
 
-                div.form_group do
+                div(class: 'form-group') do
                   label {'Nazwa'}
                   input(placeholder: "Nazwa", name: 'name', class: "form-control #{'is-invalid' if (state.errors || {})['name'].present?}").on :key_up do |e|
                     mutate.group['name'] = e.target.value
@@ -115,7 +115,7 @@ class GroupsNewModal < Hyperloop::Component
                   end
                 end
 
-                div.form_group do
+                div(class: 'form-group') do
                   label {'Opis'}
                   textarea(placeholder: "Opis", name: 'desc', class: "form-control #{'is-invalid' if (state.errors || {})['desc'].present?}").on :key_up do |e|
                     mutate.group['desc'] = e.target.value
@@ -128,7 +128,7 @@ class GroupsNewModal < Hyperloop::Component
                   end
                 end
 
-                div.form_group do
+                div(class: 'form-group') do
                   label {'Rodzaj'}
                   MultiSelect(placeholder: "Rodzaj", name: 'kinds', className: "form-control #{'is-invalid' if (state.errors || {})['kinds'].present?}", selection: state.group['kinds'] || [], options: Commons.account_kinds).on :change do |e|
                     mutate.group['kinds'] = e.to_n
@@ -142,17 +142,17 @@ class GroupsNewModal < Hyperloop::Component
                 end
 
               end
-              div.col.col_xs_12.col_sm_5 do
+              div(class: 'col col-xs-12 col-sm-5') do
                 # Dropzone(onDrop: proc{ |accepted, rejected| file_dropped(accepted, rejected) })
-                div.form_group do
+                div(class: 'form-group') do
                   label {'Zdjęcie'}
                   DropNCrop(instructions: dropzone_instructions, value: state.current_file.to_n, cropperOptions: { aspectRatio: 1 }.to_n, canvasHeight: '275px').on :change do |event|
                     file_changed Hash.new(event.to_n)
                   end
                 end
                 if (state.errors || {})['photo_uri'].present?
-                  div.custom_select.is_invalid.d_none
-                  div.invalid_feedback do
+                  div(class: 'custom-select is-invalid d-none')
+                  div(class: 'invalid-feedback') do
                     (state.errors || {})['photo_uri'].to_s;
                   end
                 end
