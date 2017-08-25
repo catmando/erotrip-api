@@ -17,7 +17,7 @@ class Sidebar < Hyperloop::Router::Component
 
         ul.main_submenu do
           li.menu_item do
-            NavLink('/', active_class: 'active') do
+            NavLink('/', exact: true, active_class: 'active') do
               div.icon_wrapper do
                 i.ero_users
               end

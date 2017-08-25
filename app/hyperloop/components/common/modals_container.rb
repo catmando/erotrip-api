@@ -30,6 +30,11 @@ class ModalsContainer < Hyperloop::Router::Component
           AuthWarningModal()
         end
       end
+      if RootStore.opened_modals['groups_new']
+        DIV do
+          GroupsNewModal()
+        end
+      end
     end
   end
 end

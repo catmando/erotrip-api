@@ -40,6 +40,11 @@ class Header < Hyperloop::Router::Component
               img(src: 'assets/girl.jpg')
             end
           end
+          div.img_wrapper do
+            a(href: '#') do
+              img(src: 'assets/girl.jpg')
+            end
+          end
         end
       end
     end

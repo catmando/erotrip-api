@@ -117,12 +117,13 @@ body {
 	background: $primary-color-dark;
 	display: flex;
 	align-items: center;
-	padding: 0px 15px;
+	justify-content: space-between;
+	padding: 0px 15px 0px 30px;
 	position: relative;
 
 	&.featured-large {
 		.img-wrapper {
-			padding: 22px 15px;
+			padding: 22px 0;
 			img {
 				height: 96px;
 				width: 96px;
@@ -139,7 +140,7 @@ body {
 	}
 
 	.img-wrapper {
-		padding: 15px;
+		padding: 15px 0;
 
 		img {
 			height: 70px;
@@ -259,7 +260,7 @@ body {
 	position: relative;
 
 	@media (max-width: 768px) {
-		padding: 15px 45px 15px 15px;
+		padding: 0px 26px 30px 15px;
 	}
 
 	.details-wrapper {
@@ -359,11 +360,11 @@ body {
 }
 
 .basic-container.basic-container-gray {
-	padding: 0px 45px 30px 15px;
+	padding: 0px 26px 30px 15px;
 	background: transparent;
 
 	&:last-child {
-		padding: 0px 45px 0px 15px;
+		padding: 0px 26px 0px 15px;
 	}
 
 	.details-wrapper {
@@ -785,6 +786,7 @@ body {
 .search {
 	font-family: 'GothamRoundedBook';
 	color: $ero-gray;
+	padding-left: 15px;
 
 	.search-header {
 		display: flex;
@@ -809,6 +811,12 @@ body {
 
 		&.open {
 			max-height: 700px;
+		}
+
+		&.search-body-small {
+			&.open {
+				max-height: 250px;
+			}
 		}
 
 		@media (max-width: 1199px) {
@@ -1200,6 +1208,7 @@ body {
 
 .footer {
 	height: 150px;
+	padding-right: 15px;
 	display: flex;
 	align-items: center;
 	background: $brand-primary;

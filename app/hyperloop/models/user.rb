@@ -1,3 +1,25 @@
+# email: string
+# created_by_id: uuid
+# updated_by_id: uuid
+# encrypted_password: string
+# reset_password_token: string
+# reset_password_sent_at: datetime
+# remember_created_at: datetime
+# sign_in_count: integer
+# current_sign_in_at: datetime
+# last_sign_in_at: datetime
+# current_sign_in_ip: inet
+# last_sign_in_ip: inet
+# kind: string
+# name: string
+# birth_year: integer
+# name_second_person: string
+# birth_year_second_person: integer
+# city: string
+# pin: integer
+# terms_acceptation: boolean
+# private: boolean
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

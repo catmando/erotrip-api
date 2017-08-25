@@ -2,7 +2,7 @@ class Footer < Hyperloop::Router::Component
 
   def render
     div.row do
-      div.col_12.col_lg_9.ml_lg_auto do
+      div.col_12.col_lg_9.ml_lg_auto(style: {overflow: 'hidden'}) do
 
         div.featured.featured_large.streach_me.mt_5 do
           div.patch
@@ -21,22 +21,22 @@ class Footer < Hyperloop::Router::Component
               img(src: 'assets/girl.jpg')
             end
           end
-          div.img_wrapper do
+          div.img_wrapper.d_none.d_md_block do
             a(href: '#') do
               img(src: 'assets/girl.jpg')
             end
           end
-          div.img_wrapper do
+          div.img_wrapper.d_none.d_md_block do
             a(href: '#') do
               img(src: 'assets/girl.jpg')
             end
           end
-          div.img_wrapper do
+          div.img_wrapper.d_none.d_xl_block do
             a(href: '#') do
               img(src: 'assets/girl.jpg')
             end
           end
-          div.img_wrapper do
+          div.img_wrapper.d_none.d_xl_block do
             a(href: '#') do
               img(src: 'assets/girl.jpg')
             end
