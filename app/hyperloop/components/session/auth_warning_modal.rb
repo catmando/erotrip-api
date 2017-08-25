@@ -29,8 +29,6 @@ class AuthWarningModal < Hyperloop::Component
           div(class: 'modal-body') do
             p(class: 'text-center mb-0 f-s-15') do
               span(class: 'text-gray-dark') { 'Ta czynność wymaga zalogowanego użytkownika' }
-              # br
-              # span(class: 'text-gray-dark') { 'Zaloguj się albo zarejestruj' }
             end
           end
 
