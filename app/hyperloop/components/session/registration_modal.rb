@@ -1,7 +1,7 @@
   class RegistrationModal < Hyperloop::Component
 
     state :user do
-      { birth_year: '', kind: '', birth_year_second_person: '' }
+      { birth_year: '', kind: '', birth_year_second_person: '', city: '' }
     end
     state errors: {}
     state blocking: false
@@ -155,8 +155,8 @@
 
               div(class: 'col') do
                 div(class: 'form-group') do
-                  input(defaultValue: state.user['city'], type: "city", class: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}", placeholder: "Miejscowość").on :key_up do |e|
-                    mutate.user['city'] = e.target.value
+                  Select(placeholder: "Miejscowość", options: Commons.cities, selection: state.user['city'], className: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}").on :change do |e|
+                    mutate.user['city'] = e.to_n || ''
                     mutate.errors['city'] = nil
                   end
                   if (state.errors || {})['city'].present?
