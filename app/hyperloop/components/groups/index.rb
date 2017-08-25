@@ -62,12 +62,12 @@ class GroupsIndex < Hyperloop::Router::Component
 
           state.groups.each do |group|
 
-            div.basic-container.basic-container_gray do
+            div.basic_container.basic_container_gray do
               div.details_wrapper do
 
                 div.ea_flex.ea_align_center do
                   div
-                  img(src: '/assets/girl.jpg')
+                  img(src: Commons.photo_version(group.photo, 'rect_160') || '/assets/girl.jpg')
                   div.text do
                     div.profile_info_wrapper do
                       div.profile_info do
@@ -77,11 +77,11 @@ class GroupsIndex < Hyperloop::Router::Component
                             span { "#{group.name}" }
                             # span.text_gray { "#{Time.now.year - (group.birth_year || Time.now.year)}" }
                           end
-                          i.ero_verified_border_gray.ml_2.f_s_30 do
-                            span.path1
-                            span.path2
-                            span.path3
-                          end
+                          # i.ero_verified_border_gray.ml_2.f_s_30 do
+                          #   span.path1
+                          #   span.path2
+                          #   span.path3
+                          # end
                         end
                         div.profile_info_lower.mb_3 do
                           # span.text_gray { "#{group_age(group)}, " }
@@ -91,7 +91,15 @@ class GroupsIndex < Hyperloop::Router::Component
                     end
 
                     p.text_book.text_gray do
-                      'Hydroderm is the highly desired anti_aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep'
+                      "#{group.desc}"
+                      # br
+                      # div {" >> #{group.photo} <<"}
+                      # div {" >> #{group.photo.class.name} <<"}
+                      # div { ">> #{group.photo.gsub('=>', ':').gsub('nil', 'null')} << " }
+                      # div { ">> #{Commons.photo_version(group.photo, 'rect_160')} << " }
+                      # " >> #{group.photo.class.name} <<"
+                      # br
+                      # " >> #{group.photo['rect_160']} <<"
                     end
                   end
                 end

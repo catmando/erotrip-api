@@ -30,6 +30,18 @@
 // @import "hyper-console-client";
 
 // to be moved
+
+.dropzone {
+  border: 1px dashed $ero-gray-light;
+  background: #f6f7f9;
+  border-radius: 1.5rem;
+}
+
+.drop-n-crop {
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
 .Select {
   border: 1px solid $ero-gray-light;
   box-shadow: 0px;

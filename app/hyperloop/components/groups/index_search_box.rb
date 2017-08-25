@@ -1,7 +1,7 @@
 class GroupsIndexSearchBox < Hyperloop::Component
   state search_params: {
-    kinds_cont:           [],
-    # kinds_cont_opposite:[],
+    for_kinds:           [],
+    # for_kinds_opposite:[],
     name_cont:            '',
     # age:                [20, 30],
     # distance:           30,
@@ -73,8 +73,8 @@ class GroupsIndexSearchBox < Hyperloop::Component
             div.col_12.col_md_6 do
               div.form_group do
                 label {'Szukam'}
-                MultiSelect(placeholder: "Szukam", name: 'kinds_cont[]', selection: state.search_params['kinds_cont']).on :change do |e|
-                  mutate.search_params['kinds_cont'] = e.to_n
+                MultiSelect(placeholder: "Szukam", name: 'for_kinds[]', selection: state.search_params['for_kinds'], options: Commons.account_kinds).on :change do |e|
+                  mutate.search_params['for_kinds'] = e.to_n
                 end
               end
             end
@@ -95,8 +95,8 @@ class GroupsIndexSearchBox < Hyperloop::Component
             'Anuluj'
           end.on :click do
             mutate.search_params({
-              kinds_cont:             [],
-              # kinds_cont_opposite:  [],
+              for_kinds:             [],
+              # for_kinds_opposite:  [],
               name_cont:              '',
               # age:                  [20, 30],
               # distance:             30,
@@ -105,15 +105,15 @@ class GroupsIndexSearchBox < Hyperloop::Component
               # interests:            [],
               sorts:                  'latest'
             })
-            propagate_change
             mutate.opened false
+            propagate_change
           end
         end
       end
     end.on :submit do |e|
       e.prevent_default
-      propagate_change
       mutate.opened false
+      propagate_change
     end
   end
 end

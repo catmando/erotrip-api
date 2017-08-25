@@ -2,6 +2,7 @@
   "name": "erotrip-api",
   "private": true,
   "dependencies": {
+    "@synapsestudios/react-drop-n-crop": "^0.2.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-loader": "7.x",

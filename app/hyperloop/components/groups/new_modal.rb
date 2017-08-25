@@ -1,8 +1,18 @@
 class GroupsNewModal < Hyperloop::Component
 
+  require 'base64'
+
   state blocking: false
   state group: {}
   state errors: {}
+
+  state current_file: {
+    result: nil,
+    src: nil,
+    filename: nil,
+    filetype: nil,
+    error: nil
+  }
 
   after_mount do
     mutate.group {}
@@ -40,11 +50,36 @@ class GroupsNewModal < Hyperloop::Component
         mutate.errors errors
 
       elsif e.is_a?(Hyperloop::Operation::ValidationException)
-        puts e.errors.message
         mutate.errors e.errors.message
       end
       {}
     end
+  end
+
+  # def file_dropped accepted=[], rejected=[]
+  #   a = Array.new(accepted)
+  #   # .map{ |el| Hash.new(el)}
+  #   r = Array.new(rejected).map{ |el| File.new(el)}
+  #   a[0] = FileReader.new(accepted[0])
+  #   f = Base64.encode64(a[0])
+  # end
+
+  def file_changed data
+    if state.current_file['error'].blank?
+      mutate.current_file data
+      mutate.group['photo_uri'] = "#{state.current_file['result']};#{state.current_file['filename']}"
+    else
+      `toast.error('Nie udało się załadować obrazka')`
+    end
+  end
+
+  def dropzone_instructions
+    val = [
+      React.create_element('div', {key: 'ero-1', className: 'btn btn-secondary mb-2'}) { 'Wybierz' },
+      React.create_element('div', {key: 'ero-2', }) {'lub przeciągnij'},
+      React.create_element('div', {key: 'ero-3', }) {'tutaj'}
+    ]
+    val.to_n
   end
 
   def render
@@ -95,7 +130,7 @@ class GroupsNewModal < Hyperloop::Component
 
                 div.form_group do
                   label {'Rodzaj'}
-                  MultiSelect(placeholder: "Rodzaj", name: 'kinds', className: "form-control #{'is-invalid' if (state.errors || {})['kinds'].present?}", selection: state.group['kinds'] || [], options: RootStore.account_kinds).on :change do |e|
+                  MultiSelect(placeholder: "Rodzaj", name: 'kinds', className: "form-control #{'is-invalid' if (state.errors || {})['kinds'].present?}", selection: state.group['kinds'] || [], options: Commons.account_kinds).on :change do |e|
                     mutate.group['kinds'] = e.to_n
                     mutate.errors['kinds'] = nil
                   end
@@ -107,13 +142,25 @@ class GroupsNewModal < Hyperloop::Component
                 end
 
               end
-              div.col.col_xs_12.col_sm_4 do
-                'upload plikow!'
+              div.col.col_xs_12.col_sm_5 do
+                # Dropzone(onDrop: proc{ |accepted, rejected| file_dropped(accepted, rejected) })
+                div.form_group do
+                  label {'Zdjęcie'}
+                  DropNCrop(instructions: dropzone_instructions, value: state.current_file.to_n, cropperOptions: { aspectRatio: 1 }.to_n, canvasHeight: '275px').on :change do |event|
+                    file_changed Hash.new(event.to_n)
+                  end
+                end
+                if (state.errors || {})['photo_uri'].present?
+                  div.custom_select.is_invalid.d_none
+                  div.invalid_feedback do
+                    (state.errors || {})['photo_uri'].to_s;
+                  end
+                end
               end
             end
           end
 
-          div(class: 'modal-footer', style: {justifyContent: 'center'}) do
+          div(class: 'modal-footer', style: {justifyContent: 'center', paddingTop: 0}) do
             button(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
               'Utwórz'
             end.on :click do
