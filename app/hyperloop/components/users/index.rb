@@ -5,16 +5,25 @@ class UsersIndex < Hyperloop::Router::Component
   state current_page: 1
   state per_page: 12
   state blocking: false
+  state search_params: {
+    gender:           [],
+    gender_opposite:  [],
+    where:            '',
+    age:              [20, 30],
+    distance:         30,
+    height:           [],
+    look:             [],
+    interests:        []
+  }
 
   after_mount do
     mutate.blocking true
-    page_changed(state.current_page)
+    fetch_users
   end
 
-  def page_changed page
-    mutate.current_page page
+  def fetch_users
     mutate.blocking true
-    FetchUsers.run(page: page, per_page: state.per_page)
+    FetchUsers.run(page: state.current_page, per_page: state.per_page, terms: state.search_params)
     .then do |data|
       mutate.blocking false
       mutate.total data['count']
@@ -26,6 +35,19 @@ class UsersIndex < Hyperloop::Router::Component
       mutate.total 0
       `toast.error('Nie udało się pobrać użytkowników.')`
     end
+  end
+
+  def search_changed terms
+    if terms['sorts'] != state.search_params['sorts'] && state.current_page != 1
+      mutate.current_page 1
+    end
+    mutate.search_params terms
+    fetch_users
+  end
+
+  def page_changed page
+    mutate.current_page page
+    fetch_users
   end
 
   def user_age user
@@ -47,19 +69,23 @@ class UsersIndex < Hyperloop::Router::Component
       div.col_12.col_lg_9.ml_lg_auto do
         BlockUi(tag: "div", blocking: state.blocking) do
 
-          form.search do
-            div.search_header do
-              div.info.f_s_16 do
-                span.text_primary { state.total.to_s }
-                span.text_gray {' użytkowników'}
-              end
+          # form.search do
+          #   div.search_header do
+          #     div.info.f_s_16 do
+          #       span.text_primary { state.total.to_s }
+          #       span.text_gray {' użytkowników'}
+          #     end
 
-              div.search_input do
-                button.btn.btn_outline_primary.btn_outline_gray.icon_only.with_label.more.mr_3(type: "submit") do
-                  i.ero_search
-                end
-              end
-            end
+          #     div.search_input do
+          #       button.btn.btn_outline_primary.btn_outline_gray.icon_only.with_label.more.mr_3(type: "submit") do
+          #         i.ero_search
+          #       end
+          #     end
+          #   end
+          # end
+
+          UsersSearchBox(users_count: state.total).on :change do |e|
+            search_changed e.to_n
           end
 
           div.row.people_wrapper do

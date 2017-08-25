@@ -11,14 +11,11 @@
       `$('#registration-modal').modal({backdrop: 'static', show: true})`
     end
 
-    before_unmount do
+    def close_modal
+      `$('#registration-modal').modal('hide')`
       mutate.user({ birth_year: '', kind: '', birth_year_second_person: '' })
       mutate.errors({})
       mutate.blocking(false)
-    end
-
-    def close_modal
-      `$('#registration-modal').modal('hide')`
       RootStore.close_modal('registration')
     end
 
@@ -69,17 +66,6 @@
       ((Time.now - 60.years).year..(Time.now - 18.years).year).to_a.reverse
     end
 
-    def account_kinds
-      [
-        {label: 'Kobieta', value: 'woman'},
-        {label: 'Mężczyzna', value: 'man'},
-        {label: 'Para hetero', value: 'couple'},
-        {label: 'Para kobiet', value: 'women_couple'},
-        {label: 'Para mężczyzn', value: 'men_couple'},
-        {label: 'TGSV', value: 'tgsv'}
-      ]
-    end
-
     def render_not_logged_view
       span do
         div.modal_body.modal_body_registration do
@@ -90,7 +76,7 @@
           end
           form do
             div.form_group do
-              Select(placeholder: "Rodzaj konta", options: account_kinds, selection: state.user['kind'], className: "form-control #{'is-invalid' if (state.errors || {})['kind'].present?}").on :change do |e|
+              Select(placeholder: "Rodzaj konta", options: RootStore.account_kinds, selection: state.user['kind'], className: "form-control #{'is-invalid' if (state.errors || {})['kind'].present?}").on :change do |e|
                 mutate.user['kind'] = e.to_n || ''
                 mutate.errors['kind'] = nil
               end

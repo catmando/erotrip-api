@@ -9,14 +9,11 @@
       `$('#login-modal').modal({backdrop: 'static', show: true})`
     end
 
-    before_unmount do
+    def close_modal
+      `$('#login-modal').modal('hide')`
       mutate.credentials({})
       mutate.errors({})
       mutate.blocking(false)
-    end
-
-    def close_modal
-      `$('#login-modal').modal('hide')`
       RootStore.close_modal('login')
     end
 

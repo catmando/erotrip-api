@@ -23,4 +23,17 @@ class RootStore < Hyperloop::Store
     mutate.opened_modals({})
   end
 
+
+  # STATIC GETTERS
+  def self.account_kinds
+    [
+      {label: 'Kobieta', value: 'woman'},
+      {label: 'Mężczyzna', value: 'man'},
+      {label: 'Para hetero', value: 'couple'},
+      {label: 'Para kobiet', value: 'women_couple'},
+      {label: 'Para mężczyzn', value: 'men_couple'},
+      {label: 'TGSV', value: 'tgsv'}
+    ]
+  end
+
 end

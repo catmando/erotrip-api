@@ -2,6 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+# require 'lib/tasks/annotate.rb'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
