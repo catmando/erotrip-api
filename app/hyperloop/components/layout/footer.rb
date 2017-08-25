@@ -2,7 +2,7 @@ class Footer < Hyperloop::Router::Component
 
   def render
     div.row do
-      div.col_12.col_lg_9.ml_lg_auto(style: {overflow: 'hidden'}) do
+      div.col_12.col_lg_9.ml_lg_auto do
 
         div.featured.featured_large.streach_me.mt_5 do
           div.patch
