@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'ransack'
 
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+
 gem 'babel-transpiler'
 
 # Boostrap 4 integration

@@ -76,7 +76,7 @@
           end
           form do
             div.form_group do
-              Select(placeholder: "Rodzaj konta", options: RootStore.account_kinds, selection: state.user['kind'], className: "form-control #{'is-invalid' if (state.errors || {})['kind'].present?}").on :change do |e|
+              Select(placeholder: "Rodzaj konta", options: Commons.account_kinds, selection: state.user['kind'], className: "form-control #{'is-invalid' if (state.errors || {})['kind'].present?}").on :change do |e|
                 mutate.user['kind'] = e.to_n || ''
                 mutate.errors['kind'] = nil
               end

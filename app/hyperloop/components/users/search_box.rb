@@ -77,7 +77,7 @@ class UsersSearchBox < Hyperloop::Component
             div.col_12.col_md_6 do
               div.form_group do
                 label {'Szukam'}
-                MultiSelect(placeholder: "Szukam", name: 'kind_in[]', selection: state.search_params['kind_in'], options: RootStore.account_kinds).on :change do |e|
+                MultiSelect(placeholder: "Szukam", name: 'kind_in[]', selection: state.search_params['kind_in'], options: Commons.account_kinds).on :change do |e|
                   mutate.search_params['kind_in'] = e.to_n
                 end
                 # selection: params[:kind_in] || []
@@ -87,7 +87,7 @@ class UsersSearchBox < Hyperloop::Component
             div.col_12.col_md_6 do
               div.form_group do
                 label {'Szukających'}
-                MultiSelect(placeholder: "Szukających", name: 'searched_kind_in[]', selection: state.search_params['searched_kind_in'], options: RootStore.account_kinds).on :change do |e|
+                MultiSelect(placeholder: "Szukających", name: 'searched_kind_in[]', selection: state.search_params['searched_kind_in'], options: Commons.account_kinds).on :change do |e|
                   mutate.search_params['searched_kind_in'] = e.to_n
                 end
                 # selection: params[:searched_kind_in] || []

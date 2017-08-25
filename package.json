@@ -2,6 +2,7 @@
   "name": "erotrip-api",
   "private": true,
   "dependencies": {
+    "@synapsestudios/react-drop-n-crop": "^0.2.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-loader": "7.x",
@@ -31,7 +32,6 @@
     "react": "^15.6.1",
     "react-block-ui": "^1.0.2",
     "react-dom": "^15.6.1",
-    "react-dropzone": "^4.1.0",
     "react-select": "1.0.0-rc.5",
     "react-toastify": "^2.0.0-rc.3",
     "react_ujs": "^2.2.1",
