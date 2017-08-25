@@ -2193,9 +2193,11 @@ body {
 	}
 }
 
-
-
-
+.modal-content.modal-auth-warning {
+	.btn-primary {
+		min-width: 150px;
+	}
+}
 
 // LOGIN
 .modal {
@@ -2205,14 +2207,13 @@ body {
 	}
 }
 //END LOGIN
+
 .toastify {
   z-index: 1060;
-}
 
-.modal-content.modal-auth-warning {
-	.btn-primary {
-		min-width: 150px;
-	}
+  .toastify-content--error {
+  	background: $danger-color;
+  }
 }
 
 
