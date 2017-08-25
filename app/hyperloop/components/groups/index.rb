@@ -62,7 +62,7 @@ class GroupsIndex < Hyperloop::Router::Component
 
           state.groups.each do |group|
 
-            div.hotline.hotline_gray do
+            div.basic-container.basic-container_gray do
               div.details_wrapper do
 
                 div.ea_flex.ea_align_center do
