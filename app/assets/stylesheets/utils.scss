@@ -9,6 +9,22 @@ $fontSize: 0 5 10 12 13 15 16 18 20 22 25 30 35 40 45 50 55 60 65;
   width: 80%;
 }
 
+.text-secondary {
+  color: $secondary-color;
+}
+
+.text-secondary-i {
+  color: $secondary-color !important;
+}
+
+.text-gray {
+  color: $ero-gray;
+}
+
+.text-gray-dark {
+  color: $ero-gray-dark;
+}
+
 .ml-10p {
   margin-left: 10%;
 }

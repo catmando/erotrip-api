@@ -25,6 +25,11 @@ class ModalsContainer < Hyperloop::Router::Component
           ResetPasswordModal()
         end
       end
+      if RootStore.opened_modals['auth_warning']
+        DIV do
+          AuthWarningModal()
+        end
+      end
     end
   end
 end
