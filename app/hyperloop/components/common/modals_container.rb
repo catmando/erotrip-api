@@ -4,34 +4,34 @@ class ModalsContainer < Hyperloop::Router::Component
   end
 
   def render
-    DIV do
-      DIV do
+    div do
+      div do
         if ToastContainer
           ToastContainer(position: 'bottom-center', autoClose: 4000)
         end
       end
       if RootStore.opened_modals['login']
-        DIV do
+        div do
           LoginModal()
         end
       end
       if RootStore.opened_modals['registration']
-        DIV do
+        div do
           RegistrationModal()
         end
       end
       if RootStore.opened_modals['reset_password']
-        DIV do
+        div do
           ResetPasswordModal()
         end
       end
       if RootStore.opened_modals['auth_warning']
-        DIV do
+        div do
           AuthWarningModal()
         end
       end
       if RootStore.opened_modals['groups_new']
-        DIV do
+        div do
           GroupsNewModal()
         end
       end

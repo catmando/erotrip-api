@@ -3,7 +3,7 @@ class Post < Hyperloop::Component
   param title: ""
 
   def render
-    H1 do
+    h1 do
       params[:title]
     end
   end

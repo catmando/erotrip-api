@@ -14,17 +14,17 @@ class Slider < Hyperloop::Component
   end
 
   def render
-    DIV(class: 'range') do
+    div(class: 'range') do
 
       ReactSlider(name: params[:name], defaultValue: params[:selection].to_i ).on :change do |e|
         changed(e.to_n)
       end
 
-      DIV(class: 'value-max') do
+      div(class: 'value-max') do
         "#{state.selection}"
       end
 
-      INPUT(type: 'hidden', value: state.selection, name: params[:name])
+      input(type: 'hidden', value: state.selection, name: params[:name])
     end
   end
 end

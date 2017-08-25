@@ -108,7 +108,7 @@ class GroupsIndex < Hyperloop::Router::Component
                   i(class: 'ero-messages f-s-18')
                 end
                 div(class: 'btn-group-wrapper') do
-                  button(class: 'btn.icon-only.btn-wrapped.btn-group', type: "button") do
+                  button(class: 'btn icon-only btn-wrapped btn-group', type: "button") do
                     i(class: 'ero-alert-circle-outline')
                   end
                 end
