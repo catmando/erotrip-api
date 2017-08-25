@@ -47,6 +47,10 @@ class GroupsNewModal < Hyperloop::Component
     end
   end
 
+  def file_dropped accepted=nil, rejected=nil
+    puts "FILE DROPPED, #{accepted.inspect}, #{rejected.inspect}"
+  end
+
   def render
     div(id: 'groups-new-modal', class: "modal fade", role: "dialog", tabIndex: "-1") do
       div(class: 'modal-dialog modal-lg', role: "document") do
@@ -108,7 +112,7 @@ class GroupsNewModal < Hyperloop::Component
 
               end
               div.col.col_xs_12.col_sm_4 do
-                'upload plikow!'
+                Dropzone(onDrop: proc{ |accepted, rejected| file_dropped(accepted, rejected) })
               end
             end
           end

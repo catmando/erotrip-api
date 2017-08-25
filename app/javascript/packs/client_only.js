@@ -7,3 +7,5 @@ toast = require('react-toastify').toast;
 ToastContainer = require('react-toastify').ToastContainer;
 
 BlockUi = require('react-block-ui/dist/reactblockui.js').default;
+
+Dropzone = require('react-dropzone');
