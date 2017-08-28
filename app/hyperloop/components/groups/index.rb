@@ -70,7 +70,7 @@ class GroupsIndex < Hyperloop::Router::Component
 
                 div.ea_flex.ea_align_center do
                   div
-                  img(src: Commons.photo_version(group.photo, 'rect_160') || '/assets/girl.jpg')
+                  img(src: group.photo_url)
                   div.text do
                     div.profile_info_wrapper do
                       div.profile_info do

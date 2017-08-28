@@ -13,14 +13,34 @@ class Group < ApplicationRecord
   scope :ordered, -> (order_value) { order(order_value) }
   scope :with_limit, -> (limit_value) { limit(limit_value) }
 
-  validates :kinds, :name, :desc, presence: true
+  validates :name, :desc, presence: true
 
   attr_accessor :photo_data
 
-  def kinds=(new_val)
-    puts "new_val: #{nev_val}"
-    super(new_val)
+  # def kinds=(new_val)
+  #   if new_val.is_a? String
+  #     new_val = new_val.split('|')
+  #   end
+  #   super(new_val)
+  # end
+
+  def kinds
+    # read_attribute(:kinds).join('|')
+    'man'
   end
+
+  def kinds=(new_val)
+    puts 'setting kinds'
+  end
+
+  server_method :photo_url, default: '/assets/girl.jpg' do
+    photo.try(:rect_160).try(:url)
+  end
+
+
+  # server_method "photo_url=", default: '/assets/girl.jpg' do |new_val|
+  #   true
+  # end
 
   unless RUBY_ENGINE == 'opal'
 
@@ -49,6 +69,20 @@ class Group < ApplicationRecord
     end
   else
     attr_accessor :photo_uri
+
+    def photo
+      nil
+    end
+
+    # def kinds
+    #   this_kinds = read_attribute(:kinds)
+    #   if this_kinds.is_a? String
+    #     this_kinds.split('|')
+    #   else
+    #     this_kinds
+    #   end
+    # end
+
   end
 
   protected

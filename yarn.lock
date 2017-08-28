@@ -4210,6 +4210,10 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-append-to-body@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.13.tgz#e620c1957a1835012fbabe553a0d1fefcf6ff031"
+
 react-block-ui@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-block-ui/-/react-block-ui-1.0.2.tgz#34b766460ac480af43e5649879dd19c8150d62d0"
