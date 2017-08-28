@@ -6,9 +6,24 @@
     state errors: {}
     state blocking: false
 
+    state map_options: {
+    	types: ['(cities)'],
+    	componentRestrictions: {country: 'pl'}
+    }
+
+    state css_classes: {
+	    root: 'form-group google-places',
+	    input: 'form-control',
+	    autocompleteContainer: 'autocomplete-container'
+	  }
+
     after_mount do
       mutate.blocking(false)
       `$('#registration-modal').modal({backdrop: 'static', show: true})`
+    end
+
+    def changed(val)
+    	mutate.user['city'] = val
     end
 
     def close_modal
@@ -155,10 +170,14 @@
 
               div(class: 'col') do
                 div(class: 'form-group') do
-                  Select(placeholder: "Miejscowość", options: Commons.cities, selection: state.user['city'], className: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}").on :change do |e|
-                    mutate.user['city'] = e.to_n || ''
-                    mutate.errors['city'] = nil
-                  end
+
+                	GoogleAutocomplete(
+                		inputProps: { value: state.user['city'], onChange: proc{ |e| changed(e)} , placeholder: 'Miejscowość'}.to_n,
+                		options: state.map_options.to_n,
+                		googleLogo: false,
+                		classNames: state.css_classes.to_n
+                	)
+
                   if (state.errors || {})['city'].present?
                     div(class: "invalid-feedback") do
                       (state.errors || {})['city'].to_s;

@@ -8,3 +8,5 @@ ReactRange = require('rc-slider').Range;
 
 // Dropzone = require('react-dropzone');
 DropNCrop = require('@synapsestudios/react-drop-n-crop').default;
+
+GoogleAutocomplete = require('react-places-autocomplete').default;

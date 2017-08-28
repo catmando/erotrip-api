@@ -32,6 +32,7 @@
     "react": "^15.6.1",
     "react-block-ui": "^1.0.2",
     "react-dom": "^15.6.1",
+    "react-places-autocomplete": "^5.4.2",
     "react-select": "1.0.0-rc.5",
     "react-toastify": "^2.0.0-rc.3",
     "react_ujs": "^2.2.1",
