@@ -3,7 +3,7 @@ class GroupsIndex < Hyperloop::Router::Component
   state groups: []
   state total: 0
   state current_page: 1
-  state per_page: 12
+  state per_page: 5
   state blocking: false
   state search_params: {
     gender:           [],
@@ -17,24 +17,27 @@ class GroupsIndex < Hyperloop::Router::Component
   }
 
   after_mount do
-    mutate.blocking true
-    fetch_groups
+    mutate.blocking false
+    # Hyperloop.connect(Group)
+    # fetch_groups
   end
 
   def fetch_groups
-    mutate.blocking true
-    FetchResources.run(resource_type: 'Group', page: state.current_page, per_page: state.per_page, terms: state.search_params)
-    .then do |data|
-      mutate.blocking false
-      mutate.total data['count']
-      mutate.groups data['resources'].map{ |u| Group.new(u) }
-      `setTimeout(function(){window.scrollTo(0,0)}, 50)`
-    end.fail do |e|
-      mutate.blocking false
-      mutate.groups []
-      mutate.total 0
-      `toast.error('Nie udało się pobrać użytkowników.')`
-    end
+    # mutate.blocking true
+    # mutate.groups
+
+    # FetchResources.run(resource_type: 'Group', page: state.current_page, per_page: state.per_page, terms: state.search_params)
+    # .then do |data|
+    #   mutate.blocking false
+    #   mutate.total data['count']
+    #   mutate.groups data['resources'].map{ |u| Group.new(u) }
+    #   `setTimeout(function(){window.scrollTo(0,0)}, 50)`
+    # end.fail do |e|
+    #   mutate.blocking false
+    #   mutate.groups []
+    #   mutate.total 0
+    #   `toast.error('Nie udało się pobrać użytkowników.')`
+    # end
   end
 
   def search_changed terms
@@ -56,12 +59,13 @@ class GroupsIndex < Hyperloop::Router::Component
       div.col_12.col_lg_9.ml_lg_auto do
         BlockUi(tag: "div", blocking: state.blocking) do
 
-          GroupsIndexSearchBox(groups_count: state.total).on :change do |e|
+          GroupsIndexSearchBox(groups_count: Group.count).on :change do |e|
             search_changed e.to_n
           end
 
-          state.groups.each do |group|
-
+          # .where(name: '$' + state.search_params['name_cont'] + '$')
+          Group.ordered('created_at desc').limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
+            `console.log("group", index, group)`
             div.basic_container.basic_container_gray do
               div.details_wrapper do
 
@@ -84,7 +88,7 @@ class GroupsIndex < Hyperloop::Router::Component
                           # end
                         end
                         div.profile_info_lower.mb_3 do
-                          # span.text_gray { "#{group_age(group)}, " }
+                          span.text_gray { "#{group.kinds}" }
                           # span.text_gray { group.city.to_s }
                         end
                       end
@@ -116,7 +120,7 @@ class GroupsIndex < Hyperloop::Router::Component
             end
           end
 
-          Pagination(page: state.current_page, per_page: state.per_page, total: state.total).on :change do |e|
+          Pagination(page: state.current_page, per_page: state.per_page, total: Group.count).on :change do |e|
             page_changed e.to_n
           end
 

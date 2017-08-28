@@ -10,16 +10,24 @@ class Group < ApplicationRecord
 
   scope :for_kinds, -> (*attrs) { where('groups.kinds && ARRAY[?]::varchar[]', attrs) }
 
+  scope :ordered, -> (order_value) { order(order_value) }
+  scope :with_limit, -> (limit_value) { limit(limit_value) }
+
   validates :kinds, :name, :desc, presence: true
 
   attr_accessor :photo_data
+
+  def kinds=(new_val)
+    puts "new_val: #{nev_val}"
+    super(new_val)
+  end
 
   unless RUBY_ENGINE == 'opal'
 
     mount_uploader :photo, PhotoUploader
 
     def photo_uri=(uri_str)
-      if uri_str.match(%r{^data:(.*?);(.*?),(.*);(.*?)$})
+      if uri_str.present? && uri_str.match(%r{^data:(.*?);(.*?),(.*);(.*?)$})
         uri = {}
         uri[:type] = $1
         uri[:encoder] = $2

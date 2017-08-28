@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825061920) do
+ActiveRecord::Schema.define(version: 20170828104911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170825061920) do
   enable_extension "unaccent"
   enable_extension "citext"
   enable_extension "hstore"
+  enable_extension "uuid-ossp"
 
-  create_table "groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "groups", id: :integer, default: -> { "nextval('groups_not_uuid_seq'::regclass)" }, force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.string "photo"
@@ -42,10 +43,8 @@ ActiveRecord::Schema.define(version: 20170825061920) do
     t.integer "connection_id"
   end
 
-  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "users", id: :integer, default: -> { "nextval('users_not_uuid_seq'::regclass)" }, force: :cascade do |t|
     t.string "email"
-    t.uuid "created_by_id"
-    t.uuid "updated_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
@@ -74,6 +73,4 @@ ActiveRecord::Schema.define(version: 20170825061920) do
     t.index ["terms_acceptation"], name: "index_users_on_terms_acceptation"
   end
 
-  add_foreign_key "users", "users", column: "created_by_id"
-  add_foreign_key "users", "users", column: "updated_by_id"
 end

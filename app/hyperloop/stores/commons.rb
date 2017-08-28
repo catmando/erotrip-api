@@ -12,7 +12,16 @@ class Commons < Hyperloop::Store
   end
 
   def self.photo_version element, version
-    JSON.parse(element.gsub('=>', ':').gsub('nil', 'null'))[version]['url']
+    if element.present? && element.is_a?(String)
+      proper_element = JSON.parse(element.gsub('=>', ':').gsub('nil', 'null'))
+      if proper_element
+        puts proper_element.inspect
+        puts proper_element[version]['url']
+        return proper_element[version]['url']
+      end
+    elsif element.present? && element.is_a?(Hash)
+      return element[version]['url']
+    end
   end
 
 end

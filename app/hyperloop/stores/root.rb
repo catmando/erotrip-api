@@ -15,8 +15,9 @@ class RootStore < Hyperloop::Store
   end
 
   def self.close_modal(name)
+    puts "CLOSING MODAL, #{name}"
     mutate.opened_modals[name] = false
-    mutate.opened_modals state.opened_modals
+    # mutate.opened_modals state.opened_modals
   end
 
   receives Hyperloop::Application::Boot do

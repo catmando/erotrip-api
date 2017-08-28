@@ -23,7 +23,7 @@ class GroupsNewModal < Hyperloop::Component
   def close_modal
     `$('#groups-new-modal').modal('hide')`
     mutate.blocking(false)
-    mutate.group {}
+    mutate.group({})
     RootStore.close_modal('groups_new')
   end
 
@@ -31,6 +31,7 @@ class GroupsNewModal < Hyperloop::Component
     mutate.blocking true
     SaveGroup.run(state.group)
     .then do |data|
+      puts 'THEN'
       mutate.blocking false
       `toast.success('Dodaliśmy nową grupę.')`
       close_modal
@@ -38,17 +39,12 @@ class GroupsNewModal < Hyperloop::Component
     .fail do |e|
       mutate.blocking false
       `toast.error('Nie udało się zarejestrować.')`
-      if e.is_a?(HTTP)
-        if JSON.parse(e.body)['id'].present?
-          CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
-          close_modal
-        end
-        errors = JSON.parse(e.body)['errors']
+      if e.class.name.to_s == 'ArgumentError'
+        errors = JSON.parse(e.message.gsub('=>', ':'))
         errors.each do |k, v|
           errors[k] = v.join('; ')
         end
         mutate.errors errors
-
       elsif e.is_a?(Hyperloop::Operation::ValidationException)
         mutate.errors e.errors.message
       end
@@ -131,7 +127,9 @@ class GroupsNewModal < Hyperloop::Component
                 div.form_group do
                   label {'Rodzaj'}
                   MultiSelect(placeholder: "Rodzaj", name: 'kinds', className: "form-control #{'is-invalid' if (state.errors || {})['kinds'].present?}", selection: state.group['kinds'] || [], options: Commons.account_kinds).on :change do |e|
-                    mutate.group['kinds'] = e.to_n
+                    `console.log('changed:', e)`
+                    puts Array.new(e.to_n)
+                    mutate.group['kinds'] = Array.new(e.to_n)
                     mutate.errors['kinds'] = nil
                   end
                   if (state.errors || {})['kinds'].present?
