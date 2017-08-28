@@ -13,9 +13,17 @@
 
     state css_classes: {
 	    root: 'google-places',
-	    input: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}",
+	    input: 'form-control',
 	    autocompleteContainer: 'autocomplete-container'
 	  }
+	  # input: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}",
+
+	  state invalid_css_classes: {
+	    root: 'google-places',
+	    input: 'form-control is-invalid',
+	    autocompleteContainer: 'autocomplete-container'
+	  }
+
 
     after_mount do
       mutate.blocking(false)
@@ -170,11 +178,11 @@
 
               div(class: 'col') do
               	div(class: 'form-group') do
-	              	GoogleAutocomplete(
+	              	GooglePlaces(
 	              		inputProps: { value: state.user['city'], onChange: proc{ |e| changed(e)} , placeholder: 'Miejscowość'}.to_n,
 	              		options: state.map_options.to_n,
 	              		googleLogo: false,
-	              		classNames: state.css_classes.to_n
+	              		classNames: (state.errors || {})['city'].present? ? state.invalid_css_classes.to_n : state.css_classes.to_n
 	              	)
 
 	                if (state.errors || {})['city'].present?
