@@ -24,14 +24,28 @@
 	    autocompleteContainer: 'autocomplete-container'
 	  }
 
-
     after_mount do
       mutate.blocking(false)
       `$('#registration-modal').modal({backdrop: 'static', show: true})`
     end
 
     def changed(val)
+    	# mutate.user['city'] = val
+    	`GeocodeByAddress(#{val})
+    		.then(results => GetLatLng(results[0]))
+    		.then(({ lat, lng }) => console.log('Successfully got latitude and longitude', { lat, lng }))`
+    	# `GeocodeByAddress(#{val})
+    	# 	.then(results => GetLatLng(results[0]))
+    	# 	.then(({ lat, lng }) =>
+    	# 		console.log('Successfully got latitude and longitude', { lat, lng });
+    	# 		return {lat, lon};
+    	# 	)`
     	mutate.user['city'] = val
+
+    	# GeocodeByAddress({address: state.user['city']})
+    	# GeocodeByAddress({address: state.user['city']}).then do |response|
+    	# 	`console.log(response)`
+    	# end
     end
 
     def close_modal
@@ -178,7 +192,7 @@
 
               div(class: 'col') do
               	div(class: 'form-group') do
-	              	GooglePlaces(
+	              	GooglePlacesAutocomplete(
 	              		inputProps: { value: state.user['city'], onChange: proc{ |e| changed(e)} , placeholder: 'Miejscowość'}.to_n,
 	              		options: state.map_options.to_n,
 	              		googleLogo: false,
