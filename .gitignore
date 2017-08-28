@@ -20,6 +20,8 @@
 /node_modules
 /yarn-error.log
 
+/public/uploads
+
 .byebug_history
 /config/database.yml
 /config/application.yml/public/packs

@@ -65,7 +65,6 @@ class GroupsIndex < Hyperloop::Router::Component
 
           # .where(name: '$' + state.search_params['name_cont'] + '$')
           Group.ordered('created_at desc').limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
-            `console.log("group", index, group)`
             div.basic_container.basic_container_gray do
               div.details_wrapper do
 
