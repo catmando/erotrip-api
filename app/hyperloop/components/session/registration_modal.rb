@@ -12,8 +12,8 @@
     }
 
     state css_classes: {
-	    root: 'form-group google-places',
-	    input: 'form-control',
+	    root: 'google-places',
+	    input: "form-control #{'is-invalid' if (state.errors || {})['city'].present?}",
 	    autocompleteContainer: 'autocomplete-container'
 	  }
 
@@ -169,21 +169,20 @@
             div(class: 'row') do
 
               div(class: 'col') do
-                div(class: 'form-group') do
+              	div(class: 'form-group') do
+	              	GoogleAutocomplete(
+	              		inputProps: { value: state.user['city'], onChange: proc{ |e| changed(e)} , placeholder: 'Miejscowość'}.to_n,
+	              		options: state.map_options.to_n,
+	              		googleLogo: false,
+	              		classNames: state.css_classes.to_n
+	              	)
 
-                	GoogleAutocomplete(
-                		inputProps: { value: state.user['city'], onChange: proc{ |e| changed(e)} , placeholder: 'Miejscowość'}.to_n,
-                		options: state.map_options.to_n,
-                		googleLogo: false,
-                		classNames: state.css_classes.to_n
-                	)
-
-                  if (state.errors || {})['city'].present?
-                    div(class: "invalid-feedback") do
-                      (state.errors || {})['city'].to_s;
-                    end
-                  end
-                end
+	                if (state.errors || {})['city'].present?
+	                  div(class: "invalid-feedback") do
+	                    (state.errors || {})['city'].to_s;
+	                  end
+	                end
+	              end
               end
 
               div(class: 'col') do

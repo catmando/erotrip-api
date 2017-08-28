@@ -2272,7 +2272,7 @@ body {
 }
 
 
-.form-group.google-places {
+.google-places {
 	z-index: 1;
 	input {
 		outline: none;
@@ -2288,14 +2288,25 @@ body {
 	}
 
 	.autocomplete-container {
+		width: 100%;
 		z-index: 1;
 		position: absolute;
 		line-height: 16px;
 		margin-top: 5px;
 		overflow: hidden;
 		border-radius: 25px;
-		border: 1px solid $ero-gray-light !important;
+		border: 1px solid $ero-gray-light;
 	}
+
+	&.is-invalid {
+		input {
+			border: 1px solid $danger-color;
+		}
+	}
+}
+
+.google-places ~ .invalid-feedback {
+	display: block;
 }
 
 
