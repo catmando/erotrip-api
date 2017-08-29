@@ -20,8 +20,8 @@ class GroupsIndex < Hyperloop::Router::Component
           search_changed e.to_n
         end
 
-        groups_scope.limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
-          BlockUi(tag: "div", blocking: group.loading?) do
+        BlockUi(tag: "div", blocking: groups_scope.loading?) do
+          groups_scope.limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
             div(class: 'basic-container basic-container-gray') do
               div(class: 'details-wrapper') do
 

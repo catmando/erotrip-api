@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20170829103922) do
   enable_extension "unaccent"
   enable_extension "citext"
   enable_extension "hstore"
-  enable_extension "uuid-ossp"
 
   create_table "groups", id: :integer, default: -> { "nextval('groups_not_uuid_seq'::regclass)" }, force: :cascade do |t|
     t.string "name"
@@ -40,6 +39,16 @@ ActiveRecord::Schema.define(version: 20170829103922) do
   create_table "hyperloop_queued_messages", force: :cascade do |t|
     t.text "data"
     t.integer "connection_id"
+  end
+
+  create_table "names", force: :cascade do |t|
+    t.integer "year_of_birth"
+    t.string "kind"
+    t.string "location"
+    t.string "location_lat"
+    t.string "location_lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", id: :integer, default: -> { "nextval('users_not_uuid_seq'::regclass)" }, force: :cascade do |t|
