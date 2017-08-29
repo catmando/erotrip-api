@@ -1,60 +1,19 @@
 class LoginModal < Hyperloop::Component
+  include BaseModal
 
   state credentials: {}
   state errors: {}
-  state blocking: false
 
-  after_mount do
-    mutate.blocking(false)
-    `$('#login-modal').modal({backdrop: 'static', show: true})`
+  def title
+    'Zaloguj się'
   end
 
-  def close_modal
-    `$('#login-modal').modal('hide')`
-    mutate.credentials({})
-    mutate.errors({})
-    mutate.blocking(false)
-    RootStore.close_modal('login')
-  end
-
-  def log_in
-    unless state.blocking
-      mutate.blocking(true)
-      mutate.errors {}
-      ProcessLogin.run(email: state.credentials['email'], password: state.credentials['password'])
-        .then do |response|
-          mutate.blocking(false)
-          `toast.success('Super! Udało się zalogować.')`
-          close_modal
-        end
-        .fail do |e|
-          mutate.blocking(false)
-          `toast.error('Nie udało się zalogować')`
-          if e.is_a?(HTTP)
-            if JSON.parse(e.body)['id'].present?
-              CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
-              `setTimeout(function(){
-                $('#login-modal').modal('hide')
-              }, 1000)`
-            end
-            mutate.errors JSON.parse(e.body)['errors']
-          end
-          if e.is_a?(Hyperloop::Operation::ValidationException)
-            mutate.errors e.errors.message
-          end
-          {}
-        end
+  def render_modal
+    if CurrentUserStore.current_user.present?
+      render_logged_view
+    else
+      render_not_logged_view
     end
-  end
-
-  def register
-    RootStore.open_modal('registration')
-    close_modal
-  end
-
-  def reset_password
-    RootStore.open_modal('reset_password')
-    close_modal
   end
 
   def render_not_logged_view
@@ -130,34 +89,52 @@ class LoginModal < Hyperloop::Component
         BUTTON(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
           'Zamknij okno'
         end.on :click do
-          close_modal
+          close
         end
       end
     end
   end
 
-  def render
-    DIV(id: 'login-modal', class: "modal fadeable", role: "dialog", tabIndex: "-1") do
-      DIV(class: 'modal-dialog', role: "document") do
-        DIV(class: 'modal-content') do
-          DIV(class: 'modal-header') do
-            H5(class: 'modal-title') { 'Zaloguj się' }
-            BUTTON(class: 'close', type: "button") do
-              SPAN do
-                I(class: 'ero-cross f-s-20 d-inline-block rotated-45deg')
-              end
-            end.on :click do
-              close_modal
-            end
-          end
-          if CurrentUserStore.current_user.present?
-            render_logged_view
-          else
-            render_not_logged_view
-          end
+  def log_in
+    unless state.blocking
+      mutate.blocking(true)
+      mutate.errors {}
+      ProcessLogin.run(email: state.credentials['email'], password: state.credentials['password'])
+        .then do |response|
+          mutate.blocking(false)
+          `toast.success('Super! Udało się zalogować.')`
+          params.proc_to_call.call()
+          close
         end
-      end
+        .fail do |e|
+          mutate.blocking(false)
+          `toast.error('Nie udało się zalogować')`
+          if e.is_a?(HTTP)
+            if JSON.parse(e.body)['id'].present?
+              CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
+              `setTimeout(function(){
+                $('#login-modal').modal('hide')
+              }, 1000)`
+            end
+            mutate.errors JSON.parse(e.body)['errors']
+          end
+          if e.is_a?(Hyperloop::Operation::ValidationException)
+            mutate.errors e.errors.message
+          end
+          {}
+        end
     end
   end
+
+  def register
+    ModalsService.open_modal(RegistrationModal, { proc_to_call: params.proc_to_call })
+    close
+  end
+
+  def reset_password
+    ModalsService.open_modal(ResetPasswordModal, { proc_to_call: params.proc_to_call })
+    close
+  end
+
 end
 

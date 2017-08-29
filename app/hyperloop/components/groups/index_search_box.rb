@@ -1,31 +1,22 @@
+
 class GroupsIndexSearchBox < Hyperloop::Component
-  state search_params: {
-    for_kinds:           [],
-    # for_kinds_opposite:[],
-    name_cont:            '',
-    # age:                [20, 30],
-    # distance:           30,
-    # height:             [],
-    # look:               [],
-    # interests:          [],
-    sorts:                'latest'
-  }
-  state opened: false
 
   param onChange: nil
-
   param groups_count: 0
 
-  def sort_options
-    [
-      {value: 'latest', label: 'Najnowsze'},
-      {value: 'online', label: 'Teraz online'},
-      {value: 'last_seen', label: 'Ostatnio byli'}
-    ]
-  end
+  state opened: false
+  state search_params: {
+    for_kinds:           [],
+    name_cont:            '',
+    sorts:                'created_at desc'
+  }
+  state sort_options:  [
+    {value: 'created_at desc', label: 'Najnowsze'},
+    {value: 'created_at asc', label: 'Najstarsze'}
+  ]
 
   def add_group
-    RootStore.open_modal('groups_new')
+    ModalsService.open_modal(GroupsNewModal, { size_class: 'modal-lg' })
   end
 
   def propagate_change
@@ -47,7 +38,7 @@ class GroupsIndexSearchBox < Hyperloop::Component
           .on :click do |e|
             mutate.opened !state.opened
           end
-          Select(name: 'sorts', placeholder: 'Sortuj', options: sort_options, selection: state.search_params['sorts']).on :change do |e|
+          Select(name: 'sorts', placeholder: 'Sortuj', options: state.sort_options, selection: state.search_params['sorts']).on :change do |e|
             mutate.search_params['sorts'] = e.to_n
             propagate_change
           end

@@ -8,3 +8,5 @@ toast = require('react-toastify').toast;
 ToastContainer = require('react-toastify').ToastContainer;
 
 BlockUi = require('react-block-ui/dist/reactblockui.js').default;
+
+BodyAppender = require('react-append-to-body');

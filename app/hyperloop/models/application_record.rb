@@ -1,4 +1,8 @@
 class ApplicationRecord < ActiveRecord::Base
+
+  scope :ransacked, -> (search_params) { ransack(search_params).result }
+  scope :ordered, -> (order_value) { order(order_value) }
+
   self.abstract_class = true
 
   # belongs_to :created_by, class_name: "User", optional: true

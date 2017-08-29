@@ -1,8 +1,8 @@
 class GroupsNewModal < Hyperloop::Component
+  include BaseModal
 
   require 'base64'
 
-  state blocking: false
   state group: {}
   state errors: {}
 
@@ -15,16 +15,92 @@ class GroupsNewModal < Hyperloop::Component
   }
 
   after_mount do
-    mutate.group {}
-    mutate.blocking(false)
-    `$('#groups-new-modal').modal({backdrop: 'static', show: true})`
+    if CurrentUserStore.current_user.blank?
+      ModalsService.open_modal(AuthWarningModal, { proc_to_call: proc { ModalsService.open_modal(GroupsNewModal, { size_class: 'modal-lg' }) } })
+      close
+    else
+      mutate.group {}
+    end
   end
 
-  def close_modal
-    `$('#groups-new-modal').modal('hide')`
-    mutate.blocking(false)
-    mutate.group({})
-    RootStore.close_modal('groups_new')
+  def title
+    'Utwórz nową grupę'
+  end
+
+  def render_modal
+    span do
+      div(class: 'modal-body') do
+        div.row do
+          div.col.col_xs_12.col_sm_7 do
+
+            div.form_group do
+              label {'Nazwa'}
+              input(placeholder: "Nazwa", name: 'name', class: "form-control #{'is-invalid' if (state.errors || {})['name'].present?}").on :key_up do |e|
+                mutate.group['name'] = e.target.value
+                mutate.errors['name'] = nil
+              end
+              if (state.errors || {})['name'].present?
+                div.invalid_feedback do
+                  (state.errors || {})['name'].to_s;
+                end
+              end
+            end
+
+            div.form_group do
+              label {'Opis'}
+              textarea(placeholder: "Opis", name: 'desc', class: "form-control #{'is-invalid' if (state.errors || {})['desc'].present?}").on :key_up do |e|
+                mutate.group['desc'] = e.target.value
+                mutate.errors['desc'] = nil
+              end
+              if (state.errors || {})['desc'].present?
+                div.invalid_feedback do
+                  (state.errors || {})['desc'].to_s;
+                end
+              end
+            end
+
+            div.form_group do
+              label {'Rodzaj'}
+              MultiSelect(placeholder: "Rodzaj", name: 'kinds', className: "form-control #{'is-invalid' if (state.errors || {})['kinds'].present?}", selection: state.group['kinds'] || [], options: Commons.account_kinds).on :change do |e|
+                `console.log('changed:', e)`
+                puts Array.new(e.to_n)
+                mutate.group['kinds'] = Array.new(e.to_n)
+                mutate.errors['kinds'] = nil
+              end
+              if (state.errors || {})['kinds'].present?
+                div.invalid_feedback do
+                  (state.errors || {})['kinds'].to_s;
+                end
+              end
+            end
+
+          end
+          div.col.col_xs_12.col_sm_5 do
+            # Dropzone(onDrop: proc{ |accepted, rejected| file_dropped(accepted, rejected) })
+            div.form_group do
+              label {'Zdjęcie'}
+              DropNCrop(instructions: dropzone_instructions, value: state.current_file.to_n, cropperOptions: { aspectRatio: 1 }.to_n, canvasHeight: '275px').on :change do |event|
+                file_changed Hash.new(event.to_n)
+              end
+            end
+            if (state.errors || {})['photo_uri'].present?
+              div.custom_select.is_invalid.d_none
+              div.invalid_feedback do
+                (state.errors || {})['photo_uri'].to_s;
+              end
+            end
+          end
+        end
+      end
+
+      div(class: 'modal-footer', style: {justifyContent: 'center', paddingTop: 0}) do
+        button(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
+          'Utwórz'
+        end.on :click do
+          save_group
+        end
+      end
+    end
   end
 
   def save_group
@@ -34,7 +110,7 @@ class GroupsNewModal < Hyperloop::Component
       puts 'THEN'
       mutate.blocking false
       `toast.success('Dodaliśmy nową grupę.')`
-      close_modal
+      close
     end
     .fail do |e|
       mutate.blocking false
@@ -52,14 +128,6 @@ class GroupsNewModal < Hyperloop::Component
     end
   end
 
-  # def file_dropped accepted=[], rejected=[]
-  #   a = Array.new(accepted)
-  #   # .map{ |el| Hash.new(el)}
-  #   r = Array.new(rejected).map{ |el| File.new(el)}
-  #   a[0] = FileReader.new(accepted[0])
-  #   f = Base64.encode64(a[0])
-  # end
-
   def file_changed data
     if state.current_file['error'].blank?
       mutate.current_file data
@@ -76,99 +144,6 @@ class GroupsNewModal < Hyperloop::Component
       React.create_element('div', {key: 'ero-3', }) {'tutaj'}
     ]
     val.to_n
-  end
-
-  def render
-    div(id: 'groups-new-modal', class: "modal fade", role: "dialog", tabIndex: "-1") do
-      div(class: 'modal-dialog modal-lg', role: "document") do
-        div(class: 'modal-content') do
-
-          div(class: 'modal-header') do
-            h5(class: 'modal-title') { 'Utwórz nową grupę' }
-            button(class: 'close', type: "button") do
-              span do
-                i(class: 'ero-cross f-s-20 d-inline-block rotated-45deg')
-              end
-            end.on :click do
-              close_modal
-            end
-          end
-
-          div(class: 'modal-body') do
-            div.row do
-              div.col.col_xs_12.col_sm_7 do
-
-                div.form_group do
-                  label {'Nazwa'}
-                  input(placeholder: "Nazwa", name: 'name', class: "form-control #{'is-invalid' if (state.errors || {})['name'].present?}").on :key_up do |e|
-                    mutate.group['name'] = e.target.value
-                    mutate.errors['name'] = nil
-                  end
-                  if (state.errors || {})['name'].present?
-                    div.invalid_feedback do
-                      (state.errors || {})['name'].to_s;
-                    end
-                  end
-                end
-
-                div.form_group do
-                  label {'Opis'}
-                  textarea(placeholder: "Opis", name: 'desc', class: "form-control #{'is-invalid' if (state.errors || {})['desc'].present?}").on :key_up do |e|
-                    mutate.group['desc'] = e.target.value
-                    mutate.errors['desc'] = nil
-                  end
-                  if (state.errors || {})['desc'].present?
-                    div.invalid_feedback do
-                      (state.errors || {})['desc'].to_s;
-                    end
-                  end
-                end
-
-                div.form_group do
-                  label {'Rodzaj'}
-                  MultiSelect(placeholder: "Rodzaj", name: 'kinds', className: "form-control #{'is-invalid' if (state.errors || {})['kinds'].present?}", selection: state.group['kinds'] || [], options: Commons.account_kinds).on :change do |e|
-                    `console.log('changed:', e)`
-                    puts Array.new(e.to_n)
-                    mutate.group['kinds'] = Array.new(e.to_n)
-                    mutate.errors['kinds'] = nil
-                  end
-                  if (state.errors || {})['kinds'].present?
-                    div.invalid_feedback do
-                      (state.errors || {})['kinds'].to_s;
-                    end
-                  end
-                end
-
-              end
-              div.col.col_xs_12.col_sm_5 do
-                # Dropzone(onDrop: proc{ |accepted, rejected| file_dropped(accepted, rejected) })
-                div.form_group do
-                  label {'Zdjęcie'}
-                  DropNCrop(instructions: dropzone_instructions, value: state.current_file.to_n, cropperOptions: { aspectRatio: 1 }.to_n, canvasHeight: '275px').on :change do |event|
-                    file_changed Hash.new(event.to_n)
-                  end
-                end
-                if (state.errors || {})['photo_uri'].present?
-                  div.custom_select.is_invalid.d_none
-                  div.invalid_feedback do
-                    (state.errors || {})['photo_uri'].to_s;
-                  end
-                end
-              end
-            end
-          end
-
-          div(class: 'modal-footer', style: {justifyContent: 'center', paddingTop: 0}) do
-            button(class: 'btn btn-secondary btn-cons mt-3 mb-3', type: "button") do
-              'Utwórz'
-            end.on :click do
-              save_group
-            end
-          end
-
-        end
-      end
-    end
   end
 
 end

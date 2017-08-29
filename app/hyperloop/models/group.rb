@@ -10,28 +10,31 @@ class Group < ApplicationRecord
 
   scope :for_kinds, -> (*attrs) { where('groups.kinds && ARRAY[?]::varchar[]', attrs) }
 
-  scope :ordered, -> (order_value) { order(order_value) }
-  scope :with_limit, -> (limit_value) { limit(limit_value) }
-
   validates :name, :desc, presence: true
 
   attr_accessor :photo_data
 
-  # def kinds=(new_val)
-  #   if new_val.is_a? String
-  #     new_val = new_val.split('|')
-  #   end
-  #   super(new_val)
+  def kinds=(new_val)
+    if new_val.is_a? String
+      if new_val.include?('|')
+        new_val = new_val.split('|')
+      elsif new_val.include?('[')
+        new_val = JSON.parse(new_val)
+      else
+        new_val = [new_val]
+      end
+    end
+    super(new_val)
+  end
+
+  # def kinds
+  #   # read_attribute(:kinds).join('|')
+  #   'man'
   # end
 
-  def kinds
-    # read_attribute(:kinds).join('|')
-    'man'
-  end
-
-  def kinds=(new_val)
-    puts 'setting kinds'
-  end
+  # def kinds=(new_val)
+  #   puts 'setting kinds'
+  # end
 
   server_method :photo_url, default: '/assets/girl.jpg' do
     photo.try(:rect_160).try(:url)

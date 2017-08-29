@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/packs/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 391);
+/******/ 	return __webpack_require__(__webpack_require__.s = 392);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -91,7 +91,7 @@ eval("/**\n * Copyright 2014-2015, Facebook, Inc.\n * All rights reserved.\n *\n
 
 /***/ }),
 
-/***/ 13:
+/***/ 11:
 /*!***************************!*\
   !*** external "ReactDOM" ***!
   \***************************/
@@ -113,6 +113,18 @@ module.exports = ReactDOM;
 
 "use strict";
 eval("/**\n * Copyright 2013-present, Facebook, Inc.\n * All rights reserved.\n *\n * This source code is licensed under the BSD-style license found in the\n * LICENSE file in the root directory of this source tree. An additional grant\n * of patent rights can be found in the PATENTS file in the same directory.\n */\n\n\n\nvar ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';\n\nmodule.exports = ReactPropTypesSecret;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTcuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9ub2RlX21vZHVsZXMvcHJvcC10eXBlcy9saWIvUmVhY3RQcm9wVHlwZXNTZWNyZXQuanM/ODJkZiJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIENvcHlyaWdodCAyMDEzLXByZXNlbnQsIEZhY2Vib29rLCBJbmMuXG4gKiBBbGwgcmlnaHRzIHJlc2VydmVkLlxuICpcbiAqIFRoaXMgc291cmNlIGNvZGUgaXMgbGljZW5zZWQgdW5kZXIgdGhlIEJTRC1zdHlsZSBsaWNlbnNlIGZvdW5kIGluIHRoZVxuICogTElDRU5TRSBmaWxlIGluIHRoZSByb290IGRpcmVjdG9yeSBvZiB0aGlzIHNvdXJjZSB0cmVlLiBBbiBhZGRpdGlvbmFsIGdyYW50XG4gKiBvZiBwYXRlbnQgcmlnaHRzIGNhbiBiZSBmb3VuZCBpbiB0aGUgUEFURU5UUyBmaWxlIGluIHRoZSBzYW1lIGRpcmVjdG9yeS5cbiAqL1xuXG4ndXNlIHN0cmljdCc7XG5cbnZhciBSZWFjdFByb3BUeXBlc1NlY3JldCA9ICdTRUNSRVRfRE9fTk9UX1BBU1NfVEhJU19PUl9ZT1VfV0lMTF9CRV9GSVJFRCc7XG5cbm1vZHVsZS5leHBvcnRzID0gUmVhY3RQcm9wVHlwZXNTZWNyZXQ7XG5cblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyAuL25vZGVfbW9kdWxlcy9wcm9wLXR5cGVzL2xpYi9SZWFjdFByb3BUeXBlc1NlY3JldC5qc1xuLy8gbW9kdWxlIGlkID0gMTdcbi8vIG1vZHVsZSBjaHVua3MgPSAwIDEgMiAzIDQiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Iiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///17\n");
+
+/***/ }),
+
+/***/ 3:
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+module.exports = React;
 
 /***/ }),
 
@@ -142,7 +154,7 @@ eval("/**\n * Copyright 2013-present, Facebook, Inc.\n * All rights reserved.\n 
 
 /***/ }),
 
-/***/ 391:
+/***/ 392:
 /*!**********************************************!*\
   !*** ./app/javascript/packs/hello_react.jsx ***!
   \**********************************************/
@@ -151,19 +163,7 @@ eval("/**\n * Copyright 2013-present, Facebook, Inc.\n * All rights reserved.\n 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(__webpack_exports__, \"__esModule\", { value: true });\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ 4);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(/*! react-dom */ 13);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(/*! prop-types */ 8);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);\n// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,\n// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom\n// of the page.\n\n\n\n\n\nvar Hello = function Hello(props) {\n  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(\n    'div',\n    null,\n    'Hello ',\n    props.name,\n    '!'\n  );\n};\n\nHello.defaultProps = {\n  name: 'David'\n};\n\nHello.propTypes = {\n  name: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string\n\n  // document.addEventListener('DOMContentLoaded', () => {\n  //   ReactDOM.render(\n  //     <Hello name=\"React\" />,\n  //     document.body.appendChild(document.createElement('div')),\n  //   )\n  // })\n\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzkxLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vYXBwL2phdmFzY3JpcHQvcGFja3MvaGVsbG9fcmVhY3QuanN4PzZmYjQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gUnVuIHRoaXMgZXhhbXBsZSBieSBhZGRpbmcgPCU9IGphdmFzY3JpcHRfcGFja190YWcgJ2hlbGxvX3JlYWN0JyAlPiB0byB0aGUgaGVhZCBvZiB5b3VyIGxheW91dCBmaWxlLFxuLy8gbGlrZSBhcHAvdmlld3MvbGF5b3V0cy9hcHBsaWNhdGlvbi5odG1sLmVyYi4gQWxsIGl0IGRvZXMgaXMgcmVuZGVyIDxkaXY+SGVsbG8gUmVhY3Q8L2Rpdj4gYXQgdGhlIGJvdHRvbVxuLy8gb2YgdGhlIHBhZ2UuXG5cbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUmVhY3RET00gZnJvbSAncmVhY3QtZG9tJztcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5cbnZhciBIZWxsbyA9IGZ1bmN0aW9uIEhlbGxvKHByb3BzKSB7XG4gIHJldHVybiBSZWFjdC5jcmVhdGVFbGVtZW50KFxuICAgICdkaXYnLFxuICAgIG51bGwsXG4gICAgJ0hlbGxvICcsXG4gICAgcHJvcHMubmFtZSxcbiAgICAnISdcbiAgKTtcbn07XG5cbkhlbGxvLmRlZmF1bHRQcm9wcyA9IHtcbiAgbmFtZTogJ0RhdmlkJ1xufTtcblxuSGVsbG8ucHJvcFR5cGVzID0ge1xuICBuYW1lOiBQcm9wVHlwZXMuc3RyaW5nXG5cbiAgLy8gZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsICgpID0+IHtcbiAgLy8gICBSZWFjdERPTS5yZW5kZXIoXG4gIC8vICAgICA8SGVsbG8gbmFtZT1cIlJlYWN0XCIgLz4sXG4gIC8vICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpKSxcbiAgLy8gICApXG4gIC8vIH0pXG5cbn07XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9hcHAvamF2YXNjcmlwdC9wYWNrcy9oZWxsb19yZWFjdC5qc3hcbi8vIG1vZHVsZSBpZCA9IDM5MVxuLy8gbW9kdWxlIGNodW5rcyA9IDQiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///391\n");
-
-/***/ }),
-
-/***/ 4:
-/*!************************!*\
-  !*** external "React" ***!
-  \************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports) {
-
-module.exports = React;
+eval("Object.defineProperty(__webpack_exports__, \"__esModule\", { value: true });\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ 3);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(/*! react-dom */ 11);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(/*! prop-types */ 8);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);\n// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,\n// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom\n// of the page.\n\n\n\n\n\nvar Hello = function Hello(props) {\n  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(\n    'div',\n    null,\n    'Hello ',\n    props.name,\n    '!'\n  );\n};\n\nHello.defaultProps = {\n  name: 'David'\n};\n\nHello.propTypes = {\n  name: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string\n\n  // document.addEventListener('DOMContentLoaded', () => {\n  //   ReactDOM.render(\n  //     <Hello name=\"React\" />,\n  //     document.body.appendChild(document.createElement('div')),\n  //   )\n  // })\n\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzkyLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vYXBwL2phdmFzY3JpcHQvcGFja3MvaGVsbG9fcmVhY3QuanN4PzZmYjQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gUnVuIHRoaXMgZXhhbXBsZSBieSBhZGRpbmcgPCU9IGphdmFzY3JpcHRfcGFja190YWcgJ2hlbGxvX3JlYWN0JyAlPiB0byB0aGUgaGVhZCBvZiB5b3VyIGxheW91dCBmaWxlLFxuLy8gbGlrZSBhcHAvdmlld3MvbGF5b3V0cy9hcHBsaWNhdGlvbi5odG1sLmVyYi4gQWxsIGl0IGRvZXMgaXMgcmVuZGVyIDxkaXY+SGVsbG8gUmVhY3Q8L2Rpdj4gYXQgdGhlIGJvdHRvbVxuLy8gb2YgdGhlIHBhZ2UuXG5cbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUmVhY3RET00gZnJvbSAncmVhY3QtZG9tJztcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5cbnZhciBIZWxsbyA9IGZ1bmN0aW9uIEhlbGxvKHByb3BzKSB7XG4gIHJldHVybiBSZWFjdC5jcmVhdGVFbGVtZW50KFxuICAgICdkaXYnLFxuICAgIG51bGwsXG4gICAgJ0hlbGxvICcsXG4gICAgcHJvcHMubmFtZSxcbiAgICAnISdcbiAgKTtcbn07XG5cbkhlbGxvLmRlZmF1bHRQcm9wcyA9IHtcbiAgbmFtZTogJ0RhdmlkJ1xufTtcblxuSGVsbG8ucHJvcFR5cGVzID0ge1xuICBuYW1lOiBQcm9wVHlwZXMuc3RyaW5nXG5cbiAgLy8gZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsICgpID0+IHtcbiAgLy8gICBSZWFjdERPTS5yZW5kZXIoXG4gIC8vICAgICA8SGVsbG8gbmFtZT1cIlJlYWN0XCIgLz4sXG4gIC8vICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpKSxcbiAgLy8gICApXG4gIC8vIH0pXG5cbn07XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9hcHAvamF2YXNjcmlwdC9wYWNrcy9oZWxsb19yZWFjdC5qc3hcbi8vIG1vZHVsZSBpZCA9IDM5MlxuLy8gbW9kdWxlIGNodW5rcyA9IDQiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///392\n");
 
 /***/ }),
 

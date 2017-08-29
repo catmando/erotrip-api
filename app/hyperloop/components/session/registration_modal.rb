@@ -1,69 +1,21 @@
   class RegistrationModal < Hyperloop::Component
+    include BaseModal
 
     state :user do
       { birth_year: '', kind: '', birth_year_second_person: '' }
     end
     state errors: {}
-    state blocking: false
 
-    after_mount do
-      mutate.blocking(false)
-      `$('#registration-modal').modal({backdrop: 'static', show: true})`
+    def title
+      'Zarejestruj się'
     end
 
-    def close_modal
-      `$('#registration-modal').modal('hide')`
-      mutate.user({ birth_year: '', kind: '', birth_year_second_person: '' })
-      mutate.errors({})
-      mutate.blocking(false)
-      RootStore.close_modal('registration')
-    end
-
-    def register
-      unless state.blocking
-        mutate.blocking(true)
-        mutate.errors({})
-        ProcessRegistration.run(state.user)
-          .then do |response|
-            mutate.blocking(false)
-            `toast.success('Zarejestrowaliśmy i zalogowaliśmy Cię! Witamy w EroTrip.')`
-            close_modal
-          end
-          .fail do |e|
-            mutate.blocking(false)
-            `toast.error('Nie udało się zarejestrować.')`
-            if e.is_a?(HTTP)
-              if JSON.parse(e.body)['id'].present?
-                CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
-                close_modal
-              end
-              errors = JSON.parse(e.body)['errors']
-              errors.each do |k, v|
-                errors[k] = v.join('; ')
-              end
-              mutate.errors errors
-
-            elsif e.is_a?(Hyperloop::Operation::ValidationException)
-              puts e.errors.message
-              mutate.errors e.errors.message
-            end
-            {}
-          end
+    def render_modal
+      if CurrentUserStore.current_user.present?
+        render_logged_view
+      else
+        render_not_logged_view
       end
-    end
-
-    def log_in
-      RootStore.open_modal('login')
-      close_modal
-    end
-
-    def reset_password
-      RootStore.open_modal('reset_password')
-      close_modal
-    end
-
-    def birth_dates
-      ((Time.now - 60.years).year..(Time.now - 18.years).year).to_a.reverse
     end
 
     def render_not_logged_view
@@ -312,34 +264,59 @@
           button.btn.btn_secondary.btn_cons.mt_3.mb_3(type: "button") do
             'Zamknij okno'
           end.on :click do
-            close_modal
+            close
           end
         end
       end
     end
 
-    def render
-      div.modal.fade(id: 'registration-modal', role: "dialog", tabIndex: "-1") do
-        div.modal_dialog(role: "document") do
-          div.modal_content do
-            div.modal_header do
-              h5.modal_title { 'Zarejestruj się' }
-              button.close(type: "button") do
-                span do
-                  i.ero_cross.f_s_20.d_inline_block.rotated_45deg
-                end
-              end.on :click do
-                close_modal
-              end
-            end
-            if CurrentUserStore.current_user.present?
-              render_logged_view
-            else
-              render_not_logged_view
-            end
+    def register
+      unless state.blocking
+        mutate.blocking(true)
+        mutate.errors({})
+        ProcessRegistration.run(state.user)
+          .then do |response|
+            mutate.blocking(false)
+            `toast.success('Zarejestrowaliśmy i zalogowaliśmy Cię! Witamy w EroTrip.')`
+            params.proc_to_call.call()
+            close
           end
-        end
+          .fail do |e|
+            mutate.blocking(false)
+            `toast.error('Nie udało się zarejestrować.')`
+            if e.is_a?(HTTP)
+              if JSON.parse(e.body)['id'].present?
+                CurrentUserStore.current_user_id! JSON.parse(e.body)['id']
+                close
+              end
+              errors = JSON.parse(e.body)['errors']
+              errors.each do |k, v|
+                errors[k] = v.join('; ')
+              end
+              mutate.errors errors
+
+            elsif e.is_a?(Hyperloop::Operation::ValidationException)
+              puts e.errors.message
+              mutate.errors e.errors.message
+            end
+            {}
+          end
       end
     end
+
+    def log_in
+      ModalsService.open_modal(LoginModal, { proc_to_call: params.proc_to_call })
+      close
+    end
+
+    def reset_password
+      ModalsService.open_modal(ResetPasswordModal, { proc_to_call: params.proc_to_call })
+      close
+    end
+
+    def birth_dates
+      ((Time.now - 60.years).year..(Time.now - 18.years).year).to_a.reverse
+    end
+
   end
 

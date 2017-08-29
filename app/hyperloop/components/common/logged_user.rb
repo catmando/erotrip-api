@@ -5,8 +5,7 @@ class LoggedUser < Hyperloop::Component
   end
 
   def open_log_in_modal
-    RootStore.open_modal('login')
-    # `$('#login-modal').modal('show')`
+    ModalsService.open_modal(LoginModal, { proc_to_call: proc{ register() } })
   end
 
   def log_out(event)
@@ -19,7 +18,7 @@ class LoggedUser < Hyperloop::Component
   end
 
   def register
-    RootStore.open_modal('registration')
+    ModalsService.open_modal(RegistrationModal)
   end
 
   def render_not_logged_view
