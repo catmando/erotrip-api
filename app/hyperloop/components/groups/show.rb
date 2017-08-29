@@ -40,45 +40,45 @@ class GroupsShow < Hyperloop::Router::Component
 
   def render
     span do
-      div(class: 'row') do
-        div(class: 'col-12 col-xl-9 ml-xl-auto') do
+      div.row do
+        div.col_12.col_lg_9.ml_lg_auto do
 
-          div(class: 'group-details streach-me') do
-            div(class: 'patch')
-            div(class: 'group-details-wrapper') do
-              h3(class: 'mt-0 d-md-none') { 'TRIP' }
-              div(class: 'ea-flex ea-align-start') do
+          div.group_details.streach_me do
+            div.patch
+            div.group_details_wrapper do
+              h3.mt_0.d_md_none { 'TRIP' }
+              div.ea_flex.ea_align_start do
                 div
                 a(href: '#') do
                   img(src: 'assets/girl.jpg')
                 end
-                div(class: 'text') do
-                  h2(class: 'mt-0 d-none d-md-block') { 'TRIP' }
-                  p(class: 'text-book text-gray d-none d-md-block') do
+                div.text do
+                  h2.mt_0.d_none.d_md_block { 'TRIP' }
+                  p.text_book.text_gray.d_none.d_md_block  do
                     'Hydroderm is the highly desired anti_aging cream on the block. This serum restricts the occurrence of early aging sings on the skin and keep'
                   end
-                  div(class: 'group-info m') do
-                    p(class: 'mb-0') do
-                      span(class: 'text-primary') {'2310'}
-                      span(class: 'text-gray') {' użytkowników'}
+                  div.group_info.m do
+                    p.mb_0 do
+                      span.text_primary {'2310'}
+                      span.text_gray {' użytkowników'}
                     end
-                    p(class: 'mb-0') do
-                      span(class: 'text-primary') {'70'}
-                      span(class: 'text-gray') {' ukrytych'}
+                    p.mb_0 do
+                      span.text_primary {'70'}
+                      span.text_gray {' ukrytych'}
                     end
-                    p(class: 'mb-0') do
-                      span(class: 'text-primary') {'Twój profil'}
-                      span(class: 'text-gray') {' publiczny'}
+                    p.mb_0 do
+                      span.text_primary {'Twój profil'}
+                      span.text_gray {' publiczny'}
                     end
                   end
                 end
               end
 
-              button(class: 'btn icon-only btn-plus btn-group', type: "button") do
-                i(class: 'ero-cross')
+              button.btn.icon_only.btn_plus.btn_group(type: "button") do
+                i.ero_cross
               end
-              button(class: 'btn icon-only btn-eye btn-group', type: "button") do
-                i(class: 'ero-eye')
+              button.btn.icon_only.btn_eye.btn_group(type: "button") do
+                i.ero_eye
               end
             end
           end
@@ -87,41 +87,41 @@ class GroupsShow < Hyperloop::Router::Component
             trigger_search e.to_n
           end
 
-          div(class: 'row people-wrapper') do
+          div.row.people_wrapper do
 
             [0,1,2,3,4,5,6,7].each do |each_i|
-              div(class: 'col-6 col-md-4 col-lg-4 col-xl-3') do
-                div(class: "person #{['locked', ''].sample}") do # can have class 'locked'
-                  div(class: 'person-photo-wrapper') do
-                    div(class: 'person-actions') do
-                      button(class: 'btn icon-only btn-person btn-heart btn-group', type: "button") do
-                        i(class: 'ero-heart')
+              div.col_6.col_md_4.col_lg_4.col_xl_3 do
+                div.person(class: "#{['locked', ''].sample}") do # can have class 'locked'
+                  div.person_photo_wrapper do
+                    div.person_actions do
+                      button.btn.icon_only.btn_person.btn_heart.btn_group(type: "button") do
+                        i.ero_heart
                       end
-                      button(class: 'btn icon-only btn-person btn-remove btn-group ml-2', type: "button") do
-                        i(class: 'ero-cross')
+                      button.btn.icon_only.btn_person.btn_remove.btn_group.ml_2(type: "button") do
+                        i.ero_cross
                       end
                     end
-                    div(class: 'person-photo-amount d-none d-md-flex') do
-                      i(class: 'ero-photo-amount')
-                      span(class: 'amount') {'6'}
+                    div.person_photo_amount.d_none.d_md_flex do
+                      i.ero_photo_amount
+                      span.amount {'6'}
                     end
-                    div(class: 'locker') do
-                      i(class: 'ero-locker')
+                    div.locker do
+                      i.ero_locker
                     end
-                    img(src: 'assets/girl.jpg')
+                    IMG(src: 'assets/girl.jpg')
                   end
 
-                  div(class: 'person-info ea-flex ea-flex-align-start ea-just-start') do
-                    div(class: "person-status online #{['online', 'offline', 'away'].sample}")  # available statuses: 'online', 'offline', 'away'
-                    div(class: 'person-details') do
-                      div(class: 'person-name-age') do
-                        h5(class: 'mt-0 mb-0 d-inline-block person-name') do
+                  div.person_info.ea_flex.ea_flex_align_start.ea_just_start do
+                    div.person_status.online(class: "#{['online', 'offline', 'away'].sample}")  # available statuses: 'online', 'offline', 'away'
+                    div.person_details do
+                      div.person_name_age do
+                        h5.mt_0.mb_0.d_inline_block.person_name do
                           span {'Anna '}
-                          span(class: 'coma d-none d-md-inline-block') {', '}
+                          span.coma.d_none.d_md_inline_block {', '}
                         end
-                        h5(class: 'mt-0 mb-0 person-age text-gray') {'24'}
+                        h5.mt_0.mb_0.person_age.text_gray {'24'}
                       end
-                      div(class: 'preson-city text-gray d-none d-md-block') {'Warszawa'}
+                      div.preson_city.text_gray.d_none.d_md_block {'Warszawa'}
                     end
                   end
                 end
@@ -130,37 +130,37 @@ class GroupsShow < Hyperloop::Router::Component
 
           end
 
-          nav(class: 'mt-5') do
-            ul(class: 'pagination justify-content-between') do
-              li(class: 'page-item previous disabled') do
-                a(class: 'page-link', href: "#") do
-                  i(class: 'ero-arrow-left mr-3')
-                  span(class: 'd-none d-md-inline-block') {'Poprzednia strona'}
+          nav.mt_5 do
+            ul.pagination.justify_content_between do
+              li.page_item.previous.disabled do
+                a.page_link(href: "#") do
+                  i.ero_arrow_left.mr_3
+                  span.d_none.d_md_inline_block {'Poprzednia strona'}
                 end
               end
 
-              div(class: 'page-wrapper') do
-                li(class: 'page-item active') do
-                  a(class: 'page-link', href: "") {'1'}
+              div.page_wrapper do
+                li.page_item.active do
+                  a.page_link(href: "") {'1'}
                 end
-                 li(class: 'page-item') do
-                  a(class: 'page-link', href: "") {'2'}
+                li.page_item do
+                  a.page_link(href: "") {'2'}
                 end
-                 li(class: 'page-item') do
-                  a(class: 'page-link', href: "") {'3'}
+                li.page_item do
+                  a.page_link(href: "") {'3'}
                 end
-                 li(class: 'page-item') do
-                  a(class: 'page-link', href: "") {'4'}
+                li.page_item do
+                  a.page_link(href: "") {'4'}
                 end
-                 li(class: 'page-item') do
-                  a(class: 'page-link', href: "") {'5'}
+                li.page_item do
+                  a.page_link(href: "") {'5'}
                 end
               end
 
-              li(class: 'page-item next') do
-                a(class: 'page-link', href: "") do
-                  span(class: 'd-none d-md-inline-block') {'Następna strona'}
-                  i(class: 'ero-arrow-right ml-3')
+              li.page_item.next do
+                a.page_link(href: "") do
+                  span.d_none.d_md_inline_block {'Następna strona'}
+                  i.ero_arrow_right.ml_3
                 end
               end
             end

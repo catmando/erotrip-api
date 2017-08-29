@@ -33,16 +33,16 @@ class GroupsIndexSearchBox < Hyperloop::Component
   end
 
   def render
-    form(class: 'search') do
-      div(class: 'search-header') do
-        div(class: 'info f-s-16') do
-          span(class: 'text-primary') { params.groups_count.to_s }
-          span(class: 'text-gray') {' grup'}
+    form.search do
+      div.search_header do
+        div.info.f_s_16 do
+          span.text_primary { params.groups_count.to_s }
+          span.text_gray {' grup'}
         end
 
-        div(class: 'search-input') do
-          a(class: "btn btn-outline-primary btn-outline-gray icon-only with-label more mr-3 #{'active' if state.opened}") do
-            i(class: 'ero-search')
+        div.search_input do
+          a.btn.btn_outline_primary.btn_outline_gray.icon_only.with_label.more.mr_3(class: "#{'active' if state.opened}") do
+            i.ero_search
           end
           .on :click do |e|
             mutate.opened !state.opened
@@ -51,8 +51,8 @@ class GroupsIndexSearchBox < Hyperloop::Component
             mutate.search_params['sorts'] = e.to_n
             propagate_change
           end
-          a(class: 'btn btn-outline-primary btn-outline-gray icon-only with-label more ml-3') do
-            i(class: 'ero-cross')
+          a.btn.btn_outline_primary.btn_outline_gray.icon_only.with_label.more.ml_3 do
+            i.ero_cross
           end
           .on :click do |e|
             add_group
@@ -60,28 +60,28 @@ class GroupsIndexSearchBox < Hyperloop::Component
         end
       end
 
-      div(class: "row search-body search-body-small #{'open' if state.opened}") do
-        div(class: 'col-12 search-header-mobile d-md-none') do
+      div.row.search_body.search_body_small(class: "#{'open' if state.opened}") do
+        div.col_12.search_header_mobile.d_md_none do
           span {'Wyszukaj'}
-          button(class: 'btn btn-outline-primary btn-outline-gray icon-only rotated-45deg', type: "button") do
-            i(class: 'ero-cross')
+          button.btn.btn_outline_primary.btn_outline_gray.icon_only.rotated_45deg(type: "button") do
+            i.ero_cross
           end
         end
 
-        div(class: 'col-12 search-preferences') do
-          div(class: 'row') do
-            div(class: 'col-12 col-md-6') do
-              div(class: 'form-group') do
+        div.col_12.search_preferences do
+          div.row do
+            div.col_12.col_md_6 do
+              div.form_group do
                 label {'Szukam'}
                 MultiSelect(placeholder: "Szukam", name: 'for_kinds[]', selection: state.search_params['for_kinds'], options: Commons.account_kinds).on :change do |e|
                   mutate.search_params['for_kinds'] = e.to_n
                 end
               end
             end
-            div(class: 'col-12 col-md-6') do
-              div(class: 'form-group') do
+            div.col_12.col_md_6 do
+              div.form_group do
                 label {'Nazwa'}
-                input(class: 'form-control', placeholder: "Nazwa", name: 'name_cont').on :key_up do |e|
+                input.form_control(placeholder: "Nazwa", name: 'name_cont').on :key_up do |e|
                   mutate.search_params['name_cont'] = e.target.value
                 end
               end
@@ -89,9 +89,9 @@ class GroupsIndexSearchBox < Hyperloop::Component
           end
         end
 
-        div(class: 'col-12 search-footer', style: {paddingTop: '23px'}) do
-          button(class: 'btn btn-secondary mr-4', type: "submit") {'Pokaż'}
-          button(class: 'btn btn-outline-primary btn-outline-gray text-gray', type: "button") do
+        div.col_12.search_footer(style: {paddingTop: '23px'}) do
+          button.btn.btn_secondary.mr_4(type: "submit") {'Pokaż'}
+          button.btn.btn_outline_primary.btn_outline_gray.text_gray(type: "button") do
             'Anuluj'
           end.on :click do
             mutate.search_params({

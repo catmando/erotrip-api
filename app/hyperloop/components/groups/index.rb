@@ -52,8 +52,8 @@ class GroupsIndex < Hyperloop::Router::Component
 
   def render
 
-    div(class: 'row') do
-      div(class: 'col-12 col-lg-9 ml-lg-auto') do
+    div.row do
+      div.col_12.col_lg_9.ml_lg_auto do
         BlockUi(tag: "div", blocking: state.blocking) do
 
           GroupsIndexSearchBox(groups_count: state.total).on :change do |e|
@@ -62,18 +62,18 @@ class GroupsIndex < Hyperloop::Router::Component
 
           state.groups.each do |group|
 
-            div(class: 'basic-container basic-container-gray') do
-              div(class: 'details-wrapper') do
+            div.basic_container.basic_container_gray do
+              div.details_wrapper do
 
-                div(class: 'ea-flex ea-align_center') do
+                div.ea_flex.ea_align_center do
                   div
                   img(src: Commons.photo_version(group.photo, 'rect_160') || '/assets/girl.jpg')
-                  div(class: 'text') do
-                    div(class: 'profile-info-wrapper') do
-                      div(class: 'profile-info') do
-                        div(class: 'profile-info-upper') do
+                  div.text do
+                    div.profile_info_wrapper do
+                      div.profile_info do
+                        div.profile_info_upper do
                           # div.person_status(class: "#{['away', 'online', 'offline'].sample}")
-                          h4(class: 'mb-0') do
+                          h4.mb_0 do
                             span { "#{group.name}" }
                             # span.text_gray { "#{Time.now.year - (group.birth_year || Time.now.year)}" }
                           end
@@ -83,14 +83,14 @@ class GroupsIndex < Hyperloop::Router::Component
                           #   span.path3
                           # end
                         end
-                        div(class: 'profile-info-lower mb-3') do
+                        div.profile_info_lower.mb_3 do
                           # span.text_gray { "#{group_age(group)}, " }
                           # span.text_gray { group.city.to_s }
                         end
                       end
                     end
 
-                    p(class: 'text-book text-gray') do
+                    p.text_book.text_gray do
                       "#{group.desc}"
                       # br
                       # div {" >> #{group.photo} <<"}
@@ -104,12 +104,12 @@ class GroupsIndex < Hyperloop::Router::Component
                   end
                 end
 
-                button(class: 'btn icon-only btn-container text-white white-border secondary-bg btn-top', type: 'button') do
-                  i(class: 'ero-messages f-s-18')
+                button.btn.icon_only.btn_container.text_white.white_border.secondary_bg.btn_top(type: "button") do
+                  i.ero_messages.f_s_18
                 end
-                div(class: 'btn-group-wrapper') do
-                  button(class: 'btn icon-only btn-wrapped btn-group', type: "button") do
-                    i(class: 'ero-alert-circle-outline')
+                div.btn_group_wrapper do
+                  button.btn.icon_only.btn_wrapped.btn_group(type: "button") do
+                    i.ero_alert_circle_outline
                   end
                 end
               end
