@@ -95,7 +95,7 @@ class UsersIndex < Hyperloop::Router::Component
                     div.locker do
                       i.ero_locker
                     end
-                    IMG(src: 'assets/girl.jpg') # TODO: USER.AVATAR_URL or sth like that
+                    IMG(src: '/assets/girl.jpg') # TODO: USER.AVATAR_URL or sth like that
                   end
 
                   div.person_info.ea_flex.ea_flex_align_start.ea_just_start do

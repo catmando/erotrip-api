@@ -64,7 +64,7 @@ class LoggedUser < Hyperloop::Component
       end
 
       div(class: 'profile') do
-        img(src: 'assets/girl.jpg')
+        img(src: '/assets/girl.jpg')
         div(class: 'profile-details-wrapper') do
           div(class: 'profile-details') do
             span(class: 'profile-name') { (CurrentUserStore.current_user || User.new).name }

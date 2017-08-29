@@ -8,37 +8,37 @@ class Footer < Hyperloop::Router::Component
           div(class: 'patch')
           div(class: 'img-wrapper') do
             a(href: '#') do
-              img(src: 'assets/girl.jpg')
+              img(src: '/assets/girl.jpg')
             end
           end
           div(class: 'img-wrapper') do
             a(href: '#') do
-              img(src: 'assets/girl.jpg')
+              img(src: '/assets/girl.jpg')
             end
           end
           div(class: 'img-wrapper') do
             a(href: '#') do
-              img(src: 'assets/girl.jpg')
+              img(src: '/assets/girl.jpg')
             end
           end
           div(class: 'img-wrapper d-none d-md-block') do
             a(href: '#') do
-              img(src: 'assets/girl.jpg')
+              img(src: '/assets/girl.jpg')
             end
           end
           div(class: 'img-wrapper d-none d-md-block') do
             a(href: '#') do
-              img(src: 'assets/girl.jpg')
+              img(src: '/assets/girl.jpg')
             end
           end
           div(class: 'img-wrapper d-none d-xl-block') do
             a(href: '#') do
-              img(src: 'assets/girl.jpg')
+              img(src: '/assets/girl.jpg')
             end
           end
           div(class: 'img-wrapper d-none d-xl-block') do
             a(href: '#') do
-              img(src: 'assets/girl.jpg')
+              img(src: '/assets/girl.jpg')
             end
           end
         end

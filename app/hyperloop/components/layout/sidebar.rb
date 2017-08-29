@@ -11,7 +11,7 @@ class Sidebar < Hyperloop::Router::Component
           i(class: "ero-cross rotated-45deg")
         end
         Link('/') do
-          img(src: 'assets/logo.png')
+          img(src: '/assets/logo.png')
         end
       end
 
