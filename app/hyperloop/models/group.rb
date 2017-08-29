@@ -8,7 +8,7 @@
 class Group < ApplicationRecord
   KINDS = %w( man woman couple men_couple women_couple tgsv )
 
-  scope :for_kinds, -> (*attrs) { where('groups.kinds && ARRAY[?]::varchar[]', attrs) }
+  scope :for_kinds, -> (*attrs) { where('ARRAY[groups.kinds]::varchar[] && ARRAY[?]::varchar[]', attrs) }
 
   validates :name, :desc, presence: true
 
