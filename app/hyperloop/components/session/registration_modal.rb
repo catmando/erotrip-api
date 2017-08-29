@@ -33,7 +33,10 @@
     	# mutate.user['city'] = val
     	`GeocodeByAddress(#{val})
     		.then(results => GetLatLng(results[0]))
-    		.then(({ lat, lng }) => console.log('Successfully got latitude and longitude', { lat, lng }))`
+    		.then(({ lat, lng }) => {
+    			console.log('Successfully got latitude and longitude', { lat, lng })
+    			return { lat, lng };
+    		})`
     	# `GeocodeByAddress(#{val})
     	# 	.then(results => GetLatLng(results[0]))
     	# 	.then(({ lat, lng }) =>
