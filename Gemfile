@@ -64,6 +64,12 @@ gem 'hyperloop', '>= 0.5.8'
 # gem 'hyper-mesh',      git: 'https://github.com/ruby-hyperloop/hyper-mesh.git',  branch: 'no_call_by_class_name'
 # gem 'hyper-operation', git: 'https://github.com/ruby-hyperloop/hyper-operation.git',  branch: 'no_call_by_class_name'
 # gem 'hyperloop'
+
+# for hot reloading
+gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
+gem 'foreman'
+# -----------------
+
 gem "annotate"
 
 group :development, :test do

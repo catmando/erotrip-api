@@ -9,6 +9,8 @@ Hyperloop.configuration do |config|
 
   config.prerendering = :off
 
+  config.import 'opal_hot_reloader'
+
   # for speed up css development
   # config.transport = nil
 

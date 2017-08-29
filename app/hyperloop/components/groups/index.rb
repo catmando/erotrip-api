@@ -21,7 +21,7 @@ class GroupsIndex < Hyperloop::Router::Component
         end
 
         BlockUi(tag: "div", blocking: groups_scope.loading?) do
-          Group.ransacked(state.search_params).limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
+          groups_scope.limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
             div(class: 'basic-container basic-container-gray') do
               div(class: 'details-wrapper') do
 
@@ -45,7 +45,7 @@ class GroupsIndex < Hyperloop::Router::Component
                     end
 
                     p(class: 'text-book text-gray') do
-                      "#{group.desc}"
+                      group.desc
                       # "#{CurrentUserStore.current_user_id.present?} #{CurrentUserStore.current_user_id.present? && User.find(CurrentUserStore.current_user.try(:id)).group_ids.include?(group.id)}"
                     end
                   end

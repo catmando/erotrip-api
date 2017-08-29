@@ -21,3 +21,5 @@
 //= require jquery_ujs
 //= require_tree .
 //= require hyperloop-loader
+
+Opal.OpalHotReloader.$listen(25222, true)
