@@ -14,7 +14,7 @@ class GroupsNewModal < Hyperloop::Component
     error: nil
   }
 
-  after_mount do
+  before_mount do
     if CurrentUserStore.current_user.blank?
       ModalsService.open_modal(AuthWarningModal, { proc_to_call: proc { ModalsService.open_modal(GroupsNewModal, { size_class: 'modal-lg' }) } })
       close
@@ -40,16 +40,14 @@ class GroupsNewModal < Hyperloop::Component
           end
 
           FormGroup(label: 'Opis', error: state.errors['desc']) do
-            textarea(placeholder: "Opis", name: 'desc', class: "form-control #{'is-invalid' if (state.errors || {})['desc'].present?}").on :key_up do |e|
+            textarea(placeholder: "Opis", name: 'desc', class: "form-control").on :key_up do |e|
               mutate.group['desc'] = e.target.value
               mutate.errors['desc'] = nil
             end
           end
 
-          FormGroup(label: 'Rodzaj', error: state.errors['kinds']) do
-            MultiSelect(placeholder: "Rodzaj", name: 'kinds', className: "form-control #{'is-invalid' if (state.errors || {})['kinds'].present?}", selection: state.group['kinds'] || [], options: Commons.account_kinds).on :change do |e|
-              `console.log('changed:', e)`
-              puts Array.new(e.to_n)
+          FormGroup(label: 'Dla rodzajów kont', error: state.errors['kinds']) do
+            MultiSelect(placeholder: "Rodzaj", name: 'kinds', class: "form-control", selection: state.group['kinds'] || [], options: Commons.account_kinds).on :change do |e|
               mutate.group['kinds'] = Array.new(e.to_n)
               mutate.errors['kinds'] = nil
             end
