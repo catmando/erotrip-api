@@ -103,7 +103,7 @@ class LoginModal < Hyperloop::Component
         .then do |response|
           mutate.blocking(false)
           `toast.success('Super! Udało się zalogować.')`
-          params.proc_to_call.call()
+          params.callback.call() if params.callback
           close
         end
         .fail do |e|
@@ -127,12 +127,12 @@ class LoginModal < Hyperloop::Component
   end
 
   def register
-    ModalsService.open_modal(RegistrationModal, { proc_to_call: params.proc_to_call })
+    ModalsService.open_modal(RegistrationModal, { callback: params.callback })
     close
   end
 
   def reset_password
-    ModalsService.open_modal(ResetPasswordModal, { proc_to_call: params.proc_to_call })
+    ModalsService.open_modal(ResetPasswordModal, { callback: params.callback })
     close
   end
 

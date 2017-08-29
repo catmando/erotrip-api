@@ -10,15 +10,10 @@ class MultiSelectWithLabels < Hyperloop::Component
   ]
   param onChange: nil
 
-  def add(val)
-    mutate.selection ""
-    mutate.selections_memo [ state.selections_memo, Hash.new(val.to_n)['value'] ].flatten.compact.uniq
-    params.onChange.call(state.selections_memo) if params.onChange.present?
-  end
-
-  def remove(val)
-    mutate.selections_memo state.selections_memo - [val]
-    params.onChange.call(state.selections_memo) if params.onChange.present?
+  before_update do
+    if params.selection != state.selection
+      mutate.selection params.selection
+    end
   end
 
   after_mount do
@@ -48,4 +43,16 @@ class MultiSelectWithLabels < Hyperloop::Component
       end
     end
   end
+
+  def add(val)
+    mutate.selection ""
+    mutate.selections_memo [ state.selections_memo, Hash.new(val.to_n)['value'] ].flatten.compact.uniq
+    params.onChange.call(state.selections_memo) if params.onChange.present?
+  end
+
+  def remove(val)
+    mutate.selections_memo state.selections_memo - [val]
+    params.onChange.call(state.selections_memo) if params.onChange.present?
+  end
+
 end

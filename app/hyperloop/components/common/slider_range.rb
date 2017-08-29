@@ -6,14 +6,15 @@ class SliderRange < Hyperloop::Component
   param max: 40
   param onChange: nil
 
-
-  def changed(val)
-    mutate.selection Array.new(val.to_n)
-    params.onChange.call(state.selection) if params.onChange.present?
+  before_update do
+    if params.selection != state.selection
+      mutate.selection params.selection
+    end
   end
 
   after_mount do
     mutate.selection (params[:selection] || []).map(&:to_i)
+
   end
 
   def render
@@ -33,5 +34,10 @@ class SliderRange < Hyperloop::Component
       input(type: 'hidden', value: (state.selection || [])[0], name: params[:name])
       input(type: 'hidden', value: (state.selection || [])[1], name: params[:name])
     end
+  end
+
+  def changed(val)
+    mutate.selection Array.new(val.to_n)
+    params.onChange.call(state.selection) if params.onChange.present?
   end
 end

@@ -1,8 +1,6 @@
 class GroupsNewModal < Hyperloop::Component
   include BaseModal
 
-  require 'base64'
-
   state group: {}
   state errors: {}
 
@@ -16,7 +14,7 @@ class GroupsNewModal < Hyperloop::Component
 
   after_mount do
     if CurrentUserStore.current_user.blank?
-      ModalsService.open_modal(AuthWarningModal, { proc_to_call: proc { ModalsService.open_modal(GroupsNewModal, { size_class: 'modal-lg' }) } })
+      ModalsService.open_modal(AuthWarningModal, { callback: proc { ModalsService.open_modal(GroupsNewModal, { size_class: 'modal-lg' }) } })
       close
     else
       mutate.group {}

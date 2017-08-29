@@ -55,6 +55,9 @@ class User < ApplicationRecord
 
   validate :pin_confirmation_the_same
 
+  has_many :user_groups
+  has_many :groups, through: :user_groups
+
   attr_accessor :pin_confirmation
 
   def pin_confirmation_the_same

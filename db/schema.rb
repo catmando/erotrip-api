@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829103922) do
+ActiveRecord::Schema.define(version: 20170829124511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170829103922) do
   enable_extension "unaccent"
   enable_extension "citext"
   enable_extension "hstore"
+  enable_extension "uuid-ossp"
 
   create_table "groups", id: :integer, default: -> { "nextval('groups_not_uuid_seq'::regclass)" }, force: :cascade do |t|
     t.string "name"
@@ -25,7 +26,9 @@ ActiveRecord::Schema.define(version: 20170829103922) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "kinds"
+    t.jsonb "kinds"
+    t.integer "public_users_count", default: 0, null: false
+    t.integer "private_users_count", default: 0, null: false
   end
 
   create_table "hyperloop_connections", force: :cascade do |t|
@@ -41,14 +44,15 @@ ActiveRecord::Schema.define(version: 20170829103922) do
     t.integer "connection_id"
   end
 
-  create_table "names", force: :cascade do |t|
-    t.integer "year_of_birth"
-    t.string "kind"
-    t.string "location"
-    t.string "location_lat"
-    t.string "location_lon"
+  create_table "user_groups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id"
+    t.index ["public"], name: "index_user_groups_on_public"
+    t.index ["user_id"], name: "index_user_groups_on_user_id"
   end
 
   create_table "users", id: :integer, default: -> { "nextval('users_not_uuid_seq'::regclass)" }, force: :cascade do |t|

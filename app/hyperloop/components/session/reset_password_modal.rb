@@ -137,7 +137,7 @@
     end
 
     def log_in
-      ModalsService.open_modal(LoginModal, { proc_to_call: params.proc_to_call })
+      ModalsService.open_modal(LoginModal, { callback: params.callback })
       close
     end
 

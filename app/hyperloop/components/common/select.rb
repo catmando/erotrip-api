@@ -11,9 +11,10 @@ class Select < Hyperloop::Component
     { value: 'two', label: 'some options' }
   ]
 
-  def changed(val)
-    mutate.selection Hash.new(val.to_n)['value'] || ''
-    params.onChange.call(state.selection) if params.onChange.present?
+  before_update do
+    if params.selection != state.selection
+      mutate.selection params.selection
+    end
   end
 
   after_mount do
@@ -24,6 +25,11 @@ class Select < Hyperloop::Component
     ReactSelect(name: params[:name], className: params['className'], value: state.selection, options: params[:options].to_n, placeholder: params[:placeholder], multi: false).on :change do |e|
       changed(e)
     end
+  end
+
+  def changed(val)
+    mutate.selection Hash.new(val.to_n)['value'] || ''
+    params.onChange.call(state.selection) if params.onChange.present?
   end
 end
 

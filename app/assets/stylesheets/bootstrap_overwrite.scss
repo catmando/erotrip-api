@@ -489,4 +489,20 @@ label.form-check-label.big-round-label [type=checkbox]:checked + span:before {
   -webkit-transition: none;
 }
 
+.btn.btn-ouline-gray-to-primary {
+  border-color: $ero-gray-light;
+  color: $ero-gray-light;
+  background-color: $white;
+  &:active, &.active {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+  &:hover {
+    background-color: $gray-100;
+  }
 
+}
+
+.bg-gray-200 {
+  background: $gray-200 !important;
+}

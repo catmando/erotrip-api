@@ -300,7 +300,7 @@
           .then do |response|
             mutate.blocking(false)
             `toast.success('Zarejestrowaliśmy i zalogowaliśmy Cię! Witamy w EroTrip.')`
-            params.proc_to_call.call()
+            params.callback.call() if params.callback
             close
           end
           .fail do |e|
@@ -327,12 +327,12 @@
     end
 
     def log_in
-      ModalsService.open_modal(LoginModal, { proc_to_call: params.proc_to_call })
+      ModalsService.open_modal(LoginModal, { callback: params.callback })
       close
     end
 
     def reset_password
-      ModalsService.open_modal(ResetPasswordModal, { proc_to_call: params.proc_to_call })
+      ModalsService.open_modal(ResetPasswordModal, { callback: params.callback })
       close
     end
 

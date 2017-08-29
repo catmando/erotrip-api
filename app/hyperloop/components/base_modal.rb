@@ -1,7 +1,7 @@
 module BaseModal
 
   def self.included(base)
-    base.param proc_to_call: nil
+    base.param callback: nil
     base.param size_class: ''
     base.collect_other_params_as :attributes
 

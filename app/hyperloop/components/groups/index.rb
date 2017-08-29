@@ -21,7 +21,7 @@ class GroupsIndex < Hyperloop::Router::Component
         end
 
         BlockUi(tag: "div", blocking: groups_scope.loading?) do
-          groups_scope.limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
+          Group.ransacked(state.search_params).limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
             div(class: 'basic-container basic-container-gray') do
               div(class: 'details-wrapper') do
 
@@ -46,14 +46,17 @@ class GroupsIndex < Hyperloop::Router::Component
 
                     p(class: 'text-book text-gray') do
                       "#{group.desc}"
+                      # "#{CurrentUserStore.current_user_id.present?} #{CurrentUserStore.current_user_id.present? && User.find(CurrentUserStore.current_user.try(:id)).group_ids.include?(group.id)}"
                     end
                   end
                 end
 
-                button(class: 'btn icon-only btn-container text-white white-border secondary-bg btn-top', type: "button") do
-                  i(class: 'ero-cross f-s-18')
+                button(class: "btn icon-only btn-container text-white white-border btn-top #{false ? 'bg-gray-200' : 'secondary-bg'}", type: "button") do
+                  # !group.has_user(CurrentUserStore.current_user_id.to_i)
+                  i(class: "f-s-18 ero-cross")
+                  # i(class: "f-s-18 #{CurrentUserStore.current_user_id.present? && User.find(CurrentUserStore.current_user_id).group_ids.include?(group.id) ? 'ero-pencil' : 'ero-cross'}")
                 end.on :click do |e|
-                  join_group
+                  join_group(group)
                 end
                 Link("/groups/#{group.id}") do
                   div(class: 'btn-group-wrapper') do
@@ -77,8 +80,8 @@ class GroupsIndex < Hyperloop::Router::Component
 
   end
 
-  def join_group
-
+  def join_group(group)
+    ModalsService.open_modal(GroupsJoinModal, { group: group })
   end
 
   def search_changed terms

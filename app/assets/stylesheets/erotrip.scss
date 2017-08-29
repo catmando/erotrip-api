@@ -110,6 +110,8 @@ body {
 	.modal-footer {
 		border: none;
 		padding: 2rem;
+		justify-content: center !important;
+		padding-top: 0 !important;
 	}
 }
 
@@ -866,6 +868,7 @@ body {
 
 		&.open {
 			max-height: 700px;
+			overflow-x: visible;
 		}
 
 		&.search-body-small {
@@ -2248,6 +2251,11 @@ body {
 	}
 }
 
+.modal.modal-footer {
+	justify-content: center !important;
+	padding-top: 0 !important;
+}
+
 .modal-content.modal-auth-warning {
 	.btn-primary {
 		min-width: 150px;
@@ -2309,4 +2317,9 @@ body {
 	display: block;
 }
 
-
+.btn.btn-round-125 {
+	  width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    padding: 0;
+}

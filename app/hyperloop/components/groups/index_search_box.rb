@@ -72,7 +72,7 @@ class GroupsIndexSearchBox < Hyperloop::Component
             div.col_12.col_md_6 do
               div.form_group do
                 label {'Nazwa'}
-                input.form_control(placeholder: "Nazwa", name: 'name_cont').on :key_up do |e|
+                input.form_control(value: state.search_params['name_cont'], placeholder: "Nazwa", name: 'name_cont').on :change do |e|
                   mutate.search_params['name_cont'] = e.target.value
                 end
               end
@@ -85,17 +85,8 @@ class GroupsIndexSearchBox < Hyperloop::Component
           button.btn.btn_outline_primary.btn_outline_gray.text_gray(type: "button") do
             'Anuluj'
           end.on :click do
-            mutate.search_params({
-              for_kinds:             [],
-              # for_kinds_opposite:  [],
-              name_cont:              '',
-              # age:                  [20, 30],
-              # distance:             30,
-              # height:               [],
-              # look:                 [],
-              # interests:            [],
-              sorts:                  'latest'
-            })
+            mutate.search_params['for_kinds'] = []
+            mutate.search_params['name_cont'] = ''
             mutate.opened false
             propagate_change
           end

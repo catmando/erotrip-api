@@ -8,11 +8,14 @@
 class Group < ApplicationRecord
   KINDS = %w( man woman couple men_couple women_couple tgsv )
 
-  scope :for_kinds, -> (*attrs) { where('ARRAY[groups.kinds]::varchar[] && ARRAY[?]::varchar[]', attrs) }
+  scope :for_kinds, -> (*attrs) { where("groups.kinds ?| ARRAY[:attrs]", attrs: attrs) }
 
   validates :name, :desc, presence: true
 
   attr_accessor :photo_data
+
+  has_many :user_groups
+  has_many :users, through: :user_groups
 
   def kinds=(new_val)
     if new_val.is_a? String
@@ -25,6 +28,14 @@ class Group < ApplicationRecord
       end
     end
     super(new_val)
+  end
+
+  def has_user(id)
+    if id.present?
+      user_ids.include? id.to_i
+    else
+      false
+    end
   end
 
   # def kinds

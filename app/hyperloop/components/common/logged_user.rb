@@ -5,7 +5,7 @@ class LoggedUser < Hyperloop::Component
   end
 
   def open_log_in_modal
-    ModalsService.open_modal(LoginModal, { proc_to_call: proc{ register() } })
+    ModalsService.open_modal(LoginModal, { callback: proc{ register() } })
   end
 
   def log_out(event)

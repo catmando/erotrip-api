@@ -16,7 +16,7 @@ class AuthWarningModal < Hyperloop::Component
       div(class: 'modal-footer text-center justify-content-between pt-0') do
 
         button(class: "btn btn-secondary mt-3 mb-3") { 'Zarejestruj się' }.on :click do |e|
-          ModalsService.open_modal(RegistrationModal, {proc_to_call: params.proc_to_call})
+          ModalsService.open_modal(RegistrationModal, {callback: params.callback})
           close
         end
 
@@ -27,7 +27,7 @@ class AuthWarningModal < Hyperloop::Component
         end
 
         button(class: 'btn btn-primary mt-3 mb-3') { 'Zaloguj się' }.on :click do |e|
-          ModalsService.open_modal(LoginModal, {proc_to_call: params.proc_to_call})
+          ModalsService.open_modal(LoginModal, {callback: params.callback})
           close
         end
 
