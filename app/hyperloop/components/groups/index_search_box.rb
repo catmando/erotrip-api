@@ -26,10 +26,12 @@ class GroupsIndexSearchBox < Hyperloop::Component
   def render
     form.search do
       div.search_header do
-        div.info.f_s_16 do
-          span.text_primary { params.groups_count.to_s }
-          span.text_gray {' grup'}
-        end
+        Pluralized(class: 'info f-s-16', count: params.groups_count, one: 'grupa', few: 'grupy', many: 'grup')
+
+        # div.info.f_s_16 do
+        #   span.text_primary { params.groups_count.to_s }
+        #   span.text_gray {' grup'}
+        # end
 
         div.search_input do
           a.btn.btn_outline_primary.btn_outline_gray.icon_only.with_label.more.mr_3(class: "#{'active' if state.opened}") do

@@ -13,7 +13,7 @@ module BaseModal
     end
 
     base.render do
-      div(id: id, class: "modal fadeable", role: "dialog", tabIndex: "-1") do
+      div(id: id, class: "modal fadeable", role: "dialog", tabIndex: "-1", "data-keyboard" => "false") do
         div(class: "modal-dialog #{params.size_class}", role: "document") do
           div(class: 'modal-content') do
             div(class: 'modal-header') do

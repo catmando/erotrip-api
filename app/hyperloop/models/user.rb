@@ -60,6 +60,13 @@ class User < ApplicationRecord
 
   attr_accessor :pin_confirmation
 
+  def profile_descriptor
+    [
+      name,
+      (birth_year.present? ? Time.now.year - birth_year : nil)
+    ].compact.join(', ')
+  end
+
   def pin_confirmation_the_same
     errors.add :pin_confirmation, 'nie zgadza się z PINem' if pin_confirmation.present? && pin.present? && pin_confirmation.to_i != pin.to_i
   end
