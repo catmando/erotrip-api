@@ -11,6 +11,13 @@ class Commons < Hyperloop::Store
     ]
   end
 
+  def self.cities
+    [
+      {label: 'Łódź', value: 'Łódź'},
+      {label: 'Warszawa', value: 'warszawa'}
+    ]
+  end
+
   def self.photo_version element, version
     if element.present? && element.is_a?(String)
       proper_element = JSON.parse(element.gsub('=>', ':').gsub('nil', 'null'))

@@ -21,7 +21,7 @@ class GroupsIndex < Hyperloop::Router::Component
         end
 
         groups_scope.limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
-          # BlockUi(tag: "div", blocking: group.try(:backing_record).try(:virgin)) do
+          BlockUi(tag: "div", blocking: group.loading?)) do
             div(class: 'basic-container basic-container-gray') do
               div(class: 'details-wrapper') do
 
@@ -60,7 +60,7 @@ class GroupsIndex < Hyperloop::Router::Component
                 end
               end
             end
-          # end
+          end
 
         end
 

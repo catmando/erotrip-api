@@ -19,6 +19,21 @@
 # pin: integer
 # terms_acceptation: boolean
 # private: boolean
+# searched_kinds, :json
+# weight, :integer
+# height, :integer
+# body, :string
+# smoker, :boolean
+# alcohol, :boolean
+# avatar, :string
+# verification_photo, :string
+# my_expectations, :string
+# about_me, :text
+# interests, :text
+# likes, :text
+# dislikes, :text
+# ideal_partner, :text
+# verified, :boolean
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:

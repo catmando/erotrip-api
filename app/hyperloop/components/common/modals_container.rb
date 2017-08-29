@@ -10,7 +10,6 @@ class ModalsContainer < Hyperloop::Router::Component
       ModalsService.opened_modals.each do |key, value|
         div do
           React.create_element(value['class'], value['params'])
-          # (value['class']).as_node
         end
       end
     end

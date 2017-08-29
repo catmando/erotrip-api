@@ -27,20 +27,20 @@ class MultiSelectWithLabels < Hyperloop::Component
   end
 
   def render
-    DIV(class: 'select-with-labels') do
+    div(class: 'select-with-labels') do
       ReactSelect(value: state.selection.to_n, options: params[:options].select{ |opt| !(state.selections_memo || []).include?(opt['value']) }.to_n, placeholder: params[:placeholder]).on :change do |e|
         add(e)
       end
-      DIV(class: 'labels-wrapper') do
+      div(class: 'labels-wrapper') do
         (state.selections_memo || []).each_with_index do |item, index|
-          DIV(key: index, class: "badge badge-default mr-2") do
-            INPUT(type: 'hidden', name: params[:name], value: item)
-            BUTTON(type: "button", class: "btn btn-link") do
+          div(key: index, class: "badge badge-default mr-2") do
+            input(type: 'hidden', name: params[:name], value: item)
+            button(type: "button", class: "btn btn-link") do
               'x'
             end.on :click do |e|
               remove(item)
             end
-            SPAN do
+            span do
               params[:options].select{|opt| opt['value'] == item}[0]['label']
             end
           end

@@ -17,8 +17,8 @@ class SliderRange < Hyperloop::Component
   end
 
   def render
-    DIV(class: 'range') do
-      DIV(class: 'value-min') do
+    div(class: 'range') do
+      div(class: 'value-min') do
         "#{state.selection ? state.selection[0] : ''}"
       end
 
@@ -26,12 +26,12 @@ class SliderRange < Hyperloop::Component
         changed(e)
       end
 
-      DIV(class: 'value-max') do
+      div(class: 'value-max') do
         "#{state.selection ? state.selection[1] : ''}"
       end
 
-      INPUT(type: 'hidden', value: (state.selection || [])[0], name: params[:name])
-      INPUT(type: 'hidden', value: (state.selection || [])[1], name: params[:name])
+      input(type: 'hidden', value: (state.selection || [])[0], name: params[:name])
+      input(type: 'hidden', value: (state.selection || [])[1], name: params[:name])
     end
   end
 end

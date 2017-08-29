@@ -5,5 +5,7 @@
   "client_only.css": "/packs/client_only.css",
   "client_only.js": "/packs/client_only.js",
   "hello_react.js": "/packs/hello_react.js",
+  "powered_by_google_default.png": "/packs/powered_by_google_default.png",
+  "powered_by_google_inverse.png": "/packs/powered_by_google_inverse.png",
   "server_rendering.js": "/packs/server_rendering.js"
 }

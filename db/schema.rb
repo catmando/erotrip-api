@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829084352) do
+ActiveRecord::Schema.define(version: 20170829103922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,12 +64,30 @@ ActiveRecord::Schema.define(version: 20170829084352) do
     t.integer "pin"
     t.boolean "terms_acceptation"
     t.boolean "private"
+    t.json "searched_kinds"
+    t.integer "weight"
+    t.integer "height"
+    t.string "body"
+    t.boolean "smoker"
+    t.boolean "alcohol"
+    t.string "avatar"
+    t.string "verification_photo"
+    t.string "my_expectations"
+    t.text "about_me"
+    t.text "interests"
+    t.text "likes"
+    t.text "dislikes"
+    t.text "ideal_partner"
+    t.boolean "verified"
+    t.index ["alcohol"], name: "index_users_on_alcohol"
+    t.index ["body"], name: "index_users_on_body"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["kind"], name: "index_users_on_kind"
     t.index ["pin"], name: "index_users_on_pin"
     t.index ["private"], name: "index_users_on_private"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["terms_acceptation"], name: "index_users_on_terms_acceptation"
+    t.index ["verified"], name: "index_users_on_verified"
   end
 
 end
