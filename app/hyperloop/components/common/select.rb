@@ -11,11 +11,11 @@ class Select < Hyperloop::Component
     { value: 'two', label: 'some options' }
   ]
 
-  before_update do
-    if params.selection != state.selection
-      mutate.selection params.selection
-    end
-  end
+  # before_update do
+  #   if params.selection != state.selection
+  #     mutate.selection params.selection
+  #   end
+  # end
 
   after_mount do
     mutate.selection params[:selection]

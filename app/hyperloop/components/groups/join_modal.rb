@@ -7,7 +7,7 @@ class GroupsJoinModal < Hyperloop::Component
 
   after_mount do
     if CurrentUserStore.current_user.blank?
-      ModalsService.open_modal(AuthWarningModal, { callback: proc { ModalsService.open_modal(GroupsJoinModal, { size_class: 'modal-lg' }) } })
+      ModalsService.open_modal(AuthWarningModal, { callback: proc { ModalsService.open_modal(GroupsJoinModal, { size_class: 'modal-md' }) } })
       close
     end
   end
