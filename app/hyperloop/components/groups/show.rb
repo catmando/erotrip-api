@@ -50,7 +50,7 @@ class GroupsShow < Hyperloop::Router::Component
               div.ea_flex.ea_align_start do
                 div
                 a(href: '#') do
-                  img(src: 'assets/girl.jpg')
+                  img(src: '/assets/girl.jpg')
                 end
                 div.text do
                   h2.mt_0.d_none.d_md_block { 'TRIP' }
@@ -108,7 +108,7 @@ class GroupsShow < Hyperloop::Router::Component
                     div.locker do
                       i.ero_locker
                     end
-                    IMG(src: 'assets/girl.jpg')
+                    IMG(src: '/assets/girl.jpg')
                   end
 
                   div.person_info.ea_flex.ea_flex_align_start.ea_just_start do

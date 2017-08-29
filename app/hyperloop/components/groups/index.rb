@@ -21,7 +21,7 @@ class GroupsIndex < Hyperloop::Router::Component
         end
 
         groups_scope.limit(state.per_page).offset((state.current_page - 1) * state.per_page).each_with_index do |group, index|
-          BlockUi(tag: "div", blocking: group.loading?)) do
+          BlockUi(tag: "div", blocking: group.loading?) do
             div(class: 'basic-container basic-container-gray') do
               div(class: 'details-wrapper') do
 
@@ -51,11 +51,15 @@ class GroupsIndex < Hyperloop::Router::Component
                 end
 
                 button(class: 'btn icon-only btn-container text-white white-border secondary-bg btn-top', type: "button") do
-                  i(class: 'ero-messages f-s-18')
+                  i(class: 'ero-cross f-s-18')
+                end.on :click do |e|
+                  join_group
                 end
-                div(class: 'btn-group-wrapper') do
-                  button(class: 'btn icon-only btn-wrapped btn-group', type: "button") do
-                    i(class: 'ero-alert-circle-outline')
+                Link("/groups/#{group.id}") do
+                  div(class: 'btn-group-wrapper') do
+                    button(class: 'btn icon-only btn-wrapped btn-group', type: "button") do
+                      i(class: 'ero-eye')
+                    end
                   end
                 end
               end
@@ -70,6 +74,10 @@ class GroupsIndex < Hyperloop::Router::Component
 
       end
     end
+
+  end
+
+  def join_group
 
   end
 

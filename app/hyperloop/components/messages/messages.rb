@@ -34,7 +34,7 @@ class Messages < Hyperloop::Router::Component
 
 										a(class: 'm-person active') do
 											div(class: 'm-person-image-wrapper') do
-												img(src: 'assets/girl.jpg')
+												img(src: '/assets/girl.jpg')
 											end
 											div(class: 'm-person-details') do
 												div(class: 'm-person-header') do
@@ -46,7 +46,7 @@ class Messages < Hyperloop::Router::Component
 
 										a(class: 'm-person') do
 											div(class: 'm-person-image-wrapper') do
-												img(src: 'assets/girl.jpg')
+												img(src: '/assets/girl.jpg')
 												div(class: 'm-person-locker') do
 													i(class: 'ero-locker')
 												end
@@ -84,7 +84,7 @@ class Messages < Hyperloop::Router::Component
 								div(class: 'messenger-header pr-0') do
 									div(class: 'g-wrapper') do
 										div(class: 'g-image-wrapper') do
-											img(src: 'assets/girl.jpg')
+											img(src: '/assets/girl.jpg')
 											div(class: 'g-image-locker') do
 												i(class: 'ero-locker')
 											end
@@ -141,7 +141,7 @@ class Messages < Hyperloop::Router::Component
 								div(class: 'messenger-header image-two-small-buttons d-none') do
 									div(class: 'g-wrapper') do
 										div(class: 'g-image-wrapper') do
-											img(src: 'assets/girl.jpg')
+											img(src: '/assets/girl.jpg')
 										end
 										div(class: 'g-description-wrapper') do
 											div(class: 'g-header') do
@@ -164,7 +164,7 @@ class Messages < Hyperloop::Router::Component
 								div(class: 'messenger-header image-primary-button d-none') do
 									div(class: 'g-wrapper') do
 										div(class: 'g-image-wrapper') do
-											img(src: 'assets/girl.jpg')
+											img(src: '/assets/girl.jpg')
 											div(class: 'g-image-locker') do
 												i(class: 'ero-locker')
 											end
@@ -183,7 +183,7 @@ class Messages < Hyperloop::Router::Component
 								div(class: 'messenger-header image-primary-button d-none') do
 									div(class: 'g-wrapper') do
 										div(class: 'g-image-wrapper') do
-											img(src: 'assets/girl.jpg')
+											img(src: '/assets/girl.jpg')
 											div(class: 'g-image-locker g-image-locker-right-bottom') do
 												i(class: 'ero-locker')
 											end
@@ -202,7 +202,7 @@ class Messages < Hyperloop::Router::Component
 								div(class: 'messenger-header image-primary-button d-none') do
 									div(class: 'g-wrapper') do
 										div(class: 'g-image-wrapper') do
-											img(src: 'assets/girl.jpg')
+											img(src: '/assets/girl.jpg')
 											div(class: 'g-image-locker') do
 												i(class: 'ero-locker')
 											end
@@ -223,7 +223,7 @@ class Messages < Hyperloop::Router::Component
 									div(class: 'messenger-chat') do
 										div(class: 'message-wrapper') do
 											div(class: 'message-profile-picture') do
-												img(src: 'assets/girl.jpg')
+												img(src: '/assets/girl.jpg')
 											end
 											div(class: 'message') {'Hej co tam?'}
 										end
@@ -248,7 +248,7 @@ class Messages < Hyperloop::Router::Component
 
 								div(class: 'messenger-chat-warning d-none') do
 									div(class: 'image-with-locker') do
-										img(src: 'assets/girl.jpg')
+										img(src: '/assets/girl.jpg')
 										div(class: 'locker') do
 											i(class: 'ero-locker f-s-25')
 										end

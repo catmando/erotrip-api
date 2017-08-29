@@ -30,7 +30,9 @@ class AppRouter < Hyperloop::Router
         # Route("/users") { |m, l, h| UsersIndex(match: m, location: l, history: h) }
         # Route('/users', mounts: UsersIndex)
         Route('/trips') { |m, l, h| Trips(match: m, location: l, history: h) }
-        Route("/groups") { |m, l, h| GroupsIndex(match: m, location: l, history: h) }
+        Route("/groups", exact: true) { |m, l, h| GroupsIndex(match: m, location: l, history: h) }
+
+        Route("/groups/:id") { |m, l, h| GroupsShow(match: m, location: l, history: h) }
         # Route('/groups', mounts: GroupsShow) #temporarily
         Route("/hotline") { |m, l, h| Hotline(match: m, location: l, history: h) }
         # Route('/hotline', mounts: Hotline)
