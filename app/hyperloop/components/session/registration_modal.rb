@@ -30,25 +30,27 @@
     end
 
     def changed(val)
-    	# mutate.user['city'] = val
-    	`GeocodeByAddress(#{val})
-    		.then(results => GetLatLng(results[0]))
-    		.then(({ lat, lng }) => {
-    			console.log('Successfully got latitude and longitude', { lat, lng })
-    			return { lat, lng };
-    		})`
-    	# `GeocodeByAddress(#{val})
-    	# 	.then(results => GetLatLng(results[0]))
-    	# 	.then(({ lat, lng }) =>
-    	# 		console.log('Successfully got latitude and longitude', { lat, lng });
-    	# 		return {lat, lon};
-    	# 	)`
-    	mutate.user['city'] = val
+      mutate.user['city'] = val
+    end
 
-    	# GeocodeByAddress({address: state.user['city']})
-    	# GeocodeByAddress({address: state.user['city']}).then do |response|
-    	# 	`console.log(response)`
-    	# end
+    def selected(val)
+    	Native(`window`).GeocodeByAddress(val)
+      .then do |results|
+        result = Hash.new(Array.new(results.to_n)[0])
+
+        short_name = result['address_components'][0]['short_name']
+        mutate.user['city'] = short_name
+
+        Native(`window`).GetLatLng(result.to_n)
+        .then do |lon_lat_results|
+          lon_lat = Hash.new(lon_lat_results)
+          process_geo_data(lon_lat)
+        end
+      end
+    end
+
+    def process_geo_data(lon_lat)
+      puts "lon_lat", lon_lat
     end
 
     def close_modal
@@ -199,7 +201,8 @@
 	              		inputProps: { value: state.user['city'], onChange: proc{ |e| changed(e)} , placeholder: 'Miejscowość'}.to_n,
 	              		options: state.map_options.to_n,
 	              		googleLogo: false,
-	              		classNames: (state.errors || {})['city'].present? ? state.invalid_css_classes.to_n : state.css_classes.to_n
+	              		classNames: (state.errors || {})['city'].present? ? state.invalid_css_classes.to_n : state.css_classes.to_n,
+                    onSelect: proc{ |e| selected(e)}
 	              	)
 
 	                if (state.errors || {})['city'].present?
